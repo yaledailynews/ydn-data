@@ -149,6 +149,8 @@ science: it’s called **Anaconda**. Installing Anaconda will install the
 core Python functionality, Visual Studio Code, Jupyter Notebook, and
 data science packages (`pandas`, etc.) for Python all at once.
 
+**While going through Anacaonda and everything is *technically* the best way to set everything up, I just install packages on my system environment and use virtual environments if needed for other projects. This is not good practice but it works and I'm too lazy to switch. So basically... you do you.** - Interjection from Darwin
+
 ## Installing Anaconda
 
 On both **Mac** and **Windows**, follow these steps if you’ve never

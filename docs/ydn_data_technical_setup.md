@@ -1,7 +1,7 @@
 Technical Setup
 ================
-YDN Data Desk
-February 16, 2020
+### YDN Data Desk
+**Updated 9/29/20**
 
 Welcome to the YDN Data Desk\! The purpose of this document is to help
 you get started with the technical tools we plan to be using. By making
@@ -11,7 +11,7 @@ collaborators.
 
 We’ve tried to make the instructions below as extensive as possible, but
 if anything is unclear or if any of the instructions aren’t working, you
-should reach out to Daniel and Maggie as soon as possible.
+should reach out to Darwin and Ashley as soon as possible.
 
 # R Setup
 
@@ -26,8 +26,7 @@ the state of variables, autocomplete code, highlighting errors, and
 more. Finally, the **tidyverse** is a set of R packages that streamline
 common data manipulation tasks.
 
-(As of February 16, 2020, the latest release of R is 3.6.2 “Dark and
-Stormy Night”, and this is the version we expect everyone to use.)
+(As of September 29, 2020, the latest stable release of R is 4.0.2 “Taking off Again”)
 
 ## Installing R
 
@@ -38,7 +37,7 @@ steps:
 **Windows**
 
   - [Go to this page](https://cloud.r-project.org/bin/windows/base/)
-  - Click on “Download R 3.6.2 for Windows”
+  - Click on “Download R 4.0.2 for Windows”
   - Once the installer downloads, open it and complete the steps
   - Finally, install R Studio: go to [this
     page](https://rstudio.com/products/rstudio/download/#download),
@@ -49,7 +48,7 @@ steps:
 **Mac**
 
   - [Go to this page](https://cloud.r-project.org/bin/macosx/)
-  - Click on “R-3.6.2.pkg”
+  - Click on “R-4.0.2.pkg”
   - Once the installer downloads, open it and complete the steps
   - Finally, install R Studio: go to [this
     page](https://rstudio.com/products/rstudio/download/#download),
@@ -82,8 +81,7 @@ The process for updating R on Mac is the same as the process for freshly
 installing R:
 
   - Go to [this page](https://cloud.r-project.org/bin/macosx/)
-  - Find a blue link labeled “R-3.6.2.pkg”, and click it. A download of
-    approximately 77 MB will begin.
+  - Find a blue link labeled “R-4.0.2.pkg”, and click it.
   - Click the file once it’s finished downloading to install it, and
     follow through the setup process.
 
@@ -226,7 +224,7 @@ tracking versions of code. If you’re a computer science major and work
 on side projects, you’re probably already familiar with GitHub, but
 GitHub tends to be used less often in statistics and data science (and
 certainly not in the Yale Statistics & Data Science department, unless
-you’re currently taking S\&DS 262).
+you’re currently taking S&DS 262).
 
 A technical note, for those interested: *GitHub* is built on *Git*,
 which is the version control system that does the hard work of comparing
@@ -236,12 +234,17 @@ GitHub is the most popular version control platform that utilizes Git,
 but you may find some employers using different Git clients separate
 from GitHub.
 
-We’re still working out exactly how we want to use GitHub, but for the
-time being, you should create a GitHub account and then link your Yale
-email in order to get free access to GitHub Pro. (GitHub provides pro
-features to anyone with a `.edu` email address, not just Yale students.)
+We'll be using GitHub to store all of our work and changes. If you don't already 
+have one, you should create a GitHub account and read up on how it works. Links to resources
+will be provided in the Teams.
 
-## If you don’t have a GitHub account
+The following instructions will tell you how to obtain GitHub and the student developer pack which gives you some cool free perks. However these perks are completely optional and all you need is just a functional GitHub account. 
+
+**You can simply create an account on the website and you will be all set.** 
+
+However if you would like, you can follow the instructions below to get the student developer pack.
+
+## If you don’t have a GitHub account and want the developer pack
 
 1.  Go to the [GitHub homepage](https://github.com/)
 2.  Type in a username, your Yale email, and a password to create an
@@ -262,7 +265,7 @@ features to anyone with a `.edu` email address, not just Yale students.)
     to wait for student access to go through) with your GitHub username
     (not email)
 
-## If you have a GitHub account, but don’t have the Student Developer Pack
+## If you have a GitHub account, but don’t have the Student Developer Pack 
 
 1.  Make sure you’re signed in, and go to [Profile \> Settings \>
     Emails](https://github.com/settings/emails)
@@ -278,6 +281,5 @@ features to anyone with a `.edu` email address, not just Yale students.)
     to wait for student access to go through), with your GitHub username
     (not email)
 
-## If you have a GitHub account with student access
-
-Great\! Message Daniel and Maggie once with your GitHub username.
+## Conclusion
+Once you have GitHub / `r` / `python` (if you anticipate on using it) set up, great! There will be some links in the teams to other resources that would be useful to know.

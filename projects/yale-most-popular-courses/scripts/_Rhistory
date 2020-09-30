@@ -1,0 +1,512 @@
+coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1")
+demand %>%
+filter(date == max(date))
+demand %>%
+filter(date == max(date)) %>%
+left_join(courses)
+seminars_all
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses))
+seminars_all
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+select(code, id, rating, worload, count, name)
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+select(code, id, rating, workload, count, name)
+seminars_all
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+select(code, id, rating, workload, count, name) %>%
+arrange(desc(count))
+seminars_all
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+select(code, id, rating, workload, count, name) %>%
+arrange(desc(count))
+seminars_all
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+select(code, id, rating, workload, count, name) %>%
+arrange(desc(count)) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "))
+seminars_all
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+select(code, id, count, name) %>%
+arrange(desc(count)) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count))
+seminars_all
+coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+select(code, id, count, name) %>%
+arrange(desc(count))
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+select(code, id, count, name) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count)) %>%
+arrange(desc(count))
+seminars_all
+coursetable
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count))
+seminars_all
+seminars_all <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count))
+seminars_all
+seminars <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count))
+write_csv(seminars, "seminars.csv")
+seminars <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10)
+write_csv(seminars, "seminars.csv")
+seminars
+seminars <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count))
+seminars
+seminars <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10)
+seminars <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10, count)
+seminars
+seminars <- coursetable %>%
+mutate(word = stringr::word(times)) %>%
+filter(str_length(word) == 1 | word == "Th") %>%
+filter(word != "1") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10, count)
+write_csv(seminars, "seminars.csv")
+trending_ids <- demand %>%
+filter(date == max(date) | date == max(date) - 1) %>%
+spread(date, count) %>%
+`colnames<-`(c("id", "yesterday", "today")) %>%
+filter(yesterday >= 3) %>%
+mutate(change = today - yesterday,
+absChange = abs(change),
+pctChange = change / yesterday) %>%
+arrange(desc(absChange)) %>%
+select(id, yesterday, today, change, absChange) %>%
+top_n(20)
+trending_names <- courses %>%
+filter(number < 500) %>%
+filter(id %in% trending_ids$id) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "))
+trending <- trending_ids %>%
+left_join(trending_names) %>%
+filter(!is.na(codes)) %>%
+top_n(10)
+trending
+write_csv(trending, "trending.csv")
+seminars <- coursetable %>%
+filter(times != "1 HTBA") %>%
+# get the first "word" in the string of times
+mutate(word = stringr::word(times)) %>%
+# the first word must be one letter long (M, T, W, F) or "Th"
+filter(str_length(word) == 1 | word == "Th") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+filter(number < 500) %>%
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10, count)
+seminars
+getwd()
+setwd("C:/Users/Daniel/Google Drive/Projects/2020.01 Yale's Most Popular Courses/scripts")
+getwd()
+setwd("C:/Users/Daniel/Google Drive/Projects/2020.01 Yale's Most Popular Courses/scripts")
+unite_code <- function(df) {
+unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+separate_code <- function(df) {
+separate(df, code, into = c("subject", "number"), sep = " ", remove = FALSE)
+}
+separate_designator <- function(df) {
+df %>%
+mutate(number = as.numeric(str_extract(number, "[[:digit:]]+")),
+designator = str_extract(number, "[:alpha:]"))
+}
+demand <- read_csv("data/demand.csv") %>%
+mutate(date = as.Date(date, format = "%m/%d"))
+demand <- read_csv("../raw-data/demand.csv") %>%
+mutate(date = as.Date(date, format = "%m/%d"))
+courses <- read_csv("../raw-data/courses.csv") %>%
+separate_code() %>%
+separate_designator() %>%
+select(id, code, subject, number, designator, name)
+coursetable <- read_csv("../raw-data/coursetable.csv") %>%
+unite_code() %>%
+separate_designator() %>%
+select(code, subject, number, designator, section, times, locations, rating, workload)
+top_ids <- demand %>%
+filter(date == max(date)) %>%
+arrange(desc(count)) %>%
+top_n(10)
+top_names <- courses %>%
+filter(id %in% top_ids$id) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "))
+top_courses <- top_ids %>%
+left_join(top_names)
+write_csv(top_courses, "../data/top_courses.csv")
+write_csv(top_courses, "../data/top_courses.csv")
+write_csv(top_courses, "../data/most_shopped.csv")
+trending_ids <- demand %>%
+filter(date == max(date) | date == max(date) - 1) %>%
+spread(date, count) %>%
+`colnames<-`(c("id", "yesterday", "today")) %>%
+filter(yesterday >= 3) %>%
+mutate(change = today - yesterday,
+absChange = abs(change),
+pctChange = change / yesterday) %>%
+arrange(desc(absChange)) %>%
+select(id, yesterday, today, change, absChange) %>%
+top_n(20)
+trending_names <- courses %>%
+filter(number < 500) %>%
+filter(id %in% trending_ids$id) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "))
+trending <- trending_ids %>%
+left_join(trending_names) %>%
+filter(!is.na(codes)) %>%
+top_n(10)
+write_csv(trending, "trending.csv")
+write_csv(trending, "../data/trending.csv")
+seminars <- coursetable %>%
+# get rid of the 1 HTBAs
+filter(times != "1 HTBA") %>%
+# get the first "word" in the string of times
+mutate(word = stringr::word(times)) %>%
+# the first word must be one letter long (M, T, W, F) or "Th"
+filter(str_length(word) == 1 | word == "Th") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+# undergrad courses only
+filter(number < 500) %>%
+# these were a lab and Corp Finance (that for some reason only met one a week)
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10, count)
+write_csv(seminars, "../data/seminars.csv")
+setwd("C:/Users/Daniel/Google Drive/Projects/2020.01 Yale's Most Popular Courses/scripts")
+unite_code <- function(df) {
+unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+require(readr)
+ire(readr)
+ire(readr)
+require(readr)
+require(dplyr)
+require(stringr)
+require(tidyr)
+setwd("C:/Users/Daniel/Google Drive/Projects/2020.01 Yale's Most Popular Courses/scripts")
+unite_code <- function(df) {
+unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+separate_code <- function(df) {
+separate(df, code, into = c("subject", "number"), sep = " ", remove = FALSE)
+}
+separate_designator <- function(df) {
+df %>%
+mutate(number = as.numeric(str_extract(number, "[[:digit:]]+")),
+designator = str_extract(number, "[:alpha:]"))
+}
+demand <- read_csv("../raw-data/demand.csv") %>%
+mutate(date = as.Date(date, format = "%m/%d"))
+courses <- read_csv("../raw-data/courses.csv") %>%
+separate_code() %>%
+separate_designator() %>%
+select(id, code, subject, number, designator, name)
+coursetable <- read_csv("../raw-data/coursetable.csv") %>%
+unite_code() %>%
+separate_designator() %>%
+select(code, subject, number, designator, section, times, locations, rating, workload)
+seminars <- coursetable %>%
+# get rid of the 1 HTBAs
+filter(times != "1 HTBA") %>%
+# get the first "word" in the string of times
+mutate(word = stringr::word(times)) %>%
+# the first word must be one letter long (M, T, W, F) or "Th"
+filter(str_length(word) == 1 | word == "Th") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+# undergrad courses only
+filter(number < 500) %>%
+# these were a lab and Corp Finance (that for some reason only met one a week)
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10, count)
+coursetable %>%
+# get rid of the 1 HTBAs
+filter(times != "1 HTBA") %>%
+# get the first "word" in the string of times
+mutate(word = stringr::word(times)) %>%
+# the first word must be one letter long (M, T, W, F) or "Th"
+filter(str_length(word) == 1 | word == "Th") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+# undergrad courses only
+filter(number < 500)
+coursetable %>%
+# get rid of the 1 HTBAs
+filter(times != "1 HTBA") %>%
+# get the first "word" in the string of times
+mutate(word = stringr::word(times)) %>%
+# the first word must be one letter long (M, T, W, F) or "Th"
+filter(str_length(word) == 1 | word == "Th") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+# undergrad courses only
+filter(number < 500) %>%
+# these were a lab and Corp Finance (that for some reason only met one a week)
+filter(!(id %in% c(655, 1784))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count))
+coursetable %>%
+# get rid of the 1 HTBAs
+filter(times != "1 HTBA") %>%
+# get the first "word" in the string of times
+mutate(word = stringr::word(times)) %>%
+# the first word must be one letter long (M, T, W, F) or "Th"
+filter(str_length(word) == 1 | word == "Th") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+# undergrad courses only
+filter(number < 500) %>%
+# these were a lab and Corp Finance (that for some reason only met one a week)
+filter(!(code %in% c("ECON 361", "MCDB 241L", "MCDB 251L", "ENGL 450"))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count))
+seminars <- coursetable %>%
+# get rid of the 1 HTBAs
+filter(times != "1 HTBA") %>%
+# get the first "word" in the string of times
+mutate(word = stringr::word(times)) %>%
+# the first word must be one letter long (M, T, W, F) or "Th"
+filter(str_length(word) == 1 | word == "Th") %>%
+left_join(demand %>%
+filter(date == max(date)) %>%
+left_join(courses)) %>%
+# undergrad courses only
+filter(number < 500) %>%
+# these were a lab and Corp Finance (that for some reason only met one a week)
+filter(!(code %in% c("ECON 361", "MCDB 241L", "MCDB 251L", "ENGL 450"))) %>%
+select(code, id, count, name, times) %>%
+group_by(id) %>%
+summarize(name = first(name),
+codes = paste(code, collapse = " / "),
+count = first(count),
+times = first(times)) %>%
+arrange(desc(count)) %>%
+top_n(10, count)
+write_csv(seminars, "../data/seminars.csv")

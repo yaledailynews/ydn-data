@@ -1,0 +1,2 @@
+"C:\Program Files\R\R-3.6.1\bin\Rscript.exe" "C:\Users\Daniel\Google Drive\Projects\2020.01 Yale's Most Popular Courses\scripts\create_tables.R"
+"C:\ProgramData\Anaconda3\python.exe" "C:\Users\Daniel\Google Drive\Projects\2020.01 Yale's Most Popular Courses\scripts\scrape_cds.py"

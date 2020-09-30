@@ -1,0 +1,60 @@
+---
+title: "Extracting information from the JSON"
+author: "Daniel Zhao"
+date: "February 24, 2020"
+output:
+  rmarkdown::github_document:
+    toc: yes
+  html_document:
+    number_sections: yes
+    toc: yes
+    toc_float: yes
+---
+
+Use `fromJSON()` from the `rjson` package
+
+```{r}
+require(rjson)
+
+# Replace with the path to the JSON file on your computer
+# Use relative paths if possible
+# The following should work automatically if you're cloning the Git repo
+ct <- rjson::fromJSON(file = "../coursetable.json")
+```
+
+`ct` is a list, and each element of the list is itself another list. Each element of `ct` represents one course.
+
+```{r, eval = F}
+str(ct)
+ct[[1]]
+str(ct[[1]])
+str(ct[[1]]$evaluations)
+ct[[2]]$long_title
+```
+
+Extracting simple variables: use `sapply()` (look this up on Google). `sapply()` attempts to convert a list to a numeric or string if possible, and in this case, it is possible
+
+```{r}
+titles <- sapply(ct, function(x) x$long_title)
+head(titles)
+```
+
+Now, we try for a more complex variable. There are `NULL` values in the ratings, so `sapply()` continues to return a list
+
+```{r}
+ratings <- sapply(ct, function(x) x$average$same_both$rating)
+head(ratings, 20)
+```
+
+To solve this problem, we need to write a function that will return `NA` instead of `NULL` any time there's a `NULL`.
+
+```{r}
+extract_rating <- function(x) {
+	r <- x$average$same_both$rating
+	if(!is.null(r)) return(r)
+	else return(NA)
+}
+
+ratings <- sapply(ct, extract_rating)
+head(ratings, 20)
+```

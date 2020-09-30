@@ -1,0 +1,9 @@
+desktop.ini
+.Rhistory
+*.gsheet
+*.gdoc
+*/rsconnect/*
+.Rproj.user
+.DS_Store
+coursetable20*.json
+__pycache__/

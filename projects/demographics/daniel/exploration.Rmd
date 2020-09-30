@@ -1,0 +1,85 @@
+---
+title: "S&DS 314 Problem Set 2"
+author: "Daniel Zhao"
+output: html_document
+---
+
+```{r}
+library(stringr)
+library(dplyr)
+library(ggplot2)
+```
+
+
+```{r}
+library(httr)
+knitr::opts_chunk$set(cache = T, message = F)
+
+# function to simplify string concatenation
+`%+%` <- function(a, b) paste0(a, b)
+
+# Daniel's API key for Google Maps - please don't share
+api_key <- "AIzaSyC13iWxQlr78Xibu25HrkP6nnBSatRWcrM"
+
+# obtains coordinates for one address term
+get_coords <- function(addr, key) {
+	base <- "https://maps.googleapis.com/maps/api/geocode/json?address="
+	
+	url <- base %+% gsub(" ", "+", addr) %+% "&key=" %+% key
+	
+	r <- GET(url)
+	
+	return(content(r))
+	
+	lat <- content(r)$results[[1]]$geometry$location$lat
+	lng <- content(r)$results[[1]]$geometry$location$lng
+	
+	c(lat, lng)
+}
+```
+
+```{r}
+get_coords("Lake Hopatcong, NJ", api_key)
+```
+
+```{r}
+students <- readr::read_csv("../yale_students_s20.csv")
+
+majors <- readr::read_csv("../majors.csv")
+
+students %>%
+	mutate(years = str_sub(years, 2, -1),
+		   years = as.numeric(years),
+		   years = as.factor(years),
+		   majors = as.factor(majors)) %>%
+	left_join(majors) %>%
+	group_by(years, categories) %>%
+	summarize(n = n()) %>%
+	filter(!is.na(years),
+		   !is.na(categories)) %>%
+	ggplot(aes(x = years, y = n, fill = categories)) +
+	geom_bar(stat = "identity", position = "fill")
+
+students %>%
+	mutate(years = str_sub(years, 2, -1),
+		   years = as.numeric(years),
+		   years = as.factor(years),
+		   majors = as.factor(majors)) %>%
+	left_join(majors) %>%
+	group_by(years, categories) %>%
+	summarize(n = n()) %>%
+	filter(!is.na(years),
+		   !is.na(categories)) %>%
+	ggplot(aes(x = years, y = n, fill = categories)) +
+	geom_bar(stat = "identity")
+
+students %>%
+	mutate(years = str_sub(years, 2, -1),
+		   years = as.numeric(years),
+		   years = as.factor(years),
+		   majors = as.factor(majors)) %>%
+	filter(years == 23) %>%
+	count(years, majors) %>%
+	arrange(desc(n))
+```
+

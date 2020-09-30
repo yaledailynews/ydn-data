@@ -1,0 +1,3289 @@
+id,code,name
+1,ACCT 270,FoundationsAccountng&Valuation
+2,AFAM 146,Urban and Education Inequality
+2,ECON 171,Urban and Education Inequality
+2,EDST 271,Urban and Education Inequality
+3,AFAM 162,AfricanAmerHist:Emanciptn-Pres
+3,AMST 162,AfricanAmerHist:Emanciptn-Pres
+3,HIST 187,AfricanAmerHist:Emanciptn-Pres
+4,AFAM 164,"Politics of ""The Wire"""
+4,PLSC 263,"Politics of ""The Wire"""
+4,URBN 304,"Politics of ""The Wire"""
+5,AFAM 172,CivilWar&Reconstruction1845-77
+5,HIST 119,CivilWar&Reconstruction1845-77
+6,AFAM 182,James Baldwin's American Scene
+6,ENGL 182,James Baldwin's American Scene
+6,HUMS 456,James Baldwin's American Scene
+7,AFAM 184,African Arts
+7,AFST 208,African Arts
+7,HSAR 208,African Arts
+8,AFAM 186,Contesting Injustice
+8,LAST 214,Contesting Injustice
+8,PLSC 378,Contesting Injustice
+8,SOCY 170,Contesting Injustice
+9,AFAM 198,PropagandaIdeologyDemocracy
+9,CGSC 277,PropagandaIdeologyDemocracy
+9,EDST 177,PropagandaIdeologyDemocracy
+9,EP&E 494,PropagandaIdeologyDemocracy
+9,LAW 21177,PropagandaIdeologyDemocracy
+9,PHIL 177,PropagandaIdeologyDemocracy
+10,AFAM 206,Literature of the Black South
+10,ENGL 234,Literature of the Black South
+11,AFAM 212,Af Am Lit in the Archives
+11,ENGL 221,Af Am Lit in the Archives
+12,AFAM 220,ArchiveAesthetics&CommStory
+12,FILM 434,ArchiveAesthetics&CommStory
+13,AFAM 231,Sex&Gender inThe BlackDiaspora
+13,ANTH 211,Sex&Gender inThe BlackDiaspora
+13,WGSS 436,Sex&Gender inThe BlackDiaspora
+14,AFAM 275,Afterlives of Slavery in U.S.
+14,AMST 337,Afterlives of Slavery in U.S.
+15,AFAM 287,Postcolonial Theory & Lit TR
+15,AFST 412,Postcolonial Theory & Lit TR
+15,FREN 412,Postcolonial Theory & Lit TR
+15,LITR 250,Postcolonial Theory & Lit TR
+16,AFAM 331,Black Film and Theatre
+16,FILM 329,Black Film and Theatre
+17,AFAM 335,BlackExperimental&IndepentFilm
+17,FILM 335,BlackExperimental&IndepentFilm
+18,AFAM 348,James Baldwin After 1964
+18,AMST 388,James Baldwin After 1964
+18,ER&M 339,James Baldwin After 1964
+18,WGSS 332,James Baldwin After 1964
+19,AFAM 349,CivilRights &Women'sLiberation
+19,AMST 326,CivilRights &Women'sLiberation
+19,HIST 115J,CivilRights &Women'sLiberation
+19,WGSS 388,CivilRights &Women'sLiberation
+20,AFAM 352,Caribbean Diasporic Literature
+20,AMST 438,Caribbean Diasporic Literature
+20,ER&M 291,Caribbean Diasporic Literature
+20,LITR 295,Caribbean Diasporic Literature
+20,WGSS 343,Caribbean Diasporic Literature
+21,AFAM 353,Black British Art & Culture
+21,HSAR 472,Black British Art & Culture
+22,AFAM 361,Black Queer Perf. Studies
+22,THST 360,Black Queer Perf. Studies
+22,WGSS 341,Black Queer Perf. Studies
+23,AFAM 385,"Plantation,Prison,Ghetto inUS"
+23,AMST 303,"Plantation,Prison,Ghetto inUS"
+23,ER&M 375,"Plantation,Prison,Ghetto inUS"
+24,AFAM 401,Intro to Documentary Studies
+24,AMST 411,Intro to Documentary Studies
+24,ER&M 385,Intro to Documentary Studies
+24,FILM 453,Intro to Documentary Studies
+25,AFAM 406,Autobiography in America
+25,AFAM 588,Autobiography in America
+25,AMST 405,Autobiography in America
+25,AMST 710,Autobiography in America
+25,ENGL 362,Autobiography in America
+25,ENGL 948,Autobiography in America
+26,AFAM 410,InterdiscApproachesAfrAmerStud
+26,AMST 310,InterdiscApproachesAfrAmerStud
+26,WGSS 410,InterdiscApproachesAfrAmerStud
+27,AFAM 451,Black Women Moving
+27,ANTH 445,Black Women Moving
+27,THST 450,Black Women Moving
+27,WGSS 442,Black Women Moving
+28,AFAM 472,IndepStudy:AfricanAmerStudies
+29,AFAM 491,The Senior Essay
+30,AFAM 508,Blackness in Abstraction
+30,HSAR 524,Blackness in Abstraction
+31,AFAM 626,AfricanAmerican Religious Hist
+31,HIST 721,AfricanAmerican Religious Hist
+31,RLST 485,AfricanAmerican Religious Hist
+31,RLST 626,AfricanAmerican Religious Hist
+32,AFAM 670,Research in AFAM History
+32,AMST 675,Research in AFAM History
+32,HIST 718,Research in AFAM History
+33,AFAM 718,WorkingGroupLatina/o StudiesII
+33,AMST 911,WorkingGroupLatina/o StudiesII
+33,HIST 765,WorkingGroupLatina/o StudiesII
+34,AFAM 725,Relational Formations of Race
+34,AMST 726,Relational Formations of Race
+34,HIST 714,Relational Formations of Race
+34,WGSS 654,Relational Formations of Race
+35,AFAM 752,Medicine and Empire
+35,HIST 937,Medicine and Empire
+35,HSHM 761,Medicine and Empire
+36,AFAM 757,Research Sem 19thCent US Hist
+36,AMST 722,Research Sem 19thCent US Hist
+36,HIST 722,Research Sem 19thCent US Hist
+37,AFAM 770,ToniMorrison&BlackRadTradit
+37,AMST 782,ToniMorrison&BlackRadTradit
+37,ENGL 940,ToniMorrison&BlackRadTradit
+38,AFAM 775,Affect Theory
+38,AMST 771,Affect Theory
+38,ENGL 981,Affect Theory
+39,AFAM 796,Slave Systems in World History
+39,AMST 796,Slave Systems in World History
+39,HIST 796,Slave Systems in World History
+40,AFAM 803,Musical Afrofuturisms
+40,AFST 828,Musical Afrofuturisms
+40,AMST 831,Musical Afrofuturisms
+40,MUSI 833,Musical Afrofuturisms
+41,AFAM 832,Workshop on Race & Ethnicity
+42,AFAM 849,Mid-CenturyAfricanAmericanLit
+42,AMST 844,Mid-CenturyAfricanAmericanLit
+42,ENGL 946,Mid-CenturyAfricanAmericanLit
+43,AFAM 896,DissertationProspectusWorkshop
+44,AFST 001,Egypt and Northeast Africa
+44,ARCG 001,Egypt and Northeast Africa
+44,NELC 001,Egypt and Northeast Africa
+45,AFST 028,African Lit in the World
+45,ENGL 028,African Lit in the World
+45,LITR 025,African Lit in the World
+46,AFST 135,Media and Conflict
+46,PLSC 135,Media and Conflict
+47,AFST 180,Nigeria and Its Diaspora
+47,AFST 680,Nigeria and Its Diaspora
+47,ER&M 313,Nigeria and Its Diaspora
+48,AFST 200,Social Dimensions of Evolution
+48,ANTH 200,Social Dimensions of Evolution
+48,ER&M 216,Social Dimensions of Evolution
+50,AFST 235,"Race, Space, Power"
+50,ER&M 239,"Race, Space, Power"
+50,GLBL 235,"Race, Space, Power"
+51,AFST 271,Worlds of the Ancient Red Sea
+51,AFST 619,Worlds of the Ancient Red Sea
+51,ARCG 217,Worlds of the Ancient Red Sea
+51,NELC 271,Worlds of the Ancient Red Sea
+51,NELC 617,Worlds of the Ancient Red Sea
+52,AFST 273,Ancient African Empires
+52,ARCG 219,Ancient African Empires
+52,ARCG 618,Ancient African Empires
+52,NELC 272,Ancient African Empires
+52,NELC 618,Ancient African Empires
+53,AFST 305,SocialEnterpriselnDvlpngEcon
+53,GLBL 305,SocialEnterpriselnDvlpngEcon
+54,AFST 335,History of South Africa
+54,ER&M 325,History of South Africa
+54,HIST 335,History of South Africa
+55,AFST 340,Africa in Era of Slave Trade
+55,HIST 340,Africa in Era of Slave Trade
+56,AFST 369,Lit of Migration & Refuge
+56,FREN 369,Lit of Migration & Refuge
+56,MMES 369,Lit of Migration & Refuge
+57,AFST 378,USForeignAsstnceSub-Saharan
+57,AFST 570,USForeignAsstnceSub-Saharan
+57,EVST 378,USForeignAsstnceSub-Saharan
+57,S&DS 138,USForeignAsstnceSub-Saharan
+58,AFST 381,Government& Politics in Africa
+58,PLSC 381,Government& Politics in Africa
+59,AFST 382,Child Health and Dev in Africa
+60,AFST 406,Sexual Violence and War
+60,GLBL 363,Sexual Violence and War
+60,PLSC 406,Sexual Violence and War
+60,PLSC 720,Sexual Violence and War
+62,AFST 453,HealthDisparities&HealthEquity
+64,AFST 833,Agrarian History of Africa
+64,HIST 833,Agrarian History of Africa
+65,AFST 900,Master’s Thesis
+66,AFST 965,On Violence
+66,CPLT 729,On Violence
+66,FREN 965,On Violence
+67,AKKD 120,Elementary Akkadian II
+67,AKKD 501,Elementary Akkadian II
+68,AMST 012,Politcs&Society inUS afterWWII
+68,HIST 012,Politcs&Society inUS afterWWII
+69,AMST 028,Book Collecting in America
+69,HIST 019,Book Collecting in America
+71,AMST 197,AmericanArchitecture&Urbanism
+71,ARCH 280,AmericanArchitecture&Urbanism
+71,HSAR 219,AmericanArchitecture&Urbanism
+71,URBN 280,AmericanArchitecture&Urbanism
+72,AMST 206,Intro Critical Refugee Studies
+72,ER&M 221,Intro Critical Refugee Studies
+72,WGSS 222,Intro Critical Refugee Studies
+73,AMST 228,Origins of U.S. Global Power
+73,GLBL 201,Origins of U.S. Global Power
+73,HIST 128,Origins of U.S. Global Power
+74,AMST 255,California Capitalism
+74,HIST 155,California Capitalism
+78,AMST 330,Dystopic & Utopian Fictions
+78,ENGL 236,Dystopic & Utopian Fictions
+79,AMST 334,Antisemitism in America
+79,HUMS 267,Antisemitism in America
+80,AMST 336,American Fascism
+80,ER&M 369,American Fascism
+82,AMST 340,The History of Miami
+83,AMST 344,The Nonhuman in Lit since 1800
+83,AMST 723,The Nonhuman in Lit since 1800
+83,ENGL 333,The Nonhuman in Lit since 1800
+83,ENGL 833,The Nonhuman in Lit since 1800
+84,AMST 346,Poetry and Objects
+84,ENGL 235,Poetry and Objects
+84,HUMS 252,Poetry and Objects
+85,AMST 350,Political Landscapes Tourism
+85,ER&M 356,Political Landscapes Tourism
+85,WGSS 235,Political Landscapes Tourism
+86,AMST 357,The Times of Bob Dylan
+87,AMST 362,Afro-Asian Formations of Race
+87,ER&M 350,Afro-Asian Formations of Race
+88,AMST 370,The History of Dance
+88,THST 380,The History of Dance
+91,AMST 406,The Spectacle of Disability
+91,ENGL 326,The Spectacle of Disability
+93,AMST 422,Writing Tribal Histories
+93,ER&M 435,Writing Tribal Histories
+93,HIST 151J,Writing Tribal Histories
+95,AMST 452,MovementMemorySettlerColonial
+95,ER&M 452,MovementMemorySettlerColonial
+96,AMST 459,Multispecies Worlds
+97,AMST 464,Documentary Film Workshop
+97,AMST 833,Documentary Film Workshop
+97,EVST 464,Documentary Film Workshop
+97,F&ES 592,Documentary Film Workshop
+97,FILM 456,Documentary Film Workshop
+97,FILM 736,Documentary Film Workshop
+98,AMST 466,Contemporary Historical Novels
+98,ENGL 444,Contemporary Historical Novels
+99,AMST 472,IndividReading&ResearchJrs&Srs
+100,AMST 487,The Rise of “Presidentalism”
+100,PLSC 275,The Rise of “Presidentalism”
+100,PLSC 820,The Rise of “Presidentalism”
+101,AMST 491,Senior Project
+102,AMST 494,SeniorProject: IntensiveMajor
+103,AMST 611,SettlerColonialismAmerImagin
+104,AMST 623,WorkingGroupGlobalization&Cult
+104,CPLT 822,WorkingGroupGlobalization&Cult
+105,AMST 625,The Transpacific Mid-Century
+105,ENGL 885,The Transpacific Mid-Century
+106,AMST 667,Critical Human Geography
+107,AMST 669,"Religion, Art, and Resistance"
+107,REL 768,"Religion, Art, and Resistance"
+109,AMST 719,Interrogating Crisis of Islam
+112,AMST 747,Affect and Materiality
+112,ANTH 594,Affect and Materiality
+112,WGSS 633,Affect and Materiality
+113,AMST 765,Personhood in the Americas
+113,ANTH 549,Personhood in the Americas
+113,WGSS 764,Personhood in the Americas
+114,AMST 767,Research in U.S. Urban History
+114,HIST 724,Research in U.S. Urban History
+116,AMST 780,Class & Capitalism 20thC U.S.
+116,HIST 734,Class & Capitalism 20thC U.S.
+118,AMST 785,Religion& Performance of Space
+118,HSAR 730,Religion& Performance of Space
+119,AMST 790,American Performance in 1970's
+119,DRAM 666,American Performance in 1970's
+119,ENGL 964,American Performance in 1970's
+122,AMST 839,Readings in Environmental Hist
+122,HIST 743,Readings in Environmental Hist
+122,HSHM 744,Readings in Environmental Hist
+124,AMST 854,American Literature to 1830
+124,ENGL 847,American Literature to 1830
+125,AMST 901,Directed Reading
+126,AMST 902,Prospectus Workshop
+127,AMST 903,Intro to Public Humanities
+127,HIST 746,Intro to Public Humanities
+128,AMST 905,Master’sProjPublicHumanities
+130,AMST 920,Writing Wkshp in U.S. History
+130,HIST 701,Writing Wkshp in U.S. History
+131,AMTH 160,The Structure of Networks
+131,MATH 160,The Structure of Networks
+131,S&DS 160,The Structure of Networks
+132,AMTH 222,LinearAlgebraWithApplications
+132,MATH 222,LinearAlgebraWithApplications
+133,AMTH 244,Discrete Mathematics
+133,MATH 244,Discrete Mathematics
+134,AMTH 262,Comp Tools for Data Science
+134,CPSC 362,Comp Tools for Data Science
+134,S&DS 262,Comp Tools for Data Science
+134,S&DS 562,Comp Tools for Data Science
+135,AMTH 361,Data Analysis
+135,S&DS 361,Data Analysis
+135,S&DS 661,Data Analysis
+136,AMTH 364,Information Theory
+136,EENG 454,Information Theory
+136,S&DS 364,Information Theory
+136,S&DS 664,Information Theory
+137,AMTH 482,Research Project
+138,AMTH 490,Senior Seminar and Project
+139,AMTH 491,Senior Project
+140,AMTH 552,DeepLearningTheoryApplications
+140,CB&B 663,DeepLearningTheoryApplications
+140,CPSC 452,DeepLearningTheoryApplications
+140,CPSC 663,DeepLearningTheoryApplications
+141,AMTH 640,Topics in NumericalComputation
+141,CPSC 640,Topics in NumericalComputation
+142,AMTH 765,Modeling Biological Systems II
+142,BENG 465,Modeling Biological Systems II
+142,CB&B 562,Modeling Biological Systems II
+142,ENAS 561,Modeling Biological Systems II
+142,INP 562,Modeling Biological Systems II
+142,MB&B 361,Modeling Biological Systems II
+142,MB&B 562,Modeling Biological Systems II
+142,MCDB 361,Modeling Biological Systems II
+142,MCDB 562,Modeling Biological Systems II
+142,NSCI 325,Modeling Biological Systems II
+142,PHYS 562,Modeling Biological Systems II
+143,AMTH 797,Geometry of Data
+143,MATH 797,Geometry of Data
+144,ANTH 040,Evolution of Human Uniqueness
+145,ANTH 110,Intro to Cultural Anthropology
+146,ANTH 172,GreatHoaxes&FantasiesInArchlgy
+146,ARCG 172,GreatHoaxes&FantasiesInArchlgy
+149,ANTH 215,Archaeology of China
+149,ARCG 215,Archaeology of China
+150,ANTH 241,Nature&Culture in&of East Asia
+150,EAST 406,Nature&Culture in&of East Asia
+151,ANTH 242,HumanEvolutionaryBio &LifeHist
+152,ANTH 253,Intro Experimental Archaeology
+152,ANTH 559,Intro Experimental Archaeology
+152,ARCG 253,Intro Experimental Archaeology
+152,ARCG 559,Intro Experimental Archaeology
+153,ANTH 264,Aztec Archaeology&Ethnohistory
+153,ARCG 264,Aztec Archaeology&Ethnohistory
+153,SPAN 404,Aztec Archaeology&Ethnohistory
+154,ANTH 276,South Asian Social Worlds
+154,SAST 219,South Asian Social Worlds
+155,ANTH 316,An Anthropology of the Violent
+155,SAST 309,An Anthropology of the Violent
+156,ANTH 321,Middle East Gender Studies
+156,MMES 321,Middle East Gender Studies
+156,SOCY 318,Middle East Gender Studies
+156,WGSS 321,Middle East Gender Studies
+157,ANTH 323,Devt&Change in Iraq&Afganistan
+157,ER&M 371,Devt&Change in Iraq&Afganistan
+157,MMES 348,Devt&Change in Iraq&Afganistan
+157,PLSC 380,Devt&Change in Iraq&Afganistan
+158,ANTH 338,Gender & Politics After Social
+158,RSEE 336,Gender & Politics After Social
+158,WGSS 738,Gender & Politics After Social
+159,ANTH 339,Urban Ethnography of Asia
+159,ANTH 539,Urban Ethnography of Asia
+160,ANTH 346,Anthro ApproachesTo Capitalism
+161,ANTH 362,Unity&Diversity:ChineseCulture
+161,ANTH 562,Unity&Diversity:ChineseCulture
+162,ANTH 381,Sex and Global Politics
+162,WGSS 378,Sex and Global Politics
+162,WGSS 625,Sex and Global Politics
+163,ANTH 385,Archaeological Ceramics
+163,ANTH 785,Archaeological Ceramics
+163,ARCG 385,Archaeological Ceramics
+163,ARCG 785,Archaeological Ceramics
+164,ANTH 399,Anthropology of Outer Space
+165,ANTH 414,"Hubs, Mobilities &World Cities"
+165,ANTH 575,"Hubs, Mobilities &World Cities"
+165,EAST 417,"Hubs, Mobilities &World Cities"
+166,ANTH 428,Neighbors and Others
+166,ANTH 828,Neighbors and Others
+166,PHIL 493,Neighbors and Others
+166,RLST 428,Neighbors and Others
+166,RLST 882,Neighbors and Others
+167,ANTH 438,"Culture, Power, Oil"
+167,ANTH 638,"Culture, Power, Oil"
+169,ANTH 453,HealthDisparities&HealthEquity
+169,HLTH 425,HealthDisparities&HealthEquity
+170,ANTH 464,Human Osteology
+170,ANTH 864,Human Osteology
+170,ARCG 464,Human Osteology
+170,ARCG 864,Human Osteology
+170,E&EB 464,Human Osteology
+171,ANTH 471,Readings in Anthropology
+172,ANTH 473,ClimateChnge&Societal Collapse
+172,ANTH 773,ClimateChnge&Societal Collapse
+172,ARCG 473,ClimateChnge&Societal Collapse
+172,ARCG 773,ClimateChnge&Societal Collapse
+172,EVST 473,ClimateChnge&Societal Collapse
+172,F&ES 793,ClimateChnge&Societal Collapse
+172,NELC 473,ClimateChnge&Societal Collapse
+172,NELC 588,ClimateChnge&Societal Collapse
+173,ANTH 491,The Senior Essay
+174,ANTH 492,Imaging Ancient Worlds
+174,ANTH 692,Imaging Ancient Worlds
+174,ARCG 492,Imaging Ancient Worlds
+174,NELC 321,Imaging Ancient Worlds
+174,NELC 537,Imaging Ancient Worlds
+175,ANTH 538,Cult&PoliticsContempMidEast
+175,GLBL 838,Cult&PoliticsContempMidEast
+177,ANTH 579,DrctngArchaeologicalExcavation
+177,ARCG 579,DrctngArchaeologicalExcavation
+179,ANTH 600,Contemporary Social Theory
+180,ANTH 700,DvlpmntofDiscpln:CntmpryThemes
+181,ANTH 710,SettlementPatterns&Landscape
+181,ARCG 710,SettlementPatterns&Landscape
+182,ANTH 808,Tpcs&Issues Evolut Morphology
+183,ANTH 853,Primate Life Histories
+184,ANTH 950,DirRsrch:PrepQualifyingExam
+185,ANTH 953,DirectedResearch inArchaeology
+186,ANTH 954,Dir Research Biological Anthro
+187,ANTH 964,Environmental Humanities
+187,HIST 964,Environmental Humanities
+187,HSAR 842,Environmental Humanities
+187,HSHM 692,Environmental Humanities
+188,APHY 100,Energy Technology and Society
+188,ENAS 100,Energy Technology and Society
+188,EVST 100,Energy Technology and Society
+188,G&G 105,Energy Technology and Society
+188,PHYS 100,Energy Technology and Society
+189,APHY 110,The Technological World
+189,ENAS 110,The Technological World
+190,APHY 151,MultivariblCalculsForEngineers
+190,ENAS 151,MultivariblCalculsForEngineers
+190,PHYS 151,MultivariblCalculsForEngineers
+191,APHY 194,Ordinary&PrtialDiffrntlEquatns
+191,ENAS 194,Ordinary&PrtialDiffrntlEquatns
+192,APHY 321,SemicondSiliconDevices&Tchnlgy
+192,EENG 403,SemicondSiliconDevices&Tchnlgy
+192,ENAS 986,SemicondSiliconDevices&Tchnlgy
+193,APHY 322,ElectromagneticWaves&Devices
+194,APHY 449,Solid State Physics II
+194,APHY 549,Solid State Physics II
+194,ENAS 851,Solid State Physics II
+194,PHYS 449,Solid State Physics II
+194,PHYS 549,Solid State Physics II
+195,APHY 450,Synchrotron Techniques
+195,APHY 725,Synchrotron Techniques
+195,ENAS 450,Synchrotron Techniques
+195,ENAS 725,Synchrotron Techniques
+195,MENG 450,Synchrotron Techniques
+196,APHY 470,Statistical Methods
+197,APHY 472,Senior Special Projects
+198,APHY 590,RspnsbleRsrchPhysicalScientist
+198,PHYS 590,RspnsbleRsrchPhysicalScientist
+199,APHY 607,MdrnTpcsinOptcs&QntmElctrnics
+200,APHY 610,Quantum Many-Body Theory
+200,PHYS 610,Quantum Many-Body Theory
+201,APHY 990,Special Investigations
+202,ARBC 120,ElementaryModStandardArabic II
+202,ARBC 501,ElementaryModStandardArabic II
+203,ARBC 140,IntermedModernStandardArabicII
+203,ARBC 503,IntermedModernStandardArabicII
+204,ARBC 146,IntermediateClassicalArabic II
+204,ARBC 510,IntermediateClassicalArabic II
+205,ARBC 151,AdvancedModernStandardArabicII
+205,ARBC 505,AdvancedModernStandardArabicII
+206,ARBC 176,In Dialogue: Arabic & Hebrew
+206,MMES 178,In Dialogue: Arabic & Hebrew
+207,ARBC 194,PoliticsAestheticsModArabicLit
+207,NELC 164,PoliticsAestheticsModArabicLit
+208,ARBC 560,Graduate Arabic Seminar
+210,ARCG 031,Rivers and Civilization
+210,EVST 030,Rivers and Civilization
+210,NELC 026,Rivers and Civilization
+211,ARCG 110,Intro HistArt: Decorative Arts
+211,HSAR 110,Intro HistArt: Decorative Arts
+216,ARCG 226,Global Environmental History
+216,EVST 226,Global Environmental History
+216,F&ES 873,Global Environmental History
+216,NELC 268,Global Environmental History
+216,NELC 605,Global Environmental History
+217,ARCG 243,Greek Art and Architecture
+217,CLCV 160,Greek Art and Architecture
+217,HSAR 243,Greek Art and Architecture
+218,ARCG 252,Roman Architecture
+218,CLCV 175,Roman Architecture
+218,HSAR 252,Roman Architecture
+221,ARCG 362,Observing Earth from Space
+221,ARCG 762,Observing Earth from Space
+221,EMD 548,Observing Earth from Space
+221,EVST 362,Observing Earth from Space
+221,F&ES 726,Observing Earth from Space
+221,G&G 362,Observing Earth from Space
+221,G&G 562,Observing Earth from Space
+223,ARCG 424,eClavdia:Women in Ancient Rome
+223,CLCV 230,eClavdia:Women in Ancient Rome
+223,HSAR 424,eClavdia:Women in Ancient Rome
+229,ARCH 1114,Advanced Design Studio
+230,ARCH 1119,Advanced Design Studio
+231,ARCH 1213,Books and Architecture
+232,ARCH 1225,Formal Analysis II
+233,ARCH 1228,Ruins & Ruination
+234,ARCH 1241,"Rendered: Art, Arch&Cont.Image"
+235,ARCH 154,Drawing Architecture
+236,ARCH 162,Materials in Architecture
+237,ARCH 200,Scales of Design
+237,URBN 200,Scales of Design
+238,ARCH 2016,Building Project I
+239,ARCH 2022,Systems Integration
+240,ARCH 2223,Structuring Arch. Form & Space
+241,ARCH 2226,Design Computation
+242,ARCH 2229,Regenerative Building
+242,F&ES 606,Regenerative Building
+243,ARCH 2230,Exploring New Values in Design
+244,ARCH 2238,The Mechanical Artifact
+245,ARCH 2241,Building Disasters
+246,ARCH 230,Intro to Study of the City
+246,STCY 176,Intro to Study of the City
+246,URBN 230,Intro to Study of the City
+247,ARCH 251,Methods&FormInArchitecture II
+249,ARCH 3012,Architectural Theory
+250,ARCH 304,Style
+250,HSAR 442,Style
+251,ARCH 3073,Design Research II: Built Env.
+252,ARCH 312,Modern Architecture
+252,HSAR 312,Modern Architecture
+253,ARCH 314,History of Landscape
+253,URBN 314,History of Landscape
+254,ARCH 3211,Architecture & Abstraction
+255,ARCH 3229,Urban History of Amazonia
+256,ARCH 324,City Before & After Tubewell
+256,SAST 384,City Before & After Tubewell
+256,URBN 324,City Before & After Tubewell
+257,ARCH 3252,"Landscape, Film, Architecture"
+257,FILM 344,"Landscape, Film, Architecture"
+257,GMAN 344,"Landscape, Film, Architecture"
+258,ARCH 3256,Renaissance & Modern II
+259,ARCH 3267,Semiotics
+259,FILM 833,Semiotics
+260,ARCH 3272,Exhibitionis PoliticsofDisplay
+260,WGSS 527,Exhibitionis PoliticsofDisplay
+261,ARCH 3283,After the Modern Movement
+262,ARCH 3292,Arch. His/Theory Anthropocene
+263,ARCH 3293,The Polych. Reconst. of Arch.
+264,ARCH 330,"Creativity, Innov & ""The New"""
+265,ARCH 3300,Avant-Garde: M.Tafuri's Sphere
+266,ARCH 3301,NY Incubator: Four Urbn Thnkrs
+267,ARCH 341,Globalization Space
+267,ARCH 4216,Globalization Space
+267,F&ES 782,Globalization Space
+267,GLBL 253,Globalization Space
+267,LAST 318,Globalization Space
+267,URBN 341,Globalization Space
+268,ARCH 360,Urban Lab: An Urban World
+268,URBN 360,Urban Lab: An Urban World
+269,ARCH 380,The Global Museum
+269,HSAR 437,The Global Museum
+269,MMES 382,The Global Museum
+270,ARCH 4220,Port City: Urban Form Trans.
+271,ARCH 4221,Intro to Comm'l Real Estate
+272,ARCH 4223,History of British Landscape
+273,ARCH 4233,Ghost Towns
+274,ARCH 4243,Case Studies in Urban Design
+275,ARCH 4244,Cartographies of ClimateChange
+276,ARCH 471,Individual Tutorial
+277,ARCH 491,Senior Project
+277,URBN 491,Senior Project
+278,ARCH 494,Senior Project Design Studio
+279,ARCH 554,Ph.D. Dissertation Preparation
+280,ARCH 559,Ph.D. Seminar: CEA
+281,ARMN 451,Classical Armenian II
+281,ARMN 681,Classical Armenian II
+282,ART 007,Art of the Game
+283,ART 012,On Activism
+284,ART 014,Research in the Making
+285,ART 110,Sculpture Basics
+286,ART 111,Visual Thinking
+287,ART 114,Basic Drawing
+288,ART 121,Intro to Sculpture: Metal
+289,ART 130,Painting Basics
+290,ART 132,Introduction to Graphic Design
+291,ART 136,B&W Photo Capturing Light
+292,ART 138,Digital Photography
+293,ART 142,Intro Documentary Filmmaking
+293,FILM 162,Intro Documentary Filmmaking
+294,ART 145,Introduction to Digital Video
+295,ART 185,Principles of Animation
+296,ART 224,Figure Drawing
+297,ART 235,Dance Theater
+297,THST 235,Dance Theater
+298,ART 264,Typography!
+299,ART 265,"Expression,Structure,Sequence"
+300,ART 266,History of Graphic Design
+301,ART 288,The Itinerant Image
+302,ART 301,Critical Theory in the Studio
+303,ART 323,Paint
+303,HSAR 478,Paint
+304,ART 331,Intermediate Painting
+305,ART 338,IntermediateDigitalPhotography
+306,ART 341,IntermedFilmWriting &Directing
+306,FILM 355,IntermedFilmWriting &Directing
+307,ART 342,Intermed DocumentaryFilmmaking
+307,FILM 356,Intermed DocumentaryFilmmaking
+308,ART 369,"Interactive Design, Internet"
+309,ART 371,Sound Art
+309,MUSI 370,Sound Art
+310,ART 379,"Form For Content, View Camera"
+311,ART 433,PaintingStudio:Space&Abstractn
+312,ART 443,AdvancedFilmWriting&Directing
+312,FILM 484,AdvancedFilmWriting&Directing
+313,ART 457,Printmaking II
+314,ART 469,AdvDesignHistoryEditInterpret
+315,ART 472,Independent Projects
+316,ART 496,Senior Project II
+317,ART 515,Colorspace
+318,ART 518,"Painting, Theory"
+319,ART 676,Weird Things
+320,ART 678,Doing
+321,ART 680,Performance: after feeling
+322,ART 710,3rd-yr. Design Studio
+323,ART 720,1st-yr. Design Studio
+324,ART 743,Letterform Sequence
+325,ART 751,Print to Screen
+326,ART 828,Prob. Photo. Criticism
+327,ART 871,Workerism
+328,ART 914,Artists in the “Market” place
+329,ASL 120,American Sign Language II
+330,ASL 140,American Sign Language IV
+331,ASTR 120,Galaxies and the Universe
+332,ASTR 130,Origins&SearchForLifeInUnivrse
+333,ASTR 170,Introduction to Cosmology
+334,ASTR 310,Galactic&ExtragalactAstronomy
+335,ASTR 343,"Gravity,Astrophysics&Cosmology"
+335,PHYS 343,"Gravity,Astrophysics&Cosmology"
+336,ASTR 356,Astrostatistics & Data Mining
+336,ASTR 556,Astrostatistics & Data Mining
+336,PHYS 356,Astrostatistics & Data Mining
+337,ASTR 375,Exoplanets
+337,ASTR 575,Exoplanets
+338,ASTR 380,Stellar Populations
+338,ASTR 510,Stellar Populations
+339,ASTR 418,Stellar Dynamics
+339,ASTR 518,Stellar Dynamics
+340,ASTR 420,ComputatnlMethods:Astrophysics
+340,ASTR 520,ComputatnlMethods:Astrophysics
+340,G&G 538,ComputatnlMethods:Astrophysics
+341,ASTR 430,Galaxies
+341,ASTR 530,Galaxies
+342,ASTR 472,Independ Project in Astronomy
+343,ASTR 491,Two-Term Senior Project
+344,ASTR 492,One-Term Senior Project
+345,ASTR 580,Research
+346,ASTR 595,Astrophysical Flows
+347,ASTR 711,Professional Seminar
+348,B&BS 501,Responsible Conduct of Rsrch
+349,B&BS 503,RCR Refresher for Sr BBS Stdnt
+350,B&BS 680,Topics in Human Investigation
+350,IMED 680,Topics in Human Investigation
+351,BENG 249,Intro Biomedical Computation
+352,BENG 351,Biotransport and Kinetics
+352,CENG 351,Biotransport and Kinetics
+352,ENAS 551,Biotransport and Kinetics
+353,BENG 352,Biomedical Signals and Images
+354,BENG 356L,Biomedical Engineering Lab
+355,BENG 403,Economics&Science of Medicine
+355,ECON 463,Economics&Science of Medicine
+356,BENG 404,Medical Device Design
+356,MENG 404,Medical Device Design
+357,BENG 405,Biotech & the Developing World
+357,ENAS 805,Biotech & the Developing World
+357,EVST 415,Biotech & the Developing World
+358,BENG 406,Medical Software Design
+359,BENG 411,BioMEMS & Biomed Microdevices
+359,ENAS 711,BioMEMS & Biomed Microdevices
+360,BENG 435,Biomaterial-TissueInteractions
+360,ENAS 535,Biomaterial-TissueInteractions
+360,PATH 630,Biomaterial-TissueInteractions
+361,BENG 449,Biomedical Data Analysis
+361,ENAS 549,Biomedical Data Analysis
+362,BENG 455,Vascular Mechanics
+362,ENAS 555,Vascular Mechanics
+363,BENG 456,Molecular&CellularBiomechanics
+363,ENAS 556,Molecular&CellularBiomechanics
+364,BENG 458,MultiscaleModlsOfBiomechSystms
+364,ENAS 758,MultiscaleModlsOfBiomechSystms
+366,BENG 467,SystemsBiology ofCellSignaling
+366,ENAS 567,SystemsBiology ofCellSignaling
+367,BENG 472,Special Projects
+368,BENG 474,Senior Project
+369,BENG 485,Fundamentals of Neuroimaging
+369,ENAS 585,Fundamentals of Neuroimaging
+370,BIOL 101,Biochemistry and Biophysics
+371,BIOL 102,Cell Bio
+372,BIOL 103,Genetics and Development
+373,BIOL 104,Ecology & Evolutionary Biology
+374,BIS 505,Biostatistics in PH II
+375,BIS 526,Seminar in Biostatistics
+376,BIS 575,Intro to Regulatory Affairs
+377,BIS 600,Directed Readings BIS
+378,BIS 610,Appl Area Readings for Q Exams
+379,BIS 628,Longitudinal&MultilevAnalysis
+380,BIS 630,Applied Survival Analysis
+381,BIS 643,Theory of Survival Analysis
+382,BIS 645,Stat Methods in Human Genetics
+382,CB&B 647,Stat Methods in Human Genetics
+382,GENE 645,Stat Methods in Human Genetics
+383,BIS 650,MS BIS Thesis Research
+384,BIS 681,Statistical Practice II
+385,BIS 691,Theory Generalized Lin Models
+386,BIS 695,Internship Biostat Research
+387,BRST 154,Modern British Theater
+388,BRST 195,GoldenAgePaintinginBritain
+389,BRST 211,Queen Victoria & Royal Reps
+389,ENGL 243,Queen Victoria & Royal Reps
+390,BRST 212,Virginia Woolf's London
+390,ENGL 254,Virginia Woolf's London
+391,C&MP 560,Cellular& Molecular Physiology
+391,ENAS 570,Cellular& Molecular Physiology
+391,MCDB 415,Cellular& Molecular Physiology
+391,MCDB 560,Cellular& Molecular Physiology
+391,PHAR 560,Cellular& Molecular Physiology
+392,C&MP 580,Bioenergetics and Metabolism
+393,C&MP 600,Med PhysiologyCase Conferences
+394,C&MP 610,Mentored Clinical Experience
+395,C&MP 630,MoleculrMedPhrmclgy&Physiology
+395,PATH 680,MoleculrMedPhrmclgy&Physiology
+395,PHAR 502,MoleculrMedPhrmclgy&Physiology
+396,C&MP 650,ResponsibleConduct of Research
+396,PATH 660,ResponsibleConduct of Research
+396,PHAR 580,ResponsibleConduct of Research
+397,C&MP 711,Practical cryo-EM Workshop
+397,MB&B 711,Practical cryo-EM Workshop
+398,CAND 999,Prep: Admission to Candidacy
+399,CB&B 523,Biological Physics
+399,ENAS 541,Biological Physics
+399,MB&B 523,Biological Physics
+399,PHYS 341,Biological Physics
+399,PHYS 523,Biological Physics
+401,CB&B 567,Topics in Deep Learning
+401,MB&B 567,Topics in Deep Learning
+401,S&DS 567,Topics in Deep Learning
+402,CB&B 601,ResponsibleConduct of Research
+402,IBIO 601,ResponsibleConduct of Research
+402,MBIO 601,ResponsibleConduct of Research
+403,CB&B 645,StatMethodsinComputationalBio
+403,S&DS 645,StatMethodsinComputationalBio
+406,CB&B 712,2ndLabRotationCompBio&Bioinfo
+407,CB&B 713,3rdLabRotationCompBio&Bioinfo
+408,CB&B 750,CoreTopicsinBiomedInformatics
+409,CB&B 752,BioDataScienceMiningModeling
+409,CPSC 752,BioDataScienceMiningModeling
+409,MB&B 452,BioDataScienceMiningModeling
+409,MB&B 752,BioDataScienceMiningModeling
+409,MB&B 753,BioDataScienceMiningModeling
+409,MB&B 754,BioDataScienceMiningModeling
+409,MCDB 452,BioDataScienceMiningModeling
+409,MCDB 752,BioDataScienceMiningModeling
+409,S&DS 352,BioDataScienceMiningModeling
+410,CBIO 502,Molecules to Systems
+411,CBIO 601,ScienceFrontiersMedicine
+412,CBIO 604,Systems Cell Biology
+413,CBIO 606,Advanced Topics in Cell Bio
+414,CBIO 701,Illuminating Cellular Function
+415,CBIO 901,Research Skills and Ethics II
+415,GENE 901,Research Skills and Ethics II
+415,MCDB 901,Research Skills and Ethics II
+416,CBIO 913,Third Laboratory Rotation
+416,GENE 913,Third Laboratory Rotation
+416,MCDB 913,Third Laboratory Rotation
+417,CDE 516,Principles of Epidemiology II
+418,CDE 526,Seminar in CDE
+419,CDE 532,Epidemiology of Cancer
+420,CDE 534,Applied Analy Methods in EPI
+421,CDE 535,Epi of Heart Disease & Stroke
+422,CDE 545,Hlth Disp by Race & Soc Class
+423,CDE 551,Global NonCommunicable Disease
+424,CDE 562,Nutrition & Chronic Disease
+425,CDE 600,Directed Readings CDE
+426,CDE 610,Appl Area Readings for Q Exams
+427,CDE 617,Developing A Research Proposal
+428,CDE 670,Adv Field Methods in CDE
+429,CENG 120,IntroEnvironmentalEngineering
+429,ENAS 120,IntroEnvironmentalEngineering
+429,ENVE 120,IntroEnvironmentalEngineering
+430,CENG 150,Intro to Engineering Analysis
+431,CENG 301,ChemiclKinetics&ChemiclReactrs
+432,CENG 315,Transport Phenomena
+432,ENVE 315,Transport Phenomena
+434,CENG 412L,ChemicalEngineering Lab&Design
+435,CENG 416,ChemEngineering Process Design
+435,ENVE 416,ChemEngineering Process Design
+436,CENG 471,Independent Research
+437,CENG 490,Senior Research Project
+438,CGSC 216,Cognitive Science of Language
+438,LING 116,Cognitive Science of Language
+438,PSYC 116,Cognitive Science of Language
+440,CGSC 313,Philosophy for Psychologists
+440,PHIL 305,Philosophy for Psychologists
+440,PSYC 313,Philosophy for Psychologists
+441,CGSC 315,The Modern Unconscious
+441,PSYC 315,The Modern Unconscious
+442,CGSC 390,JuniorSeminar:CognitiveScience
+443,CGSC 419,Brain Development and the Law
+443,NSCI 419,Brain Development and the Law
+443,PSYC 419,Brain Development and the Law
+444,CGSC 420,Topics Clinical Neuroscience
+444,NSCI 440,Topics Clinical Neuroscience
+444,PSYC 420,Topics Clinical Neuroscience
+445,CGSC 472,DirectedResearchCognitiveScien
+446,CGSC 491,Senior Project
+447,CGSC 492,Metaphysics Meets Cognitive Sc
+447,PHIL 492,Metaphysics Meets Cognitive Sc
+447,PHIL 692,Metaphysics Meets Cognitive Sc
+447,PSYC 492,Metaphysics Meets Cognitive Sc
+447,PSYC 692,Metaphysics Meets Cognitive Sc
+448,CHEM 104,Chemistry of Food and Cooking
+449,CHEM 134L,General Chemistry Laboratory I
+450,CHEM 136L,GeneralChemistry Laboratory II
+451,CHEM 161,General Chemistry I
+452,CHEM 165,General Chemistry II
+453,CHEM 167,ComprehensiveUniversityChem II
+454,CHEM 175,Organic Chem for First-YearsII
+455,CHEM 220,Organic Chemistry
+456,CHEM 221,Organic Chem of Life Processes
+457,CHEM 222L,Lab for Organic Chemistry I
+458,CHEM 223L,Lab for Organic Chemistry II
+459,CHEM 251L,Inorganic Chemistry Laboratory
+460,CHEM 252,Intro Inorganic Chemistry
+461,CHEM 330L,Lab for Physical Chemistry I
+462,CHEM 331L,Lab for Physical Chemistry II
+463,CHEM 333,PhysChemWithPhysScienceApps II
+464,CHEM 349L,Materials Chemistry Laboratory
+465,CHEM 425,SpectroscpicStructreDetrminatn
+465,CHEM 525,SpectroscpicStructreDetrminatn
+466,CHEM 426,Computational Chem & Biochem
+466,CHEM 526,Computational Chem & Biochem
+467,CHEM 442,Molecules and Radiation II
+467,CHEM 542,Molecules and Radiation II
+468,CHEM 480,Introduction to Research
+469,CHEM 490,IndependentResearchInChemistry
+470,CHEM 515,Special Topics in Inorg Chem
+471,CHEM 528,Natural Product Synthesis
+472,CHEM 547,Electron Paramagnetc Resonance
+473,CHEM 553,Small Molecule Crystallography
+474,CHEM 556,Biochemical Rates & Mechanisms
+475,CHEM 562L,Lab Instr Design & Mech Arts
+475,PHYS 762,Lab Instr Design & Mech Arts
+476,CHEM 564L,Adv Mechanical Instrumentation
+477,CHEM 565L,Introduction to Glass Blowing
+478,CHEM 600,Research Seminar
+479,CHEM 700,Lab Rotation
+480,CHEM 721,Current Topics Organic Chem
+481,CHEM 731,Molecular Science Seminar
+482,CHEM 741,Seminar in Chemical Biology
+483,CHEM 751,Biophysical Chemistry Seminar
+484,CHEM 761,Seminar in Inorganic Chemistry
+485,CHEM 990,Research
+486,CHLD 126,CliniclAssessmntOfYoungChildrn
+486,EDST 191,CliniclAssessmntOfYoungChildrn
+487,CHLD 127,Early Childhood Education
+487,EDST 127,Early Childhood Education
+487,PSYC 127,Early Childhood Education
+488,CHLD 128,"Language, Literacy, and Play"
+488,EDST 128,"Language, Literacy, and Play"
+488,PSYC 128,"Language, Literacy, and Play"
+489,CHLD 350,Autism and Related Disorders
+489,EDST 350,Autism and Related Disorders
+489,PSYC 350,Autism and Related Disorders
+490,CHNS 120,Elementary Modern Chinese II
+491,CHNS 122,ElmntryModChinseHeritSpeakers
+492,CHNS 140,Intermediate Modern Chinese II
+493,CHNS 142,IntrmdtModChinseforHeritSpkrs
+494,CHNS 151,Advanced Modern Chinese II
+495,CHNS 153,AdvModChineseHeritaSpkrs
+496,CHNS 155,Upper Adv Modern Chinese IV
+497,CHNS 163,AdvModChnsHeritSpkrsIII
+498,CHNS 165,Modern Chinese Fiction
+499,CHNS 167,Chinese for Current Affairs
+500,CHNS 169,Chinese for Global Enterprises
+501,CHNS 171,Intro to Literary Chinese II
+501,CHNS 571,Intro to Literary Chinese II
+502,CLCV 059,Rivers and Civilization
+505,CLCV 205,Intro to Ancient Greek History
+505,HIST 205,Intro to Ancient Greek History
+506,CLCV 207,The Roman Empire
+506,HIST 218,The Roman Empire
+507,CLCV 215,Beauty and the Good Life
+507,HUMS 211,Beauty and the Good Life
+507,PHIL 224,Beauty and the Good Life
+509,CLCV 236,Roman Law
+509,HIST 225,Roman Law
+509,LAW 21776,Roman Law
+510,CLCV 258,Ecocultures of Antiquity
+511,CLCV 319,"Olympic Games, Ancient &Modern"
+511,HIST 242J,"Olympic Games, Ancient &Modern"
+511,MGRK 300,"Olympic Games, Ancient &Modern"
+511,WGSS 293,"Olympic Games, Ancient &Modern"
+512,CLCV 451,Two-Term Senior Project
+513,CLCV 452,One-Term Senior Project
+514,CLSS 402,Advanced Latin Paleography
+514,CLSS 602,Advanced Latin Paleography
+514,MDVL 563,Advanced Latin Paleography
+515,CLSS 491,Two-Term Intensive SeniorEssay
+516,CLSS 492,One-Term Intensive SeniorEssay
+517,CLSS 796,Plato's Gorgias
+517,PHIL 496,Plato's Gorgias
+517,PHIL 696,Plato's Gorgias
+518,CLSS 812,Sympotic Culture
+519,CLSS 818,Sanctuaries
+519,HSAR 533,Sanctuaries
+519,NELC 624,Sanctuaries
+520,CLSS 845,Images of Cult & Devotion
+520,HSAR 641,Images of Cult & Devotion
+520,MDVL 520,Images of Cult & Devotion
+520,NELC 639,Images of Cult & Devotion
+520,RLST 633,Images of Cult & Devotion
+521,CLSS 864,Art & Ritual Greek Antiquity
+521,HSAR 563,Art & Ritual Greek Antiquity
+522,CLSS 880,Roman Law
+522,HIST 521,Roman Law
+523,CLSS 882,GradWorks in Prgrss Colloquium
+524,CLSS 895,SurveyofGrk&LatnHistrclSources
+524,HIST 504,SurveyofGrk&LatnHistrclSources
+525,CLSS 899,Graduate Latin Survey II
+526,CLSS 900,Directed Reading
+527,CLSS 901,Greek History 1400–300 BCE
+527,HIST 901,Greek History 1400–300 BCE
+528,CPAR 491,Senior Project
+529,CPLT 510,Mortality of the Soul
+529,GMAN 604,Mortality of the Soul
+530,CPLT 549,Memory&Memoir in Russ Culture
+530,RUSS 609,Memory&Memoir in Russ Culture
+531,CPLT 587,World Literature
+531,GMAN 713,World Literature
+531,JDST 679,World Literature
+532,CPLT 603,Desire in Yiddish Literature
+532,JDST 302,Desire in Yiddish Literature
+532,JDST 688,Desire in Yiddish Literature
+532,LITR 209,Desire in Yiddish Literature
+533,CPLT 628,Goethe's Wilhelm Meister TR
+533,GMAN 247,Goethe's Wilhelm Meister TR
+533,GMAN 710,Goethe's Wilhelm Meister TR
+533,LITR 201,Goethe's Wilhelm Meister TR
+534,CPLT 673,Golden Age Theater
+534,LITR 459,Golden Age Theater
+534,SPAN 329,Golden Age Theater
+534,SPAN 629,Golden Age Theater
+535,CPLT 675,El Quijote en español
+535,LITR 445,El Quijote en español
+535,SPAN 302,El Quijote en español
+535,SPAN 660,El Quijote en español
+536,CPLT 691,Allegory as Cultural Critique
+536,JDST 687,Allegory as Cultural Critique
+537,CPLT 706,New Map of the World: Vico
+537,ITAL 700,New Map of the World: Vico
+537,RNST 701,New Map of the World: Vico
+537,SPAN 705,New Map of the World: Vico
+538,CPLT 728,Chance & Constraints in Lit
+538,FREN 929,Chance & Constraints in Lit
+540,CPLT 806,"ItalRenaissanceWar,Lit&Politcs"
+540,ITAL 238,"ItalRenaissanceWar,Lit&Politcs"
+540,ITAL 576,"ItalRenaissanceWar,Lit&Politcs"
+540,LITR 197,"ItalRenaissanceWar,Lit&Politcs"
+540,RNST 576,"ItalRenaissanceWar,Lit&Politcs"
+542,CPLT 851,Cassirer: Form as Function
+542,GMAN 705,Cassirer: Form as Function
+542,HSAR 530,Cassirer: Form as Function
+543,CPLT 899,Realism & Naturalism
+543,FREN 893,Realism & Naturalism
+544,CPLT 925,Literary Translation
+544,ENGL 456,Literary Translation
+544,HUMS 427,Literary Translation
+544,JDST 316,Literary Translation
+544,LITR 348,Literary Translation
+545,CPLT 929,Film and Fiction Interaction
+545,FILM 445,Film and Fiction Interaction
+545,FILM 651,Film and Fiction Interaction
+545,LITR 450,Film and Fiction Interaction
+546,CPLT 935,FrenchCinema throughNewWave TR
+546,FILM 416,FrenchCinema throughNewWave TR
+546,FILM 755,FrenchCinema throughNewWave TR
+546,FREN 394,FrenchCinema throughNewWave TR
+546,FREN 752,FrenchCinema throughNewWave TR
+546,LITR 366,FrenchCinema throughNewWave TR
+547,CPLT 961,Inquisitions
+547,SPAN 619,Inquisitions
+548,CPLT 968,The End of the World
+548,LITR 401,The End of the World
+548,SPAN 318,The End of the World
+548,SPAN 618,The End of the World
+549,CPSC 035,21st Century Computer Music
+549,MUSI 035,21st Century Computer Music
+550,CPSC 112,Introduction to Programming
+551,CPSC 123,YData
+551,PLSC 351,YData
+551,S&DS 123,YData
+551,S&DS 523,YData
+552,CPSC 184,IntellectualPropertyDigitalAge
+553,CPSC 185,"Control, Privacy & Technology"
+554,CPSC 200,Intro to Information Systems
+555,CPSC 201,Intro to Computer Science
+556,CPSC 202,MathematiclToolsForComputerSci
+557,CPSC 210,"Power,Security, & Surveillance"
+557,PLSC 369,"Power,Security, & Surveillance"
+558,CPSC 223,DataStructres&ProgrmmngTechnqs
+559,CPSC 235,Self-DrivingCarsTheoryPractice
+559,EENG 245,Self-DrivingCarsTheoryPractice
+560,CPSC 290,Directed Research
+561,CPSC 310,"Technology, Power, & Security"
+562,CPSC 323,SystemsProgramng&ComputerOrgzn
+563,CPSC 335,TheoryAndImplOfSelfDrivingCars
+564,CPSC 338,Digital Systems
+564,EENG 348,Digital Systems
+566,CPSC 365,Algorithms
+566,ECON 365,Algorithms
+567,CPSC 366,Intensive Algorithms
+567,ECON 366,Intensive Algorithms
+568,CPSC 421,Compilers and Interpreters
+568,CPSC 521,Compilers and Interpreters
+569,CPSC 423,PrinciplesOf Operating Systems
+569,CPSC 523,PrinciplesOf Operating Systems
+570,CPSC 424,ParallelProgrammingTechniques
+570,CPSC 524,ParallelProgrammingTechniques
+571,CPSC 427,Object-Oriented Programming
+571,CPSC 527,Object-Oriented Programming
+572,CPSC 428,Language-Based Security
+572,CPSC 528,Language-Based Security
+573,CPSC 432,ComputerMusic: Sound Synthesis
+573,CPSC 532,ComputerMusic: Sound Synthesis
+573,MUSI 427,ComputerMusic: Sound Synthesis
+574,CPSC 433,Computer Networks
+574,CPSC 533,Computer Networks
+575,CPSC 434,Topics in Networked Systems
+575,CPSC 534,Topics in Networked Systems
+576,CPSC 446,Data and Info. Visualization
+576,CPSC 546,Data and Info. Visualization
+577,CPSC 451,The User Interface
+577,CPSC 551,The User Interface
+579,CPSC 456,Wireless Technologies
+579,CPSC 556,Wireless Technologies
+579,EENG 451,Wireless Technologies
+579,ENAS 951,Wireless Technologies
+580,CPSC 464,Topics in Foundations of ML
+580,CPSC 564,Topics in Foundations of ML
+581,CPSC 468,Computational Complexity
+581,CPSC 568,Computational Complexity
+582,CPSC 470,Artificial Intelligence
+582,CPSC 570,Artificial Intelligence
+583,CPSC 473,Intelligent Robotics Lab
+583,CPSC 573,Intelligent Robotics Lab
+584,CPSC 477,Natural Language Processing
+584,CPSC 577,Natural Language Processing
+585,CPSC 478,Computer Graphics
+585,CPSC 578,Computer Graphics
+586,CPSC 490,Senior Project
+588,CPSC 674,Adv Comp Intel for Games
+589,CPSC 690,Independent Project I
+590,CPSC 691,Independent Project II
+591,CPSC 692,Independent Project
+593,CPSC 767,Topics: Cryptography&Security
+594,CPSC 800,Directed Readings
+595,CSBF 310,Cocktail Culture
+596,CSBK 310,Speechwriting
+597,CSBR 310,Trials of the Century
+598,CSDC 310,Mastering Art of Watercolor
+599,CSDC 311,Social Justice & Violence
+600,CSEC 491,Senior Project
+601,CSES 310,"Good Food, Real World"
+602,CSGH 310,Contemporary Novel Writing
+603,CSJE 310,Free Speech Then and Now
+604,CSMC 310,The Art of Storytelling
+605,CSMY 310,Power & Organizing in the City
+606,CSPC 310,Teaching the Constitution
+607,CSSM 310,Letters from the Homefront
+608,CSSY 310,Making Criminals
+609,CSTC 310,Environmental Challenges
+610,CSTD 310,SocialCriticalthinking
+611,CSYC 310,Art of the Printed Word
+612,CSYC 311,RealEstate in Economy &Society
+613,CSYC 312,Sustainable Food & Agriculture
+614,CZEC 120,Elementary Czech II
+615,CZEC 140,Advanced Czech
+616,CZEC 301,MilanKundera:Novelist&ThinkrTR
+616,LITR 220,MilanKundera:Novelist&ThinkrTR
+616,RSEE 300,MilanKundera:Novelist&ThinkrTR
+617,DISA 999,Diss Research - in Absentia
+618,DISR 999,Diss Research - in Residence
+619,DRAM 102,Scene Design
+620,DRAM 125,Costume History
+621,DRAM 141,Law and the Arts
+622,DRAM 152,Scene Painting
+623,DRAM 158,Introduction to Sound Design
+624,DRAM 161,Principles of Development
+625,DRAM 234,Visual Storytelling
+626,DRAM 244,MotionGraphics&FilmProduction
+627,DRAM 419,Crtl. Syst. for Live Entermt.
+628,DRAM 428,Auditory Culture
+629,DRAM 476,Hot Topics
+631,DRAM 67,Libretto WritingforMusicalThtr
+631,THST 412,Libretto WritingforMusicalThtr
+632,DRST 002,Directed Studies: Literature
+633,DRST 004,Directed Studies: Philosophy
+634,DRST 006,DirectedStud:History&Politics
+635,DUTC 160,Advanced Dutch II
+636,E&EB 125,History of Life
+636,G&G 125,History of Life
+637,E&EB 145,Plants and People
+638,E&EB 175L,Virus Discovery
+639,E&EB 223L,Principles Ecol & Evolution
+639,E&EB 523L,Principles Ecol & Evolution
+640,E&EB 225,Evolutionary Biology
+640,E&EB 525,Evolutionary Biology
+641,E&EB 275,Biological Oceanography
+641,E&EB 575,Biological Oceanography
+641,EVST 400,Biological Oceanography
+641,F&ES 734,Biological Oceanography
+642,E&EB 290,ComparativeAnatomy:Vertebrates
+643,E&EB 291L,Lab:ComparAnatomyOfVertebrates
+644,E&EB 320,Advanced Ecology
+644,E&EB 620,Advanced Ecology
+645,E&EB 336,Culture and Human Evolution
+645,HSHM 453,Culture and Human Evolution
+645,HUMS 336,Culture and Human Evolution
+646,E&EB 380,Life History Evolution
+646,E&EB 680,Life History Evolution
+648,E&EB 470,Senior Tutorial
+649,E&EB 474,Research
+650,E&EB 476,Senior Research
+651,E&EB 496,Intensive Senior Research
+652,E&EB 501,Adv Top Ecol & Evol Biology
+653,E&EB 545,ResponsibleConduct of Research
+654,E&EB 610,EvolutionaryFunctionalGenomics
+655,E&EB 636,Biosocial Science
+655,SOCY 636,Biosocial Science
+656,E&EB 717,Structuralism & Macroevolution
+657,E&EB 806,Convergent Evolution
+658,E&EB 810,Dynamics of Evolving Systems
+659,E&EB 815,Visualizing Data
+660,E&EB 902,Research Rotation II
+661,E&RS 950,Master’s Thesis
+662,EALL 025,Rus & Chi Sci-Fi
+662,RUSS 025,Rus & Chi Sci-Fi
+663,EALL 213,"Phil, Rel, Lit in Med China"
+663,EALL 513,"Phil, Rel, Lit in Med China"
+663,HUMS 292,"Phil, Rel, Lit in Med China"
+663,PHIL 205,"Phil, Rel, Lit in Med China"
+663,RLST 211,"Phil, Rel, Lit in Med China"
+664,EALL 255,Japanese Modernism
+664,EALL 555,Japanese Modernism
+664,EAST 252,Japanese Modernism
+665,EALL 270,Anime and the Posthuman
+665,FILM 306,Anime and the Posthuman
+666,EALL 296,Religion and Culture in Korea
+666,EAST 391,Religion and Culture in Korea
+666,RLST 121,Religion and Culture in Korea
+667,EALL 303,Classical Chinese Poetry
+667,EALL 603,Classical Chinese Poetry
+668,EALL 308,Sages of the Ancient World
+668,EALL 608,Sages of the Ancient World
+668,HUMS 305,Sages of the Ancient World
+668,PHIL 341,Sages of the Ancient World
+669,EALL 318,The Dream of the Red Chamber
+669,EALL 618,The Dream of the Red Chamber
+670,EALL 491,Senior Essay
+671,EALL 705,The Tang Dynasty
+671,HIST 875,The Tang Dynasty
+672,EALL 740,Topics in Early Chinese Litr
+673,EALL 806,Research in Japanes Film Hist
+673,EAST 806,Research in Japanes Film Hist
+673,FILM 921,Research in Japanes Film Hist
+674,EALL 874,China at Its Borders
+674,HIST 892,China at Its Borders
+675,EALL 900,Directed Readings
+676,EALL 990,Directed Research
+677,EAST 220,China from Present to Past
+677,HIST 321,China from Present to Past
+678,EAST 237,Arts of China
+678,HSAR 237,Arts of China
+680,EAST 301,Japan's Great Peace 1550-1850
+680,HIST 307,Japan's Great Peace 1550-1850
+681,EAST 309,Uses of the Past inModernChina
+681,HIST 309J,Uses of the Past inModernChina
+682,EAST 326,Yale and Japan
+682,HIST 326J,Yale and Japan
+683,EAST 360,Music & Christianity in Korea
+683,MUSI 489,Music & Christianity in Korea
+683,RLST 369,Music & Christianity in Korea
+684,EAST 375,China from Mao to Now
+684,HIST 375,China from Mao to Now
+685,EAST 390,Atheism and Buddhism
+685,RLST 102,Atheism and Buddhism
+687,EAST 402,Empire&Identity in Qing China
+687,HIST 305J,Empire&Identity in Qing China
+689,EAST 414,PostwarUS–JapanRelations&Poli
+689,PLSC 170,PostwarUS–JapanRelations&Poli
+691,EAST 454,Econmic&PolicyLessonsFromJapan
+691,ECON 474,Econmic&PolicyLessonsFromJapan
+691,GLBL 312,Econmic&PolicyLessonsFromJapan
+692,EAST 474,Japanese Screens
+692,HSAR 484,Japanese Screens
+693,EAST 480,One-Term Senior Essay
+694,EAST 492,Senior Research Project
+695,EAST 531,Contemporary Chinese Art
+695,HSAR 531,Contemporary Chinese Art
+697,EAST 900,Master’s Thesis
+698,EAST 910,Independent Study
+699,ECON 002,Social Issues in America
+700,ECON 108,QuantitativeFoundatnsMicroecon
+701,ECON 110,Intro Microeconomic Analysis
+702,ECON 111,Intro Macroeconomic Analysis
+703,ECON 115,Introductory Microeconomics
+704,ECON 116,Introductory Macroeconomics
+705,ECON 117,IntroDataAnalysis&Econometrics
+706,ECON 121,Intermediate Microeconomics
+707,ECON 122,Intermediate Macroeconomics
+708,ECON 123,IntmdDataAnalysis&Econometrics
+709,ECON 126,Macroeconomic Theory
+710,ECON 136,Econometrics
+711,ECON 159,Game Theory
+711,GLBL 159,Game Theory
+711,GLBL 659,Game Theory
+713,ECON 182,American Economic History
+713,HIST 135,American Economic History
+714,ECON 184,International Economics
+714,GLBL 234,International Economics
+715,ECON 252,Financial Markets
+716,ECON 301,Intl Trade: Data & Analysis
+717,ECON 325,Econ of Developing Countries
+717,EP&E 321,Econ of Developing Countries
+717,GLBL 322,Econ of Developing Countries
+717,PLSC 185,Econ of Developing Countries
+717,SAST 281,Econ of Developing Countries
+718,ECON 326,Economic Development
+719,ECON 339,Competition Economics & Policy
+719,LAW 21154,Competition Economics & Policy
+719,MGT 589,Competition Economics & Policy
+720,ECON 351,Mathematical Econ: Game Theory
+721,ECON 360,Capital Markets
+721,LAW 21764,Capital Markets
+721,MGT 947,Capital Markets
+722,ECON 361,Corporate Finance
+722,MGT 541,Corporate Finance
+725,ECON 375,Monetary Policy
+725,GLBL 219,Monetary Policy
+726,ECON 403,Trade and Development
+726,GLBL 332,Trade and Development
+727,ECON 409,"Firms, Markets, & Competition"
+728,ECON 410,The Economics of Innovation
+729,ECON 411,Economics of Uncertainty &Info
+730,ECON 416,Labor Economics
+731,ECON 429,Data Analysis and Strategy
+732,ECON 433,The Economics of Space
+733,ECON 439,Macro and Finance Forecasting
+734,ECON 445,The U.S. Banking System
+735,ECON 447,Networks and Development
+736,ECON 449,Economic Analysis of Conflict
+736,EP&E 244,Economic Analysis of Conflict
+736,PLSC 374,Economic Analysis of Conflict
+737,ECON 457,Institutional Design & Change
+737,EP&E 221,Institutional Design & Change
+738,ECON 458,The Economics of Population
+739,ECON 461,EconmicsAddiction&PublicPolicy
+739,HPM 590,EconmicsAddiction&PublicPolicy
+741,ECON 465,Debating Globalization
+741,EP&E 224,Debating Globalization
+741,GLBL 330,Debating Globalization
+742,ECON 470,Strategies for Development
+742,EP&E 232,Strategies for Development
+742,GLBL 233,Strategies for Development
+742,GLBL 633,Strategies for Development
+742,MGT 607,Strategies for Development
+743,ECON 471,Cooperative Game Theory
+743,EP&E 297,Cooperative Game Theory
+744,ECON 473,Equality
+744,EP&E 227,Equality
+744,PLSC 343,Equality
+746,ECON 477,Topics: Economics of Education
+747,ECON 492,The Senior Essay
+748,ECON 499,Directed Reading
+749,ECON 501,Gen Econ Theory:Microeconomics
+750,ECON 511,Gen Econ Theory:Macroeconomics
+751,ECON 521,Adv Microeconomic Theory II
+752,ECON 523,Micro Theory Lunch
+753,ECON 526,Adv Macroeconomics II
+754,ECON 528,Continuous-Time Macroeconomics
+755,ECON 531,Mathematical Economics II
+756,ECON 538,Microeconomic Theory Workshop
+757,ECON 541,StudentsWrkshpMacroeconomics
+758,ECON 543,Macroeconomics Workshop
+759,ECON 551,Econometrics II
+760,ECON 552,Econometrics III
+761,ECON 553,Time Series Econometrics
+762,ECON 554,Econometrics V
+763,ECON 559,Development Econometrics (IDE)
+764,ECON 568,Econometrics Workshop
+765,ECON 581,American Economic History
+766,ECON 601,Industrial Organization II
+767,ECON 607,ProspectusWrkshpIndustrialOrgz
+768,ECON 609,IndustrialOrganizationSeminar
+769,ECON 631,Labor Economics
+770,ECON 640,LaborPublicEconProspectusWrksp
+771,ECON 671,Financial Economics II
+772,ECON 672,Behavioral Finance
+772,MGMT 745,Behavioral Finance
+773,ECON 674,Financial Crises
+773,MGMT 746,Financial Crises
+774,ECON 676,Empirical Corporate Finance
+774,MGMT 748,Empirical Corporate Finance
+775,ECON 677,Theoretical Corporate Finance
+775,MGMT 742,Theoretical Corporate Finance
+776,ECON 679,Finance Lunch
+777,ECON 681,Public Finance II
+778,ECON 707,ProspectusWrkshp/IntrntnlEcon
+779,ECON 721,International Trade II
+780,ECON 728,Workshop: International Trade
+781,ECON 731,Economic Development II
+782,ECON 732,Advanced Development Economics
+783,ECON 756,ProspectusWorkshopInDevelopmt
+784,ECON 790,Empirical Political Economy
+784,PLSC 725,Empirical Political Economy
+785,EDST 107,Being Human in STEM
+785,MB&B 107,Being Human in STEM
+785,PHYS 107,Being Human in STEM
+788,EDST 160,Social Psychology
+788,PSYC 150,Social Psychology
+790,EDST 180,Abnormal Psychology
+790,PSYC 180,Abnormal Psychology
+792,EDST 223,Theory&PracticeCivicEducation
+792,PLSC 223,Theory&PracticeCivicEducation
+793,EDST 225,"Child Care, Society, Policy"
+794,EDST 230,Amer Education & the Law
+795,EDST 240,"Cities, Suburbs & SchoolChoice"
+795,SOCY 396,"Cities, Suburbs & SchoolChoice"
+796,EDST 261,Colloquium
+798,EDST 328,Learning in School Children
+798,PSYC 328,Learning in School Children
+800,EDST 377,Psychopathology and the Family
+800,PSYC 477,Psychopathology and the Family
+801,EDST 410,Senior Colloquium and Project
+802,EDST 478,"Music, Service, and Society"
+802,MUS 578,"Music, Service, and Society"
+802,MUSI 452,"Music, Service, and Society"
+803,EDST 490,Senior Essay Independent Study
+804,EENG 201,Intro to Computer Engineering
+805,EENG 203,Circuits and Systems Design
+806,EENG 236,Special Projects
+808,EENG 310,Signals and Systems
+810,EENG 400,Electronic Materials
+810,ENAS 509,Electronic Materials
+812,EENG 406,Photovoltaic Energy
+812,ENAS 806,Photovoltaic Energy
+813,EENG 408,CMOS Devices and Beyond
+814,EENG 434,Stochastic Processes
+814,ENAS 502,Stochastic Processes
+814,MATH 251,Stochastic Processes
+814,S&DS 351,Stochastic Processes
+814,S&DS 551,Stochastic Processes
+817,EENG 455,NtwrkAlgrthms&StchstcOptmztn
+817,ENAS 963,NtwrkAlgrthms&StchstcOptmztn
+818,EENG 469,Advanced Special Projects
+819,EENG 472,SeniorAdvancedSpecialProjects
+820,EENG 481,Advanced ABET Projects
+821,EGYP 120,ClassclHieroglyphicEgyptn II
+821,EGYP 501,ClassclHieroglyphicEgyptn II
+822,EGYP 127,Elementary Biblical Coptic II
+822,EGYP 520,Elementary Biblical Coptic II
+823,EGYP 135,Egyptian Coffin Texts
+823,EGYP 590,Egyptian Coffin Texts
+824,EGYP 599,Directed Readings: Egyptology
+825,EHS 503,Public Health Toxicology
+825,F&ES 896,Public Health Toxicology
+826,EHS 508,Environ & Occ Exposure Sci
+826,F&ES 897,Environ & Occ Exposure Sci
+827,EHS 511,Principles of Risk Assessment
+827,F&ES 893,Principles of Risk Assessment
+828,EHS 526,Seminar in EHS
+829,EHS 531,Meta-research: Eval & Improv
+830,EHS 545,Molecular Epidemiology
+831,EHS 562,Apps of -Omics Tech in PH
+832,EHS 567,Fundamentals Green Eng & Cem
+832,F&ES 771,Fundamentals Green Eng & Cem
+833,EHS 568,Intro to GIS for Public Health
+834,EHS 573,Epi Issues in Occ and Env Med
+835,EHS 600,Directed Readings EHS
+836,EHS 610,Appl Area Readings for Q Exams
+837,EHS 620,Res Rotation in EHS (PhD Only)
+838,ELP 504,Speaking Fluently 1
+839,ELP 506,Academic Writing
+840,ELP 507,Academic Writing 2
+841,ELP 508,Pronunciation 1
+842,ELP 514,Speaking Fluently 2
+843,ELP 515,Teaching in the Amer Classroom
+844,ELP 524,Pro Communications Skills
+845,EMD 518,Infectious Diseases II
+846,EMD 526,Seminar in EMD
+847,EMD 530,Health Care Epidemiology
+848,EMD 531,Genomic Epi of Inf Diseases
+849,EMD 535,Rethinking Urban Sanitation
+849,ENVE 420,Rethinking Urban Sanitation
+849,F&ES 639,Rethinking Urban Sanitation
+850,EMD 536,Investigation Disease Outbreak
+851,EMD 539,Intro PH Surveillance
+853,EMD 553,Transmission Dynamic Models
+854,EMD 563,Lab & Field Studies in Inf Dis
+855,EMD 566,Critical Issues in GH
+855,HPM 566,Critical Issues in GH
+856,EMD 582,Political Epidemiology
+856,EP&E 314,Political Epidemiology
+856,GLBL 716,Political Epidemiology
+857,EMD 584,AdvGlblHealthJusticePracticum
+857,LAW 30184,AdvGlblHealthJusticePracticum
+857,SBS 584,AdvGlblHealthJusticePracticum
+858,EMD 671,Advanced Research Laboratories
+862,ENAS 130,ComputngForEngneers&Scientists
+865,ENAS 220,PhysicsMusic&InstrumentDesign
+865,MUSI 187,PhysicsMusic&InstrumentDesign
+865,PHYS 118,PhysicsMusic&InstrumentDesign
+866,ENAS 360,GreenEngneerng&SustainblDesign
+866,ENAS 660,GreenEngneerng&SustainblDesign
+866,ENVE 360,GreenEngneerng&SustainblDesign
+866,F&ES 885,GreenEngneerng&SustainblDesign
+868,ENAS 500,Mathematical Methods I
+870,ENAS 508,Resp.Conduct of Research - BME
+872,ENAS 514,Real Analysis
+872,MATH 305,Real Analysis
+873,ENAS 517,Mthds&LgcInterdisciplinryRsrch
+873,MB&B 517,Mthds&LgcInterdisciplinryRsrch
+873,MCDB 517,Mthds&LgcInterdisciplinryRsrch
+873,PHYS 517,Mthds&LgcInterdisciplinryRsrch
+874,ENAS 519,ResponsibleConduct of Research
+885,ENAS 600,Computer-Aided Engineering
+885,MENG 400,Computer-Aided Engineering
+886,ENAS 602,Chemical Reaction Engineering
+887,ENAS 609,Nanotechnology for Energy
+888,ENAS 640,Aquatic Chemistry
+888,EVST 344,Aquatic Chemistry
+888,F&ES 344,Aquatic Chemistry
+889,ENAS 642,Envir PhysioChemical Processes
+892,ENAS 787,Forces on the Nanoscale
+892,MENG 464,Forces on the Nanoscale
+895,ENAS 848,Soft Condensed Matter Physics
+895,PHYS 528,Soft Condensed Matter Physics
+900,ENAS 990,Special Investigations
+901,ENAS 994,Mechatronics Laboratory
+901,MENG 390,Mechatronics Laboratory
+902,ENGL 023,Recent American Short Fiction
+902,HUMS 072,Recent American Short Fiction
+904,ENGL 030,Fantasy in Literature and Film
+904,HUMS 083,Fantasy in Literature and Film
+905,ENGL 114,Writing Seminars
+906,ENGL 115,Literature Seminars
+907,ENGL 120,Reading & Writing Modern Essay
+908,ENGL 121,Styles of Acad & Prof Prose
+909,ENGL 125,English Poetry I
+910,ENGL 126,English Poetry II
+911,ENGL 127,American Literature
+912,ENGL 128,World English Literatures
+913,ENGL 130,Epic in European Lit Tradition
+913,LITR 169,Epic in European Lit Tradition
+914,ENGL 149,History of English Language
+914,LING 109,History of English Language
+915,ENGL 159,Global Shakespeares
+915,HUMS 213,Global Shakespeares
+915,LITR 339,Global Shakespeares
+915,THST 262,Global Shakespeares
+916,ENGL 160,Milton
+917,ENGL 163,"Vampires, Castles, Werewolves"
+917,WGSS 163,"Vampires, Castles, Werewolves"
+919,ENGL 202,Medieval Women Writers
+919,LITR 176,Medieval Women Writers
+919,WGSS 171,Medieval Women Writers
+920,ENGL 214,Introduction to Dramaturgy
+920,THST 207,Introduction to Dramaturgy
+922,ENGL 223,Blake and Milton
+922,HSAR 479,Blake and Milton
+923,ENGL 232,Native American Print
+927,ENGL 240,Reporting and Writing on War
+927,GLBL 349,Reporting and Writing on War
+930,ENGL 261,18th-Century Prose
+931,ENGL 264,Forgery and the Authentic
+931,HIST 405J,Forgery and the Authentic
+932,ENGL 272,The Gilded Age to the Cold War
+932,HIST 105J,The Gilded Age to the Cold War
+932,HUMS 352,The Gilded Age to the Cold War
+933,ENGL 275,"Emerson, Dickinson, & Melville"
+934,ENGL 284,Modernity: The Crisis of Value
+934,HUMS 288,Modernity: The Crisis of Value
+934,LITR 246,Modernity: The Crisis of Value
+935,ENGL 287,Lit & the Future 1887-Present
+936,ENGL 288,Modern Poetry
+937,ENGL 290,The Canon in the Colony
+937,LITR 261,The Canon in the Colony
+938,ENGL 294,Novels of Education
+939,ENGL 302,Chaucer
+940,ENGL 305,Shakespeare and Religion
+941,ENGL 312,Victorian Poetry
+942,ENGL 318,"Byron, Shelley, & Keats"
+942,ENGL 756,"Byron, Shelley, & Keats"
+945,ENGL 357,Latinx Cultural Politics
+945,ER&M 357,Latinx Cultural Politics
+946,ENGL 358,Literature for Young People
+948,ENGL 379,Ulysses and Omeros
+949,ENGL 395,The Bible as a Literature
+949,HUMS 380,The Bible as a Literature
+949,LITR 154,The Bible as a Literature
+950,ENGL 404,Reading Fiction for Craft
+951,ENGL 407,Intro to Writing Fiction
+952,ENGL 408,Introduction to Writing Poetry
+953,ENGL 411,American Horror Stories
+954,ENGL 423,Writing about Performing Arts
+954,FILM 397,Writing about Performing Arts
+954,THST 228,Writing about Performing Arts
+955,ENGL 425,Writing for Television
+956,ENGL 428,Young Adult Writing
+957,ENGL 429,Writing Humor
+958,ENGL 432,Writing about Food
+960,ENGL 447,Shakespeare's Craft
+961,ENGL 450,Daily Themes
+962,ENGL 455,Writing about Oneself
+964,ENGL 460,Advanced Poetry Writing
+965,ENGL 462,Writing Screenplay Adaptations
+965,FILM 401,Writing Screenplay Adaptations
+965,THST 453,Writing Screenplay Adaptations
+966,ENGL 465,Advanced Fiction Writing
+967,ENGL 473,The Journalism of Ideas
+968,ENGL 478,Writing about Place
+969,ENGL 481,Advanced Playwriting
+969,THST 322,Advanced Playwriting
+970,ENGL 487,Tutorial in Writing
+971,ENGL 488,SpecialProjcts:Juniors/Seniors
+972,ENGL 489,WritingConcentrationSeniorProj
+973,ENGL 490,The Senior Essay I
+974,ENGL 491,The Senior Essay II
+975,ENGL 588,Material Texts
+981,ENGL 973,Modernity & the Time of Lit
+981,FILM 973,Modernity & the Time of Lit
+982,ENGL 979,Ekphrasis and Art Criticism
+982,FREN 668,Ekphrasis and Art Criticism
+982,HSAR 668,Ekphrasis and Art Criticism
+983,ENGL 980,Criticism and the Commons
+985,ENGL 995,Directed Reading
+986,ENRG 400,Senior Capstone Seminar
+992,ENVE 490,Senior Project
+993,EP&E 215,ClassicsOfEthicsPolitics&Econ
+998,EP&E 241,Religion and Politics
+998,PLSC 415,Religion and Politics
+998,SOCY 172,Religion and Politics
+1000,EP&E 248,AmericanPoliticalInstitutions
+1000,PLSC 256,AmericanPoliticalInstitutions
+1001,EP&E 253,Comparative Political Economy
+1001,PLSC 398,Comparative Political Economy
+1001,PLSC 712,Comparative Political Economy
+1004,EP&E 315,Constitutionalism
+1004,PLSC 317,Constitutionalism
+1006,EP&E 324,"Journalism,Liberalsm,Democracy"
+1006,PLSC 244,"Journalism,Liberalsm,Democracy"
+1007,EP&E 325,Business Ethics and Law
+1007,PLSC 304,Business Ethics and Law
+1008,EP&E 328,YData: Science for Politics
+1008,PLSC 347,YData: Science for Politics
+1008,PLSC 524,YData: Science for Politics
+1008,S&DS 172,YData: Science for Politics
+1008,S&DS 572,YData: Science for Politics
+1009,EP&E 334,Normative Ethics
+1009,PHIL 455,Normative Ethics
+1009,PHIL 655,Normative Ethics
+1010,EP&E 339,The Ethics of Journalism
+1010,PLSC 273,The Ethics of Journalism
+1011,EP&E 344,Business & Ethics in S Africa
+1012,EP&E 347,Business Ethics Global Context
+1013,EP&E 353,Critique of Political Violence
+1013,PLSC 305,Critique of Political Violence
+1014,EP&E 420,"Leadership,Ethics & EconCrisis"
+1014,PLSC 243,"Leadership,Ethics & EconCrisis"
+1015,EP&E 421,Ethics and the Law
+1015,PLSC 320,Ethics and the Law
+1016,EP&E 471,Directed Reading and Research
+1017,EP&E 477,Topics in Economic Sociology
+1017,SOCY 321,Topics in Economic Sociology
+1017,SOCY 516,Topics in Economic Sociology
+1018,EP&E 478,The Problem of Evil
+1018,PHIL 450,The Problem of Evil
+1018,PHIL 650,The Problem of Evil
+1019,EP&E 491,The Senior Essay
+1021,EP&E 497,Politics of the Environment
+1021,EVST 247,Politics of the Environment
+1021,PLSC 219,Politics of the Environment
+1022,EPH 101,Professional Skills Series
+1023,EPH 500,Public Health Practicum
+1024,EPH 513,Major Health Threats
+1025,EPH 525,The Thesis
+1026,EPH 542,Practice Based Comm Hlth Res
+1027,EPH 555,ClinicClimateJusticeSustainPH
+1027,F&ES 959,ClinicClimateJusticeSustainPH
+1028,EPH 556,HC Env Sustainability Practic
+1028,F&ES 956,HC Env Sustainability Practic
+1029,EPH 557,Ev-Based Decision-Making in GH
+1030,EPH 581,Seminar for Modeling in PH
+1031,EPH 608,Frontiers of Public Health
+1035,ER&M 263,Eastern Europe since 1914
+1035,HIST 264,Eastern Europe since 1914
+1035,RSEE 268,Eastern Europe since 1914
+1037,ER&M 293,History and Culture of Cuba
+1037,HIST 393J,History and Culture of Cuba
+1037,LAST 293,History and Culture of Cuba
+1038,ER&M 300,Comparative Ethnic Studies
+1040,ER&M 315,"Islam, Race, & Atlantic World"
+1042,ER&M 333,Mexico and the Migratory Lyric
+1044,ER&M 345,Intro to LatinAmerican History
+1044,HIST 325,Intro to LatinAmerican History
+1044,LAST 325,Intro to LatinAmerican History
+1051,ER&M 376,Extreme and Radical Right
+1051,MGRK 304,Extreme and Radical Right
+1051,PLSC 376,Extreme and Radical Right
+1051,SOCY 307,Extreme and Radical Right
+1053,ER&M 401,Public Writing
+1054,ER&M 416,Revenge in World Literature
+1054,GMAN 411,Revenge in World Literature
+1054,HUMS 342,Revenge in World Literature
+1054,JDST 327,Revenge in World Literature
+1054,LITR 406,Revenge in World Literature
+1056,ER&M 436,Resistance and Imperialism
+1056,HIST 336J,Resistance and Imperialism
+1056,LAST 336,Resistance and Imperialism
+1058,ER&M 472,IndivReading&Research: Jrs&Srs
+1059,ER&M 492,The Senior Essay or Project
+1062,EVST 189,The History of Food
+1062,HIST 246,The History of Food
+1063,EVST 205,The Human Population Explosion
+1064,EVST 211,Global Catastrophe since 1750
+1064,G&G 211,Global Catastrophe since 1750
+1064,HIST 416,Global Catastrophe since 1750
+1064,HSHM 211,Global Catastrophe since 1750
+1066,EVST 227,Energy & Env Policy Solutions
+1068,EVST 255,Environmental Law & Politics
+1068,F&ES 255,Environmental Law & Politics
+1068,GLBL 282,Environmental Law & Politics
+1068,PLSC 215,Environmental Law & Politics
+1069,EVST 265,Environmental Geomicrobiology
+1069,G&G 255,Environmental Geomicrobiology
+1070,EVST 285,Political Ecology
+1070,F&ES 285,Political Ecology
+1070,F&ES 615,Political Ecology
+1071,EVST 290,Geographic Information Systems
+1071,F&ES 290,Geographic Information Systems
+1072,EVST 305,Environmental Security
+1072,GLBL 301,Environmental Security
+1072,GLBL 505,Environmental Security
+1072,MMES 305,Environmental Security
+1075,EVST 368,Earth History–Noah to Darwin
+1075,HIST 491J,Earth History–Noah to Darwin
+1075,HSHM 479,Earth History–Noah to Darwin
+1075,RLST 368,Earth History–Noah to Darwin
+1079,EVST 431,Climate Change
+1079,F&ES 630,Climate Change
+1082,EVST 496,SeniorResearchProj&Colloquium
+1083,F&ES 1010,Independent Study
+1084,F&ES 1020,Independent Study
+1085,F&ES 1147,Independent Study
+1086,F&ES 1153,Independent Study
+1087,F&ES 1180,Independent Study
+1088,F&ES 1185,Independent Study
+1089,F&ES 1200,Independent Study
+1090,F&ES 1243,Independent Study
+1091,F&ES 1320,Independent Study
+1092,F&ES 1363,Independent Study
+1093,F&ES 1420,Independent Study
+1094,F&ES 1470,Independent Study
+1095,F&ES 1473,Independent Study
+1096,F&ES 1500,Independent Study
+1097,F&ES 2072,Master's Project
+1098,F&ES 2110,Master's Project
+1099,F&ES 2120,Master's Project
+1100,F&ES 2140,Master's Project
+1101,F&ES 2153,Master's Project
+1102,F&ES 2175,Master's Project
+1103,F&ES 2200,Master's Project
+1104,F&ES 2210,Master's Project
+1105,F&ES 2261,Master's Project
+1109,F&ES 3020,MESc/MFS Research Thesis
+1110,F&ES 3040,MESc/MFS Research Thesis
+1111,F&ES 3072,MESc/MFS Research Thesis
+1112,F&ES 3110,MESc/MFS Research Thesis
+1113,F&ES 3140,MESc/MFS Research Thesis
+1114,F&ES 3158,MESc/MFS Research Thesis
+1115,F&ES 3175,MESc/MFS Research Thesis
+1116,F&ES 3185,MESc/MFS Research Thesis
+1117,F&ES 3195,MESc/MFS Research Thesis
+1118,F&ES 3260,MESc/MFS Research Thesis
+1119,F&ES 3261,MESc/MFS Research Thesis
+1120,F&ES 3320,MESc/MFS Research Thesis
+1121,F&ES 3400,MESc/MFS Research Thesis
+1122,F&ES 3420,MESc/MFS Research Thesis
+1124,F&ES 3469,MESc/MFS Research Thesis
+1125,F&ES 4000,MESc/MFS Thesis
+1126,F&ES 577,PSC: Env. Communicator
+1127,F&ES 584,AgriculturalClimateChngMitigat
+1129,F&ES 595,Yale Environment Review
+1130,F&ES 603,EnviroDataVisualization&Comm
+1132,F&ES 613,Writing as a Public Scholar
+1133,F&ES 624,Economics of Sustainability
+1134,F&ES 625,Writing Workshop
+1136,F&ES 632,Intro: Social Entrepreneurship
+1136,GLBL 612,Intro: Social Entrepreneurship
+1136,MGT 612,Intro: Social Entrepreneurship
+1137,F&ES 634,Ecology of Global Drylands
+1138,F&ES 635,RenewableEnergyProjFinance
+1138,MGT 683,RenewableEnergyProjFinance
+1139,F&ES 637,CommodityProduction&EnvHistory
+1139,HIST 818,CommodityProduction&EnvHistory
+1141,F&ES 642,EnvironJustice/ClimateJustice
+1141,LAW 21161,EnvironJustice/ClimateJustice
+1142,F&ES 653,Maple: From Tree to Table
+1143,F&ES 656,Tree Physiology &Ecophysiology
+1144,F&ES 659,The Practice of Silviculture
+1145,F&ES 668,FTin ForestResourcesMGMT&SIlvi
+1146,F&ES 669,ForestMgmtOpsProfForesters
+1147,F&ES 670,SouthrnForest&ForestyFieldTrip
+1148,F&ES 683,Tropical Forest Restoration
+1149,F&ES 688,ForestedMgmt&LandscapePlanning
+1150,F&ES 694,"Ecol,Econ&PoliticsSpeciesInvas"
+1151,F&ES 700,"Alpine,Arctic&BorealEcosystems"
+1152,F&ES 709,Soil Science
+1153,F&ES 710,Coastal Governance
+1154,F&ES 712,Water Management
+1155,F&ES 714,Environmental Hydrology
+1156,F&ES 716,Renewable Energy
+1156,G&G 275,Renewable Energy
+1157,F&ES 717,Tropical Field Ecology
+1158,F&ES 718,Climate Change Seminar
+1161,F&ES 742,Fundamentals Working w/ People
+1162,F&ES 743,StrategicEnvironmentalCommunic
+1163,F&ES 744,Conserv Science&Landscape Plan
+1164,F&ES 751,Sampling Methodology&Practice
+1165,F&ES 755,Modeling Geographic Space
+1166,F&ES 757,Data Exploration and Analysis
+1166,PLSC 530,Data Exploration and Analysis
+1166,S&DS 230,Data Exploration and Analysis
+1166,S&DS 530,Data Exploration and Analysis
+1167,F&ES 758,MultivariateStats forSocialSci
+1167,S&DS 363,MultivariateStats forSocialSci
+1167,S&DS 563,MultivariateStats forSocialSci
+1168,F&ES 760,Conserv Practi:Int'l Perspect
+1169,F&ES 761,NegotiatingIntlAgrmtsClimChang
+1169,LAW 21548,NegotiatingIntlAgrmtsClimChang
+1170,F&ES 764,NatureRationality&MoralPolitic
+1171,F&ES 766,PaymentEcosystemServicesProgms
+1172,F&ES 767,ToolsConservProjectPlanning
+1173,F&ES 769,PublicLand&Policy:AmericanWest
+1175,F&ES 781,Applied Spatial Statistics
+1175,S&DS 674,Applied Spatial Statistics
+1177,F&ES 789E,Journey of the Universe
+1177,REL 912H,Journey of the Universe
+1179,F&ES 796,Human-Animal Relations
+1180,F&ES 799,Sustain Dvlp Goals & Implement
+1181,F&ES 805,Sem:Env&NaturalResourceEcon
+1182,F&ES 811,MetricsTools&IndicatrsCorpResp
+1182,MGT 566,MetricsTools&IndicatrsCorpResp
+1183,F&ES 814,Energy System Analysis
+1183,MGT 563,Energy System Analysis
+1184,F&ES 819,StrategiesforLandConservation
+1184,MGT 686,StrategiesforLandConservation
+1185,F&ES 820,LandUseLaw&EnvPlanning
+1186,F&ES 822,Strategic Communication
+1186,MGT 553,Strategic Communication
+1187,F&ES 834,Environmental Economics&Policy
+1188,F&ES 835E,Land Use Planning (Online)
+1189,F&ES 838,EnvProductLife-CycleAssessment
+1190,F&ES 839,SocScienceofConserv&Develop
+1191,F&ES 846,Perspectives Env. Injustices
+1192,F&ES 857,Environ Hist & Values
+1192,REL 906H,Environ Hist & Values
+1194,F&ES 877,AnthropologyGlobalEconDvlp&Con
+1195,F&ES 884,Industrial Ecology
+1200,F&ES 902,Env. Anthropology Research Lab
+1201,F&ES 905,Doc Sem in Environ Economics
+1202,F&ES 910,SurvivalSkills:DoctoralStudent
+1203,F&ES 951,"Policy,Politics&Public Lands"
+1204,F&ES 953,Business & Environment Clinic
+1205,F&ES 955,ResearchAnalysis&CommForestEco
+1208,F&ES 964,Large-Scale Conservation
+1209,F&ES 970,Environmental ProtectionClinic
+1209,LAW 30164,Environmental ProtectionClinic
+1210,F&ES 971,Land Use Clinic
+1211,F&ES 972,AdvEnvironmentalProtectClinic
+1211,LAW 30165,AdvEnvironmentalProtectClinic
+1212,F&ES 975,Environmental Justice Capstone
+1212,LAW 30187,Environmental Justice Capstone
+1213,F&ES 979,Capstone:Sub-national Playbook
+1214,F&ES 981,ClimateAnimalFoodEnvironPolLab
+1214,LAW 30241,ClimateAnimalFoodEnvironPolLab
+1215,F&ES 983,Water Resource Science & Mgmt
+1216,F&ES 984,Energy&ClimateChngPolicyPract
+1217,F&ES 985,Capstone:UrbanSuburbanRegPlan
+1218,F&ES 999,Directed Research-Doctoral
+1219,FILM 150,Introduction to Film Studies
+1222,FILM 317,Comparative New Wave Studies
+1222,LITR 370,Comparative New Wave Studies
+1222,MMES 317,Comparative New Wave Studies
+1224,FILM 330,The Screenwriter's Craft
+1227,FILM 350,Screenwriting
+1230,FILM 395,Intermediate Screenwriting
+1232,FILM 400,Global Silent Cinema
+1232,HSAR 413,Global Silent Cinema
+1234,FILM 403,Scared to Death: Fear & Media
+1235,FILM 411,The Films of Alfred Hitchcock
+1235,LITR 380,The Films of Alfred Hitchcock
+1238,FILM 442,The City in Literature & Film
+1238,LITR 403,The City in Literature & Film
+1238,RUSS 403,The City in Literature & Film
+1242,FILM 457,Ital Film:Postwar to Postmodrn
+1242,ITAL 303,Ital Film:Postwar to Postmodrn
+1242,LITR 359,Ital Film:Postwar to Postmodrn
+1243,FILM 471,Independent Directed Study
+1245,FILM 485,Global Film and Media Concepts
+1245,FILM 885,Global Film and Media Concepts
+1245,SLAV 385,Global Film and Media Concepts
+1246,FILM 488,Advanced Screenwriting
+1247,FILM 492,The Senior Essay
+1248,FILM 494,The Senior Project
+1249,FILM 604,The Film Archive
+1250,FILM 778,Russian Lit&Film in 1920s&30s
+1250,RUSS 695,Russian Lit&Film in 1920s&30s
+1254,FREN 096,Women's Self-Narratives
+1255,FREN 120,Elementary&Intermed French II
+1256,FREN 130,Intermediate&AdvancedFrench I
+1257,FREN 140,Intermed & Advanced French II
+1258,FREN 145,Intensive Intermed& Adv French
+1259,FREN 150,Advanced Language Practice
+1260,FREN 160,Advanced Culture& Conversation
+1261,FREN 170,Intro Study of French Lit
+1262,FREN 182,Creative Writing Workshop
+1263,FREN 184,Business French
+1264,FREN 192,IntermediatLiteraryTranslation
+1265,FREN 240,The Modern French Novel TR
+1265,HUMS 201,The Modern French Novel TR
+1265,LITR 214,The Modern French Novel TR
+1266,FREN 307,France by Rail
+1266,LITR 302,France by Rail
+1267,FREN 366,Writer&Artist inParis1780-1914
+1267,HSAR 251,Writer&Artist inParis1780-1914
+1268,FREN 368,Reasoning with Voltaire
+1270,FREN 388,FeminineVoices in FrenchLit TR
+1270,HUMS 162,FeminineVoices in FrenchLit TR
+1271,FREN 391,Fake News and True Stories
+1274,FREN 491,The Senior Essay
+1277,FREN 903,Theories of Marie-Antoinette
+1282,G&G 126L,Lab for the History of Life
+1284,G&G 212,Global Tectonics
+1285,G&G 216,GlobalWarming: Climate Physics
+1286,G&G 220,Petrology and Mineralogy
+1287,G&G 232,Earth Surface Processes
+1289,G&G 270,Herpetology
+1291,G&G 301,Introduction to Geochemistry
+1292,G&G 310,Isotope Geochemistry
+1292,G&G 510,Isotope Geochemistry
+1293,G&G 322,Physics of Weather and Climate
+1293,G&G 522,Physics of Weather and Climate
+1294,G&G 326,IntroToEarth&PlanetaryPhysics
+1294,G&G 526,IntroToEarth&PlanetaryPhysics
+1296,G&G 402,Paleoclimates
+1296,G&G 602,Paleoclimates
+1297,G&G 421,Geophysical Fluid Dynamics
+1297,G&G 521,Geophysical Fluid Dynamics
+1298,G&G 487,Individual Study: Geol&Geophys
+1299,G&G 491,Research and Senior Thesis
+1300,G&G 492,The Senior Essay
+1301,G&G 529,Intro to Geodynamics
+1303,G&G 645,Paleoecology
+1304,G&G 715,Tropical Climate Dynamics
+1305,G&G 744,Sem in Mantle & CoreProccesses
+1306,G&G 757,Studies in Global Geoscience
+1307,G&G 775,Sem:Lithosphere&SurfaceProcess
+1308,G&G 789,CurrTopicsMetamorphicProcesses
+1309,G&G 840,Tutorial in Sedimentology
+1310,G&G 920,Research in Rock Mechanics
+1312,GENE 676,Graduate Student Seminar
+1313,GENE 734,Molecular BiologyAnimalViruses
+1313,MB&B 734,Molecular BiologyAnimalViruses
+1313,MBIO 734,Molecular BiologyAnimalViruses
+1314,GENE 743,AdvEukaryoticMolecularBiology
+1314,MB&B 443,AdvEukaryoticMolecularBiology
+1314,MB&B 743,AdvEukaryoticMolecularBiology
+1314,MCDB 743,AdvEukaryoticMolecularBiology
+1315,GENE 760,GenomicMethodsGeneticAnalysis
+1316,GENE 777,Mechanisms of Development
+1316,MCDB 677,Mechanisms of Development
+1319,GENE 921,Readings Genetics&MoleculrBiol
+1320,GLBL 122,Applied Quant Analysis II
+1322,GLBL 193,Epidemiology & Public Health
+1322,HLTH 240,Epidemiology & Public Health
+1323,GLBL 195,Logic of Experiments
+1323,PLSC 341,Logic of Experiments
+1326,GLBL 223,GlobalHealthChallengs&Response
+1326,HLTH 230,GlobalHealthChallengs&Response
+1327,GLBL 225,ApproachesInternatlDevelopment
+1331,GLBL 236,Politics of Int'l Cooperation
+1331,PLSC 182,Politics of Int'l Cooperation
+1333,GLBL 268,Intro International Relations
+1333,PLSC 111,Intro International Relations
+1334,GLBL 274,Terrorism
+1334,PLSC 137,Terrorism
+1336,GLBL 284,MassAtrocitiesGlobalPolitics
+1336,PLSC 167,MassAtrocitiesGlobalPolitics
+1337,GLBL 288,Civil-Military Relations
+1338,GLBL 289,War and Peace in N Ireland
+1338,HIST 245J,War and Peace in N Ireland
+1338,PLSC 431,War and Peace in N Ireland
+1342,GLBL 315,Economics of the EU
+1346,GLBL 341,The Geopolitics of Democracy
+1346,PLSC 450,The Geopolitics of Democracy
+1347,GLBL 342,Studies in Grand Strategy I
+1347,HIST 482J,Studies in Grand Strategy I
+1347,MGT 984,Studies in Grand Strategy I
+1347,PLSC 321,Studies in Grand Strategy I
+1349,GLBL 355,"USA, China, and Korean Crisis"
+1351,GLBL 381,Strategy
+1351,GLBL 674,Strategy
+1351,PLSC 140,Strategy
+1351,PLSC 674,Strategy
+1352,GLBL 390,"Cybersecurity, Cyberwar & IR"
+1352,GLBL 590,"Cybersecurity, Cyberwar & IR"
+1352,LAW 21023,"Cybersecurity, Cyberwar & IR"
+1353,GLBL 450,Directed Research
+1354,GLBL 460,TurningPointsAmerForeignPolicy
+1355,GLBL 526,EconStratDoingBusDevCountries
+1355,MGT 526,EconStratDoingBusDevCountries
+1356,GLBL 543,Practicum Data Analysis
+1356,MGT 672,Practicum Data Analysis
+1357,GLBL 545,Emotions in Foreign Policy
+1358,GLBL 550,Python for Global Affairs
+1359,GLBL 562,Cyber Ops in US Nat Sec Policy
+1360,GLBL 575,National Security Law
+1361,GLBL 591,Law of the Sea
+1361,LAW 21651,Law of the Sea
+1362,GLBL 594,Intro to Intl & Transntl Law
+1363,GLBL 598,Military Justice
+1363,LAW 21678,Military Justice
+1364,GLBL 601,"Current Issues, Intl.Economics"
+1365,GLBL 604,Conflict: IraqSyriaYemenAfghan
+1366,GLBL 606,Policy Making in US ExecBranch
+1368,GLBL 620,Global Crises Response
+1369,GLBL 624,ContemporaryChinaResearchSem
+1369,LAW 21179,ContemporaryChinaResearchSem
+1370,GLBL 625,Mass Atrocity Warning
+1371,GLBL 635,Business Profit & Purpose
+1372,GLBL 640,Philanthropy & Global Affairs
+1373,GLBL 685,U.S.Policy MiddleEast N.Africa
+1373,LAW 21104,U.S.Policy MiddleEast N.Africa
+1374,GLBL 714,Africa: Business&GlobalGrowth
+1374,MGT 651,Africa: Business&GlobalGrowth
+1376,GLBL 740,WstrnHemi: TrnsntlPolicyAgenda
+1377,GLBL 750,American Power in 21st Century
+1378,GLBL 771,EffStatesWeakStates&Ctzens
+1379,GLBL 773,Chllnges in Reform&Recnstructn
+1380,GLBL 790,Leadership
+1381,GLBL 795,Russian Utilization of PMCs
+1382,GLBL 799,Independent Project
+1383,GLBL 803,PowerShifts:GloblChangeHistory
+1384,GLBL 827,Totalitarianism:IntellctlHstry
+1384,HIST 966,Totalitarianism:IntellctlHstry
+1385,GLBL 833,Counterterrorist Financing
+1387,GLBL 840,Macroeconomics
+1388,GLBL 883,Stability Central&Estrn Europe
+1389,GLBL 885,World Order
+1389,HUMS 316,World Order
+1390,GLBL 930,GlblSocialEntrprneurship:India
+1390,MGT 529,GlblSocialEntrprneurship:India
+1391,GLBL 945,Macroprudential Policy II
+1391,MGT 945,Macroprudential Policy II
+1392,GLBL 999,Directed Reading
+1393,GMAN 051,Game of Thrones
+1393,LITR 024,Game of Thrones
+1394,GMAN 102,Reading Yiddish
+1394,JDST 416,Reading Yiddish
+1395,GMAN 110,Elementary German I
+1396,GMAN 120,Elementary German II
+1397,GMAN 130,Intermediate German I
+1398,GMAN 140,Intermediate German II
+1399,GMAN 145,Intensive German II
+1400,GMAN 151,ExplContempGermanCulture
+1401,GMAN 163,The Afro-German Experience
+1402,GMAN 176,Narratives of the Uncanny
+1404,GMAN 316,The Death Sentence
+1404,HUMS 317,The Death Sentence
+1406,GMAN 373,Resistance
+1406,HIST 455J,Resistance
+1406,HUMS 287,Resistance
+1406,WGSS 347,Resistance
+1408,GMAN 493,The Senior Essay Tutorial
+1412,GMAN 900,Directed Reading
+1413,GREK 120,GreekGrammar Review & Readings
+1414,GREK 125,Intensive Beginning Greek
+1415,GREK 141,Homer: An Introduction
+1416,GREK 443,Homer's Iliad
+1416,GREK 743,Homer's Iliad
+1417,GREK 458,Byzantine Greek
+1417,GREK 758,Byzantine Greek
+1418,HEBR 120,Elementary Modern Hebrew II
+1418,HEBR 501,Elementary Modern Hebrew II
+1419,HEBR 140,Intermediate Modern Hebrew II
+1419,HEBR 503,Intermediate Modern Hebrew II
+1420,HEBR 147,Intermed Biblical Hebrew II
+1421,HEBR 158,Contemp IsraeliSociety in Film
+1421,HEBR 505,Contemp IsraeliSociety in Film
+1421,JDST 305,Contemp IsraeliSociety in Film
+1421,MMES 168,Contemp IsraeliSociety in Film
+1422,HEBR 164,Biblical to Modern Hebrew
+1422,HEBR 563,Biblical to Modern Hebrew
+1422,JDST 417,Biblical to Modern Hebrew
+1422,JDST 695,Biblical to Modern Hebrew
+1422,MMES 167,Biblical to Modern Hebrew
+1423,HEBR 169,In Dialogue: Hebrew & Arabic
+1423,JDST 403,In Dialogue: Hebrew & Arabic
+1423,MMES 162,In Dialogue: Hebrew & Arabic
+1424,HGRN 120,Elementary Hungarian II
+1425,HIST 006,Medicine&SocietyInAmericanHist
+1425,HSHM 005,Medicine&SocietyInAmericanHist
+1428,HIST 055,A History of Modern London
+1429,HIST 078,Truth and Post-Truth
+1430,HIST 081,NationalistMythsModMiddleEast
+1430,MMES 080,NationalistMythsModMiddleEast
+1431,HIST 090,The History of Sport
+1433,HIST 107J,The United States Global 1970s
+1434,HIST 113J,"Women, Gender, and Work"
+1435,HIST 114,History of Reproductive Health
+1435,HSHM 206,History of Reproductive Health
+1438,HIST 120J,NYIntellectualsArgument
+1438,HUMS 387,NYIntellectualsArgument
+1438,PLSC 294,NYIntellectualsArgument
+1439,HIST 123J,Words of Nations
+1441,HIST 128J,Race/DiseaseAmericanMedicine
+1441,HSHM 475,Race/DiseaseAmericanMedicine
+1442,HIST 134J,Yale and America
+1444,HIST 149J,A History of the Border Wall
+1446,HIST 154J,Representative U. S. Politics
+1448,HIST 168J,"Quebec & Canada, 1791-Present"
+1449,HIST 172J,"Crime, Punishment, and Progres"
+1451,HIST 194J,Cit/Race/PubHealth U.S. Hist
+1451,HSHM 424,Cit/Race/PubHealth U.S. Hist
+1453,HIST 205J,Law and Justice in Middle Ages
+1454,HIST 211,"The Birth of Europe, 1000-1500"
+1455,HIST 214J,Modernism in Europe
+1456,HIST 215J,The Art of Biography
+1457,HIST 216J,Eurasian Encounters before1500
+1459,HIST 222J,Russia and the Eurasian Steppe
+1459,RSEE 222,Russia and the Eurasian Steppe
+1461,HIST 228,Vikings
+1462,HIST 230,Jewish Political History
+1463,HIST 231,What was Enlightenment?
+1463,HUMS 277,What was Enlightenment?
+1464,HIST 231J,Collab&ResistanceInVichyFrance
+1465,HIST 233,Eastern Christianities
+1465,RLST 159,Eastern Christianities
+1466,HIST 237J,History of Modern Greece
+1466,MGRK 222,History of Modern Greece
+1467,HIST 239,Britain's Empire
+1469,HIST 244,Cultures of Western Medicine
+1469,HSHM 321,Cultures of Western Medicine
+1472,HIST 260,Tolstoy's War and Peace
+1472,HUMS 255,Tolstoy's War and Peace
+1472,LITR 253,Tolstoy's War and Peace
+1472,RSEE 312,Tolstoy's War and Peace
+1472,RUSS 312,Tolstoy's War and Peace
+1473,HIST 260J,"Sex, Life, and Generation"
+1473,HSHM 468,"Sex, Life, and Generation"
+1475,HIST 276,France Since 1871
+1476,HIST 277J,Memory&History inModern Europe
+1477,HIST 281,"Christian Mysticism, 1200-1700"
+1477,RLST 268,"Christian Mysticism, 1200-1700"
+1478,HIST 287J,Sexual Minorities
+1478,RLST 347,Sexual Minorities
+1478,SOCY 331,Sexual Minorities
+1478,WGSS 291,Sexual Minorities
+1479,HIST 289J,Collecting Nature&Art
+1479,HSAR 399,Collecting Nature&Art
+1479,HSHM 407,Collecting Nature&Art
+1479,HUMS 220,Collecting Nature&Art
+1480,HIST 303,Japan's Modern Revolution
+1485,HIST 322J,"Bodies,Sci&Goods:Mediterranean"
+1485,HSHM 441,"Bodies,Sci&Goods:Mediterranean"
+1488,HIST 330J,Modern Mexico
+1492,HIST 344J,The Middle East Before Oil
+1493,HIST 345,Jews In Muslim Lands 7th-16thC
+1493,HIST 590,Jews In Muslim Lands 7th-16thC
+1493,JDST 265,Jews In Muslim Lands 7th-16thC
+1493,JDST 764,Jews In Muslim Lands 7th-16thC
+1493,MMES 148,Jews In Muslim Lands 7th-16thC
+1493,RLST 202,Jews In Muslim Lands 7th-16thC
+1493,RLST 777,Jews In Muslim Lands 7th-16thC
+1494,HIST 351,The Golden Age of Islam
+1494,MMES 193,The Golden Age of Islam
+1494,RLST 155,The Golden Age of Islam
+1494,RLST 535,The Golden Age of Islam
+1497,HIST 403J,Vaccination in Hist Perspect
+1497,HSHM 473,Vaccination in Hist Perspect
+1500,HIST 419J,Gender and Science
+1500,HSHM 433,Gender and Science
+1500,WGSS 419,Gender and Science
+1501,HIST 428J,Crit Theories Science Religion
+1501,HSHM 477,Crit Theories Science Religion
+1501,HUMS 463,Crit Theories Science Religion
+1501,RLST 437,Crit Theories Science Religion
+1505,HIST 495,The Senior Essay
+1506,HIST 496,The Senior Essay
+1507,HIST 497,One-Term Senior Essay
+1510,HIST 564,The Renaissance beyond Italy
+1510,RNST 501,The Renaissance beyond Italy
+1511,HIST 573,Death and Remembrance
+1511,REL 748,Death and Remembrance
+1512,HIST 591,Jews in Medieval Eur 1200–1500
+1512,JDST 804,Jews in Medieval Eur 1200–1500
+1513,HIST 677,Russia intheAgeofPetertheGreat
+1514,HIST 683,Global History of Estrn Europe
+1524,HIST 760,American Legal History
+1524,LAW 21063,American Legal History
+1527,HIST 813,Liberation Theology in LatinAm
+1527,REL 723,Liberation Theology in LatinAm
+1530,HIST 861,Research in Ottoman History
+1532,HIST 884,Readings History Modern Japan
+1535,HIST 921,Problems in Science Studies
+1535,HSHM 710,Problems in Science Studies
+1536,HIST 925,Visual&MaterialCulturesScience
+1536,HSHM 749,Visual&MaterialCulturesScience
+1537,HIST 931,Problems in History of Science
+1537,HSHM 702,Problems in History of Science
+1539,HIST 943,"HealthPolitics,BodyPolitics"
+1539,HSHM 736,"HealthPolitics,BodyPolitics"
+1539,WGSS 730,"HealthPolitics,BodyPolitics"
+1540,HIST 950,"Workshop, Article Publication"
+1540,HSHM 765,"Workshop, Article Publication"
+1543,HIST 968,Essays Historical Method
+1544,HIST 994,Oral Examination Tutorial
+1545,HIST 995,Prospectus Tutorial
+1546,HIST 998,Directed Reading
+1547,HIST 999,Directed Research
+1548,HLTH 140,Health of the Public
+1548,SOCY 126,Health of the Public
+1552,HLTH 485,Global Health Justice
+1553,HLTH 495,Health Research Topics
+1554,HMRT 100,Human Rights Theory & Politics
+1554,PLSC 148,Human Rights Theory & Politics
+1555,HNDI 120,Elementary Hindi II
+1556,HNDI 140,Intermediate Hindi II
+1557,HNDI 142,Accelerated Hindi II
+1558,HNDI 159,HindiLiterature&PublicCulture
+1559,HPM 514,"Health Politics,Governance&Pol"
+1560,HPM 536,Narratives in Health Media
+1560,MGT 668,Narratives in Health Media
+1561,HPM 542,Health of Women & Children
+1562,HPM 555,Health Policy&Mgmt Practicum
+1563,HPM 560,Health Economics & US Policy
+1565,HPM 573,Adv Top-Modeling HC Decisions
+1566,HPM 576,Comparative HC Systems
+1567,HPM 583,Methods in Health Svcs Res
+1569,HPM 597,Capstone Course in Hlth Policy
+1570,HPM 600,Directed Readings HPM
+1571,HPM 618,Colloq in Health Svc Rsch
+1572,HPM 621,Managing Social Enterprises
+1572,MGT 621,Managing Social Enterprises
+1573,HPM 645,Chinese & U.S. Health Sys Comp
+1574,HPM 688,MngingHealthcareinComplexSysts
+1574,MGT 695,MngingHealthcareinComplexSysts
+1575,HPM 698,Healthcare Finance & Economics
+1575,MGT 698,Healthcare Finance & Economics
+1576,HPM 700,ColloquiumHealthcareLeadership
+1576,MGT 699,ColloquiumHealthcareLeadership
+1577,HPM 995,Sustainble Innov inHealthCare
+1577,MGT 995,Sustainble Innov inHealthCare
+1578,HSAR 017,African Art History
+1580,HSAR 115,IntroHistArt:Renaissnc-Present
+1583,HSAR 220,Intro Contemporary Art
+1588,HSAR 264,Constantinople/Istanbul
+1589,HSAR 282,Renaissance Bodies
+1589,HSHM 237,Renaissance Bodies
+1589,WGSS 282,Renaissance Bodies
+1591,HSAR 383,Sacred Space in South Asia
+1591,SAST 374,Sacred Space in South Asia
+1593,HSAR 401,CriticalApproachesToArtHistory
+1594,HSAR 412,Material&MeaningAncientAmerica
+1597,HSAR 436,The Art of Crisis
+1600,HSAR 447,EpicIndia:RamaStoryVIsualArt
+1600,SAST 471,EpicIndia:RamaStoryVIsualArt
+1601,HSAR 450,Victorian Radicals
+1606,HSAR 498,Independent Tutorial
+1607,HSAR 499,The Senior Essay
+1608,HSAR 512,Directed Research
+1610,HSAR 527,African Art
+1611,HSAR 528,William Morris
+1615,HSAR 535,Russian Style: MaterialCulture
+1615,RUSS 655,Russian Style: MaterialCulture
+1616,HSAR 537,Modern Sculpture
+1617,HSAR 538,Visual Culture Modern So. Asia
+1617,SAST 656,Visual Culture Modern So. Asia
+1619,HSAR 592,Art of the Chora Monastery
+1619,REL 904,Art of the Chora Monastery
+1620,HSAR 604,Inventing the New World
+1623,HSAR 675,Physical History of Art
+1624,HSAR 684,Painting Photography Film
+1625,HSAR 697,Art & Technology
+1627,HSAR 795,Empire
+1644,HSHM 490,Yearlong Senior Project
+1645,HSHM 491,Yearlong Senior Project
+1654,HSHM 930,Independent Research
+1657,HUMS 143,Intro to Ancient Greek History
+1658,HUMS 151,Shakespeare:Tragedies&Romances
+1660,HUMS 166,Classical Arabic Philosophy
+1660,PHIL 135,Classical Arabic Philosophy
+1660,RLST 166,Classical Arabic Philosophy
+1660,RLST 727,Classical Arabic Philosophy
+1661,HUMS 177,Music and Morality
+1661,MUSI 178,Music and Morality
+1662,HUMS 189,Music & Jane Austen
+1662,MUSI 189,Music & Jane Austen
+1665,HUMS 212,Mystical Poetry Judaism Islam
+1665,JDST 347,Mystical Poetry Judaism Islam
+1665,LITR 400,Mystical Poetry Judaism Islam
+1665,NELC 241,Mystical Poetry Judaism Islam
+1665,RLST 236,Mystical Poetry Judaism Islam
+1668,HUMS 241,Baseball as Grand Strategy
+1669,HUMS 247,Iconic Material Culture
+1669,SOCY 352,Iconic Material Culture
+1669,SOCY 620,Iconic Material Culture
+1680,HUMS 318,War and Its Literature
+1681,HUMS 320,The Underworld
+1681,LITR 324,The Underworld
+1681,THST 330,The Underworld
+1685,HUMS 358,Radical Classics
+1685,PLSC 333,Radical Classics
+1688,HUMS 411,Life Worth Living
+1692,HUMS 471,SpecialStudiesInTheHumanities
+1693,HUMS 491,The Senior Essay
+1694,IBIO 503,RCR Refresher Course
+1695,IBIO 531,Advanced Immunology
+1696,IBIO 539,Human Immunology
+1698,IBIO 612,Research Rotation 2
+1699,IBIO 613,Research Rotation 3
+1700,IMED 635,Dir Reading Investigative Medi
+1701,IMED 655,WritingYourCareerDvlpmntGrant
+1702,IMED 662,"MethodsClinicalRsrch,Part III"
+1704,INDN 120,Elementary Indonesian II
+1705,INDN 140,Intermediate Indonesian II
+1706,INDN 160,Advanced Indonesian II
+1707,INDN 180,Project on Indonesia
+1708,INDN 471,Independent Tutorial
+1709,INDN 570,Readings in Indonesian
+1710,INDN 120,Elementary Indonesian II
+1711,INDN 140,Intermediate Indonesian II
+1712,INDN 160,Advanced Indonesian II
+1713,INDN 180,Project on Indonesia
+1714,INDN 471,Independent Tutorial
+1715,INDN 570,Readings in Indonesian
+1716,INP 507,MechanismsNeurologicalDisease
+1717,INP 512,LabRotationFirstYearStudents
+1718,INP 514,Second-Year Thesis Rsrch
+1719,INP 519,Tutorial
+1720,INP 532,Neurobiology Cortical Systems
+1722,INP 580,Bioethics in Neuroscience
+1723,INP 599,Data Analysis in Neuroscience
+1724,INP 703,Fndtns of Systems Neuroscience
+1725,INP 704,Comparative Neuroanatomy
+1726,ITAL 110,Elementary Italian I
+1727,ITAL 120,Elementary Italian II
+1728,ITAL 125,Intensive Elementary Italian
+1729,ITAL 140,Intermediate Italian II
+1730,ITAL 151,Advanced Italian Workshop
+1731,ITAL 172,Baroque to the Present
+1732,ITAL 226,Poets of the Duecento
+1732,ITAL 707,Poets of the Duecento
+1732,RNST 508,Poets of the Duecento
+1735,ITAL 491,The Senior Essay
+1737,ITAL 781,The Decameron
+1738,JAPN 120,Elementary Japanese II
+1739,JAPN 140,Intermediate Japanese II
+1740,JAPN 151,Advanced Japanese II
+1741,JAPN 157,Advanced Japanese IV
+1742,JAPN 171,Readings in Literary Japanese
+1742,JAPN 571,Readings in Literary Japanese
+1743,JDST 225,Philosophizing From the Margin
+1743,PHIL 406,Philosophizing From the Margin
+1744,JDST 243,The Ancient Synagogue
+1744,JDST 706,The Ancient Synagogue
+1744,RLST 790,The Ancient Synagogue
+1746,JDST 297,American Jewish Identity
+1746,RLST 192,American Jewish Identity
+1749,JDST 306,Israeli Narratives TR
+1749,MMES 157,Israeli Narratives TR
+1749,NELC 157,Israeli Narratives TR
+1749,NELC 557,Israeli Narratives TR
+1753,JDST 400,The Bible in Antiquity
+1753,JDST 728,The Bible in Antiquity
+1753,RLST 408,The Bible in Antiquity
+1753,RLST 651,The Bible in Antiquity
+1757,JDST 670,Middle Persian
+1757,PERS 155,Middle Persian
+1757,PERS 505,Middle Persian
+1761,JDST 840,Law and Religious Identity
+1761,LAW 21364,Law and Religious Identity
+1762,KHMR 120,Elementary Khmer II
+1763,KREN 120,Elementary Korean II
+1764,KREN 140,Intermediate Korean II
+1765,KREN 142,IntermedKoreanAdvncedLearnrsII
+1766,KREN 151,Advanced Korean II
+1767,KREN 154,Advanced Korean III
+1769,LAST 223,Spanish in Film
+1769,SPAN 223,Spanish in Film
+1770,LAST 225,SpanishFor Medical Professions
+1770,SPAN 225,SpanishFor Medical Professions
+1771,LAST 243,Advanced Spanish Grammar
+1771,SPAN 243,Advanced Spanish Grammar
+1772,LAST 262,StudiesInSpanish Literature II
+1772,SPAN 262,StudiesInSpanish Literature II
+1777,LAST 491,The Senior Essay
+1778,LATN 120,LatinGrammar Review & Readings
+1779,LATN 141,Latin Poetry: An Introduction
+1780,LATN 390,Latin Syntax and Stylistics
+1780,LATN 790,Latin Syntax and Stylistics
+1781,LATN 438,Cicero's Political Speeches
+1782,LATN 450,Roman Dining
+1783,LATN 738,Cicero's Political Speeches
+1784,LAW 21005,Aging and the Law
+1786,LAW 21042,"Corruption, Econ. Dev. & Dem."
+1786,PLSC 714,"Corruption, Econ. Dev. & Dem."
+1787,LAW 21046,Const.Philos.Hist.
+1787,PLSC 842,Const.Philos.Hist.
+1789,LAW 21074,Financial Stability Regulation
+1789,MGT 943,Financial Stability Regulation
+1792,LAW 21156,Law and Macroeconomics
+1794,LAW 21162,Health Law
+1795,LAW 21167,Intellectual Property
+1795,MGT 693,Intellectual Property
+1799,LAW 21390,ConfrontingAmericasConstCrisis
+1799,PLSC 859,ConfrontingAmericasConstCrisis
+1800,LAW 21408,PhilLawNormative Jurisprudence
+1800,PHIL 715,PhilLawNormative Jurisprudence
+1801,LAW 21431,Law and Community Vitality
+1801,PSYC 691,Law and Community Vitality
+1801,SOCY 587,Law and Community Vitality
+1802,LAW 21458,EconHistIslamicMidEast
+1802,PLSC 770,EconHistIslamicMidEast
+1804,LAW 21575,Law and Psychology
+1804,PSYC 674,Law and Psychology
+1805,LAW 21601,Administrative Law
+1814,LAW 30223,AdvancedIssues Capital Markets
+1814,MGT 662,AdvancedIssues Capital Markets
+1817,LING 112,Historical Linguistics
+1817,LING 512,Historical Linguistics
+1819,LING 125,Introductory Sanskrit II
+1819,LING 525,Introductory Sanskrit II
+1819,SKRT 120,Introductory Sanskrit II
+1819,SKRT 520,Introductory Sanskrit II
+1820,LING 146,Language and Gender
+1820,LING 546,Language and Gender
+1820,PSYC 329,Language and Gender
+1820,WGSS 145,Language and Gender
+1821,LING 148,Intermediate Sanskrit II
+1821,LING 548,Intermediate Sanskrit II
+1821,SKRT 140,Intermediate Sanskrit II
+1821,SKRT 540,Intermediate Sanskrit II
+1822,LING 211,GrammaticalDiversityUS English
+1823,LING 235,Phonology II
+1823,LING 635,Phonology II
+1824,LING 238,Speech in Minds and Machines
+1824,LING 638,Speech in Minds and Machines
+1825,LING 241,Field Methods
+1825,LING 641,Field Methods
+1826,LING 254,Syntax II
+1826,LING 654,Syntax II
+1827,LING 266,CogntvFoundatnsOfMeaningChange
+1827,LING 666,CogntvFoundatnsOfMeaningChange
+1828,LING 271,Philosophy of Language
+1828,PHIL 271,Philosophy of Language
+1829,LING 275,Pragmatics
+1829,LING 675,Pragmatics
+1830,LING 324,Sound Change
+1830,LING 724,Sound Change
+1831,LING 380,Neural Networks and Language
+1831,LING 780,Neural Networks and Language
+1832,LING 491,The Senior Essay
+1833,LING 888,Writing Linguistics
+1834,LITR 017,All the World's a Stage
+1834,THST 094,All the World's a Stage
+1837,LITR 140,How To Compare
+1853,LITR 331,Medieval World Literature
+1855,LITR 340,WI Global Shakespeares
+1868,LITR 465,Inquisitions
+1868,SPAN 319,Inquisitions
+1869,LITR 491,The Senior Essay
+1870,LITR 493,The Yearlong Senior Essay
+1871,MATH 106,The Shape of Space
+1872,MATH 108,Estimation and Error
+1873,MATH 111,IntroToFunctionsAndCalculusII
+1874,MATH 112,CalcOfFunctionsOfOneVariable I
+1875,MATH 115,CalcOfFunctionsOfOneVariableII
+1876,MATH 118,IntroFunctionsSeveralVariables
+1877,MATH 120,Calc:FunctionsSeveralVariables
+1878,MATH 121,Math Models in Biosciences II
+1881,MATH 225,Linear Algebra & Matrix Theory
+1882,MATH 231,VectorCalculus&LinearAlgebraII
+1883,MATH 235,Reflection Groups
+1884,MATH 240,Advanced Linear Algebra
+1885,MATH 242,Theory of Statistics
+1885,S&DS 242,Theory of Statistics
+1885,S&DS 542,Theory of Statistics
+1887,MATH 246,OrdinaryDifferentialEquations
+1888,MATH 250,Vector Analysis
+1890,MATH 300,Topics in Analysis
+1892,MATH 315,Intermediate Complex Analysis
+1892,MATH 515,Intermediate Complex Analysis
+1893,MATH 325,Intro to Functional Analysis
+1893,MATH 525,Intro to Functional Analysis
+1894,MATH 330,Advanced Probability
+1894,S&DS 400,Advanced Probability
+1894,S&DS 600,Advanced Probability
+1895,MATH 353,Intro to Representation Theory
+1895,MATH 533,Intro to Representation Theory
+1896,MATH 354,Number Theory
+1897,MATH 360,Introduction to Lie Groups
+1898,MATH 370,Fields and Galois Theory
+1899,MATH 381,Modern Algebra II
+1899,MATH 501,Modern Algebra II
+1900,MATH 435,Differential Geometry
+1901,MATH 470,Individual Studies
+1902,MATH 475,Senior Essay
+1903,MATH 480,SeniorSem:MathematicalTopics
+1904,MATH 545,Algebraic Topology II
+1905,MATH 678,FunctorialConstr.InRepTheory
+1906,MATH 698,TopicsAlgebraicNumTheory I&II
+1907,MATH 700,Intro to Nonlinear Evol PDEs
+1908,MATH 733,Surface Groups in Rank One
+1909,MATH 734,Quantum Geometry Moduli Spaces
+1910,MATH 757,D-Modules
+1911,MATH 758,Thermodynamic Formalism
+1913,MATH 803,ArithmeticHyperbolicManifolds
+1914,MATH 804,GeomOfSupersymFieldTheories
+1915,MATH 827,Lang Teaching Seminar
+1916,MB&B 050,Topics in Cancer Biology
+1917,MB&B 105,"Biology, the World, and Us"
+1917,MCDB 105,"Biology, the World, and Us"
+1919,MB&B 251L,Laboratory for Biochemistry
+1919,MCDB 301L,Laboratory for Biochemistry
+1920,MB&B 301,Principles of Biochemistry II
+1920,MB&B 601,Principles of Biochemistry II
+1921,MB&B 302,Principles of Biophysics
+1924,MB&B 445,Methods &Logic: Molecular Biol
+1924,MB&B 545,Methods &Logic: Molecular Biol
+1926,MB&B 460L,Advanced Lab for Biochemistry
+1927,MB&B 471,ResrchBiochemistry&Biophysics
+1928,MB&B 473,ResrchBiochemistry&Biophysics
+1929,MB&B 479,IntnsvResrchBiochem&Biophysics
+1930,MB&B 490,Senior Project
+1933,MB&B 529,Structural Biol &DrugDiscovery
+1933,PHAR 529,Structural Biol &DrugDiscovery
+1933,PHAR 530,Structural Biol &DrugDiscovery
+1933,PHAR 531,Structural Biol &DrugDiscovery
+1935,MB&B 571,Intensive Research Sem BS/MS
+1936,MB&B 630,Biochem&BiophysApproachesMCDB
+1936,MCDB 630,Biochem&BiophysApproachesMCDB
+1937,MB&B 650,Lab Rotation BQBS Students
+1938,MB&B 651,Lab Rotation BQBS Students
+1939,MB&B 676,ResponsibleConduct of Research
+1941,MB&B 725,Cryo-EM Xray Cryst Struc
+1944,MBIO 671,Second Laboratory Rotation
+1945,MBIO 672,Third Laboratory Rotation
+1946,MBIO 685,Bio of Bacterial Pathogens II
+1947,MBIO 702,Research in Progress
+1948,MBIO 704,Microbiology Seminar Series
+1949,MBIO 705,"EvsnHstDfnsVirus,BactEukParasi"
+1951,MCDB 040,Science and Politics of Cancer
+1952,MCDB 070,Human Biology
+1953,MCDB 103,Cancer
+1955,MCDB 109,Immunity and Contagion
+1956,MCDB 175L,Exploring the Microbial World
+1957,MCDB 200,Molecular Biology
+1958,MCDB 201L,Molecular Biology Laboratory
+1959,MCDB 205,Cell Biology
+1960,MCDB 250,Biology of Reproduction
+1961,MCDB 251L,Lab:BiologyOfReproductn&Devel
+1962,MCDB 290,Microbiology
+1963,MCDB 291L,Laboratory for Microbiology
+1965,MCDB 303L,Advanced Molecular Biology Lab
+1966,MCDB 315,Pathobiology
+1966,PATH 670,Pathobiology
+1967,MCDB 344L,ExperimentalTechniques:CellBio
+1968,MCDB 345L,ExperimentalStrategies:CellBio
+1970,MCDB 370,Biotechnology
+1970,MCDB 570,Biotechnology
+1972,MCDB 450,The Human Genome
+1974,MCDB 461,Systems Biology
+1974,MCDB 599,Systems Biology
+1975,MCDB 474,Independent Research
+1976,MCDB 475,Senior Independent Research
+1977,MCDB 486,Senior Research
+1978,MCDB 496,Senior Research Intensive
+1979,MCDB 504,ResponsibleConduct of Research
+1981,MCDB 585,Research MCDB for BS/MS Candid
+1982,MCDB 596,IntnsveRsrch forBS/MS Candidat
+1987,MCDB 903,Advanced Graduate Seminar
+1989,MCDB 951,Second-Year Research
+1992,MDVL 610,Medieval Latin: Peter Abelard
+1992,REL 3610,Medieval Latin: Peter Abelard
+1993,MDVL 664,History of Medieval Chrstianty
+1993,REL 713,History of Medieval Chrstianty
+1994,IMED 655,WritingYourCareerDvlpmntGrant
+1995,IMED 635,Dir Reading Investigative Medi
+1997,IMED 662,"MethodsClinicalRsrch,Part III"
+1998,MEDC 999,Courses in School of Medicine
+1999,MEDR 999,Clinical Clerkships
+2000,MEDC 999,Courses in School of Medicine
+2001,MEDR 999,Clinical Clerkships
+2002,MENG 185,Mechanical Design
+2003,MENG 211,ThrmodynamcsForMechanEngineers
+2004,MENG 286L,SolidMechanics&MaterialsSciLab
+2005,MENG 325,Machine Parts & Manufacturing
+2006,MENG 363L,FluidMechancs&ThermodynmicsLab
+2007,MENG 365,Chemical Propulsion Systems
+2008,MENG 389,MechEngIV:Fluid&ThermlEnrgySci
+2014,MENG 472,Special Projects I
+2015,MENG 474,Special Projects II
+2016,MENG 488L,Capstone Mechanical Design II
+2017,MESO 512,Women in Assyria & Babylonia
+2018,MESO 544,Mesopotamian Scholarly Texts
+2019,MGMT 701,Sem Accounting Rsrch II
+2020,MGMT 721,Modeling Operational Processes
+2021,MGMT 736,Inside Organizations
+2023,MGMT 744,Household Finance
+2026,MGMT 747,Empirical Asset Pricing
+2028,MGMT 751,Seminar in Marketing II
+2029,MGMT 758,FoundationsBehavioralEconomics
+2029,PSYC 602,FoundationsBehavioralEconomics
+2030,MGMT 781,PhD Seminar
+2031,MGMT 782,PhD PreSeminar
+2032,MGMT 791,Independent Reading&Rsch
+2033,MGRK 120,Elementary Modern Greek II
+2034,MGRK 140,Intermediate Modern Greek II
+2038,MGT 416,International Experience
+2039,MGT 502,FoundationsofAcctng&Valuation
+2040,MGT 510,Data Analysis&Causal Inference
+2041,MGT 523,Monetary Policy
+2042,MGT 525,Competitive Strategy
+2045,MGT 531,Interpersonal Dynamics
+2046,MGT 532,Business Ethics
+2047,MGT 534,Personal Leadership
+2048,MGT 537,Inequality & Social Mobility
+2049,MGT 538,MasteringInfluence&Persuasion
+2051,MGT 544,Investment Management
+2052,MGT 548,Real Estate Finance
+2054,MGT 556,Big Data & Customer Analytics
+2055,MGT 558,Consumer Behavior
+2058,MGT 575,Social Media Analytics
+2059,MGT 581,Education Policy
+2063,MGT 616,"AI, Innovation & Markets"
+2065,MGT 623,Strategic Ldrshp Across Sectrs
+2066,MGT 624,Human Capital Strategy
+2067,MGT 641,Behavioral Finance
+2068,MGT 646,Start-up Founder Practicum
+2069,MGT 650,CustomerInsights&Applications
+2071,MGT 655,Entrepreneurship&NewVentures
+2072,MGT 657,CreatngHlthcareLifeSciVentures
+2075,MGT 671,EntrepreneurshipthruAquisition
+2077,MGT 674,Leading Small& Med Enterprises
+2084,MGT 801,Impact Measurement
+2084,REL 3617,Impact Measurement
+2085,MGT 803,Decision Making with Data
+2086,MGT 806,PrivateEquity:Value Creation
+2087,MGT 811,"Taxes, Business & Strategy"
+2088,MGT 812,Financial Statement Analysis
+2089,MGT 822,Game Theory and Market Design
+2090,MGT 824,Topics in Macroeconomics
+2091,MGT 826,InclusveEconDev:OpprtuntyZones
+2092,MGT 828,Creativity & Innovation
+2093,MGT 830,Survey Design & Analytics
+2094,MGT 832,Leadership Lab
+2095,MGT 834,StratOrgnlDsgn&Implementation
+2096,MGT 842,Financing Green Technologies
+2097,MGT 848,FinanclFraud:ForensicApproach
+2098,MGT 854,Behavioral Economics
+2099,MGT 855,HowtoDesign&RunBusnExperiments
+2100,MGT 856,Managing Marketing Programs
+2101,MGT 859,Strategic Marketing Leadership
+2102,MGT 865,Global Social Entrepreneurship
+2103,MGT 870,Financial Accounting
+2104,MGT 871,Financial Reporting
+2105,MGT 872,Managing SustainableOperations
+2106,MGT 873,Supply Chain Management
+2107,MGT 877,Simulation Modeling
+2108,MGT 879,Healthcare Operations
+2109,MGT 882,Advanced Negotiations
+2110,MGT 891,PrivateCapital&ImpactInvesting
+2111,MGT 893,Nonmarket Strategy
+2112,MGT 896,America'sFutureRoleGloblEconmy
+2113,MGT 897,Entrepreneurial Finance
+2114,MGT 899,RealEstateFinanceInstInvestors
+2118,MGT 948,Security Analysis & Valuation
+2119,MGT 957,GNAM:HighTechEntrepreneurship
+2120,MGT 960,GNAM:EconAnalysisHiTechIndustr
+2121,MGT 968,GNAM:Strat&SustainblEnterprise
+2132,MMES 265,Multicultural Soviet Lit
+2132,RSEE 265,Multicultural Soviet Lit
+2132,RUSS 265,Multicultural Soviet Lit
+2138,MMES 370,Transnational Islam
+2138,RLST 226,Transnational Islam
+2138,SOCY 368,Transnational Islam
+2140,MMES 443,Pol Econ of MidEast & NAfrica
+2140,PLSC 443,Pol Econ of MidEast & NAfrica
+2141,MMES 472,Independent Directed Study
+2142,MMES 490,Intro toArabic &IslamicStudies
+2142,NELC 490,Intro toArabic &IslamicStudies
+2142,NELC 850,Intro toArabic &IslamicStudies
+2142,RLST 445,Intro toArabic &IslamicStudies
+2143,MMES 493,Yearlong Senior Essay
+2144,MRES 999,Master's Thesis Research
+2145,MTBT 120,Elementary Modern Tibetan II
+2146,MTBT 140,Intermediate Modern Tibetan II
+2147,MTBT 160,Advanced Modern Tibetan II
+2148,MUS 511,Music before 1750
+2149,MUS 512,Music from 1750 to 1900
+2150,MUS 513,Music since 1900
+2151,MUS 518,In the Face of Death
+2152,MUS 519,ISM Colloquium
+2152,MUS 619,ISM Colloquium
+2152,REL 3910,ISM Colloquium
+2153,MUS 530,Intermediate Conducting
+2153,MUSI 329,Intermediate Conducting
+2154,MUS 531,Repertory Chorus (Voice)
+2155,MUS 540,Indiv Instrctn--
+2156,MUS 541,Secndry Instrmnt--
+2157,MUS 543,Chamber Music
+2158,MUS 553,The 21st Century Recital
+2159,MUS 555,Composition for Performers
+2160,MUS 566,Studies in German Opera
+2162,MUS 585,Sonata Form 18th&19 Centuries
+2163,MUS 620,Orchestration:Performers&Conds
+2164,MUS 626,Rhetoric&EarlyInstrmtlPerfrmnc
+2165,MUS 635,Recital Chorus (Voice)
+2166,MUS 641,Secndry Instrmnt--
+2167,MUS 654,Radical Piano Miniatures
+2168,MUS 659,Jazz Improvisation
+2168,MUSI 449,Jazz Improvisation
+2169,MUS 671,Schola Cantorum
+2170,MUS 674,Analysis of Western Music
+2171,MUS 688,18th Century Counterpoint
+2172,MUS 722,Acting for Singers
+2173,MUS 741,Secndry Instrmnt--
+2175,MUSI 100,"Melody, Rhythm, and Notation"
+2176,MUSI 110,Intro to  Elements of Music
+2178,MUSI 180,History of Rock Music
+2179,MUSI 182,The Musical on Screen
+2182,MUSI 210,StudiesInAnalysis&CompositionI
+2183,MUSI 211,StudiesAnalysis&CompositionII
+2184,MUSI 218,Elementary Musicianship I
+2185,MUSI 219,Elementary Musicianship II
+2186,MUSI 221,Performance of Chamber Music
+2187,MUSI 222,The Performance of Vocal Music
+2188,MUSI 229,Musical Theater Performance II
+2188,THST 226,Musical Theater Performance II
+2189,MUSI 231,Laptop Ensembles
+2190,MUSI 232,CentralJavaneseGamelanEnsemble
+2191,MUSI 233,Performing Arts of Indonesia
+2192,MUSI 240,The Performance of Early Music
+2193,MUSI 318,Intermediate Musicianship
+2194,MUSI 321,Composition Seminar II
+2195,MUSI 330,Musical Theater Comp II
+2196,MUSI 340,AnalyzDirect&PerformEarlyOpera
+2196,THST 318,AnalyzDirect&PerformEarlyOpera
+2197,MUSI 345,Lessons
+2198,MUSI 351,"EuropeanCourt,Church,Theater"
+2200,MUSI 378,American Neighborhood Musics
+2201,MUSI 390,Music Balkans & Middle East
+2201,RSEE 387,Music Balkans & Middle East
+2202,MUSI 417,Analyzing Wagner's Ring
+2203,MUSI 421,Composition Seminar IV
+2205,MUSI 434,From Concept to Concert
+2206,MUSI 445,Advanced Lessons
+2207,MUSI 459,Opera and Representation
+2208,MUSI 481,Electronic Dance Music
+2209,MUSI 488,"Current Trends, Music Theater"
+2209,THST 338,"Current Trends, Music Theater"
+2211,MUSI 495,Individual Study
+2212,MUSI 496,The Senior Recital
+2213,MUSI 497,Senior Project in Composition
+2214,MUSI 499,The Senior Essay
+2215,MUSI 721,History of Theory II
+2216,MUSI 814,Directd Studies Histry ofMusic
+2217,MUSI 823,Women and Western Art Music
+2219,MUSI 909,Art of Fugues
+2220,MUSI 938,Sound Studies
+2221,MUSI 999,Dissertation Colloquium
+2223,MUSI 100,"Melody, Rhythm, and Notation"
+2224,MUSI 110,Intro to  Elements of Music
+2226,MUSI 180,History of Rock Music
+2227,MUSI 182,The Musical on Screen
+2230,MUSI 210,StudiesInAnalysis&CompositionI
+2231,MUSI 211,StudiesAnalysis&CompositionII
+2232,MUSI 218,Elementary Musicianship I
+2233,MUSI 219,Elementary Musicianship II
+2234,MUSI 221,Performance of Chamber Music
+2235,MUSI 222,The Performance of Vocal Music
+2236,MUSI 229,Musical Theater Performance II
+2236,THST 226,Musical Theater Performance II
+2237,MUSI 231,Laptop Ensembles
+2238,MUSI 232,CentralJavaneseGamelanEnsemble
+2239,MUSI 233,Performing Arts of Indonesia
+2240,MUSI 240,The Performance of Early Music
+2241,MUSI 318,Intermediate Musicianship
+2242,MUSI 321,Composition Seminar II
+2244,MUSI 330,Musical Theater Comp II
+2245,MUSI 340,AnalyzDirect&PerformEarlyOpera
+2245,THST 318,AnalyzDirect&PerformEarlyOpera
+2246,MUSI 345,Lessons
+2247,MUSI 351,"EuropeanCourt,Church,Theater"
+2249,MUSI 378,American Neighborhood Musics
+2250,MUSI 390,Music Balkans & Middle East
+2250,RSEE 387,Music Balkans & Middle East
+2251,MUSI 417,Analyzing Wagner's Ring
+2252,MUSI 421,Composition Seminar IV
+2254,MUSI 434,From Concept to Concert
+2255,MUSI 445,Advanced Lessons
+2258,MUSI 459,Opera and Representation
+2259,MUSI 481,Electronic Dance Music
+2260,MUSI 488,"Current Trends, Music Theater"
+2260,THST 338,"Current Trends, Music Theater"
+2262,MUSI 495,Individual Study
+2263,MUSI 496,The Senior Recital
+2264,MUSI 497,Senior Project in Composition
+2265,MUSI 499,The Senior Essay
+2266,MUSI 721,History of Theory II
+2267,MUSI 814,Directd Studies Histry ofMusic
+2268,MUSI 823,Women and Western Art Music
+2270,MUSI 909,Art of Fugues
+2271,MUSI 938,Sound Studies
+2272,MUSI 999,Dissertation Colloquium
+2273,NAVY 100,Naval Science Laboratory
+2274,NAVY 112,Navigation
+2275,NAVY 211,Leadership and Management
+2276,NAVY 312,Naval Systems
+2277,NAVY 412,Leadership and Ethics
+2278,NAVY 413,Maneuver Warfare
+2280,NELC 004,EarliestLiteratureAncientWorld
+2291,NELC 493,The Senior Essay
+2294,NSCI 161,"Drugs, Brain, and Behavior"
+2294,PSYC 161,"Drugs, Brain, and Behavior"
+2295,NSCI 229L,Human Neuroscience Laboratory
+2295,PSYC 229L,Human Neuroscience Laboratory
+2296,NSCI 240,ResearchMethods: HumanNeurosci
+2296,PSYC 230,ResearchMethods: HumanNeurosci
+2296,PSYC 526,ResearchMethods: HumanNeurosci
+2298,NSCI 340,Cognitive Neuroscience
+2298,PSYC 335,Cognitive Neuroscience
+2299,NSCI 346,Psychopharmacology
+2299,PSYC 321,Psychopharmacology
+2299,PSYC 531,Psychopharmacology
+2302,NSCI 471,Independent Research
+2303,NSCI 479,Computational Basis of Seeing
+2303,PSYC 479,Computational Basis of Seeing
+2303,PSYC 679,Computational Basis of Seeing
+2304,NSCI 481,Senior Non-empirical Research
+2305,NSCI 491,Senior Empirical Research
+2306,NURS 514,Clin Prac in Mat-Newborn Nurs
+2307,NURS 515,Sem in Maternal-Newborn Nurs
+2308,NURS 602,Advanced Pharmacology
+2309,NURS 604,Stats & Rsch Evid-Bas Prac
+2310,NURS 608,Master's Independent Study
+2311,NURS 611,Clncl Prac in Diabts Cr & Mgmt
+2312,NURS 612,PrinciplesAdvOncologyPracSem
+2313,NURS 613,Adv Mgmt of Clnl Prob in Onc
+2314,NURS 614,Clinical Practicum for ONPs
+2315,NURS 616,Research Concentration
+2316,NURS 618,Gender&SexualityHealthJusticeI
+2317,NURS 620,Gender&SexualityHealthJustice
+2318,NURS 621,PrimaryCareCommunityHealthAdv
+2319,NURS 622,Gndr & Sxuality Hlth Just Clin
+2320,NURS 623,Clin Prac I Global Hlth Con
+2321,NURS 704,Primary Care II Seminar
+2322,NURS 705,Primary Care II Clinical Prac
+2323,NURS 709,Primary Care IV Clinical Prac
+2324,NURS 710,Aging in the United States
+2325,NURS 711,Adv. FNP/AGPCNP  Pharmocology
+2326,NURS 722,Women's Health I & II Clinical
+2327,NURS 723,Women's Health III Sem
+2328,NURS 724,Women's Health IV Sem
+2329,NURS 725,Women's Health III&IV Clinical
+2330,NURS 726,Childbearing Care II Seminar
+2331,NURS 727,Childbearing Care II Clinical
+2332,NURS 732,Intgrn of Midwifery Care
+2333,NURS 733,Intgrn of Women's Healthcare
+2334,NURS 734,Adv.MidwiferyWomensHealthPharm
+2335,NURS 745,Primary Care Adolescents Clin
+2336,NURS 746,Primary Care of Children IISem
+2337,NURS 747,Primary Care of Child II Clin
+2338,NURS 750,Primary Care of Child IV Sem
+2339,NURS 751,PrimaryCareChildren IVClinical
+2340,NURS 752,ChrnHlthCndtnsChild&Adolescent
+2341,NURS 753,School Health Clinical Practic
+2342,NURS 754,Specialty Pediatric Clinical
+2343,NURS 755,Adv Pediatric Pharmacology
+2344,NURS 762,Psychopathlogy Across LfespnII
+2345,NURS 764,PMH Clnl Prc acrs Lfespan II
+2346,NURS 766,Ind Psychotherapy Smnr II
+2347,NURS 767,Cln Psychphrmclgy acr Lfspn
+2348,NURS 771,Psych-MH Clin Prac acr LfspnIV
+2349,NURS 772,Apld Psycphrmcly acr the Lfpsn
+2350,NURS 773,Family Psychotherapy Seminar
+2351,NURS 783,Patho/MgmtAdltGeroHealthProb I
+2352,NURS 784,AdltGeroAcuteCareClinicalPrac1
+2353,NURS 787,AdltGeroAcuteCareClinicalPrac3
+2354,NURS 788,Adv. Acute Care Pharmacology
+2355,NURS 902,RschMthdsII:Qv2/MthdsHlthRs
+2356,NURS 903,RsrchMethodsIII:HealthVariable
+2357,NURS 907,Dissertation Seminar II
+2358,NURS 909,"Sci,Schlrshp&Communication II"
+2359,NURS 911,"Sci,Schlrshp&Communication IV"
+2360,NURS 913,FoundationsScientificInquiryII
+2361,NURS 921,Doctoral Independent Study
+2362,NURS 922,IntroClinicalRsrchInformatics
+2363,NURS 929,Ethical Conduct of ClinReseach
+2364,NURS 977,The Business of Health Care
+2365,NURS 981,Leadership Development
+2366,NURS 982,Leadership Develop. Practicum
+2367,OTTM 231,Paleography and Diplomatics
+2367,OTTM 566,Paleography and Diplomatics
+2369,SPAN 120,Elementary Spanish II
+2371,SPAN 142,SpanishForHeritage Speakers II
+2372,SPAN 479,DirectedReadings/IndivResearch
+2373,SPAN 491,The Senior Essay
+2374,CPAR 491,Senior Project
+2375,SPAN 100,Spanish for Reading
+2380,SPAN 140,Intermediate Spanish II
+2381,SPAN 145,Intensive Intermediate Spanish
+2384,SPAN 110,Elementary Spanish I
+2386,SPAN 150,Adv Oral and Writ Com in Span
+2387,SPAN 246,Intro to the Cultures of Spain
+2388,SPAN 936,Millennials21stCLatinAmNarratv
+2391,SPAN 130,Intermediate Spanish I
+2392,SPAN 752,Theorizing Iberia
+2393,SPAN 353,Spanish Amer Vanguardist Lit
+2394,SPAN 790,MethodologiesMdrnLangTeaching
+2395,PATH 621,LabRotationsExperimentalPath
+2396,PATH 622,LabRotationsExperimentalPath
+2398,PATH 650,Cellular&MolecularBio ofCancer
+2402,PATH 682,Cancer Clinical Translation
+2403,PATH 621,LabRotationsExperimentalPath
+2404,PATH 622,LabRotationsExperimentalPath
+2406,PATH 650,Cellular&MolecularBio ofCancer
+2410,PATH 682,Cancer Clinical Translation
+2411,PERS 120,Elementary Persian II
+2411,PERS 501,Elementary Persian II
+2412,PERS 140,Intermediate Persian II
+2412,PERS 503,Intermediate Persian II
+2415,PHAR 528,Principles Signal Transduction
+2417,PHAR 537,SPIT
+2420,PHIL 126,IntroModrnPhilosDescartes-Kant
+2422,PHIL 175,Introduction to Ethics
+2424,PHIL 180,Ethics & International Affairs
+2424,PLSC 191,Ethics & International Affairs
+2427,PHIL 226,The Paradoxes of Time Travel
+2428,PHIL 267,Mathematical Logic
+2428,PHIL 567,Mathematical Logic
+2429,PHIL 269,Philosophy of Science
+2430,PHIL 270,Epistemology
+2430,PHIL 570,Epistemology
+2433,PHIL 338,Happiness and Misery
+2436,PHIL 427,Computability and Logic
+2436,PHIL 627,Computability and Logic
+2439,PHIL 464,Global Financial Integrity
+2439,PHIL 664,Global Financial Integrity
+2439,PLSC 291,Global Financial Integrity
+2440,PHIL 480,Tutorial
+2441,PHIL 491,The Senior Essay
+2445,PHIL 498,Acrasia: Ancient and Modern
+2445,PHIL 698,Acrasia: Ancient and Modern
+2446,PHIL 706,Work in Progress I
+2448,PHIL 750,Tutorial
+2449,PHIL 751,Causation in Modern Philosophy
+2450,PHIL 753,Philosophy of Conversation
+2451,PHYS 099,Intro to Research Methods
+2455,PHYS 120,Quantum Physics and Beyond
+2457,PHYS 166L,General Physics Laboratory
+2458,PHYS 171,UniversityPhysics:LifeSciences
+2459,PHYS 181,University Physics
+2460,PHYS 201,Fundamentals of Physics
+2461,PHYS 205L,Modern Physical Measurement
+2462,PHYS 206L,Modern Physical Measurement
+2463,PHYS 261,Intensive Introductory Physics
+2464,PHYS 296,The Impact of the Atom
+2468,PHYS 382L,Advanced Physics Laboratory
+2468,PHYS 504,Advanced Physics Laboratory
+2469,PHYS 402,Advanced Classical Physics
+2470,PHYS 430,Electromagnetic Fields& Optics
+2471,PHYS 440,QuantumMechnics&NatrlPhnomna I
+2472,PHYS 442,Intro Nuclear& ParticlePhysics
+2474,PHYS 470,Independent Research Physics
+2475,PHYS 472,IndependentProjectsInPhysics
+2476,PHYS 502,Electromagnetic Theory I
+2477,PHYS 512,Statistical Physics I
+2480,PHYS 538,IntroRelativisticAstro&Relativ
+2483,PHYS 608,Quantum Mechanics II
+2485,PHYS 630,Relativistic Field Theory II
+2486,PHYS 687,Physicsof DiatomicMoleculesSem
+2488,PHYS 990,Special Investigations
+2489,PLSC 029,Constitutional Errors
+2491,PLSC 118,Moral Foundations of Politics
+2496,PLSC 165,"Gender, Race, & Everyday GPE"
+2496,WGSS 165,"Gender, Race, & Everyday GPE"
+2497,PLSC 166,The New Europe
+2503,PLSC 210,American Political Behavior
+2503,PLSC 801,American Political Behavior
+2504,PLSC 213,The Legislative Process
+2505,PLSC 214,Politics of U.S. Public Policy
+2509,PLSC 224,Political Leadership
+2510,PLSC 226,Congress:How Legislating Works
+2511,PLSC 236,PresidentlCampaigns&theMedia
+2512,PLSC 237,Persuasion &Poltcal Communcatn
+2513,PLSC 242,Biblical & Const Interp
+2513,RLST 118,Biblical & Const Interp
+2517,PLSC 257,Bioethics and Law
+2519,PLSC 265,Politics of Economic Security
+2520,PLSC 271,Policymaking under SoP
+2520,PLSC 865,Policymaking under SoP
+2521,PLSC 272,Social Media and Politics
+2524,PLSC 276,Wrongful Convictions
+2524,SOCY 238,Wrongful Convictions
+2525,PLSC 277,The United States Congress
+2526,PLSC 278,Politics and the Supreme Court
+2529,PLSC 298,"Gender, Justice, Power"
+2529,WGSS 207,"Gender, Justice, Power"
+2535,PLSC 322,Post-Marxist Critical Theory
+2536,PLSC 327,Adv Modern Political Philosoph
+2536,PLSC 640,Adv Modern Political Philosoph
+2540,PLSC 345,Intro to Research Design
+2543,PLSC 353,Causal Inference
+2543,S&DS 314,Causal Inference
+2544,PLSC 358,Parties and Electoral Systems
+2544,PLSC 722,Parties and Electoral Systems
+2545,PLSC 366,European Politics
+2545,PLSC 755,European Politics
+2546,PLSC 367,Contemporary Spanish Politics
+2548,PLSC 370,Government-Business Relations
+2551,PLSC 377,Pol Econ of Gender South Asia
+2551,SAST 344,Pol Econ of Gender South Asia
+2551,WGSS 397,Pol Econ of Gender South Asia
+2553,PLSC 379,Parties and Media in Russia
+2553,RSEE 379,Parties and Media in Russia
+2556,PLSC 382,Intro to LatAm Politics
+2557,PLSC 385,Contentious Politics in Russia
+2557,RSEE 385,Contentious Politics in Russia
+2557,SOCY 349,Contentious Politics in Russia
+2560,PLSC 408,HumanRightsContemporaryRussia
+2565,PLSC 451,Political Violence
+2566,PLSC 455,Big Data and Russian Politics
+2567,PLSC 456,Elections in Developing World
+2567,SAST 455,Elections in Developing World
+2568,PLSC 472,Individual Reading for Majors
+2569,PLSC 474,DirReadng&Resrch:JunIntensvMaj
+2570,PLSC 480,One-Term Senior Essay
+2571,PLSC 490,The Senior Colloquium
+2572,PLSC 491,The Senior Essay
+2573,PLSC 493,SeniorEssayForIntensive Majors
+2574,PLSC 503,QuantMthdsII:FndtnsStatInfrnc
+2575,PLSC 506,MeasuremntEstimation&Inference
+2576,PLSC 512,Dsign&AnlysisRndnmzdFldExprmnt
+2577,PLSC 518,Intro to Game Theory
+2578,PLSC 527,EmpiricalInquiry-SocialScience
+2580,PLSC 531,FormalModelsofAmericanPolitics
+2581,PLSC 541,Research & Writing
+2582,PLSC 698,International PoliticalEconomy
+2585,PLSC 734,Comparative Research Workshop
+2585,SOCY 560,Comparative Research Workshop
+2587,PLSC 778,Comparative Politics II
+2588,PLSC 803,AmerPolitics III: Institutions
+2591,PLSC 931,American Politics Workshop
+2592,PLSC 933,Comparative Politics Workshop
+2593,PLSC 935,Political Theory Workshop
+2594,PLSC 939,LeitnerPoliticalEconSemSeries
+2595,PLSC 941,InternationalRelationsWorkshop
+2596,PLSC 943,Polit. Violence & Its Legacies
+2597,PLSH 120,Elementary Polish II
+2598,PLSH 140,Intermediate Polish II
+2599,PLSH 248,PolishTheater&ItsTraditions TR
+2599,THST 370,PolishTheater&ItsTraditions TR
+2600,PNJB 120,Elementary Punjabi II
+2601,PNJB 140,Intermediate Punjabi II
+2602,PORT 120,Elementary Portuguese II
+2603,PORT 140,Portuguese Through the Arts
+2604,PORT 150,Adv Practice in Portuguese
+2605,PSYC 110,Introduction to Psychology
+2607,PSYC 126,Attraction and Relationships
+2613,PSYC 200,Statistics
+2616,PSYC 230L,ResearchMethods: HumanNeurosci
+2617,PSYC 235,ResMethods Writing Intensive
+2618,PSYC 250,ResearchMethods inClinicalPsyc
+2628,PSYC 429,Psychology of Prejudice
+2632,PSYC 493,Directed Research
+2633,PSYC 495,Research Topics
+2634,PSYC 499,Senior Essay
+2635,PSYC 511,Cognitive Development
+2638,PSYC 685,Introduction to Psychotherapy
+2639,PSYC 690,"Ethics, Diversity, Supervision"
+2641,PSYC 693,Principles StatisticalLearning
+2642,PSYC 699,Teaching in Psychology
+2643,PSYC 702,Current Work in Cognition
+2644,PSYC 704,CrntWrkBehaviorGntcs&Neurosci
+2645,PSYC 708,CrntWrkDvlpmntlPsych
+2646,PSYC 710,CurrentWrkSocialPsychl&Prsnlty
+2647,PSYC 719,History &Systems in Psychology
+2648,PSYC 720,CrntWrkClinicalPsychology
+2649,PSYC 724,RsrchTpcsCognEmotionPsychopath
+2650,PSYC 727,ResTopicsClinicalNeuroscience
+2651,PSYC 729,ResearchTopicsLang&Cognition
+2652,PSYC 731,ResearchTopicsCognition&Dvlpmn
+2653,PSYC 732,ResearchTopicsVisualCognition
+2654,PSYC 733,RsrchTopicsSocialCognitiveDvlp
+2655,PSYC 735,Res Topics:Thinking&Reasoning
+2656,PSYC 737,ResTop:ClinclAffectiveNeuro
+2657,PSYC 741,RsrchTpcsEmotion&Relationships
+2658,PSYC 742,ResTop: Computation&Cognition
+2659,PSYC 744,RsrchTopicsPhilosphicalPsych
+2660,PSYC 745,RsrchTpcsDsinhbitryPsychpthlgy
+2661,PSYC 752,RsrchTpcsiNeurosciofSocialBhvr
+2662,PSYC 754,RsrchTopicsClinicalNeurosci
+2663,PSYC 755,RsrchTopicsIntergroupRelations
+2664,PSYC 756,RsrchTopicsAdolescentBrain
+2665,PSYC 757,RsrchTpcsSocialNsci&Behavior
+2666,PSYC 758,RsrchTpcsCognitiveNeuroscience
+2667,PSYC 759,RT Affective Science & Culture
+2668,PSYC 760,Research Topics in CNC
+2669,PSYC 766,RschTopicsPerception&Cognition
+2670,PSYC 771,RsrchTopicsNonconsciousProcess
+2671,PSYC 775,ResearchTopicsAnimalCognition
+2672,PSYC 777,RsrchTopcs Gender & Psychology
+2672,WGSS 767,RsrchTopcs Gender & Psychology
+2673,PSYC 801,Clinical Internship Child
+2674,PSYC 802,Clinical Internship Adult
+2675,PSYC 805,Affective Bases of Behavior
+2676,PSYC 811,Mood&AnxietyDisordersPracticum
+2677,PSYC 817,Other Clinical Practica
+2678,PSYC 920,First-Year Research
+2679,PSYC 923,Individual Study: Theme Essay
+2680,PSYC 930,Pre-Dissertation Research
+2681,QUAL 999,Preparing for Qualifying Exams
+2682,REL 3604,Elementary Biblical Hebrew II
+2683,REL 3606,Elem New Testament Greek II
+2685,REL 3615,Nonprofit Crisis Management
+2687,REL 3699,Reading Course
+2688,REL 3794,Colloq Min Formatn/Anglican
+2689,REL 3795,Colloq Min Formatn/Lutheran
+2690,REL 3798,Andover Newton Colloquium I&II
+2691,REL 3799,M.Div. Thesis
+2692,REL 3899,M.A.R. Thesis
+2693,REL 3900,TransformtnlLeadershipCh&Soc
+2694,REL 3901,AndNew Colloq III:ReadingBible
+2695,REL 3902,AndNew Colloq IV:Building Comm
+2696,REL 3903,CPE Preparation
+2698,REL 3987,Part-timeInternshipPracticmII
+2699,REL 3990,NegotiatingBoundariesMinRels
+2700,REL 3992,ConcentratdNonprofitInternship
+2701,REL 3999,S.T.M. Thesis
+2702,REL 504,O.T. Interpretation II
+2703,REL 506,N.T. Interpretation II
+2704,REL 517,"""Race"" and the New Testament"
+2705,REL 549,Approaches to OT Ethics
+2706,REL 550,Pauline Theology
+2707,REL 559,Hellenistic Philosophy
+2708,REL 575,Intermed. Biblical Hebrew II
+2709,REL 583,Archaeology of Roman Empire
+2709,RLST 861,Archaeology of Roman Empire
+2710,REL 595,Image&TextInBiblicalAntiquity
+2711,REL 599,Ezra-Nehemiah
+2712,REL 601,EasternOrthodoxWorship&Thought
+2713,REL 611,American Evangelical Worship
+2714,REL 615,Intro to Christian Ethics
+2715,REL 620,Pastoral Offices in Angl Trad
+2716,REL 623,Theologies of Relig Pluralism
+2717,REL 626,Systematic Theology
+2718,REL 628,Theology and Hollywood Movies
+2719,REL 647,ScientifcThought&ChristnTheolg
+2720,REL 652,"Agency, Character, Complicity"
+2721,REL 657,U.S. Latinx Theologies
+2722,REL 665,Martin Luther: His Life & Work
+2723,REL 666,Evil in Early Christn Thought
+2724,REL 673,Jesus on Film
+2725,REL 675,Baptism&EucharistEcumencalDial
+2726,REL 677,NaturlDisastrs:Ritual&TheoResp
+2727,REL 678,Remember Your Death
+2728,REL 681,Imago Dei and Human Dignity
+2729,REL 685,InFaceOfDeath:WorshpMusicArt
+2730,REL 691,"Eccles, Minstry, Polity:"
+2731,REL 692,SpecialTopcsGendrSexualtyStuds
+2732,REL 695,Daily Prayer
+2733,REL 699,Issues Contemporary Theology
+2735,REL 715,History of Modern Christianity
+2737,REL 738,JonathanEdwards&AmerPuritansm
+2737,RLST 739,JonathanEdwards&AmerPuritansm
+2739,REL 761,Gregory Nazianzen
+2740,REL 766,Reading Calvin’s Institutes
+2742,REL 801,Marquand Chapel Choir
+2743,REL 802,Marquand Gospel Choir
+2744,REL 807,Intro Pastoral Theology & Care
+2745,REL 808,Black Religion&Radical Educatn
+2746,REL 810,BuildingInterreligiousCommunty
+2747,REL 811,Models/Methods Chaplaincy
+2748,REL 812,Princpls&Practice of Preaching
+2749,REL 816,Grace: Preaching on Ephesians
+2750,REL 821,Children‘s Spirituality
+2751,REL 822,Ministry with Youth
+2752,REL 829,Parish Leadership&Church Admin
+2753,REL 830,Radical Lives of Proclamation
+2754,REL 832,Psychology of Religion
+2755,REL 838,John of the Cross: A Guide
+2756,REL 857,Theology&PracticeSpirtlDirectn
+2757,REL 862,Gospel in Lament: Preaching
+2758,REL 875,Adv Topcs Leadrshp Minstry Sch
+2759,REL 887,Narrative Pastoral Care
+2760,REL 900,Sacred Sounds: Ethnomusicology
+2761,REL 902,Literary Appropriations
+2765,REL 914,Islam&Christian-MuslimEncountr
+2766,REL 926,Du Bois and Black Radicalism
+2767,REL 930,Intro to American Judaism
+2768,REL 931,"Ethics,Imagination,ArtOfLiving"
+2769,REL 938,Divine Command Theory
+2770,REL 964,Imagining the Apocalypse
+2771,REL 980,Travel Seminar: Kenya
+2772,REL 981,Visual Controversies
+2773,REL 983,China Mission
+2774,REL 990,Thomas Aquinas and Duns Scotus
+2775,REL 991,ShakespeareInTheologicalContxt
+2776,REL 992,Russian Sacred Art
+2776,RUSS 627,Russian Sacred Art
+2777,REL 993,IntrfaithLearnngThru LifeCycle
+2778,REL 994,Visual Cultures of the Sacred
+2780,RLST 105,Animals in Indian Religions
+2780,RLST 544,Animals in Indian Religions
+2786,RLST 168,ModernCatholicReligiousThought
+2787,RLST 183,The Bhagavad Gita
+2787,SAST 366,The Bhagavad Gita
+2802,RLST 490,Religion and Society
+2803,RLST 492,The Senior Essay
+2804,RLST 510,Method and Theory
+2805,RLST 557,Medieval Indian Texts
+2806,RLST 561,Reading Medieval Prakrit
+2807,RLST 599,Chinese BuddhistDocuments
+2808,RLST 608,Christianity Late Antiquity
+2810,RLST 638,The Study of the Middle Ages
+2811,RLST 640,BodyErlyChristianThght&Prctce
+2812,RLST 720,Qur'an & Its Interpretation
+2815,RLST 801,HebrewBibleSem:ProbsJeremiah
+2816,RLST 827,Intermediate Syriac II
+2816,SMTC 524,Intermediate Syriac II
+2817,RLST 837,NWSemiticInscrip:OfficlAramaic
+2817,SMTC 547,NWSemiticInscrip:OfficlAramaic
+2819,RLST 888,The Surreal
+2820,RLST 898,EMWAR Seminar II
+2821,RLST 905,Theology Doctoral Seminar
+2822,RLST 961,DirReading:AmerReligiousHist
+2823,RLST 970,DirectedRdings:Religion&Mdrnty
+2833,RSEE 334,Postsocialist Nostalgia
+2834,RSEE 335,Political Graffiti
+2837,RSEE 381,Performances of Resistance
+2837,THST 342,Performances of Resistance
+2840,RSEE 491,The Senior Essay
+2842,RUSS 120,First-Year Russian II
+2843,RUSS 140,Second-Year Russian II
+2844,RUSS 145,Intensive Intermediate Russian
+2845,RUSS 151,Third-Year Russian II
+2846,RUSS 161,Fourth-Year Russian II
+2847,RUSS 178,The Short Story in Russian
+2848,RUSS 179,The Grotesque in Pelevin
+2852,RUSS 481,Directed Reading: Russian Lit
+2857,RUSS 834,AspectsRussGrammar&TeachngMeth
+2858,RUSS 851,Proseminar in Slavic Lit
+2859,S&DS 100,Introductory Statistics
+2859,S&DS 500,Introductory Statistics
+2863,S&DS 171,YData: Text Data Science
+2863,S&DS 571,YData: Text Data Science
+2865,S&DS 173,YData: Baseball Data
+2866,S&DS 220,"Intro Statistics, Intensive"
+2866,S&DS 520,"Intro Statistics, Intensive"
+2868,S&DS 240,Probability Theory
+2877,S&DS 365,Data Mining & Machine Learning
+2877,S&DS 565,Data Mining & Machine Learning
+2879,S&DS 425,Statistical Case Studies
+2880,S&DS 480,Individual Studies
+2881,S&DS 490,Senior Seminar and Project
+2882,S&DS 492,Senior Project
+2884,S&DS 584,Applied Graphical Models
+2885,S&DS 626,Practical Work
+2886,S&DS 628,Statistical Consulting
+2887,S&DS 631,Optimization and Computation
+2889,S&DS 670,Theory of Deep Learning
+2891,S&DS 690,Independent Study
+2902,SBCR 120,IntroBosnianCroatianSerbian II
+2903,SBCR 140,Intermediate Serbocroatian II
+2904,SBS 526,Seminar in SBS
+2905,SBS 541,Community Health Prog Eval
+2906,SBS 570,LGBTQ Population Health
+2906,SOCY 605,LGBTQ Population Health
+2906,WGSS 570,LGBTQ Population Health
+2907,SBS 580,Qual ResearchMethods in PH
+2909,SBS 600,Directed Readings SBS
+2910,SBS 610,Appl Area Readings for Q Exams
+2911,SBS 670,Adv Field Methods in PH
+2912,SBS 676,Questionaire Development
+2913,SBS 699,Advanced Topics in SBS
+2914,SCIE 031,Current Topics in Science
+2917,SKRT 150,Advanced Sanskrit
+2917,SKRT 550,Advanced Sanskrit
+2922,SOCY 141,Sociology of Crime & Deviance
+2923,SOCY 152,Topics InContemp Social Theory
+2924,SOCY 160,Methods of Inquiry
+2927,SOCY 202,Cultural Sociology
+2927,SOCY 534,Cultural Sociology
+2928,SOCY 234,Inequality and Mobility
+2938,SOCY 472,Individual Study
+2939,SOCY 492,Senior Essay and Colloquium
+2940,SOCY 494,SenrEssay&Colloq:IntensvMajors
+2942,SOCY 581,Intermed Methods in Quant SOCY
+2944,SOCY 595,Stratification&InequalityWkshp
+2945,SOCY 599,Independent Study
+2947,SOCY 628,Workshop Cultural Sociology
+2949,SOCY 653,WorkshopAdvSocWriting&Research
+2950,SPAN 100,Spanish for Reading
+2951,SPAN 110,Elementary Spanish I
+2952,SPAN 120,Elementary Spanish II
+2953,SPAN 130,Intermediate Spanish I
+2954,SPAN 140,Intermediate Spanish II
+2955,SPAN 142,SpanishForHeritage Speakers II
+2956,SPAN 145,Intensive Intermediate Spanish
+2957,SPAN 150,Adv Oral and Writ Com in Span
+2961,SPAN 246,Intro to the Cultures of Spain
+2967,SPAN 353,Spanish Amer Vanguardist Lit
+2969,SPAN 479,DirectedReadings/IndivResearch
+2970,SPAN 491,The Senior Essay
+2973,SPAN 752,Theorizing Iberia
+2974,SPAN 790,MethodologiesMdrnLangTeaching
+2975,SPAN 936,Millennials21stCLatinAmNarratv
+2976,SPEC 492,The Senior Project
+2978,SWAH 120,Beginning Kiswahili II
+2978,SWAH 620,Beginning Kiswahili II
+2979,SWAH 140,Intermediate Kiswahili II
+2979,SWAH 640,Intermediate Kiswahili II
+2980,SWAH 160,Advanced Kiswahili II
+2980,SWAH 660,Advanced Kiswahili II
+2981,SWAH 170,Topics in Kiswahili Literature
+2981,SWAH 670,Topics in Kiswahili Literature
+2982,TAML 140,Intermediate Tamil II
+2983,TBTN 120,Elementary ClassicalTibetan II
+2984,THST 091,Writing About Performance
+2985,THST 093,"Creativity, Collab & Theater"
+2987,THST 097,Anatomy in Motion
+2988,THST 111,Survey of Theater and Drama
+2989,THST 200,Intro to Theatrical Violence
+2991,THST 211,Intermediate Acting
+2992,THST 213,New Play Development
+2995,THST 230,Advanced Acting & Scene Study
+2996,THST 232,Grotowski in Practice
+2999,THST 308,Performing Design
+3000,THST 312,Performing Free Speech
+3006,THST 347,Foundations:Acting&Directing
+3007,THST 358,Intro to Lighting Design
+3014,THST 472,Directed Independent Study
+3015,THST 491,SeniorProjectInTheaterStudies
+3016,TKSH 120,Elementary Modern Turkish II
+3016,TKSH 501,Elementary Modern Turkish II
+3017,TKSH 140,Intermediate Turkish II
+3017,TKSH 503,Intermediate Turkish II
+3018,TKSH 177,Daily Life & Culture in Turkey
+3018,TKSH 577,Daily Life & Culture in Turkey
+3019,TWI 120,Beginning Twi II
+3020,UKRN 120,Elementary Ukrainian II
+3021,UKRN 160,Advanced Ukrainian II
+3031,USAF 102,Heritage&ValuesU.SAirForceII
+3032,USAF 201,Team&LeadershipFundamentals II
+3033,USAF 402,SecurityLeadershipCommissionII
+3034,VAIR 999,Visiting Assistant in Research
+3035,VIET 120,Elementary Vietnamese II
+3036,VIET 142,Accelerated Vietnamese II
+3037,VIET 470,Independent Tutorial
+3038,WGSS 032,History of Sexuality
+3043,WGSS 206,TransntlApprchGender&Sexuality
+3055,WGSS 372,Theory&Politcs ofSexualConsent
+3057,WGSS 387,"Gender, Sexuality, and Islam"
+3064,WGSS 471,Independent Directed Study
+3065,WGSS 490,The Senior Colloquium
+3066,WGSS 491,The Senior Essay
+3069,WGSS 590,Critical University Studies
+3076,WLOF 120,Elementary Wolof II
+3077,WLOF 140,Intermediate Wolof II
+3078,YORU 120,Beginning Yoruba II
+3078,YORU 620,Beginning Yoruba II
+3079,YORU 140,Intermediate Yoruba II
+3079,YORU 640,Intermediate Yoruba II
+3080,YORU 160,Advanced Yoruba II
+3080,YORU 660,Advanced Yoruba II
+3081,YORU 171,Topics in Yoruba Lit & Culture
+3081,YORU 670,Topics in Yoruba Lit & Culture
+3082,ZULU 120,Beginning isiZulu II
+3082,ZULU 620,Beginning isiZulu II
+3083,ZULU 140,Intermediate isiZulu II
+3083,ZULU 640,Intermediate isiZulu II

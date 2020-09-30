@@ -1,0 +1,80 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(funModeling)
+library(Hmisc)
+library(aplpack)
+library(vcd)
+library(MASS)
+library(plotrix)
+library(ggplot2)
+library(ggthemes)
+library(RColorBrewer)
+```
+
+```{r}
+data <- read.csv("~/Documents/GitHub/ydn-data-analytics/projects/demographics/yale_students_s20_zipcodes.csv")
+levels(data$colleges) <- c("BF", "BK", "BR", "DC", "ES", "GH", "JE", "MC", "PM", "PC", "SY", "SM", "TD", "TC")
+data
+table(data$colleges)
+```
+
+```{r}
+x.sub4 <- x.df[x.df$y == 1, ]
+morse <- data[data$colleges == "MC",]
+stiles <-data[data$colleges == "ES",]
+head(morse)
+
+freq(morse)
+freq(stiles)
+
+
+table <- structable(colleges ~ majors, data)
+head(table)
+
+
+faces(newtable, labels=names, ncol.plot=3, na.rm = TRUE)
+stars(newtable, labels=as.character(names), ncol=4)
+stars()
+
+
+table(data$majors)
+
+newtable <- table[c(3,4,5,6,7,8,9,10,11,12,14,15,17,24,25,26,27,28,29,31,32,33,34,35,36,37,41,42,43,44,45,46,47,48,49,50,51,52,53,54,57,58,59,61,63,64,65,66,67,68,69,70,74,75,76,77,78,79,80,81,83,84,85,86,87,88,91,92,96,97,98,99,100,101,102,105,106,107,108,111,112,113,114,117,118,123,124,128,130)]
+
+
+newdata <- data.frame(newtable)
+newdata
+
+
+
+ggplot(newdata, aes(fill=majors, y=Freq, x=colleges)) + 
+    geom_bar(position="stack", stat="identity", col = "black") + scale_fill_manual(values = mycolors)
+
+
+p4 <- ggplot() + geom_bar(aes(y = Freq, x = colleges, fill = majors), data = newdata,
+                           stat="identity")
+p4
+
+
+ggplot(data$colleges == "Benjamin Franklin College")
+ggplot(newdata[1:89])
+
+data$colleges
+
+bp <- ggplot(newtable[,1], aes(x="", y=value, fill=rownames(newtable)))+
+geom_bar(width = 1, stat = "identity")
+bp
+```
+
+
+
+
+

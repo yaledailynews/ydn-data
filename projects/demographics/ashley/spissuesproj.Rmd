@@ -1,0 +1,270 @@
+---
+title: "spissuesproj"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+full_dataset <- read.csv("~/Documents/GitHub/ydn-data-analytics/projects/demographics/daniel k/YDN Senior Survey_May 12, 2020_19.34.csv")
+
+# remove first 4 rows and only keep columns pertaining to questions
+allq <- full_dataset[5:341, 18:42]
+```
+
+```{r}
+# RATING FOR YALE OUT OF 10
+rating <- allq[, 22]
+rating <- rating[!(rating == "")]
+sum(as.numeric(rating))/length(rating)
+```
+
+
+```{r}
+# PROPORTION OF SENIORS IN GREEK LIFE
+greek <- allq[, 8]
+greek <- greek[!(greek == "")]
+
+# split no's and yes's into two different categories
+greekcount = 0
+for (i in 1:length(greek))
+{
+  if (as.character(greekocc$Q9[i]) == "Yes")
+    greekcount = greekcount + 1
+}
+greekcount/length(greek)
+```
+
+
+```{r}
+# ATHLETES VS NON-ATHLETES SALARY
+both <- allq[, c(10, 13)]
+both <- both[!(both$Q11_1_TEXT == ""), ]
+both <- both[!(both$Q12 == ""), ]
+both$Q11_1_TEXT <- gsub("k.*|K.*", "000", both$Q11_1_TEXT)
+both$Q11_1_TEXT <- as.numeric(gsub("\\$|,|p year", "", both$Q11_1_TEXT))
+both <- both[!(is.na(both$Q11_1_TEXT)), ]
+
+# separate into athletes an nonath
+athletes = 0
+nonath = 0
+countath = 0
+j = 1
+for (i in 1:length(both$Q12))
+{
+  if (as.character(both$Q12[i]) == "Yes")
+  {
+    athletes = athletes + as.numeric(both$Q11_1_TEXT[i])
+    countath = countath + 1
+  }
+  else
+  {
+    nonath = nonath + as.numeric(both$Q11_1_TEXT[i])
+  }
+  j = j + 1
+}
+athletes/countath
+nonath/(length(both$Q12) - countath)
+```
+
+
+```{r}
+# BEST RES COLLEGE?
+rescol <- allq[, c(5, 7)]
+
+# get rid of empty rows
+rescol <- rescol[!(rescol$Q6 == ""), ]
+rescol <- rescol[!(rescol$Q5 == ""), ]
+
+count = 0
+for (i in 1:length(rescol$Q5))
+{
+  if (rescol[i, 1] == rescol[i, 2])
+  {
+    count = count + 1
+  }
+}
+count/length(rescol$Q5)
+```
+
+
+```{r}
+# PROPORTION GRADUATING WITH STUDENT LOANS
+loans <- allq[, 15]
+count = 0
+for (i in 1:length(loans))
+{
+  if (as.character(loans[i]) == "Yes")
+    count = count + 1
+}
+count/length(loans)
+```
+
+
+```{r}
+# PROPORTION IN A SENIOR SOCIETY
+society <- allq[, 23]
+count = 0
+for (i in 1:length(society))
+{
+  if (as.character(society[i]) == "Yes")
+    count = count + 1
+}
+count/length(society)
+```
+
+
+```{r}
+# FINDING TOP 5 RECOMMENDED CLASSES
+favclass <- allq[, 24]
+
+# cleaning
+# replace ";" and "or" with a new line
+#gsub(";|or", "[\n]", favclass)
+
+# replace "bioethics" with PLSC 257
+favclass <- gsub("Bioethics.*", "PLSC 257", favclass)
+# replace "intellectual history" with HIST 271
+favclass <- gsub("intellectual history.*", "HIST 271", favclass)
+# replace "Intro to psychology" with PSYC 110
+favclass <- gsub("Intro to psychology.*", "PSYC 110", favclass)
+
+# remove empty vals
+favclass <- favclass[!((favclass == "")|(favclass == " "))]
+
+# remove anything after the 8th char
+newclass <- c()
+for (class in favclass)
+{
+  newclass <- toupper(c(newclass, substring(class, 1, 8)))
+}
+
+# look at most common
+sort(table(newclass), decreasing = T)
+```
+
+
+
+```{r}
+# BASS OR STERLING VS. MAJORS
+libmajors <- allq[, c(4, 20)]
+
+# first, only include rows where responses were given for both of these attributes
+libmajors <- libmajors[!(libmajors$Q16 == ""), ]
+
+# split Bass and Sterling into two different categories
+bass <- c()
+sterling <- c()
+j = 1
+for (i in 1:length(libmajors$Q4))
+{
+  if (as.character(libmajors$Q16[i]) == "Bass")
+    bass[j] <- as.character(libmajors$Q4[i])
+  else if (as.character(libmajors$Q16[i]) == "Sterling")
+    sterling[j] <- as.character(libmajors$Q4[i])
+  j = j + 1
+}
+
+# remove NAs
+bass <- na.omit(bass)
+sterling <- na.omit(sterling)
+  
+# look at majors
+# bass
+bassstem = 0
+basshum = 0
+basssoc = 0
+for (major in bass)
+{
+  if (any(sapply(c("Molecular", "Mathematics", "Neuroscience", "Engineering", "Computer", "Chemistry", "Statistics", "Biology", "Astrophysics", "Physics"), str_detect, string = major)))
+  {
+    bassstem = bassstem + 1
+  }
+  else if (any(sapply(c("Economics", "Political Science", "Psychology", "Anthropology", "Global Affairs"), str_detect, string = major)))
+  {
+    basssoc = basssoc + 1
+  }
+  else
+  {
+    basshum = basshum + 1
+  }
+}
+print(bassstem/length(bass))
+print(basssoc/length(bass))
+print(basshum/length(bass))
+
+
+# sterling
+sterlingstem = 0
+sterlinghum = 0
+sterlingsoc = 0
+for (major in sterling)
+{
+  if (any(sapply(c("Molecular", "Mathematics", "Neuroscience", "Engineering", "Computer", "Chemistry", "Statistics", "Biology", "Astrophysics", "Physics"), str_detect, string = major)))
+  {
+    sterlingstem = sterlingstem + 1
+  }
+  else if (any(sapply(c("Economics", "Political Science", "Psychology", "Anthropology", "Global Affairs"), str_detect, string = major)))
+  {
+    sterlingsoc = sterlingsoc + 1
+  }
+  else
+  {
+    sterlinghum = sterlinghum + 1
+  }
+}
+print(sterlingstem/length(sterling))
+print(sterlingsoc/length(sterling))
+print(sterlinghum/length(sterling))
+```
+
+
+```{r}
+# DATA CLEANING SALARIES
+# turn 'k' or 'K' into 000
+salaries <- gsub("k.*|K.*", "000", allq[, 10])
+
+# remove '$' or ','
+salaries <- as.numeric(gsub("\\$|,|p year", "", salaries))
+
+# find average salary
+# if including all survey takers
+sum(na.omit(salaries))/length(salaries)
+
+# if just including those who filled out this question
+sum(na.omit(salaries))/length(na.omit(salaries))
+```
+
+```{r}
+# LOOKING AT JOB W.R.T. GREEK LIFE AFFILIATION
+# first, only include rows where responses were given for both of these attributes
+greekocc <- allq[, c(1, 8)]
+greekocc <- greekocc[!(greekocc$Q9 == ""), ]
+
+# split no's and yes's into two different categories
+yesgreek <- c()
+nogreek <- c()
+j = 1
+for (i in 1:length(greekocc$Q9))
+{
+  if (as.character(greekocc$Q9[i]) == "Yes")
+    yesgreek[j] <- as.character(greekocc$Q1[i])
+  else
+    nogreek[j] <- as.character(greekocc$Q1[i])
+  j = j + 1
+}
+
+# remove NAs
+yesgreek <- na.omit(yesgreek)
+nogreek <- na.omit(nogreek)
+  
+# look at post-grad plans
+# FOR THOSE IN GREEK LIFE
+unique(yesgreek)
+tabulate(match(yesgreek, unique(yesgreek)))
+sum(tabulate(match(yesgreek, unique(yesgreek))))
+
+# FOR THOSE NOT IN GREEK LIFE
+unique(nogreek)
+tabulate(match(nogreek, unique(nogreek)))
+sum(tabulate(match(nogreek, unique(nogreek))))
+```
+

@@ -1,0 +1,142 @@
+---
+title: "Yale's Most Popular Courses"
+output: html_notebook
+---
+
+# Helper functions
+
+```{r}
+unite_code <- function(df) {
+	unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+
+separate_code <- function(df) {
+	separate(df, code, into = c("subject", "number"), sep = " ", remove = FALSE)
+}
+
+separate_designator <- function(df) {
+	df %>%
+		mutate(number = as.numeric(str_extract(number, "[[:digit:]]+")),
+			   designator = str_extract(number, "[:alpha:]"))
+}
+```
+
+```{r}
+require(readr)
+require(dplyr)
+require(stringr)
+require(tidyr)
+
+subjects <- read_csv("data/subjects.csv")
+
+coursetable <- read_csv("data/coursetable.csv") %>%
+	unite_code() %>%
+	separate_designator() %>%
+	select(code, subject, number, designator, section, times, locations, rating, workload)
+```
+
+```{r}
+demand <- read_csv("data/demand.csv") %>%
+	mutate(date = as.Date(date, format = "%m/%d"))
+
+courses <- read_csv("data/courses.csv") %>%
+	separate_code() %>%
+	separate_designator() %>%
+	select(id, code, subject, number, designator, name)
+```
+
+# Top courses
+
+```{r}
+top_ids <- demand %>%
+	filter(date == max(date)) %>%
+	arrange(desc(count)) %>%
+	top_n(10)
+
+top_names <- courses %>%
+	filter(id %in% top_ids$id) %>%
+	group_by(id) %>%
+	summarize(name = first(name),
+			  codes = paste(code, collapse = " / "))
+
+top_courses <- top_ids %>%
+	left_join(top_names)
+
+write_csv(top_courses, "top_courses.csv")
+```
+
+# Trending
+
+```{r}
+trending_ids <- demand %>%
+	filter(date == max(date) | date == max(date) - 1) %>%
+	spread(date, count) %>%
+	`colnames<-`(c("id", "yesterday", "today")) %>%
+	filter(yesterday >= 3) %>%
+	mutate(change = today - yesterday,
+		   absChange = abs(change),
+		   pctChange = change / yesterday) %>%
+	arrange(desc(absChange)) %>%
+	select(id, yesterday, today, change, absChange) %>%
+	top_n(20)
+
+trending_names <- courses %>%
+	filter(number < 500) %>%
+	filter(id %in% trending_ids$id) %>%
+	group_by(id) %>%
+	summarize(name = first(name),
+			  codes = paste(code, collapse = " / "))
+
+trending <- trending_ids %>%
+	left_join(trending_names) %>%
+	filter(!is.na(codes)) %>%
+	top_n(10)
+
+write_csv(trending, "trending.csv")
+```
+
+# Departments
+
+```{r}
+demand %>%
+	filter(date == max(date) | date == max(date) - 1) %>%
+	left_join(courses) %>%
+	select(id, date, count, code, subject) %>%
+	group_by(subject) %>%
+	spread(date, count) %>%
+	`colnames<-`(c("id", "code", "subject", "yesterday", "today")) %>%
+	summarize(yesterday = sum(yesterday),
+			  today = sum(today)) %>%
+	arrange(desc(today)) %>%
+	mutate(change = today - yesterday) %>%
+```
+
+# Seminars
+
+```{r}
+seminars <- coursetable %>%
+	# get rid of the 1 HTBAs
+	filter(times != "1 HTBA") %>%
+	# get the first "word" in the string of times
+	mutate(word = stringr::word(times)) %>%
+	# the first word must be one letter long (M, T, W, F) or "Th"
+	filter(str_length(word) == 1 | word == "Th") %>%
+	left_join(demand %>%
+			  	filter(date == max(date)) %>%
+			  	left_join(courses)) %>%
+	# undergrad courses only
+	filter(number < 500) %>%
+	# these were a lab and Corp Finance (that for some reason only met one a week)
+	filter(!(id %in% c(655, 1784))) %>%
+	select(code, id, count, name, times) %>%
+	group_by(id) %>%
+	summarize(name = first(name),
+			  codes = paste(code, collapse = " / "),
+			  count = first(count),
+			  times = first(times)) %>%
+	arrange(desc(count)) %>%
+	top_n(10, count)
+
+write_csv(seminars, "seminars.csv")
+```
+

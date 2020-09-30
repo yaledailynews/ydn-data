@@ -1,0 +1,217 @@
+---
+title: "Untitled"
+output: html_document
+---
+
+```{r}
+rm(list = ls()) 
+require(rjson)
+library(plyr)
+library(stringr)
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+ct <- rjson::fromJSON(file = "coursetable.json")
+```
+
+```{r}
+titles <- sapply(ct, function(x) x$long_title)
+course_code <- sapply(ct, function(x) x$subject)
+course_number <- sapply(ct, function(x) x$number)
+location <- sapply(ct, function(x) x$locations_summary)
+time <- sapply(ct, function(x) x$times$summary)
+course_skills <- sapply(ct, function(x) x$skills)
+course_skills <- sapply(course_skills, paste0, collapse="")
+course_area <- sapply(ct, function(x) x$areas)
+course_area <- sapply(course_area, paste0, collapse="")
+
+#Coverts the characters into a dataframe
+data <- data.frame(CourseCode = course_code, CourseNumber = course_number, CourseTitle = titles, Location = location, Time = time, Skills = course_skills, Area = course_area)
+```
+
+```{r}
+cleandata <- data[!(is.na(data$Location) | data$Location ==""), ] #Removes rows where the location is empty
+cleandata$Location <- gsub(" .*", "", cleandata$Location) #Removes everything after the first space
+cleandata$Day <- gsub( " .*$", "", cleandata$Time) #Creates the Day column
+cleandata$Time <- gsub("+ 1", "", cleandata$Time, fixed = TRUE) #Removes "+ 1" from the time column
+cleandata$Time <- gsub("[^0-9.-]", "", cleandata$Time) #Removes all alphabet characters from the time column
+cleandata$Time <- gsub(".", ":", cleandata$Time, fixed = TRUE) #Changes "." into ":"
+cleandata$Time <- gsub("^(-)", "", cleandata$Time) #Removes '-' from the beginning of the time column
+```
+
+```{r}
+cleandata$NumofTimesMeet <- str_count(cleandata$Day, "[A-Z]") #Counts number of capital letters
+cleandata$NumofTimesMeet[cleandata$Day == "M-F"] <- 5 #Sets "M-F" to 5
+cleandata$MeetFriday <- ifelse(cleandata$Day == "F" | cleandata$Day == "M-F" | cleandata$Day == "MWF" | cleandata$Day == "WF", "1", "0") #Creates column to indicate whether a class meets on Friday
+```
+
+```{r}
+Locations <- read.csv('building_addresses.csv')
+Locations <- Locations[-c(2,3)]
+Locations$code <- as.character(Locations$code)
+Locations <- rbind(Locations, list("WTS", 41.315880, -72.923740), stringsAsFactors=FALSE)
+Locations <- rbind(Locations, list("HLH17", 41.312850, -72.923630), stringsAsFactors=FALSE)
+Locations <- rbind(Locations, list("YSB", 41.318060, -72.921740), stringsAsFactors=FALSE)
+Locations <- rbind(Locations, list("EVANS", 41.315070, -72.920339), stringsAsFactors=FALSE)
+Locations <- rbind(Locations, list("EDG36", 41.309827, -72.934131), stringsAsFactors=FALSE)
+Locations <- rbind(Locations, list("PR406", 41.323144, -72.923661), stringsAsFactors=FALSE)
+Locations <- rbind(Locations, list("CCAM", 41.307576, -72.931759), stringsAsFactors=FALSE)
+Merged <- left_join(cleandata, Locations, by = c("Location" = "code"))
+Merged <- na.omit(Merged)
+```
+
+```{r}
+majors <- read.csv('Bookmajor.csv')
+cleandata <- left_join(cleandata, majors, by = c("CourseCode" = "CourseCodes"))
+
+grove <- read.csv('AboveGrove.csv')
+cleandata <- left_join(cleandata, grove, by = c("Location" = "Location"))
+
+abbrev <- read.csv('Abbrev.csv')
+cleandata <- left_join(cleandata, abbrev, by = c("CourseCode" = "Abbrev"))
+cleandata <- na.omit(cleandata)
+```
+
+#Time
+```{r}
+time <- c("9:00-10:15", "10:30-11:20", "11:35-12:50", "13:00-14:15", "14:30-15:45")
+for (i in time) {
+  apple <- cleandata %>% 
+    group_by(Subject, Time) %>% 
+    summarize(count = n()) %>% 
+    filter(Time == i)
+  datatable <- apple[with(apple,order(-count)),]
+  datatable <- datatable[1:5,]
+  z <- ggplot(datatable, aes(x = reorder(stringr::str_wrap(Subject, 15), -count), y = count)) + geom_bar(stat="identity") +   geom_text(aes(label= count), nudge_y = 1) + labs(title = i)
+  plot(z)
+}
+```
+
+```{r}
+cleandata$StartTime <- gsub("-.*$", "", cleandata$Time)
+cleandata$EndTime <- gsub(".*-", "", cleandata$Time)
+cleandata$StartTime %<>% 
+  stringr::str_pad(4L, pad = "0") %>% 
+  data.table::as.ITime("%H:%M")
+cleandata$EndTime %<>% 
+  stringr::str_pad(4L, pad = "0") %>% 
+  data.table::as.ITime("%H:%M")
+cleandata$TimeDiff <- as.character(abs(cleandata$EndTime - cleandata$StartTime))
+
+apple <- cleandata %>% 
+    group_by(Subject, TimeDiff) %>% 
+    summarize(count = n()) %>% 
+    filter(TimeDiff > "01:30:00") #Classes longer than 1 hour and 30 minutes
+
+datatable <- apple[with(apple,order(-count)),]
+datatable <- datatable[1:6,]
+ggplot(datatable, aes(x = reorder(stringr::str_wrap(Subject, 15), -count), y = count)) + geom_bar(stat="identity") + geom_text(aes(label= count), nudge_y = 2)
+```
+
+#STEM vs Non-STEM
+```{r}
+cleandata$StartTime <- as.character(cleandata$StartTime)
+apple <- cleandata %>% 
+    group_by(Classification, StartTime) %>% 
+    summarize(count = n()) %>% 
+    filter(StartTime <= "09:00:00") #Start time at or earlier than 9AM
+
+sum(apple$count[apple$Classification == "Non-STEM"])/length(cleandata$Classification[cleandata$Classification == "Non-STEM"]) 
+sum(apple$count[apple$Classification == "STEM"])/length(cleandata$Classification[cleandata$Classification == "STEM"])
+```
+
+```{r}
+cleandata$StartTime <- as.character(cleandata$StartTime)
+apple <- cleandata %>% 
+    group_by(Classification, StartTime) %>% 
+    summarize(count = n()) %>% 
+    filter(StartTime >= "15:00:00") #Start time at or later than 3PM
+
+sum(apple$count[apple$Classification == "Non-STEM"])/length(cleandata$Classification[cleandata$Classification == "Non-STEM"]) 
+sum(apple$count[apple$Classification == "STEM"])/length(cleandata$Classification[cleandata$Classification == "STEM"])
+```
+
+#Meeting Friday
+```{r}
+apple <- cleandata %>% 
+    group_by(Subject, MeetFriday) %>% 
+    summarize(count = n()) %>% 
+    filter(MeetFriday == "1")
+
+datatable <- apple[with(apple,order(-count)),]
+datatable <- datatable[1:5,]
+ggplot(datatable, aes(x = reorder(stringr::str_wrap(Subject, 15), -count), y = count)) + geom_bar(stat="identity") + geom_text(aes(label= count), nudge_y = 1)
+```
+
+#Location
+```{r}
+x = c("MW", "TTh", "M-F", "F")
+for (i in x) {
+  apple <- cleandata %>% 
+    group_by(AboveGrove, Day) %>% 
+    summarize(count = n()) %>% 
+    filter(Day == i)
+  datatable <- apple[with(apple,order(-count)),]
+  z<- ggplot(datatable, aes(x = reorder(stringr::str_wrap(AboveGrove, 15), -count), y = count)) + geom_bar(stat="identity") + geom_text(aes(label= count), nudge_y = 5) + labs(title = i)
+  plot(z)
+}
+```
+
+```{r}
+x = c("LC", "WLH", "DL", "RKZ", "WTS", "OML", "LUCE", "HLH17")
+for (i in x) {
+  apple <- cleandata %>% 
+    group_by(Subject, Location) %>% 
+    summarize(count = n()) %>% 
+    filter(Location == i)
+  datatable <- apple[with(apple,order(-count)),]
+  datatable <- datatable[1:5,]
+  z<- ggplot(datatable, aes(x = reorder(stringr::str_wrap(Subject, 15), -count), y = count)) + geom_bar(stat="identity") + geom_text(aes(label= count), nudge_y = 1.5) + labs(title = i)
+  plot(z)
+}
+```
+
+```{r}
+major <- data.frame(Major=character(),
+                    stringsAsFactors = FALSE)
+df <- data.frame(Percent=character(), 
+                 stringsAsFactors=FALSE) 
+
+cleandata <- na.omit(cleandata)
+cleandata$Subject <- as.character(cleandata$Subject)
+
+for (i in unique(cleandata$Subject)) {
+  GroveData <- cleandata %>% 
+    group_by(AboveGrove, Subject) %>% 
+    summarize(count = n()) %>% 
+    filter(Subject == i)
+  if (sum(GroveData$count) > 30) {
+    major[i,] <- GroveData$Subject[1]
+    if (nrow(GroveData) > 1) {
+      df[i,] <- GroveData$count[GroveData$AboveGrove == 'YES']/(GroveData$count[GroveData$AboveGrove == "YES"] + GroveData$count[GroveData$AboveGrove == "NO"])
+    } else if (GroveData$AboveGrove == "NO") {
+      df[i,] <- 0
+    } else {
+      df[i,] <- 1
+    }
+  }
+}
+df <- cbind(major, df)
+
+datatable <- df[with(df,order(Percent)),]
+datatable <- tail(datatable, 7)
+datatable$Percent <- as.numeric(datatable$Percent)
+
+ggplot(datatable, aes(x = reorder(stringr::str_wrap(Major, 15), -Percent), y = Percent)) + geom_bar(stat="identity") + geom_text(aes(label=round(Percent, 2)), nudge_y = .04)
+```
+
+
+```{r}
+datatable <- df[with(df,order(Percent)),]
+datatable <- head(datatable, 7)
+datatable$Percent <- as.numeric(datatable$Percent)
+
+ggplot(datatable, aes(x = reorder(stringr::str_wrap(Major, 15), -Percent), y = Percent)) + geom_bar(stat="identity") + geom_text(aes(label=round(Percent, 2)), nudge_y = .01)
+```

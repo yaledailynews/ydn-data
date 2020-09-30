@@ -1,0 +1,170 @@
+---
+title: "R Notebook"
+output:
+  html_document:
+    df_print: paged
+editor_options:
+  chunk_output_type: inline
+---
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(funModeling)
+library(Hmisc)
+library(aplpack)
+library(vcd)
+library(MASS)
+library(ggplot2)
+library(ggthemes)
+library(RColorBrewer)
+```
+
+```{r}
+data <- read.csv("~/Documents/GitHub/ydn-data-analytics/projects/demographics/yale_students_s20_zipcodes.csv")
+levels(data$colleges) <- c("BF", "BK", "BR", "DC", "ES", "GH", "JE", "MC", "PM", "PC", "SY", "SM", "TD", "TC")
+table(data$colleges)
+
+
+newdata <- data %>%
+    mutate(category = case_when(data$majors == "Film and Media Studies" ~ "Humanities",
+                                  data$majors == "Undeclared" ~ "NA",
+                                  data$majors == "History" ~ "Social Science",
+data$majors == "Statistics & Data Science"~ "STEM",
+data$majors == "Elec.Engineering/Computer Sci"~ "STEM",
+data$majors == "Psychology"~ "Social Science",
+data$majors == "Political Science"~ "Social Science",
+data$majors == "History Science, Medicine & PH"~ "Social Science",
+data$majors == "Environmental Engineering"~"STEM", 
+data$majors == "Ethnicity, Race & Migration"~"Social Science", 
+data$majors == "Architecture"~ "Humanities",
+data$majors == "Economics"~ "Social Science", 
+data$majors == "Computer Science"~ "STEM", 
+data$majors == "Applied Mathematics"~"STEM", 
+data$majors == "Molecular,Cellular,Dev Biology"~ "STEM", 
+data$majors == "American Studies"~ "Social Science", 
+data$majors == "Ethics,Politics & Economics"~ "Social Science",
+data$majors == "Chemical Engineering"~ "STEM",
+data$majors == "Ecology & Evolutionary Biology"~ "STEM",
+data$majors == "Chemistry"~ "STEM",
+data$majors == "Applied Physics"~"STEM", 
+data$majors == "Global Affairs"~"Social Science", 
+data$majors == "Computing and the Arts"~ "Humanities",
+data$majors == "Molecular Biophysics & Biochem"~ "STEM", 
+data$majors == "History of Art"~ "Social Science", 
+data$majors == "Environmental Studies"~ "Social Science",
+data$majors == "Computer Science & Econ"~"Social Science",
+data$majors == "Mechanical Engineering"~ "STEM", 
+data$majors == "Biomedical Engineering"~"STEM",
+data$majors == "Cognitive Science"~ "Social Science",
+data$majors == "Economics & Mathematics"~ "Social Science", 
+data$majors == "Neuroscience"~ "STEM", 
+data$majors == "Mathematics"~ "STEM",
+data$majors == "Classics"~ "Humanities", 
+data$majors == "Theater & Performance Studies"~ "Humanities", 
+data$majors == "Sociology"~ "Social Science",
+data$majors == "Molecular,Cellular,DevBio(Int)"~ "STEM", 
+data$majors == "English"~ "Humanities", 
+data$majors == "Philosophy"~ "Humanities", 
+data$majors == "Art"~ "Humanities",
+data$majors == "African American Studies"~ "Social Science", 
+data$majors == "Computer Science & Mathematics"~ "STEM", 
+data$majors == "Physics (Int.)"~ "STEM", 
+data$majors == "Astrophysics"~"STEM", 
+data$majors == "Physics"~ "STEM", 
+data$majors == "Linguistics"~ "Social Science", 
+data$majors == "Electrical Engineering"~ "STEM", 
+data$majors == "Theater Studies"~ "Humanities",
+data$majors == "East Asian Studies"~ "Humanities",
+data$majors == "Anthropology"~ "Social Science", 
+data$majors == "Urban Studies"~ "Social Science", 
+data$majors == "Geology & Geophysics"~ "STEM", 
+data$majors == "East Asian Languages & Lits"~"Humanities", 
+data$majors == "Mathematics & Physics"~ "STEM", 
+data$majors == "Women'sGender&SexualityStudies"~ "Social Science", 
+data$majors == "Sociology (Int.)"~ "Social Science", 
+data$majors == "Music"~ "Humanities", 
+data$majors == "Engineering Science-Chemical"~ "STEM",
+data$majors == "Comparative Literature"~ "Humanities", 
+data$majors == "American Studies (Int.)"~ "Social Science", 
+data$majors == "Political Science (Int.)"~ "Social Science", 
+data$majors == "Religious Studies"~ "Humanities", 
+data$majors == "Physics & Philosophy"~"Humanities", 
+data$majors == "Engineering Science-Mechanical"~"STEM", 
+data$majors == "Special Divisional Major"~ "NA", 
+data$majors == "Chemistry (Int.)"~ "STEM", 
+data$majors == "Lit. and Comparative Cultures"~ "Humanities", 
+data$majors == "Humanities"~ "Humanities", 
+data$majors == "Computer Science & Psychology"~ "Social Science",
+data$majors == "Visiting International Program"~ "NA", 
+data$majors == "Mathematics (Int.)"~ "STEM", 
+data$majors == "Near Eastern Languages & Civs"~ "Humanities", 
+data$majors == "Mathematics & Philosophy"~ "Humanities", 
+data$majors == "Modern Middle Eastern Studies"~ "Social Science", 
+data$majors == "Archaeological Studies"~ "Social Science", 
+data$majors == "Astronomy"~ "STEM",
+data$majors == "Classical Civilization"~ "Humanities", 
+data$majors == "Music (Int.)"~ "Humanities",
+data$majors == "Italian"~ "Humanities",
+data$majors == "Engineering Science-Electrical"~ "STEM",
+data$majors == "African Studies"~ "Social Science", 
+data$majors == "Russian & E European Studies"~ "Humanities", 
+data$majors == "Classics (Int.)"~ "Humanities", 
+data$majors == "Geology & Natural Resources"~"STEM", 
+data$majors == "Physics & Geosciences"~ "STEM",
+data$majors == "Latin American Studies"~ "Social Science", 
+data$majors == "Russian"~ "Humanities",
+data$majors == "French" ~ "Humanities",
+TRUE ~ "NA"))
+
+
+
+table <- structable(colleges ~ majors, data)
+newtable <- table[c(3,4,5,6,7,8,9,10,11,12,14,15,17,24,25,26,27,28,29,31,32,33,34,35,36,37,41,42,43,44,45,46,47,48,49,50,51,52,53,54,57,58,59,61,63,64,65,66,67,68,69,70,74,75,76,77,78,79,80,81,83,84,85,86,87,88,91,92,96,97,98,99,100,101,102,105,106,107,108,111,112,113,114,117,118,123,124,128,130)]
+
+table1 <- structable(colleges ~ category, newdata)
+newtable1 <- table1[c(1,3,4)]
+
+freq(data$majors)
+```
+
+```{r}
+tab <- data.matrix((newtable))
+prop.table(tab,2) %>% {. * 100} %>% round(2)
+
+newtab <- data.matrix((newtable1))
+cattab <- prop.table(newtab,2) %>% {. * 100} %>% round(2)
+cattab
+```
+
+```{r}
+addresses <- read.csv("~/Documents/GitHub/ydn-data-analytics/projects/demographics/yale_students_addresses.csv")
+levels(addresses$colleges) <- c("Other","BF", "BK", "BR", "DC", "ES", "GH", "JE", "MC", "PM", "PC", "SY", "SM", "TD", "TC")
+table(addresses$colleges)
+
+addtab <- structable(colleges ~ State, addresses, na.action = na.omit)
+head(addtab)
+newadd <- addtab[c(-1),]
+newadd1 <-  newadd[c(-1),]
+
+tab1 <- data.matrix((newadd1))
+prop.table(tab1 ,2) %>% {. * 100} %>% round(2)
+
+countrytab <- addtab <- structable(colleges ~ Country, addresses, na.action = na.omit)
+head(countrytab)
+newcountry <- countrytab[c(-1),]
+newcountry1 <-newcountry[c(-1),]
+
+
+tab2 <- data.matrix((newcountry1))
+prop.table(tab2 ,2) %>% {. * 100} %>% round(2)
+```
+
+
+```{r}
+write.csv(newdata, "yale_students_s20_fulldata.csv", row.names = F)
+write.csv(cattab, "yale_students_s20_categories.csv", row.names = F)
+
+```
+
+

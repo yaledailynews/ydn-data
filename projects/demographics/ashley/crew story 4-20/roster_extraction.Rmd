@@ -1,0 +1,440 @@
+---
+title: "roster_extraction"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(rvest)
+library(dplyr)
+library(stringr)
+```
+
+```{r}
+# function that takes in a url for the roster and returns athlete name
+extract_names <- function(web_url) {
+  page <- read_html(web_url)
+  
+  # extracting line of html with name in it
+  names <- page %>% 
+    rvest::html_nodes('body') %>% 
+    xml2::xml_find_all("//li[contains(@class, 'sidearm-roster-player')]") %>% 
+    rvest::html_text()
+  
+  # loop through these lines to extract just the name
+  for (i in 1:length(names)) {
+  names[i] <- gsub(".*For ", "", names[i])
+  names[i] <- str_split(names[i], "\r", 2)
+  names[i] <- names[[i]][1]
+  }
+  names
+}
+```
+
+```{r}
+# function that takes in a url for the roster and returns athlete hometown NO MAJOR
+extract_hometowns_NOMAJOR <- function(web_url) {
+  page <- read_html(web_url)
+  
+  # extracting line of html with hometown in it
+  hometowns <- page %>%
+    rvest::html_nodes('body') %>%
+    xml2::xml_find_all("//li[contains(@class, 'sidearm-roster-player')]") %>%
+    rvest::html_text()
+  
+  # loop through these lines to extract just the hometown
+  for (i in 1:length(hometowns)) {
+    hometowns[i] <- gsub(".*.\r\n                                                                                \r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t                            ", "", hometowns[i])
+    hometowns[i] <- str_split(hometowns[i], "\r", 2)
+    hometowns[i] <- hometowns[[i]][1]
+  }
+  hometowns
+}
+```
+
+
+```{r}
+# function that takes in a url for the roster and returns athlete hometown WITH MAJOR
+extract_hometowns_MAJOR <- function(web_url) {
+  page <- read_html(web_url)
+    
+    # extracting line of html with name in it
+    hometowns <- page %>%
+      rvest::html_nodes('body') %>%
+      xml2::xml_find_all("//li[contains(@class, 'sidearm-roster-player')]") %>%
+      rvest::html_text()
+    
+    # loop through these lines to extract just the hometown
+    for (i in 1:length(hometowns)) {
+      hometowns[i] <- str_extract(hometowns[i], ".*,.*")
+      hometowns[i] <- gsub("\t\t\t\t\t\t\t\t\t\t\t\t\t\t                            ", "", hometowns[i])
+    }
+    hometowns
+}
+```
+
+
+
+#For all crew
+```{r}
+# FOR MENS HEAVYWEIGHT CREW
+hw_crew_names <- extract_names("https://yalebulldogs.com/sports/mens-crew/roster")
+hw_crew_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-crew/roster")
+hw_crew <- do.call(rbind, Map(data.frame, Names = hw_crew_names, Hometowns = hw_crew_hometowns))
+```
+
+```{r}
+# FOR MENS LIGHTWEIGHT CREW
+lw_crew_names <- extract_names("https://yalebulldogs.com/sports/mens-rowing/roster")
+lw_crew_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-rowing/roster")
+lw_crew <- do.call(rbind, Map(data.frame, Names = lw_crew_names, Hometowns = lw_crew_hometowns))
+```
+
+```{r}
+# FOR WOMENS CREW
+wm_crew_names <- extract_names("https://yalebulldogs.com/sports/womens-crew/roster")
+wm_crew_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-crew/roster")
+wm_crew <- do.call(rbind, Map(data.frame, Names = wm_crew_names, Hometowns = wm_crew_hometowns))
+```
+
+```{r}
+# ALL OF CREW IN ONE DATA SET
+crew <- rbind(rbind(hw_crew, lw_crew), wm_crew)
+write.csv(crew, "crew_roster.csv")
+```
+
+
+#For swimming and diving
+```{r}
+# WOMENS SWIMMING/DIVING
+wm_sd_names <- extract_names("https://yalebulldogs.com/sports/womens-swimming-and-diving/roster")
+wm_sd_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-swimming-and-diving/roster")
+wm_sd <- do.call(rbind, Map(data.frame, Names = wm_sd_names, Hometowns = wm_sd_hometowns))
+```
+
+```{r}
+# MENS SWIMMING/DIVING
+m_sd_names <- extract_names("https://yalebulldogs.com/sports/mens-swimming-and-diving/roster")
+m_sd_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-swimming-and-diving/roster")
+m_sd <- do.call(rbind, Map(data.frame, Names = m_sd_names, Hometowns = m_sd_hometowns))
+```
+
+```{r}
+# ALL OF SWIMMING/DIVING IN ONE DATA SET
+sd <- rbind(wm_sd, m_sd)
+write.csv(sd, "swimming_roster.csv")
+```
+
+
+
+#For hockey
+```{r}
+# MENS HOCKEY
+m_h_names <- extract_names("https://yalebulldogs.com/sports/mens-ice-hockey/roster")
+m_h_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-ice-hockey/roster")
+m_h <- do.call(rbind, Map(data.frame, Names = m_h_names, Hometowns = m_h_hometowns))
+```
+
+```{r}
+# WOMENS ICE HOCKEY
+wm_ih_names <- extract_names("https://yalebulldogs.com/sports/womens-ice-hockey/roster")
+wm_ih_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-ice-hockey/roster")
+wm_ih <- do.call(rbind, Map(data.frame, Names = wm_ih_names, Hometowns = wm_ih_hometowns))
+```
+
+```{r}
+# WOMENS FIELD HOCKEY
+wm_fh_names <- extract_names("https://yalebulldogs.com/sports/field-hockey/roster")
+wm_fh_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/field-hockey/roster")
+wm_fh <- do.call(rbind, Map(data.frame, Names = wm_fh_names, Hometowns = wm_fh_hometowns))
+```
+
+```{r}
+# ALL OF HOCKEY IN ONE DATA SET
+hockey <- rbind(rbind(m_h, wm_ih), wm_fh)
+write.csv(hockey, "hockey_roster.csv")
+```
+
+
+
+#For lacrosse
+```{r}
+# FOR MENS LACROSSE
+mens_lacrosse_names <- extract_names("https://yalebulldogs.com/sports/mens-lacrosse/roster")
+mens_lacrosse_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-lacrosse/roster")
+mens_lacrosse <- do.call(rbind, Map(data.frame, Names = mens_lacrosse_names, Hometowns = mens_lacrosse_hometowns))
+```
+
+```{r}
+# FOR WOMENS LACROSSE
+wm_lacrosse_names <- extract_names("https://yalebulldogs.com/sports/womens-lacrosse/roster")
+wm_lacrosse_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-lacrosse/roster")
+wm_lacrosse <- do.call(rbind, Map(data.frame, Names = wm_lacrosse_names, Hometowns = wm_lacrosse_hometowns))
+```
+
+```{r}
+# ALL OF LACROSSE IN ONE DATA SET
+lacrosse <- rbind(mens_lacrosse, wm_lacrosse)
+write.csv(lacrosse, "lacrosse_roster.csv")
+```
+
+
+
+#For track and field/cross country
+```{r}
+# FOR WOMENS TRACK AND FIELD/CROSS COUNTRY
+wm_track_names <- extract_names("https://yalebulldogs.com/sports/womens-track-and-field/roster")
+wm_track_hometowns <- extract_hometowns_MAJOR("https://yalebulldogs.com/sports/womens-track-and-field/roster")
+wm_cc_names <- extract_names("https://yalebulldogs.com/sports/womens-cross-country/roster")
+wm_cc_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-cross-country/roster")
+
+# merge lists
+wm_trackcc_names <- c(wm_track_names, wm_cc_names)
+wm_trackcc_hometowns <- c(wm_track_hometowns, wm_cc_hometowns)
+
+# put into data frame and remove rows based on duplicates BY NAME
+wm_trackcc <- do.call(rbind, Map(data.frame, Names = wm_trackcc_names, Hometowns = wm_trackcc_hometowns))
+wm_trackcc <- wm_trackcc[!(duplicated(wm_trackcc$Names)),]
+```
+
+```{r}
+# FOR MENS TRACK AND FIELD/CROSS COUNTRY
+m_track_names <- extract_names("https://yalebulldogs.com/sports/mens-track-and-field/roster")
+m_track_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-track-and-field/roster")
+m_cc_names <- extract_names("https://yalebulldogs.com/sports/mens-cross-country/roster")
+m_cc_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-cross-country/roster")
+
+# merge lists
+m_trackcc_names <- c(m_track_names, m_cc_names)
+m_trackcc_hometowns <- c(m_track_hometowns, m_cc_hometowns)
+
+# put into data frame and remove rows based on duplicates BY NAME
+m_trackcc <- do.call(rbind, Map(data.frame, Names = m_track_names, Hometowns = m_track_hometowns))
+m_trackcc <- m_trackcc[!(duplicated(m_trackcc$Names)),]
+```
+
+```{r}
+# ALL OF TRACK AND FIELD IN ONE DATA SET
+trackcc <- rbind(wm_trackcc, m_trackcc)
+write.csv(trackcc, "trackcc_roster.csv")
+```
+
+
+
+#For sailing (coed roster contains all)
+```{r}
+# FOR COED SAILING
+sailing_names <- extract_names("https://yalebulldogs.com/sports/sailing/roster")
+sailing_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/sailing/roster")
+sailing <- do.call(rbind, Map(data.frame, Names = sailing_names, Hometowns = sailing_hometowns))
+write.csv(sailing, "sailing_roster.csv")
+```
+
+
+
+#For soccer
+```{r}
+# FOR WOMENS SOCCER
+wm_soccer_names <- extract_names("https://yalebulldogs.com/sports/womens-soccer/roster")
+wm_soccer_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-soccer/roster")
+wm_soccer <- do.call(rbind, Map(data.frame, Names = wm_soccer_names, Hometowns = wm_soccer_hometowns))
+```
+
+```{r}
+# FOR MENS SOCCER
+m_soccer_names <- extract_names("https://yalebulldogs.com/sports/mens-soccer/roster")
+m_soccer_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-soccer/roster")
+m_soccer <- do.call(rbind, Map(data.frame, Names = m_soccer_names, Hometowns = m_soccer_hometowns))
+```
+
+```{r}
+# ALL OF SOCCER IN ONE DATA SET
+soccer <- rbind(wm_soccer, m_soccer)
+write.csv(soccer, "soccer_roster.csv")
+```
+
+
+
+#For golf
+```{r}
+# FOR WOMENS GOLF
+wm_golf_names <- extract_names("https://yalebulldogs.com/sports/womens-golf/roster")
+wm_golf_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-golf/roster")
+wm_golf <- do.call(rbind, Map(data.frame, Names = wm_golf_names, Hometowns = wm_golf_hometowns))
+```
+
+```{r}
+# FOR MENS GOLF
+m_golf_names <- extract_names("https://yalebulldogs.com/sports/mens-golf/roster")
+m_golf_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-golf/roster")
+m_golf <- do.call(rbind, Map(data.frame, Names = m_golf_names, Hometowns = m_golf_hometowns))
+```
+
+```{r}
+# ALL OF GOLF IN ONE DATA SET
+golf <- rbind(wm_golf, m_golf)
+write.csv(golf, "golf_roster.csv")
+```
+
+
+
+#For squash
+```{r}
+# FOR WOMENS SQUASH
+wm_squash_names <- extract_names("https://yalebulldogs.com/sports/womens-squash/roster")
+wm_squash_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-squash/roster")
+wm_squash <- do.call(rbind, Map(data.frame, Names = wm_squash_names, Hometowns = wm_squash_hometowns))
+```
+
+```{r}
+# FOR MENS SQUASH
+m_squash_names <- extract_names("https://yalebulldogs.com/sports/mens-squash/roster")
+m_squash_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-squash/roster")
+m_squash <- do.call(rbind, Map(data.frame, Names = m_squash_names, Hometowns = m_squash_hometowns))
+```
+
+```{r}
+# ALL OF SQUASH IN ONE DATA SET
+squash <- rbind(wm_squash, m_squash)
+write.csv(squash, "squash_roster.csv")
+```
+
+
+
+#For basketball
+```{r}
+# FOR WOMENS BBALL
+wm_bball_names <- extract_names("https://yalebulldogs.com/sports/womens-basketball/roster")
+wm_bball_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-basketball/roster")
+wm_bball <- do.call(rbind, Map(data.frame, Names = wm_bball_names, Hometowns = wm_bball_hometowns))
+```
+
+```{r}
+# FOR MENS BBALL
+m_bball_names <- extract_names("https://yalebulldogs.com/sports/mens-basketball/roster")
+m_bball_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-basketball/roster")
+m_bball <- do.call(rbind, Map(data.frame, Names = m_bball_names, Hometowns = m_bball_hometowns))
+```
+
+```{r}
+# ALL OF BBALL IN ONE DATA SET
+bball <- rbind(wm_bball, m_bball)
+write.csv(bball, "bball_roster.csv")
+```
+
+
+
+#For baseball/softball
+```{r}
+# FOR WOMENS SOFTBALL
+wm_softball_names <- extract_names("https://yalebulldogs.com/sports/softball/roster")
+wm_softball_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/softball/roster")
+wm_softball <- do.call(rbind, Map(data.frame, Names = wm_softball_names, Hometowns = wm_softball_hometowns))
+```
+
+```{r}
+# FOR MENS BASEBALL
+m_baseball_names <- extract_names("https://yalebulldogs.com/sports/baseball/roster")
+m_baseball_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/baseball/roster")
+m_baseball <- do.call(rbind, Map(data.frame, Names = m_baseball_names, Hometowns = m_baseball_hometowns))
+```
+
+```{r}
+# ALL OF BASEBALL/SOFTBALL IN ONE DATA SET
+baseball_softball <- rbind(wm_softball, m_baseball)
+write.csv(baseball_softball, "baseball_softball_roster.csv")
+```
+
+
+
+#For tennis
+```{r}
+# FOR WOMENS TENNIS
+wm_tennis_names <- extract_names("https://yalebulldogs.com/sports/womens-tennis/roster")
+wm_tennis_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-tennis/roster")
+wm_tennis <- do.call(rbind, Map(data.frame, Names = wm_tennis_names, Hometowns = wm_tennis_hometowns))
+```
+
+```{r}
+# FOR MENS TENNIS
+m_tennis_names <- extract_names("https://yalebulldogs.com/sports/mens-tennis/roster")
+m_tennis_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-tennis/roster")
+m_tennis <- do.call(rbind, Map(data.frame, Names = m_tennis_names, Hometowns = m_tennis_hometowns))
+```
+
+```{r}
+# ALL OF TENNIS IN ONE DATA SET
+tennis <- rbind(wm_tennis, m_tennis)
+write.csv(tennis, "tennis_roster.csv")
+```
+
+
+
+#For fencing
+```{r}
+# FOR WOMENS FENCING
+wm_fencing_names <- extract_names("https://yalebulldogs.com/sports/womens-fencing/roster")
+wm_fencing_hometowns <- extract_hometowns_MAJOR("https://yalebulldogs.com/sports/womens-fencing/roster")
+wm_fencing <- do.call(rbind, Map(data.frame, Names = wm_fencing_names, Hometowns = wm_fencing_hometowns))
+```
+
+```{r}
+# FOR MENS FENCING
+m_fencing_names <- extract_names("https://yalebulldogs.com/sports/mens-fencing/roster")
+m_fencing_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/mens-fencing/roster")
+m_fencing <- do.call(rbind, Map(data.frame, Names = m_fencing_names, Hometowns = m_fencing_hometowns))
+```
+
+```{r}
+# ALL OF FENCING IN ONE DATA SET
+fencing <- rbind(wm_fencing, m_fencing)
+write.csv(fencing, "fencing_roster.csv")
+```
+
+
+
+#For volleyball (only women's)
+```{r}
+volleyball_names <- extract_names("https://yalebulldogs.com/sports/womens-volleyball/roster")
+volleyball_hometowns <- extract_hometowns_NOMAJOR("https://yalebulldogs.com/sports/womens-volleyball/roster")
+volleyball <- do.call(rbind, Map(data.frame, Names = volleyball_names, Hometowns = volleyball_hometowns))
+write.csv(volleyball, "volleyball_roster.csv")
+```
+
+
+
+#For gymnastics (only women's)
+```{r}
+gymnastics_names <- extract_names("https://yalebulldogs.com/sports/womens-gymnastics/roster")
+gymnastics_hometowns <- extract_hometowns_MAJOR("https://yalebulldogs.com/sports/womens-gymnastics/roster")
+gymnastics <- do.call(rbind, Map(data.frame, Names = gymnastics_names, Hometowns = gymnastics_hometowns))
+write.csv(gymnastics, "gymnastics_roster.csv")
+```
+
+
+
+#For football (only men's)
+```{r}
+football_names <- extract_names("https://yalebulldogs.com/sports/football/roster")
+football_hometowns <- extract_hometowns_MAJOR("https://yalebulldogs.com/sports/football/roster")
+football <- do.call(rbind, Map(data.frame, Names = football_names, Hometowns = football_hometowns))
+write.csv(football, "football_roster.csv")
+```
+
+
+
+```{r}
+# # MASTER LIST
+# athletes <- do.call(rbind, lisxwt(crew, sd, hockey, lacrosse, trackcc, sailing, soccer, golf, squash, bball, baseball_softball, tennis, fencing, volleyball, gymnastics, football))
+# write.csv(athletes, "athletes.csv")
+```
+
+
+```{r}
+# to extract from harvard roster
+url <- "https://www.gocrimson.com/sports/mcrew-lw/2017-18/roster"
+webpage <- read_html(url)
+names <- html_text(html_nodes(webpage, '.name'))
+length(names)
+```
+

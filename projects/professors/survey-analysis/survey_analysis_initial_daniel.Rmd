@@ -1,0 +1,284 @@
+---
+title: "Political leanings survey analysis"
+output:
+  pdf_document: default
+  html_notebook: default
+---
+
+```{r}
+library(tidyverse)
+library(knitr)
+```
+
+
+
+```{r}
+survey <- read_csv("qualtrics_042220_2pm.csv") %>%
+    select(ResponseId, Q1:Q23_3_TEXT) %>%
+    select(-Q21, -Q21_10_TEXT) %>%
+    slice(-2)
+
+names_questions <- as.character(survey[1, ])
+
+names(survey) <- c(
+    "id",
+    "Affiliation",
+    "AreaInstruction",
+    "AreaInstructionOther",
+    "AreaStudy",
+    "AreaStudyOther",
+    "AreaStudyDouble",
+    "PoliticalLeaning",
+    "DonationFrequency",
+    "Vocal",
+    "InfluenceFieldChoice",
+    "DiversityAmongPeers",
+    "StudentAwarenessProfs",
+    "StudentAwarenessStudents",
+    "DiversityAmongFaculty",
+    "AdminCurrentPrioritize",
+    "AdminShouldPrioritize",
+    "Voting2020",
+    "VotingFor",
+    "VotingForOther",
+    "NotVotingReason",
+    "NotVotingReasonOther",
+    "UndecidedReason",
+    "UndecidedReasonOther"
+)
+
+names_extents <- c(
+    "To an extremely large extent",
+    "To a large extent",
+    "To a moderate extent",
+    "To a small extent",
+    "To no or a very minimal extent"
+)
+
+names_leaning <- c(
+    "Very conservative",
+    "Conservative",
+    "Right of center", 
+    "Moderate",
+    "Left of center", 
+    "Liberal",
+    "Very liberal"
+)
+
+
+survey <- survey %>%
+    slice(-1) %>%
+    mutate(PoliticalLeaning = as.factor(PoliticalLeaning))
+
+```
+
+
+# Q2 Leanings:
+
+
+```{r}
+View(survey)
+?as.factor
+```
+
+
+```{r}
+names <- c("Very conservative",
+            "Conservative",
+            "Right of center", 
+            "Moderate",
+            "Left of center", 
+            "Liberal",
+            "Very liberal")
+
+undergrads <- c(31, 96, 90, 167, 238, 484, 312)
+faculty <- c(1, 8, 9, 43, 62, 101, 54)
+```
+
+```{r}
+q2 <- data.frame(
+    leaning = names, 
+    undergrads,
+    faculty
+)
+```
+
+```{r}
+q2 %>%
+    tidyr::pivot_longer(-leaning) %>%
+    ggplot(aes(name, value, fill = leaning %>% fct_relevel(names) %>% fct_rev())) +
+    geom_bar(stat = "identity", position = "fill") +
+    coord_flip() +
+    scale_fill_brewer(palette = "RdBu", direction = -1) +
+    labs(x = "group", y = "cumulative percent", fill = "Leaning",
+         title = "Q2: How would you identify yourself politically?") +
+    theme_minimal() +
+    theme(panel.grid.major.y = element_blank())
+```
+
+```{r}
+q2[, 2:3] %>%
+    as.matrix() %>%
+    t() %>%
+    `colnames<-`(names) %>%
+    prop.table(margin = 1) %>%
+    as.data.frame.matrix() %>%
+    round(4) %>%
+    `*`(100) %>%
+    kable()
+```
+
+```{r}
+q2_sum <- q2 %>%
+    mutate(leaning = c("Conservative", "Conservative", "Conservative", "Moderate", "Liberal", "Liberal", "Liberal")) %>%
+    group_by(leaning) %>%
+    summarize(undergrads = sum(undergrads),
+              faculty = sum(faculty))
+```
+
+```{r}
+q2_sum %>%
+    tidyr::pivot_longer(-leaning) %>%
+    ggplot(aes(name, value, fill = leaning %>% fct_relevel(c("Conservative", "Moderate", "Liberal")) %>% fct_rev())) +
+    geom_bar(stat = "identity", position = "fill") +
+    coord_flip() +
+    scale_fill_brewer(palette = "RdBu", direction = -1) +
+    labs(x = "group", y = "cumulative percent", fill = "Leaning",
+         title = "Q2: How would you identify yourself politically?",
+         subtitle = "All conservatives grouped together, all liberals grouped together") +
+    theme_minimal() +
+    theme(panel.grid.major.y = element_blank())
+```
+
+```{r}
+q2_sum[, 2:3] %>%
+    as.matrix() %>%
+    t() %>%
+    `colnames<-`(c("Conservative", "Moderate", "Liberal")) %>%
+    prop.table(margin = 1) %>%
+    as.data.frame.matrix() %>%
+    round(4) %>%
+    `*`(100) %>%
+    kable()
+```
+
+# Q7 Choice of academic field:
+
+```{r}
+names <- c("To an extremely large extent",
+           "To a large extent",
+           "To a moderate extent",
+           "To a small extent",
+           "To no or a very minimal extent")
+
+undergrads <- c(112, 202, 278, 292, 539)
+faculty <- c(5, 32, 32, 42, 169)
+```
+
+```{r}
+q7 <- data.frame(
+    response = names, 
+    undergrads,
+    faculty
+)
+```
+
+```{r}
+q7 %>%
+    tidyr::pivot_longer(-response) %>%
+    group_by(name) %>%
+    mutate(percent = value / sum(value),
+           percent = paste0(round(100 * percent), "%")) %>%
+    ggplot(aes(name, value)) +
+    geom_bar(aes(fill = response %>% fct_relevel(names) %>% fct_rev()), stat = "identity", position = "fill") +
+    ggrepel::geom_label_repel(aes(label = percent), position = "fill", point.padding = NA) +
+    coord_flip() +
+    scale_fill_brewer() +
+    labs(x = "group", y = "cumulative percent", fill = "Response",
+         title = "Q7/To what extent have your political beliefs influenced your choice of field?") +
+    theme_minimal() +
+    theme(panel.grid.major.y = element_blank())
+```
+
+# Q8 Political diversity among peers
+
+```{r}
+names <- c("To an extremely large extent",
+           "To a large extent",
+           "To a moderate extent",
+           "To a small extent",
+           "To no or a very minimal extent")
+
+undergrads <- c(17, 166, 560, 541, 140)
+faculty <- c(5, 22, 113, 106, 35)
+```
+
+```{r}
+q8 <- data.frame(
+    response = names, 
+    undergrads,
+    faculty
+)
+```
+
+```{r}
+q8 %>%
+    tidyr::pivot_longer(-response) %>%
+    group_by(name) %>%
+    mutate(percent = value / sum(value),
+           percent = paste0(round(100 * percent), "%")) %>%
+    ggplot(aes(name, value)) +
+    geom_bar(aes(fill = response %>% fct_relevel(names) %>% fct_rev()), stat = "identity", position = "fill") +
+    ggrepel::geom_label_repel(aes(label = percent), position = "fill", point.padding = NA) +
+    coord_flip() +
+    scale_fill_brewer() +
+    labs(x = "group", y = "cumulative percent", fill = "Response",
+         title = "Q8/To what extent do you think political diversity exists among your peers?") +
+    theme_minimal() +
+    theme(panel.grid.major.y = element_blank())
+```
+
+
+
+# Q18 To what extent do you think the Yale faculty is politically diverse?
+
+```{r}
+names <- c("To an extremely large extent",
+           "To a large extent",
+           "To a moderate extent",
+           "To a small extent",
+           "To no or a very minimal extent")
+
+undergrads <- c(13, 137, 610, 495, 167)
+faculty <- c(3, 28, 119, 92, 34)
+```
+
+```{r}
+q18 <- data.frame(
+    response = names, 
+    undergrads,
+    faculty
+)
+```
+
+```{r}
+q18 %>%
+    tidyr::pivot_longer(-response) %>%
+    group_by(name) %>%
+    mutate(percent = value / sum(value),
+           percent = paste0(round(100 * percent), "%")) %>%
+    ggplot(aes(name, value)) +
+    geom_bar(aes(fill = response %>% fct_relevel(names) %>% fct_rev()), stat = "identity", position = "fill") +
+    ggrepel::geom_label_repel(aes(label = percent), position = "fill", point.padding = NA) +
+    coord_flip() +
+    scale_fill_brewer() +
+    labs(x = "group", y = "cumulative percent", fill = "Response",
+         title = "Q18/To what extent do you think Yale faculty is politically diverse?") +
+    theme_minimal() +
+    theme(panel.grid.major.y = element_blank())
+```
+
+```{r}
+q18
+```
+

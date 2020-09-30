@@ -1,0 +1,535 @@
+---
+title: "Coursetable Exploration"
+author: "Darwin Do"
+date: "3/30/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Libraries -----
+
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+library(janitor)
+
+# Helper functions -----
+
+unite_code <- function(df) {
+	tidyr::unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+
+separate_code <- function(df) {
+	tidyr::separate(df, code, into = c("subject", "number"), sep = " ", remove = FALSE)
+}
+
+separate_designator <- function(df) {
+	num <- df$number
+	
+	df$number <- as.numeric(str_extract(num, "[[:digit:]]+"))
+	df$designator <- str_extract(num, "[:alpha:]")
+	
+	df
+}
+
+# Read in data -----
+
+# dataframes containing course code + name for each semester
+subjects2020 <- read_csv("subjects2020s.csv")
+subjects2019 <- read_csv("subjects2019f.csv")
+
+# dataframes containing courses (WITH CROSSLIST)
+courses2020 <- read_csv("courses2020s.csv") %>%
+	separate_code() %>%
+	separate_designator() %>%
+	select(id, code, subject, number, designator, name)
+courses2019 <- read_csv("courses2019f.csv") %>%
+	separate_code() %>%
+	separate_designator() %>%
+	select(id, code, subject, number, designator, name)
+
+demand2020 <- read_csv("demand2020s.csv") %>%
+	mutate(date = as.Date(date, format = "%m/%d")) %>%
+  # merge in course data
+	left_join(courses2020) %>%
+	# getting rid of some duplicates: for some reason, certain obscure courses
+  # show up more than once. these few lines are just manually getting rid of them
+	arrange(code, date, desc(count)) %>%
+	group_by(code, date) %>%
+	slice(1L) %>%
+	ungroup()
+
+demand2019 <- read_csv("demand2019f.csv") %>%
+	mutate(date = as.Date(date, format = "%m/%d")) %>%
+  # merge in course data
+	left_join(courses2019) %>%
+	# getting rid of some duplicates: for some reason, certain obscure courses
+  # show up more than once. these few lines are just manually getting rid of them
+	arrange(code, date, desc(count)) %>%
+	group_by(code, date) %>%
+	slice(1L) %>%
+	ungroup()
+
+# df containing historical average rating + workload 
+course_history2020 <- read_csv("coursetable2020s_history.csv") %>%
+  # put the code and designator in
+  mutate(code = paste(subject, number)) %>%
+  separate_code() %>%
+  separate_designator() %>%
+  # make course number a number and rename columns as to not conflict when joining
+  mutate(number = as.numeric(number)) %>%
+  rename(hist_rating = rating, hist_workload = workload) %>%
+  # add values to year to make it easy to graph
+  mutate(year = if_else(term == "Fall", year + 0.66, year + 0.33))
+  
+
+coursetable2020 <- read_csv("coursetable2020s_class.csv") %>%
+	unite_code() %>%
+	separate_designator() %>%
+	select(code, subject, number, designator, section, times, locations, rating, workload, Hu, So, Sc, WR, L, QR, skills, areas, num_students)
+
+coursetable2019 <- read_csv("coursetable2019f_class.csv") %>%
+	unite_code() %>%
+	separate_designator() %>%
+	select(code, subject, number, designator, section, times, locations, rating, workload, Hu, So, Sc, WR, L, QR, skills, areas, num_students)
+
+# combined coursetable 2019 NO CROSSLIST 
+coursetable2019_combNC <- courses2019 %>%
+  left_join(coursetable2019) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  select(-id)
+
+# combined coursetable 2020 NO CROSSLIST
+coursetable2020_combNC <- courses2020 %>%
+  left_join(coursetable2020) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  select(-id)
+
+# combined coursetable both years NO CROSSLIST
+coursetable_combNC <- coursetable2019_combNC %>%
+  bind_rows(coursetable2020_combNC) %>%
+  arrange(code) %>%
+  distinct(code, .keep_all = TRUE)
+
+# combined course names for 2019 and 2020
+courses <- courses2020 %>% 
+  bind_rows(courses2019) %>%
+  select(-id) %>%
+  distinct(code, .keep_all = TRUE)
+
+# combined coursetable entries for 2020 and 2019 with course names
+coursetable <- coursetable2020 %>% 
+  bind_rows(coursetable2019) %>%
+  arrange(code) %>%
+  distinct(code, .keep_all = TRUE)
+
+
+# fix skills column by putting NA where [] is
+coursetable["skills"][coursetable["skills"] == '[]'] <- NA
+coursetable["areas"][coursetable["areas"] == '[]'] <- NA
+coursetable_combNC["skills"][coursetable_combNC["skills"] == '[]'] <- NA
+coursetable_combNC["areas"][coursetable_combNC["areas"] == '[]'] <- NA
+```
+
+```{r}
+# make new CSV with merged data
+tableau_csv <- coursetable_combNC %>%
+  select(-section, -times, -locations) %>%
+  filter(!is.na(rating), !is.na(rating), number < 500) 
+  
+write_csv(tableau_csv, "coursetable_comb_NC_tableau.csv")
+```
+
+
+(Modify the last chunk of `coursetable` code depending on how you choose to process it.)
+
+The reasoning is because that all of the `unite_code()` and `separate_designator()` calls make the column format consistent across both the Course Demand Statistics and CourseTable data: each row of courses has one column for subject, number, and designator. This means you can more easily merge together the `courses` table and the `coursetable` table by using a `left_join()` call:
+
+
+```{r}
+# attempt to facet
+# courses %>%
+#   left_join(coursetable) %>%
+#   filter(!is.na(skills)) %>%
+#   distinct(id, .keep_all = TRUE) %>%
+#   ggplot(mapping = aes(x = workload, y = rating)) + 
+#   geom_point() +
+#   facet_wrap(~ skills) +
+#   ggtitle("Rating vs. Workload in different Skills")
+
+# plots rating vs workload graph of the given subject
+rating_vs_workload <- function(field, name) {
+  field <- enquo(field)
+  
+  # get rid of empty ratings and grad courses
+  df <- coursetable_combNC %>%
+    filter(UQ(field)) %>%
+    filter(!is.na(rating), !is.na(workload)) %>%
+    filter(number < 500)
+
+  rating_mean <- df %>% 
+    filter(!is.na(rating)) %>%
+    summarize(mean(rating)) %>%
+    pull()
+  
+  wkload_mean <- df %>% 
+    filter(!is.na(workload)) %>%
+    summarize(mean(workload)) %>%
+    pull()
+  
+  graph <- df %>%
+    ggplot(mapping = aes(x = workload, y = rating)) + 
+    geom_point() + 
+    coord_cartesian(xlim = c(1,5), ylim = c(1,5)) +
+    geom_hline(yintercept = rating_mean, color = "red", linetype = "dashed") + 
+    geom_vline(xintercept = wkload_mean, color = "blue", linetype = "dashed") +
+    ggtitle(paste("Rating vs. Workload in ", name,  " Classes (n = " , dim(df)[1],")", sep = "")) +
+    geom_text(x = 1.2, y = rating_mean - 0.2, label = paste("mean = ", round(rating_mean, 2)), col = "red") +
+    geom_text(x = wkload_mean - 0.4, y = 1, label = paste("mean = ", round(wkload_mean, 2)), col = "blue")
+  
+  ggsave(paste("graphs/", name, "_RvW.png", sep = ""), width = 8, height = 5)
+  graph
+}
+
+
+# plot rating vs workload for all skills and areas
+rating_vs_workload(QR, "QR")
+rating_vs_workload(WR, "Writing")
+rating_vs_workload(L, "Language")
+rating_vs_workload(Hu, "Humanities")
+rating_vs_workload(Sc, "Science")
+rating_vs_workload(So, "Social-Science")
+
+
+```
+
+
+```{r}
+# low rated undergrad courses (41 total)
+# no langugae courses at all
+
+lowRatedComb <- coursetable_combNC %>%
+  filter(rating < 3 & number < 500)
+  
+lowRatedCombAreas <- lowRatedComb %>%
+  filter(!is.na(areas))
+
+lowRatedCombSkills <- lowRatedComb %>%
+  filter(!is.na(skills))
+  
+ggplot() +
+  geom_bar(data = lowRatedCombAreas, mapping = aes(x = areas), fill = "steelblue") +
+  geom_bar(data = lowRatedCombSkills, mapping = aes(x = skills), fill = "steelblue") +
+  ggtitle("Distribution of low-rated undergrad courses (rating < 3)")
+
+ggsave("graphs/low_rated_courses.png")
+
+```
+
+
+```{r}
+# low rated course exploration
+
+# combine course names to coursetable data (includes cross-listed courses)
+combined <- courses %>%
+  left_join(coursetable)
+
+# only the lowest rated courses
+lowRatedComb <- combined %>%
+  filter(rating < 3 & number < 500) 
+
+# histogram of low-rated departments
+lowRatedComb %>%
+  ggplot() +
+  geom_bar(aes(x = subject)) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
+
+# count up subjects
+subjectcnt <- lowRatedComb %>%
+  group_by(subject) %>%
+  count(subject) %>%
+  rename(subjectcount = n) %>%
+  ungroup() 
+  # mutate(subject = if_else(subjectcount < 4, "Other", subject)) %>%
+  # mutate(subjectcount = ifelse(subject == "Other", 32, subjectcount))
+
+min_thresh <- 2
+# vector of subjects to group as "other"
+other_subjects <- subjectcnt %>%
+  filter(subjectcount <= min_thresh)
+
+subjectcnt <- subjectcnt %>%
+  filter(subjectcount > min_thresh) 
+  # add_row(subject = "Other", subjectcount = sum(other_subjects$subjectcount)) # decide whether to include the "Other" subjects
+
+# graph the pie chart: weird
+# subjectcnt %>%
+#   ggplot(aes(x = "", y = subjectcount, fill = subject)) +
+#   geom_bar(stat = "identity", width = 1) +
+#   coord_polar("y", start = 0) + 
+#   theme_void() +
+#   
+#   # geom_text(aes(x = 1, y = cumsum(per) - per/2, label = subject), color = "white") +
+#   scale_fill_brewer(palette = "Paired")
+
+subjectcnt %>%
+  ggplot(aes(x = reorder(subject, -subjectcount), y = subjectcount)) +
+  geom_bar(stat = "identity", fill = "steelblue") + 
+  ggtitle("Number of low-rated courses (omitted departments with < 3 courses)") + 
+  ylab("Number of Courses") + 
+  xlab("Department")
+
+ggsave("graphs/low-subjects-bar.png")
+
+graph_rating_vs_course_num <- function(field, name) {
+  field <- enquo(field)
+  
+  graph <- combined %>%
+  filter(UQ(field) & number < 500)  %>%
+  ggplot(aes(x = number, y = rating)) +
+  geom_point() +
+  coord_cartesian(xlim = c(1, 500), ylim = c(1, 5)) +
+  ggtitle(paste("Rating vs Course Number in", name, "Classes")) +
+  xlab("Course Number")
+  
+  ggsave(paste("graphs/", name, "_RvCN.png", sep = ""))
+  
+  graph
+}
+
+# graphs of rating and course number
+graph_rating_vs_course_num(QR, "QR")
+graph_rating_vs_course_num(Sc, "Sc")
+graph_rating_vs_course_num(Hu, "Hu")
+graph_rating_vs_course_num(So, "So")
+graph_rating_vs_course_num(WR, "Wr")
+
+
+# what percentage of low rated QR/SC courses are low 
+    lowRatedComb %>%
+      filter(number < 200 & (QR | Sc)) %>%
+      count() /
+      count(lowRatedComb) * 100
+
+# looking at class size
+lowRatedComb %>% 
+  ggplot(aes(x = num_students, y = rating)) +
+  geom_point() + 
+  ggtitle("Rating vs. Class Size for low-rated courses (size taken from coursetable)")
+ggsave("graphs/RvCS-low.png")
+  
+# looking at class size - zoomed in
+lowRatedComb %>% 
+  ggplot(aes(x = num_students, y = rating)) +
+  geom_point() + 
+  ggtitle("Rating vs. Class Size for low-rated courses (size taken from coursetable)\n(zoomed in)") +
+  coord_cartesian(xlim = c(0, 50)) +
+  xlab("Num of Students")
+ggsave("graphs/RvCS-low-zoomed.png")
+
+combined %>%
+    filter(rating > 3) %>%
+    ggplot(aes(x = num_students, y = rating)) +
+    geom_point() +
+    ggtitle("Rating vs. Class Size for high-rated courses (size taken from coursetable)") +
+    xlab("Num of Students")
+
+
+# TODO: use this for breaking up multiple area courses
+# coursetable_combNC %>%
+#   filter(number < 500 & Hu) %>%
+#   pivot_longer(cols = c("Hu", "So", "Sc", "WR", "L", "QR"), names_to = "tags", values_to = "tag_val") %>%
+#   filter(tag_val)
+
+coursetable_combNC %>%
+  filter(Hu) %>%
+  ggplot(aes(x = num_students, y = rating)) +
+  geom_point()
+
+
+count(coursetable_combNC %>%
+  filter(WR & num_students < 20))
+
+coursetable_combNC %>%
+  filter(WR & num_students < 20) %>%
+  ggplot(aes(x = num_students, y = rating)) +
+  geom_point() 
+  
+
+  # graphs history of ratings for the course (only 2020 courses right now)
+graph_history <- function(...) {
+  courses2020 %>%
+    left_join(coursetable2020) %>%
+    left_join(course_history2020) %>%
+    filter (code %in% list(...)) %>%
+    ggplot(aes(x = year, y = hist_rating, col = code)) +
+    geom_line() +
+    ggtitle(paste("Historical Averages of", ..., sep = " ")) +
+    coord_cartesian(ylim = c(1, 5))
+}
+
+
+graph_history("BIOL 101", "BIOL 102", "BIOL 103", "BIOL 104")
+# ggsave("graphs/biol_graphs.png")
+graph_history("PSYC 110", "PSYC 126", "PSYC 150")
+# ggsave("graphs/psyc_graphs.png")
+graph_history("ECON 115", "ECON 121", "ECON 122")
+# ggsave("graphs/econ_graphs.png")
+graph_history("CPSC 112", "CPSC 201", "CPSC 223")
+# ggsave("graphs/cpsc_graphs.png")
+
+lowRatedComb %>%
+  arrange(code)
+  
+
+```
+
+
+
+```{r}
+# low workload courses distribution
+
+comb <- courses %>%
+  left_join(coursetable) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  filter(workload < 3 & number < 500)
+  
+combAreas <- comb %>%
+  filter(!is.na(areas))
+
+combSkills <- comb %>%
+  filter(!is.na(skills))
+  
+ggplot() +
+  geom_bar(data = combAreas, mapping = aes(x = areas), fill = "steelblue") +
+  geom_bar(data = combSkills, mapping = aes(x = skills), fill = "steelblue") +
+ggtitle("Distribution of low-workload undergrad courses (workload < 3)")
+```
+
+
+```{r}
+# highly rated undergrad courses (900 total)
+# need to deal with courses with more than 1 area?  
+
+highRatedComb <- courses %>%
+  left_join(coursetable) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  filter(rating >= 3 & number < 500)
+  
+highRatedCombAreas <- highRatedComb %>%
+  filter(!is.na(areas))
+
+highRatedCombSkills <- highRatedComb %>%
+  filter(!is.na(skills))
+  
+ggplot() +
+  geom_bar(data = highRatedCombAreas, mapping = aes(x = areas), fill = "steelblue") +
+  geom_bar(data = highRatedCombSkills, mapping = aes(x = skills), fill = "steelblue") +
+  ggtitle("Distribution of highly-rated undergrad courses (rating >= 3)")
+```
+
+
+```{r}
+# high workload courses distribution
+
+comb <- courses %>%
+  left_join(coursetable) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  filter(workload >= 3 & number < 500)
+  
+combAreas <- comb %>%
+  filter(!is.na(areas))
+
+combSkills <- comb %>%
+  filter(!is.na(skills))
+  
+ggplot() +
+  geom_bar(data = combAreas, mapping = aes(x = areas), fill = "steelblue") +
+  geom_bar(data = combSkills, mapping = aes(x = skills), fill = "steelblue") +
+  ggtitle("Distribution of high-workload undergrad courses (workload > 3)")
+```
+
+
+```{r}
+# 5 courses with the biggest drop in students
+# NSCI 161 and PSYC 126 had the biggest drops with -165 and -150 respectively
+# (note: NSCI 161 and PSYC 161 are crosslisted and therefore PSYC161 is taken out, but NSCI161 does NOT have ratings for some reason)
+# common peak in January 13
+
+
+comb <- courses %>%
+  left_join(coursetable) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  left_join(demand) %>%
+  arrange(code, date) %>%
+  mutate(countch = ifelse(name == lag(name), count- lag(count), NA))
+
+
+biggestChange <- comb %>% 
+  arrange(countch) %>%
+  distinct(name, .keep_all = TRUE) %>%
+  head(5)
+
+comb %>%
+  filter(name %in% biggestChange$name) %>%
+  ggplot(aes(x = date, y = count, color = name)) +
+  geom_line()
+  
+
+```
+
+```{r}
+# 5 courses with the biggest increase in students
+# Courses in common with biggest drop: Attraction, bioethics, drugs
+
+comb <- courses %>%
+  left_join(coursetable) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  left_join(demand) %>%
+  filter(number < 800) %>%  # takes out Dissertation research - In Residence
+  arrange(code, date) %>%
+  mutate(countch = ifelse(name == lag(name), count- lag(count), NA))
+
+
+biggestChange <- comb %>% 
+  arrange(desc(countch)) %>%
+  distinct(name, .keep_all = TRUE) %>%
+  head(5)
+
+comb %>%
+  filter(name %in% biggestChange$name) %>%
+  ggplot(aes(x = date, y = count, color = name)) +
+  geom_line()
+  
+
+```
+
+```{r}
+
+# course demand for poorly rated courses, nothing really that interesting to see here
+
+comb <- courses %>%
+  left_join(coursetable) %>%
+  distinct(id, .keep_all = TRUE) %>%
+  left_join(demand) %>%
+  filter(number < 500) %>%
+  arrange(rating, date)
+
+lowestClasses <- comb %>%
+  distinct(name, .keep_all = TRUE) %>%
+  head(5)
+
+comb %>%
+  filter(name %in% lowestClasses$name) %>%
+  ggplot(aes(x = date, y = count, color = name)) +
+  geom_line()
+```
+
+  
+

@@ -1,0 +1,41 @@
+---
+title: "Yale Crime Statistics — Exploration"
+author: "Daniel Zhao and Maggie Nolan"
+date: "10/13/2019"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message = F}
+require(readr)
+require(dplyr)
+require(ggplot2)
+
+crime <- read_csv("yale_crime_merged.csv")
+```
+
+```{r}
+crime %>%
+	group_by(Year, Subcategory, Location) %>%
+	summarize(Number = sum(Number)) %>%
+	ggplot(aes(Year, Number, color = Location)) +
+	geom_line() +
+	facet_wrap(~Subcategory)
+```
+
+```{r}
+crime %>%
+	filter(Subcategory %in% c("Burglary", "Drug law violations", "Liquor law violations", "Robbery")) %>%
+	group_by(Year, Subcategory, Location) %>%
+	summarize(Number = sum(Number)) %>%
+	ggplot(aes(Year, Number, color = Location)) +
+	geom_line() +
+	facet_wrap(~Subcategory)
+```
+
+

@@ -1,0 +1,41 @@
+
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+students <- read.csv("~/Documents/GitHub/ydn-data-analytics/projects/demographics/yale_students_s20.csv")
+
+# trying to clean
+# delete anything before a / so you only get zip code and not something like street number
+address <- gsub(".*/ ", "", students$address)
+
+# If there is a number KEEP, else leave as is
+library(stringr)
+numextract <- function(string) { 
+  str_extract(string, "\\-*\\d+\\.*\\d*")
+} 
+
+for (i in 1:length(address))
+{
+  if (!is.na(numextract(address[i]))) {
+    if(nchar((numextract(address[i]))) < 4){
+      address[i] <- NA
+    } else {
+      address[i] <- numextract(address[i])
+    }
+  } 
+}
+
+
+
+students$zips <- address
+  
+write.csv(students, "yale_students_s20_zipcodes.csv", row.names = F)
+
+# find TOWN, TWO UPPER CASE LETTERS
+```
+

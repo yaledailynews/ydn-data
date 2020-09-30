@@ -1,0 +1,158 @@
+Category,Location,Subcategory
+Arrests,Noncampus,Illegal weapons possession
+Arrests,Noncampus,Drug law violations
+Arrests,Noncampus,Liquor law violations
+Arrests,On campus,Illegal weapons possession
+Arrests,On campus,Drug law violations
+Arrests,On campus,Liquor law violations
+Arrests,On campus student housing facilities,Illegal weapons possession
+Arrests,On campus student housing facilities,Drug law violations
+Arrests,On campus student housing facilities,Liquor law violations
+Arrests,Public property,Illegal weapons possession
+Arrests,Public property,Drug law violations
+Arrests,Public property,Liquor law violations
+Criminal offenses,Noncampus,Murder/Non-negligent manslaughter
+Criminal offenses,Noncampus,Negligent manslaughter
+Criminal offenses,Noncampus,Sex offenses - Forcible
+Criminal offenses,Noncampus,Rape
+Criminal offenses,Noncampus,Fondling
+Criminal offenses,Noncampus,Sex offenses - Non-forcible
+Criminal offenses,Noncampus,Incest
+Criminal offenses,Noncampus,Statutory rape
+Criminal offenses,Noncampus,Robbery
+Criminal offenses,Noncampus,Aggravated assault
+Criminal offenses,Noncampus,Burglary
+Criminal offenses,Noncampus,Motor vehicle theft
+Criminal offenses,Noncampus,Arson
+Criminal offenses,On campus,Murder/Non-negligent manslaughter
+Criminal offenses,On campus,Negligent manslaughter
+Criminal offenses,On campus,Sex offenses - Forcible
+Criminal offenses,On campus,Rape
+Criminal offenses,On campus,Fondling
+Criminal offenses,On campus,Sex offenses - Non-forcible
+Criminal offenses,On campus,Incest
+Criminal offenses,On campus,Statutory rape
+Criminal offenses,On campus,Robbery
+Criminal offenses,On campus,Aggravated assault
+Criminal offenses,On campus,Burglary
+Criminal offenses,On campus,Motor vehicle theft
+Criminal offenses,On campus,Arson
+Criminal offenses,On campus student housing facilities,Murder/Non-negligent manslaughter
+Criminal offenses,On campus student housing facilities,Negligent manslaughter
+Criminal offenses,On campus student housing facilities,Sex offenses - Forcible
+Criminal offenses,On campus student housing facilities,Rape
+Criminal offenses,On campus student housing facilities,Fondling
+Criminal offenses,On campus student housing facilities,Sex offenses - Non-forcible
+Criminal offenses,On campus student housing facilities,Incest
+Criminal offenses,On campus student housing facilities,Statutory rape
+Criminal offenses,On campus student housing facilities,Robbery
+Criminal offenses,On campus student housing facilities,Aggravated assault
+Criminal offenses,On campus student housing facilities,Burglary
+Criminal offenses,On campus student housing facilities,Motor vehicle theft
+Criminal offenses,On campus student housing facilities,Arson
+Criminal offenses,Public property,Murder/Non-negligent manslaughter
+Criminal offenses,Public property,Negligent manslaughter
+Criminal offenses,Public property,Sex offenses - Forcible
+Criminal offenses,Public property,Rape
+Criminal offenses,Public property,Fondling
+Criminal offenses,Public property,Sex offenses - Non-forcible
+Criminal offenses,Public property,Incest
+Criminal offenses,Public property,Statutory rape
+Criminal offenses,Public property,Robbery
+Criminal offenses,Public property,Aggravated assault
+Criminal offenses,Public property,Burglary
+Criminal offenses,Public property,Motor vehicle theft
+Criminal offenses,Public property,Arson
+Disciplinary actions,Noncampus,Illegal weapons possession
+Disciplinary actions,Noncampus,Drug law violations
+Disciplinary actions,Noncampus,Liquor law violations
+Disciplinary actions,On campus,Illegal weapons possession
+Disciplinary actions,On campus,Drug law violations
+Disciplinary actions,On campus,Liquor law violations
+Disciplinary actions,Public property,Illegal weapons possession
+Disciplinary actions,Public property,Drug law violations
+Disciplinary actions,Public property,Liquor law violations
+Disciplinary actions,Student housing facilities,Illegal weapons possession
+Disciplinary actions,Student housing facilities,Drug law violations
+Disciplinary actions,Student housing facilities,Liquor law violations
+Hate crimes,Noncampus,Murder/Non-negligent manslaughter
+Hate crimes,Noncampus,Negligent manslaughter
+Hate crimes,Noncampus,Sex offenses - Forcible
+Hate crimes,Noncampus,Sex offenses - Non-forcible
+Hate crimes,Noncampus,Rape
+Hate crimes,Noncampus,Fondling
+Hate crimes,Noncampus,Incest
+Hate crimes,Noncampus,Statutory rape
+Hate crimes,Noncampus,Robbery
+Hate crimes,Noncampus,Aggravated assault
+Hate crimes,Noncampus,Burglary
+Hate crimes,Noncampus,Motor vehicle theft
+Hate crimes,Noncampus,Arson
+Hate crimes,Noncampus,Simple assault
+Hate crimes,Noncampus,Larceny-theft
+Hate crimes,Noncampus,Intimidation
+Hate crimes,Noncampus,Destruction/damage/ vandalism of property
+Hate crimes,On campus,Murder/Non-negligent manslaughter
+Hate crimes,On campus,Negligent manslaughter
+Hate crimes,On campus,Sex offenses - Forcible
+Hate crimes,On campus,Sex offenses - Non-forcible
+Hate crimes,On campus,Rape
+Hate crimes,On campus,Fondling
+Hate crimes,On campus,Incest
+Hate crimes,On campus,Statutory rape
+Hate crimes,On campus,Robbery
+Hate crimes,On campus,Aggravated assault
+Hate crimes,On campus,Burglary
+Hate crimes,On campus,Motor vehicle theft
+Hate crimes,On campus,Arson
+Hate crimes,On campus,Simple assault
+Hate crimes,On campus,Larceny-theft
+Hate crimes,On campus,Intimidation
+Hate crimes,On campus,Destruction/damage/ vandalism of property
+Hate crimes,On campus student housing facilities,Murder/Non-negligent manslaughter
+Hate crimes,On campus student housing facilities,Negligent manslaughter
+Hate crimes,On campus student housing facilities,Sex offenses - Forcible
+Hate crimes,On campus student housing facilities,Sex offenses - Non-forcible
+Hate crimes,On campus student housing facilities,Rape
+Hate crimes,On campus student housing facilities,Fondling
+Hate crimes,On campus student housing facilities,Incest
+Hate crimes,On campus student housing facilities,Statutory rape
+Hate crimes,On campus student housing facilities,Robbery
+Hate crimes,On campus student housing facilities,Aggravated assault
+Hate crimes,On campus student housing facilities,Burglary
+Hate crimes,On campus student housing facilities,Motor vehicle theft
+Hate crimes,On campus student housing facilities,Arson
+Hate crimes,On campus student housing facilities,Simple assault
+Hate crimes,On campus student housing facilities,Larceny-theft
+Hate crimes,On campus student housing facilities,Intimidation
+Hate crimes,On campus student housing facilities,Destruction/damage/ vandalism of property
+Hate crimes,Public property,Murder/Non-negligent manslaughter
+Hate crimes,Public property,Negligent manslaughter
+Hate crimes,Public property,Sex offenses - Forcible
+Hate crimes,Public property,Sex offenses - Non-forcible
+Hate crimes,Public property,Rape
+Hate crimes,Public property,Fondling
+Hate crimes,Public property,Incest
+Hate crimes,Public property,Statutory rape
+Hate crimes,Public property,Robbery
+Hate crimes,Public property,Aggravated assault
+Hate crimes,Public property,Burglary
+Hate crimes,Public property,Motor vehicle theft
+Hate crimes,Public property,Arson
+Hate crimes,Public property,Simple assault
+Hate crimes,Public property,Larceny-theft
+Hate crimes,Public property,Intimidation
+Hate crimes,Public property,Destruction/damage/ vandalism of property
+Unfounded crimes,NA,Total unfounded crimes
+Vawa offenses,Noncampus,Domestic violence
+Vawa offenses,Noncampus,Dating violence
+Vawa offenses,Noncampus,Stalking
+Vawa offenses,On campus,Domestic violence
+Vawa offenses,On campus,Dating violence
+Vawa offenses,On campus,Stalking
+Vawa offenses,On campus student housing facilities,Domestic violence
+Vawa offenses,On campus student housing facilities,Dating violence
+Vawa offenses,On campus student housing facilities,Stalking
+Vawa offenses,Public property,Domestic violence
+Vawa offenses,Public property,Dating violence
+Vawa offenses,Public property,Stalking

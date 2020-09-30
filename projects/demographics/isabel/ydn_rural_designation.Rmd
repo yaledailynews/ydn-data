@@ -1,0 +1,233 @@
+---
+title: "Ydn-majors"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+rm(list = ls())
+majors <- read.csv("majors.csv")
+names(majors)[2] <- "unique.majors"
+majors$unique.majors <- as.character(majors$unique.majors)
+
+majors <- majors[!is.na(majors$unique.majors), ]
+majors$unique.majors <- tolower(majors$unique.majors)
+
+majors$cat.majors <- rep(NA, nrow(majors))
+
+majors$cat.majors[grep("bio|chem|engineering|math|computer|physics|statistics|neuroscience|astronomy|geology", majors$unique.majors, value = F)] <- "STEM"
+
+majors$cat.majors[grep("art|english|literature|humanities|film|philosophy|architecture|theater|italian|french|spanish|cultures|classics|russian|music|near eastern languages|east asian|classical|religious|archaeological", majors$unique.majors, value= F)] <- "Humanities"
+
+majors$cat.majors[grep("political|econ|history|anthro|cognitive|psychology|sociology|linguistics|african american|gender|Religious|american|urban|middle east|global affairs|environmental studies|race|african", majors$unique.majors, value= F)] <- "Social Science"
+
+majors$cat.majors[majors$unique.majors == "bratislava - dúbravk, economics"] <- NA
+
+majors$cat.majors[majors$unique.majors == "physics&philosophy"] <- "STEM"
+```
+
+
+```{r}
+students <- read.csv("yale_students_s20.csv")
+
+#remove international students (have second slash)
+students$us <- rep(NA, nrow(students))
+students$intvec <- rep(NA, nrow(students))
+splitval <- strsplit(split = "/", x = as.character(students$address))
+
+#this process is to look at the number of / signs 
+for (i in 1:nrow(students)) {
+  students$intvec[i] <- length(splitval[[i]])
+}
+
+searchc <- rep(NA, nrow(students))
+for(i in 1:nrow(students)) {
+  if (students$intvec[i] == "3") {
+    searchc[i] <- splitval[[i]][3]
+  }
+}
+
+#identify if students live in the US or not 
+students$us <- ifelse(students$intvec == "3", 0, 1)
+
+students$us[grep("1|2|3|4|5|6|7|8|9|0", searchc, value = F)] <- 1
+
+#This student lives in NY
+students$us[1241] <- 1
+
+#This student lives in NJ 
+students$us[66] <- 1
+
+#specific cases
+students.us <- students[students$us == 1, 1:5]
+
+#To do rural, urban divide we would need zip codes 
+#Next -- if there is a /, extract digits after that. If there is no slash, assume that is town or city. Some of these are maybe country... 
+students.us$international <- rep(NA, nrow(students.us))
+
+#newleng is the number of splits 
+us.split <- strsplit(x = as.character(students.us$address), split = "/")
+empty.vec <- rep(0, nrow(students.us))
+students.us$zipcodes <- rep(NA, nrow(students.us))
+
+for (i in 1:nrow(students.us)) {
+  newleng <- length(us.split[[i]])
+  
+  if (newleng == 1) {
+    students.us$zipcodes[i] <- gsub("[^[:digit:]-]", "",  us.split[[i]][1])
+  }
+  if (newleng == 2) {
+    students.us$zipcodes[i] <- gsub("[^[:digit:]-]", "",  us.split[[i]][2])
+  }
+  if (newleng == 3) {
+    students.us$zipcodes[i] <- gsub("[^[:digit:]-]", "",  us.split[[i]][3])
+  }
+  if (newleng == 4) {
+    students.us$zipcodes[i] <- gsub("[^[:digit:]-]", "",  us.split[[i]][4])
+  }
+  if (newleng > 4) {
+    students.us$international[i] <- 1
+  }
+}
+
+students.us <- students.us[is.na(students.us$international), ]
+
+students.us$zipcodes[students.us$zipcodes == ""] <- NA
+
+students.us <- students.us[,c(1:5,7)]
+
+#students.us now has zipcodes attached to students from the US
+```
+
+This pulls data to match state fips codes to state names
+```{r}
+library(car)
+library(leaps)
+library(lubridate)
+library(rvest)
+library(stringr)
+url <- "https://www.nrcs.usda.gov/wps/portal/nrcs/detail/?cid=nrcs143_013696"
+webpage <- read_html(url)
+
+st.ab <- html_nodes(webpage, "#detail td:nth-child(2)")
+st.ab <- html_text(st.ab)
+
+st.ab <- str_sub(st.ab, -2, -1)
+
+st.fip <- html_nodes(webpage, "#detail td~ td+ td")
+st.fip <- html_text(st.fip)
+st.fip <- str_sub(st.fip, -2, -1)
+
+newdf <- data.frame(cbind(st.fip, st.ab))
+names(newdf)[1] <- "state"
+```
+
+
+Match zipcodes --> state and zipcodes --> county
+```{r}
+majorcat <- read.csv("majors_grouped copy.csv")
+names(majorcat)[3] <- "majors"
+majorcat <- majorcat[,c(3,4)]
+students.us$majors <- tolower(students.us$majors)
+students.grouped <- merge(majorcat, students.us, by = "majors")
+
+#extract only the first part of zipcodes that have a hyphen
+students.grouped$newzip <- gsub("-.*" , "", students.grouped$zipcodes)
+
+counties <- read.csv("zip_county_2.csv")
+
+names(counties)[1] <- "newzip"
+
+zip.length <- nchar(counties$newzip)
+county.length <- nchar(counties$COUNTY)
+
+#make all zipcodes the same length
+for (i in 1:nrow(counties)) {
+  if (zip.length[i] == 4) {
+    counties$newzip[i] <- paste0("0", counties$newzip[i])
+  }
+  
+  if (zip.length[i] == 3) {
+    counties$newzip[i] <- paste0("00", counties$newzip[i])
+  }
+}
+
+#make all county numbers the same length 
+for (i in 1:nrow(counties)) {
+  if (county.length[i] == 4) {
+    counties$COUNTY[i] <- paste0("0", counties$COUNTY[i])
+  }
+}
+
+#make variable to flag counties that are duplicates
+counties$rm <- rep(0, nrow(counties))
+counties$duplicated <- ifelse(duplicated(counties$newzip), 1, 0)
+
+#there are multiple counties listed for some zipcodes, in which case the goal is to select the county that the majority of the zipcode lives in. 
+while (as.numeric(table(counties$duplicated)[1]) != 31834) {
+  for (i in 1:nrow(counties)) {
+  if (counties$duplicated[i] == 1) {
+      templist <- c(counties$RES_RATIO[i], counties$RES_RATIO[i-1])
+      indexlist <- which.min(templist) - 1
+      counties$rm[i - indexlist] <- 1
+  }
+  }
+counties <- counties[counties$rm == 0, ]
+}
+
+
+mergedf <- merge(students.grouped, counties, by = "newzip")
+
+### state merge
+library(usmap)
+data(countypop)
+
+countypop <- countypop[,c(1,2)]
+names(countypop)[1] <- "COUNTY"
+
+statemerge <- merge(countypop, mergedf, by = "COUNTY")
+
+stem.majors <- statemerge[which(statemerge$cat.majors == "STEM"), ]
+
+stemdf <- as.data.frame(100 * table(stem.majors$abbr)/nrow(stem.majors))
+write.csv(stemdf, "stemdf.csv")
+```
+
+
+Rural-urban matching :P 
+```{r}
+#from cdc
+rural <- read.csv("NCHSURCodes2013.csv")
+rural <- rural[,c(1,2,7)]
+
+county.lengths <- nchar(rural$FIPS.code)
+
+for (i in 1:nrow(rural)) {
+  if (county.lengths[i] == 4) {
+    rural$FIPS.code[i] <- paste0("0", rural$FIPS.code[i])
+  }
+}
+
+names(rural)[1] <- "COUNTY"
+
+ruralmerge <- merge(rural, mergedf, by = "COUNTY")
+```
+
+
+```{r}
+students.geo <- ruralmerge[,c(1,2,3,4,5,6,7,8,9,10,11)]
+names(students.geo)[6] <- "major_Category"
+names(students.geo)[4] <- "abbrev_Zip"
+names(students.geo)[3] <- "rural_designation"
+write.csv(students.geo, "Students by County")
+```
+
+```{r}
+write.csv(table(students.geo$State.Abr., students.geo$major_Category), "Major Category Counts by State")
+
+write.csv(table(students.geo$rural_designation, students.geo$major_Category), "Major Category Counts by Rural-Urban Designation")
+```
+

@@ -1,0 +1,55 @@
+---
+title: "Google Maps Geocoding API: extract locality"
+author: "Daniel Zhao"
+date: "April 21, 2020"
+output:
+  github_document: default
+  html_document: default
+---
+
+Full API reference: https://developers.google.com/maps/documentation/geocoding/intro#geocoding
+
+The API is pretty easy to use, and the code below should be pretty self-explanatory. This is the same as the other script for the Google Maps Geocoding API, except modified to extract locality instead of longitude/latitude.
+
+```{r}
+library(httr)
+knitr::opts_chunk$set(cache = T, message = F)
+
+# function to simplify string concatenation
+`%+%` <- function(a, b) paste0(a, b)
+
+# Daniel's API key for Google Maps - please don't share
+api_key <- "AIzaSyC13iWxQlr78Xibu25HrkP6nnBSatRWcrM"
+
+# obtains coordinates for one address term
+get_locality <- function(addr, key) {
+    base <- "https://maps.googleapis.com/maps/api/geocode/json?address="
+    
+    # construct api call
+    url <- base %+% gsub(" ", "+", addr) %+% "&key=" %+% key
+    
+    # make api call
+    r <- GET(url)
+    
+    # we only want the town, state, and country (no address)
+    # split the output by comma, then extract the last three parts of the split string
+    addr <- content(r)$results[[1]]$formatted_address
+    addr_split <- stringr::str_split(addr, ", ")
+    n <- length(addr_split[[1]])
+    
+    # if shorter than 3, just return the direct Google Maps output
+    if(n < 3) return(addr)
+    
+    # otherwise, take the last three elements and reconstruct the string
+    paste0(addr_split[[1]][(n - 2):n], collapse = ", ")
+}
+```
+
+Some test calls:
+
+```{r}
+get_locality("Oundle School", api_key)
+get_locality("Harker School", api_key)
+get_locality("Jefferson Township High School", api_key)
+```
+

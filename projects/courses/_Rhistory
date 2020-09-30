@@ -1,0 +1,96 @@
+knitr::opts_chunk$set(message = F)
+library(dplyr)
+library(readr)
+library(ggplot2)
+courses <- read_csv("courses.csv")
+demand <- read_csv("demand.csv")
+subjects <- read_csv("subjects.csv")
+courses
+demand[1:10, ]
+demand[1236:1245, ]
+demand %>%
+filter(id %in% 1:20) %>%
+ggplot(aes(x = date, y = count, group = id)) +
+geom_point() + geom_line()
+left_join(courses, demand)
+subjects
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+courses <- read_csv("courses.csv")
+demand <- read_csv("demand.csv")
+subjects <- read_csv("subjects.csv")
+unite_code <- function(df) {
+tidyr::unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+separate_code <- function(df) {
+tidyr::separate(df, code, into = c("subject", "number"), sep = " ", remove = FALSE)
+}
+separate_designator <- function(df) {
+num <- df$number
+df$number <- as.numeric(str_extract(num, "[[:digit:]]+"))
+df$designator <- str_extract(num, "[:alpha:]")
+df
+}
+courses <- courses %>%
+separate_code() %>%
+separate_designator()
+courses
+courses %>%
+filter(designator == "L")
+courses %>%
+filter(number < 100)
+courses %>%
+filter(number < 100) %>%
+distinct(id, .keep_all = TRUE) %>%
+left_join(demand) %>%
+ggplot(aes(x = date, y = count, group = id)) +
+geom_line()
+courses %>%
+filter(number < 100) %>%
+distinct(id, .keep_all = TRUE) %>%
+left_join(demand) %>%
+filter(date == "1/24") %>%
+filter(count > 75)
+courses %>%
+left_join(demand) %>%
+mutate(date = as.Date(date, format = "%m/%d")) %>%
+arrange(code, date) %>%
+group_by(code) %>%
+summarize(enrollment = last(count),
+peak_demand = max(count),
+peak_demand_day = date[which.max(count)])
+courses %>%
+left_join(demand) %>%
+mutate(date = as.Date(date, format = "%m/%d")) %>%
+arrange(code, date) %>%
+group_by(code) %>%
+summarize(enrollment = last(count),
+peak_demand = max(count),
+peak_demand_day = date[which.max(count)]) %>% View()
+courses %>%
+left_join(demand) %>%
+mutate(date = as.Date(date, format = "%m/%d")) %>%
+arrange(code, date) %>%
+group_by(code) %>%
+summarize(enrollment = last(count),
+peak_demand = max(count),
+peak_demand_day = date[which.max(count)]) %>% View()
+require(readr)
+require(stringr)
+require(rvest)
+require(dplyr)
+# read everything into html tree
+html_tree <- read_file("yale_students_html.txt") %>%
+read_html() %>%
+html_nodes(".student_info")
+getwd()
+setwd("C:\Users\Daniel\Google Drive\Areas\ydn-data-analytics\projects\courses")
+setwd("C:\\Users\\Daniel\\Google Drive\\Areas\\ydn-data-analytics\\projects\\courses")
+getwd()
+# read everything into html tree
+html_tree <- read_file("yale_students_html.txt") %>%
+read_html() %>%
+html_nodes(".student_info")

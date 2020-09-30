@@ -1,0 +1,512 @@
+hist(estimates)
+ci <- ate + 1.96 * c(-1, 1) * sd(estimates)
+ci
+mu0 <- mean(puzzle$improvement[puzzle$treatment == 0])
+mu1 <- mean(puzzle$improvement[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_improvement <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$improvement[treatment_shuffled == 0])
+mu1 <- mean(df$improvement[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_improvement(puzzle))
+hist(estimates)
+ci <- ate + 1.96 * c(-1, 1) * sd(estimates)
+ci
+mu0 <- mean(puzzle$improvement[puzzle$treatment == 0])
+mu1 <- mean(puzzle$improvement[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_improvement <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$improvement[treatment_shuffled == 0])
+mu1 <- mean(df$improvement[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_improvement(puzzle))
+hist(estimates)
+ci <- ate + 1.96 * c(-1, 1) * sd(estimates)
+ci
+mu0 <- mean(puzzle$improvement[puzzle$treatment == 0])
+mu1 <- mean(puzzle$improvement[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_improvement <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$improvement[treatment_shuffled == 0])
+mu1 <- mean(df$improvement[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_improvement(puzzle))
+hist(estimates)
+ci <- ate + 1.96 * c(-1, 1) * sd(estimates)
+ci
+mu0 <- mean(puzzle$posttest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$posttest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_diff <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$posttest[treatment_shuffled == 0])
+mu1 <- mean(df$posttest[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_diff(puzzle))
+hist(estimates)
+ci <- ate + 1.96 * c(-1, 1) * sd(estimates)
+ci
+puzzle <- read_csv("exercise42.csv")
+randomize_pretest <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$pretest[treatment_shuffled == 0])
+mu1 <- mean(df$pretest[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle))
+hist(estimates)
+mean(estimates >= 0)
+hist(estimates)
+mean(estimates >= 0)
+ate <- mu1 - mu0
+ate <- mu1 - mu0
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(df$pretest[treatment_shuffled == 0])
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(puzzle$pretest[treatment == 0])
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(puzzle$pretest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$pretest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_pretest <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$pretest[treatment_shuffled == 0])
+mu1 <- mean(df$pretest[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle))
+hist(estimates)
+abline(v = ate)
+mean(estimates >= 0)
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(puzzle$pretest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$pretest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_pretest <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$pretest[treatment_shuffled == 0])
+mu1 <- mean(df$pretest[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle))
+hist(estimates)
+abline(v = ate, c = "red", w = 2)
+hist(estimates)
+abline(v = ate, col = "red")
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(puzzle$pretest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$pretest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_pretest <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$pretest[treatment_shuffled == 0])
+mu1 <- mean(df$pretest[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle))
+hist(estimates)
+abline(v = ate, col = "red")
+mean(estimates <= ate)
+mean(abs(estimates) >= ate)
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(puzzle$pretest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$pretest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_pretest <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$pretest[treatment_shuffled == 0])
+mu1 <- mean(df$pretest[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle))
+hist(estimates)
+abline(v = ate, col = "red")
+mean(abs(estimates) >= ate)
+mean(abs(estimates) >= abs(ate))
+hist(estimates)
+abline(v = ate, col = "red")
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(puzzle$pretest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$pretest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_pretest <- function(df) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df$pretest[treatment_shuffled == 0])
+mu1 <- mean(df$pretest[treatment_shuffled == 1])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle))
+hist(estimates)
+abline(v = ate, col = "red")
+mean(abs(estimates) >= abs(ate))
+format_ci <- function(ci) {
+paste0("(", ci[1], ", ", ci[2], ")")
+}
+format_ci <- function(ci) {
+paste0("(", ci[1], ", ", ci[2], ")")
+}
+format_ci(ci)
+format_ci <- function(ci) {
+ci <- round(ci, 2)
+paste0("(", ci[1], ", ", ci[2], ")")
+}
+format_ci(ci)
+format_ci <- function(ci) {
+ci <- round(ci, 3)
+paste0("(", ci[1], ", ", ci[2], ")")
+}
+randomize_puzzle <- function(df, col_name) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df[treatment_shuffled == 0, col_name])
+mu1 <- mean(df[treatment_shuffled == 1, col_name])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle, "pretest"))
+randomize_puzzle <- function(df, col_name) {
+treatment_shuffled <- sample(df$treatment)
+mu0 <- mean(df[treatment_shuffled == 0, col_name])
+mu1 <- mean(df[treatment_shuffled == 1, col_name])
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_pretest(puzzle, "pretest"))
+estimates <- replicate(10000, randomize_puzzle(puzzle, "pretest"))
+randomize_puzzle <- function(df, col_name) {
+df$treatment_shuffled <- sample(df$treatment)
+mu0 <- df %>% filter(treatment_shuffled == 0) %>% pull(!!col_name) %>% mean
+mu1 <- df %>% filter(treatment_shuffled == 0) %>% pull(!!col_name) %>% mean
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_puzzle(puzzle, "pretest"))
+estimates <- replicate(10, randomize_puzzle(puzzle, "pretest"))
+randomize_puzzle <- function(df, col_name) {
+df$treatment_shuffled <- sample(df$treatment)
+mu0 <- df %>% filter(treatment_shuffled == 0) %>% pull(!!col_name) %>% mean
+mu1 <- df %>% filter(treatment_shuffled == 1) %>% pull(!!col_name) %>% mean
+mu1 - mu0
+}
+estimates <- replicate(10, randomize_puzzle(puzzle, "pretest"))
+estimates <- replicate(10000, randomize_puzzle(puzzle, "pretest"))
+puzzle <- read_csv("exercise42.csv")
+mu0 <- mean(puzzle$pretest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$pretest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+randomize_puzzle <- function(df, col_name) {
+df$treatment_shuffled <- sample(df$treatment)
+mu0 <- df %>% filter(treatment_shuffled == 0) %>% pull(!!col_name) %>% mean
+mu1 <- df %>% filter(treatment_shuffled == 1) %>% pull(!!col_name) %>% mean
+mu1 - mu0
+}
+estimates <- replicate(10000, randomize_puzzle(puzzle, "pretest"))
+hist(estimates)
+abline(v = ate, col = "red")
+mean(abs(estimates) >= abs(ate))
+ate_puzzle <- function(df) {
+mu0 <- df %>% filter(treatment == 0) %>% pull(!!col_name) %>% mean
+mu1 <- df %>% filter(treatment == 1) %>% pull(!!col_name) %>% mean
+mu1 - mu0
+}
+ate <- ate_puzzle(puzzle, "pretest")
+mu0 <- mean(puzzle$posttest[puzzle$treatment == 0])
+mu1 <- mean(puzzle$posttest[puzzle$treatment == 1])
+ate <- mu1 - mu0
+ate <- ate_puzzle(puzzle, "posttest")
+ate_puzzle <- function(df, col_name) {
+mu0 <- df %>% filter(treatment == 0) %>% pull(!!col_name) %>% mean
+mu1 <- df %>% filter(treatment == 1) %>% pull(!!col_name) %>% mean
+mu1 - mu0
+}
+ate <- ate_puzzle(puzzle, "pretest")
+ate <- ate_puzzle(puzzle, "posttest")
+estimates <- replicate(10000, randomiz_puzzle(puzzle, "posttest"))
+ate <- ate_puzzle(puzzle, "posttest")
+estimates <- replicate(10000, randomize_puzzle(puzzle, "posttest"))
+hist(estimates)
+ci <- ate + 1.96 * c(-1, 1) * sd(estimates)
+ci
+# make a function to calculate and print a p-value
+p_puzzle <- function(estimates, ate) {
+p <- mean(abs(estimates) >= abs(ate))
+print(p)
+return(p)
+}
+# read in data
+puzzle <- read_csv("exercise42.csv")
+# make a function that calculates ATE for true treatment and given column
+ate_puzzle <- function(df, col_name) {
+mu0 <- df %>% filter(treatment == 0) %>% pull(!!col_name) %>% mean
+mu1 <- df %>% filter(treatment == 1) %>% pull(!!col_name) %>% mean
+mu1 - mu0
+}
+# make a function that permutes treatment indicator for a given column
+randomize_puzzle <- function(df, col_name) {
+df$treatment_shuffled <- sample(df$treatment)
+mu0 <- df %>% filter(treatment_shuffled == 0) %>% pull(!!col_name) %>% mean
+mu1 <- df %>% filter(treatment_shuffled == 1) %>% pull(!!col_name) %>% mean
+mu1 - mu0
+}
+# make a function to calculate and print a p-value
+p_puzzle <- function(estimates, ate) {
+p <- mean(abs(estimates) >= abs(ate))
+print(p)
+return(round(p, 2))
+}
+# function to format confidence interval for display
+format_ci <- function(ci) {
+ci <- round(ci, 3)
+paste0("(", ci[1], ", ", ci[2], ")")
+}
+ate <- ate_puzzle(puzzle, "pretest")
+estimates <- replicate(10000, randomize_puzzle(puzzle, "pretest"))
+hist(estimates)
+abline(v = ate, col = "red")
+p <- p_puzzle(estimates, ate)
+getwd()
+require(readr)
+require(dplyr)
+require(tidyr)
+require(stringr)
+# set working directory
+setwd("C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics")
+# read all the files in the /data folder
+files <- list.files(paste0(getwd(), "/data/"))
+# read in one data file, convert to tidy format
+read_data_file <- function(file_name) {
+df <- read_csv(paste0("data/", file_name))
+if((ncol(df) > 1) & (nrow(df) > 0)) {
+file_name_cleaned <- file_name %>%
+str_replace(".csv", "") %>%
+str_replace_all("_", " ") %>%
+str_to_sentence()
+if(word(file_name_cleaned) == "Arrests") {
+category <- "Arrests"
+location <- word(file_name_cleaned, 2, -1) %>% str_to_sentence()
+} else {
+category <- word(file_name_cleaned, 1, 2)
+location <- word(file_name_cleaned, 3, -1) %>% str_to_sentence()
+}
+df %>%
+select(-one_of("Unitid", "Campus ID")) %>%
+gather("Metric", "Number", -1:-4) %>%
+mutate(Category = category,
+Location = location,
+Number = ifelse(is.na(Number), 0, Number)) %>%
+select(Year = `Survey year`,
+Institution = `Institution name`,
+Campus = `Campus Name`,
+Size = `Institution Size`,
+Category = Category,
+Location = Location,
+everything())
+} else NULL
+}
+# read in all files into list, merge them together
+crime <- files %>%
+lapply(read_data_file) %>%
+bind_rows()
+View(crime)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+crime %>% group_by(Metric) %>% summarize(Num = unique(Number))
+crime %>% group_by(Metric) %>% summarize(Num = sum(Number))
+crime %>% group_by(Metric) %>% summarize(Num = sum(Number)) %>% View()
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+crime %>% group_by(Metric) %>% summarize(Num = sum(Number)) %>% View()
+crime %>% group_by(Subcategory) %>% summarize(Num = sum(Number)) %>% View()
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+source('C:/Users/Daniel/Google Drive/Areas/YDN Data Desk/Projects/Yale Crime Statistics/02_merge.R', echo=TRUE)
+crime %>% select(Category, Location, Subcategory) %>% unique() %>% View()
+157*12
+write_csv(crime %>% select(Category, Location, Subcategory) %>% unique(), "to_fill_in.csv")
+require(readr)
+read_csv("yale_crime_merged.csv")
+crime <- read_csv("yale_crime_merged.csv")
+View(crime)
+require(tidyr)
+?spread
+crime %>% spread(Location)
+crime %>% spread(Location, Number)
+crime %>% spread(Location, Number) %>% View
+crime %>% spread(Location, Number) %>% mutate(`On campus non housing` = `On campus` - `On campus student housing facilities`) %>% View
+require(dplyr)
+crime %>% spread(Location, Number) %>% mutate(`On campus non housing` = `On campus` - `On campus student housing facilities`) %>% View
+crime %>%
+spread(Location, Number) %>%
+mutate(`On campus non-student housing` = `On campus` - `On campus student housing facilities`) %>% View
+crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+View
+crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+View
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+View
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`)
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>"))
+View(reshaped)
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>")) %>%
+gather("Subcategory", "Number")
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>"))
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>")) %>%
+gather("Subcategory", "Number", -1:-6)
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>")) %>%
+gather("Location", "Number", -1:-6)
+reshaped$Location %>% unique()
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6)
+reshaped$Location %>% unique()
+require(dplyr)
+require(stringr)
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing"))
+reshaped %>% count(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location)
+reshaped %>% group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>% summarize(n = n())
+reshaped %>% group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>% summarize(n = n(), sum = sum(n))
+reshaped %>% group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>% summarize(n = n(), sum = sum(Number))
+reshaped %>% group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>% summarize(n = n(), sum = sum(list(Number)))
+reshaped %>% group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>% summarize(n = n(), sum = list(Number))
+reshaped %>% group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>% summarize(n = n(), sum = list(Number)) %>% View
+2479/3
+2479/7
+2479/11
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number))
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number, na.rm = TRUE))
+unique(reshaped$Year)
+unique(reshaped$Year) %>% length
+2512/17
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number, na.rm = TRUE)) %>%
+complete(Year, Category, Subcategory, Location)
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number, na.rm = TRUE)) %>%
+complete(nesting(Year, Category, Subcategory, Location))
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number, na.rm = TRUE))
+2512/2
+1256/2
+2512/8
+2512/16
+unique(reshaped$Category)
+unique(reshaped$Subcategory)
+unique(reshaped$Location)
+2512/4
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing"),
+Category = str_replace_all(Category, "Vawa", "VAWA")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number, na.rm = TRUE))
+crime <- read_csv("yale_crime_merged_2018.csv")
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing"),
+Category = str_replace_all(Category, "Vawa", "VAWA")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number, na.rm = TRUE))
+crime <- read_csv("yale_crime_merged_2018.csv")
+reshaped <- crime %>%
+spread(Location, Number) %>%
+mutate(`On-campus non-student housing` = `On campus` - `On campus student housing facilities`) %>%
+rename(`On-campus student housing` = `On campus student housing facilities`) %>%
+select(-one_of("<NA>", "On campus")) %>%
+gather("Location", "Number", -1:-6) %>%
+mutate(Location = str_replace_all(Location, "Student housing facilities", "On-campus student housing"),
+Category = str_replace_all(Category, "Vawa", "VAWA")) %>%
+group_by(Year, Institution, Campus, `Institution Size`, Category, Subcategory, Location) %>%
+summarize(Number = sum(Number, na.rm = TRUE))
+write_csv(reshaped, "yale_crime_merged.csv")

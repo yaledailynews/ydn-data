@@ -1,0 +1,19 @@
+---
+title: "roster_analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library("readxl")
+athletes <- read_excel("~/Documents/Github/ydn-data-analytics/projects/demographics/ashley/athletes_freq.xlsx", col_names = T)
+students <- read_excel("~/Documents/Github/ydn-data-analytics/projects/demographics/ashley/all_students_freq.xlsx", col_names = T)
+
+library(dplyr)
+combo <- students %>% semi_join(athletes, by = "Place")
+write.csv(combo, "~/Desktop/pcts_students.csv")
+```
+

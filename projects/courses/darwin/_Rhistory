@@ -1,0 +1,141 @@
+knitr::opts_chunk$set(message = F)
+library(dplyr)
+install.packages("dplyr")
+knitr::opts_chunk$set(message = F)
+library(dplyr)
+library(readr)
+library(ggplot2)
+install.packages("ggplot2")
+knitr::opts_chunk$set(message = F)
+library(dplyr)
+library(readr)
+library(ggplot2)
+knitr::opts_chunk$set(message = F)
+library(dplyr)
+library(readr)
+library(ggplot2)
+courses <- read_csv("courses.csv")
+knitr::opts_chunk$set(message = F)
+library(dplyr)
+library(readr)
+library(ggplot2)
+courses <- read_csv("courses.csv")
+demand <- read_csv("demand.csv")
+subjects <- read_csv("subjects.csv")
+courses
+demand[1:10, ]
+demand[1236:1245, ]
+demand %>%
+filter(id %in% 1:20) %>%
+ggplot(aes(x = date, y = count, group = id)) +
+geom_point() + geom_line()
+left_join(courses, demand)
+subjects
+library(readr)
+library(dplyr)
+library(tidyr)
+install.packages("tidyr")
+knitr::opts_chunk$set(message = F)
+library(dplyr)
+library(readr)
+library(ggplot2)
+courses <- read_csv("courses.csv")
+demand <- read_csv("demand.csv")
+subjects <- read_csv("subjects.csv")
+courses
+demand[1:10, ]
+demand[1236:1245, ]
+demand %>%
+filter(id %in% 1:20) %>%
+ggplot(aes(x = date, y = count, group = id)) +
+geom_point() + geom_line()
+left_join(courses, demand)
+subjects
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+courses <- read_csv("courses.csv")
+demand <- read_csv("demand.csv")
+subjects <- read_csv("subjects.csv")
+unite_code <- function(df) {
+tidyr::unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+separate_code <- function(df) {
+tidyr::separate(df, code, into = c("subject", "number"), sep = " ", remove = FALSE)
+}
+separate_designator <- function(df) {
+num <- df$number
+df$number <- as.numeric(str_extract(num, "[[:digit:]]+"))
+df$designator <- str_extract(num, "[:alpha:]")
+df
+}
+courses <- courses %>%
+separate_code() %>%
+separate_designator()
+courses
+courses %>%
+filter(designator == "L")
+courses %>%
+filter(number < 100)
+courses %>%
+filter(number < 100) %>%
+distinct(id, .keep_all = TRUE) %>%
+left_join(demand) %>%
+ggplot(aes(x = date, y = count, group = id)) +
+geom_line()
+courses %>%
+filter(number < 100) %>%
+distinct(id, .keep_all = TRUE) %>%
+left_join(demand) %>%
+filter(date == "1/24") %>%
+filter(count > 75)
+courses %>%
+left_join(demand) %>%
+mutate(date = as.Date(date, format = "%m/%d")) %>%
+arrange(code, date) %>%
+group_by(code) %>%
+summarize(enrollment = last(count),
+peak_demand = max(count),
+peak_demand_day = date[which.max(count)])
+# Libraries -----
+library(readr)
+library(dplyr)
+library(tidyr)
+library(stringr)
+library(ggplot2)
+# Helper functions -----
+unite_code <- function(df) {
+tidyr::unite(df, code, subject, number, sep = " ", remove = FALSE)
+}
+separate_code <- function(df) {
+tidyr::separate(df, code, into = c("subject", "number"), sep = " ", remove = FALSE)
+}
+separate_designator <- function(df) {
+num <- df$number
+df$number <- as.numeric(str_extract(num, "[[:digit:]]+"))
+df$designator <- str_extract(num, "[:alpha:]")
+df
+}
+# Read in data -----
+subjects <- read_csv("subjects.csv")
+courses <- read_csv("courses.csv") %>%
+separate_code() %>%
+separate_designator() %>%
+select(id, code, subject, number, designator, name)
+demand <- read_csv("demand.csv") %>%
+mutate(date = as.Date(date, format = "%m/%d")) %>%
+# merge in course data
+left_join(courses) %>%
+# getting rid of some duplicates: for some reason, certain obscure courses
+# show up more than once. these few lines are just manually getting rid of them
+arrange(code, date, desc(count)) %>%
+group_by(code, date) %>%
+slice(1L) %>%
+ungroup()
+coursetable <- read_csv("coursetable.csv") %>%
+unite_code() %>%
+separate_designator() %>%
+select(code, subject, number, designator, section, times, locations, rating, workload)
+left_join(demand, coursetable)

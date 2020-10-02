@@ -6,7 +6,7 @@ We'll list shortcuts to important documents below.
 
 - [Technical Setup Guide](docs/ydn_data_technical_setup.md)
 - [Code Style Guide](docs/ydn_data_code_style_guide.md)
-- [HelpfulResources](docs/ydn_data_helpful_resources.md)
+- [Helpful Resources](docs/ydn_data_helpful_resources.md)
 
 Below are some links to resources/info on some of our projects from last year. This readme will probably be overwritten with more current info as time progresses. 
 

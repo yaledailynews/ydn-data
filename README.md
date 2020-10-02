@@ -1,11 +1,16 @@
 # YDN Data Analytics Desk
 
-This is the internal repository for resources used by the Yale Daily News' Data Analytics Desk. Contact [Daniel Zhao](mailto:daniel.zhao@yale.edu) or [Maggie Nolan](mailto:maggie.nolan@yale.edu) with any questions.
+This is the internal repository for resources used by the Yale Daily News' Data Analytics Desk. Contact [Darwin Do](mailto:darwin.do@yale.edu) or [Ashley Qin](mailto:ashley.qin@yale.edu) with any questions.
 
 We'll list shortcuts to important documents below.
 
 - [Technical Setup Guide](docs/ydn_data_technical_setup.md)
 - [Code Style Guide](docs/ydn_data_code_style_guide.md)
+- [HelpfulResources](docs/ydn_data_helpful_resources.md)
+
+Below are some links to resources/info on some of our projects from last year. This readme will probably be overwritten with more current info as time progresses. 
+
+# Projects from Last Year
 
 ## Course Demand & CourseTable
 
@@ -38,4 +43,3 @@ We'll list shortcuts to important documents below.
 - **Link to report**: [GitHub](/projects/professors/analysis.pdf)
 - **Link to story**: [Google Docs](https://docs.google.com/document/d/1XsyD_0Umlro5NOPc5g1QUrbd1uE-XlXHSnm9uBXhgTg/edit?usp=sharing)
 
-## Dining Data

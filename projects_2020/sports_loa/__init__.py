@@ -1,0 +1,1 @@
+# makes this directory a module so I can import scraper script in terminal and have it run

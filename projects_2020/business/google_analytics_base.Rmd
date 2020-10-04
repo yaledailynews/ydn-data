@@ -9,22 +9,54 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+# Libraries
+```{r}
+library(ggplot2)
+library(dplyr)
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
+## Set Up Google Analytics Package
+Install the package, load it, and set up authentication
+```{r}
+# Install the package
+# install.packages("googleAnalyticsR")
+library("googleAnalyticsR")
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+# authenticate GA with your account that has access to the YDN GA
+# NOTE: if this doesn't work in the markdown script, try calling the function in the console directly
+ga_auth()
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+# First Query
+
+```{r}
+# show all of our GA accounts, there should only be 1
+(accounts <- ga_account_list())
+
+viewID <- accounts$viewId
+
+# our first query: gets the amount of users each day in January 2020
+ga_results1 <-  google_analytics(viewID,
+                                 date_range = c("2020-01-01", "2020-01-31"),
+                                 metrics = c("users"),
+                                 dimensions = "date")
+```
+
+## Graphing our first query
+
+```{r}
+ga_results1 %>%
+  ggplot(aes(x = date, y = users)) +
+  geom_line()
+
+  # woah there's a big spike... let's see how many users were reported that day
+max(ga_results1$users)
+
+# 75,396 people! let's see what day that was
+ga_results1 %>%
+  filter(users == max(ga_results1$users))
+
+
+```
+

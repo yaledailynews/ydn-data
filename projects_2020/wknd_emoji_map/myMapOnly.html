@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+		<div id="left">
+		<div id="google-form">
+		<form action="https://docs.google.com/forms/d/e/1FAIpQLSe3K5mmm5Fzezpltxb0dmElMxJYMpyMkujwPjbjPbiGRa1MPQ/viewform?usp=sf_link" target="hiddenFrame">
+		<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+			<h2>Tell us about a time you cried at Yale.</h2>
+			<p class="caption">Responses may be edited for clarity and length.</p>
+			<textarea jsname="YPqjbf" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;" required="" name="entry.643682983" dir="auto" data-initial-dir="auto"></textarea>
+		<div id="buttons">
+			<input type="button" id="drag" value="Add pin to map" name="entry.2117530617">
+			<input id="location" type="text" jsname="YPqjbf" autocomplete="off" tabindex="0" name="entry.2117530617" value="" required="" dir="auto" data-initial-dir="auto" data-initial-value="" style="display: none">
+			<input class="button" id="submit" type="submit" value="Submit" disabled="true">
+		</div>
+		</form>
+		</div>
+	</div>
+	<style>
+	#map {position: absolute; top: 0; bottom: 0; left: 30%; right: 0;}
+	</style>
+	<script>
+	</script>
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
+	<div class="marker-menu">
+    	<img class="draggable-marker" src="images/marker-icon.png" alt="marker" />
+	</div>
+</head>
+<body>
+	<div id="map"></div>
+	<script>
+		var locations = [
+  			["Pierson", 41.310970, -72.931990],
+  			["Trumbull", 41.323910, -72.967180],
+  			["Ben Frank", 41.330732, -72.921456],
+		];
+	
+	var cryingIcon = L.icon({
+    iconUrl: 'crying.png',
+    iconSize:     [30, 30], // size of the icon
+    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+    });
+    var eggplantIcon = L.icon({
+    iconUrl: 'eggplant.png',
+    iconSize:     [30, 30], // size of the icon
+    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
+    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
+    });
+
+	var map = L.map('map').setView([41.310970,-72.931990],25);
+	L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wZnhwGRqtomo0QHvxpxW', {
+		attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+	}).addTo(map);
+
+	for (var i = 0; i < locations.length; i++) {
+	  marker = new L.marker([locations[i][1], locations[i][2]],{icon: cryingIcon,draggable: true})
+	    .bindPopup(locations[i][0])
+	    .addTo(map);
+	}
+
+
+
+    //map.panTo(new L.LatLng(position.lat, position.lng));
+	</script>
+</div>
+</body>
+</html>
+</html>

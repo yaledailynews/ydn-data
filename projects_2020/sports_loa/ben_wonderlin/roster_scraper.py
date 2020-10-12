@@ -34,6 +34,7 @@ convert_year = {"Fy." : 2024,
                 "Jr." : 2022,
                 "Sr." : 2021}
 
+# core loop
 for team in updated_teams + outdated_teams:
     page = requests.get(team[1])
     soup = bs(page.content, "html.parser")

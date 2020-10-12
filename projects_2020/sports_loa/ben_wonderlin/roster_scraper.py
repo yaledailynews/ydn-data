@@ -1,3 +1,4 @@
+
 import re
 import requests
 import pandas as pd
@@ -8,6 +9,8 @@ loa_directory = pd.read_csv("yc_loa.txt")
 # these rosters are updated: soccer, squash, tennis (all women's)
 # these WOMEN'S rosters are NOT updated: softball, swimming & diving, tennis, track & field 
 # these MEN'S rosters are NOT updated: baseball, basketball, heavyweight crew, lightweight crew
+
+# lets keep them separate for now
 
 updated_teams = [["womens_soccer", "https://yalebulldogs.com/sports/womens-soccer/roster"],
                  ["womens_squash", "https://yalebulldogs.com/sports/womens-squash/roster"],
@@ -75,3 +78,5 @@ for team in updated_teams + outdated_teams:
     
     # write to csv
     df.to_csv((team[0] + "_roster.csv"), index = False)
+ 
+ 

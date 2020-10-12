@@ -1,0 +1,32 @@
+full_name,leave,year,hometown,outdated,dup_year_name
+Will Acken,True,2023.0,"Middletown, N.J.",True,False
+Nikola Bakoc,True,2023.0,"Belgrade, Serbia",True,False
+Miles Beeson,True,2023.0,"Aberdeen, Scotland",True,False
+Nick Cowling,True,2023.0,"London, U.K.",True,False
+Freddie Elwes,False,2021.0,"Hampshire, U.K.",True,False
+Rudd Fawcett,True,2023.0,"New York, N.Y.",True,False
+Liam Galloway,True,2023.0,"Ridgefield, Conn.",True,False
+Sonya Gladstone,True,2023.0,"Hamden, Conn.",True,False
+Andrin Gulich,False,2021.0,"Zurich, Switzerland",True,False
+Fergus Hamilton,True,2023.0,"Jindera, Australia",True,False
+Bobby Jahrling,False,2021.0,"Lincoln, Mass.",True,False
+Alex Julicher,False,2021.0,"Johannesburg, South Africa",True,False
+Jack Lopas,False,2021.0,"Christchurch, New Zealand",True,False
+Daire Lynch,False,2021.0,"Clonmel, Ireland",True,False
+Archie McChesney,True,2023.0,"Oxford, U.K.",True,False
+Felix Mebius,True,2024.0,"Groningen, the Netherlands",True,False
+Hank Michalik,True,2024.0,"Rye, N.Y.",True,False
+Jack Morton,False,2021.0,"Summit, N.J.",True,False
+Orlando Nixon,False,2021.0,"London, U.K.",True,False
+Noah Norman,True,2024.0,"London, U.K.",True,False
+Jens Odegard,True,2022.0,"Weston, Mass.",True,False
+Sophie Oestergaard,False,2022.0,"London, UK",True,False
+Nick Phillips,True,2024.0,"Melbourne, Australia",True,False
+Alex Potter,True,2024.0,"Sydney, Australia",True,False
+Collett Preston,False,2021.0,"Washington, D.C.",True,False
+Nick Rusher,True,2023.0,"West Bend, Wis.",True,False
+Vlad Saigau,True,2022.0,"London, U.K.",True,False
+Elias Salander,True,2023.0,"Millbrook, N.Y.",True,False
+Matteo Sandrelli,False,2021.0,"Rome, Italy",True,False
+Daniel Urke,False,2021.0,"Wayzata, Minn.",True,False
+Kelly Wei,False,2022.0,"Brooklyn, N.Y.",True,False

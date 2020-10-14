@@ -1,0 +1,24 @@
+---
+title: "Untitled"
+author: "Maggie Nolan"
+date: "4/22/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+politic <- read.csv("politic.csv")
+politic <- politic[which(politic$Finished == "True"),][,-(1:17)]
+politic <- politic[,-(26:35)]
+colnames(politic) <- c("affiliation", "prof_area", "prof_area_other", "grad_area", "grad_area_other", "stud_area", "stud_area_other", "double", "political_view", "donations", "vocality", "choice_influence", "diversity_peer", "students_aware", "faculty_vocal", "faculty_diverse", "increase_priority", "current_priority", "voting", "Voting_for", "voting_other", "no_vote", "no_vote_why", "undecided", "undecided_why")
+
+students <- politic[which(politic$affiliation =="Undergraduate student"),]
+faculty <- politic[which(politic$affiliation == "Faculty member"),]
+ufaculty <- faculty[which(faculty$prof_area != "Law School"),]
+ufaculty <- faculty[which(ufaculty$prof_area != "Schools of Medicine, Public Health, or Nursing"),]
+
+```
+

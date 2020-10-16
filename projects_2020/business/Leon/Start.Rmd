@@ -1,0 +1,146 @@
+---
+title: "Google Analytics Base"
+author: "Leon Lufkin"
+date: "10/4/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+library("googleAnalyticsR")
+ga_auth()
+```
+
+# First Query
+```{r}
+# show all of our GA accounts, there should only be 1
+(accounts <- ga_account_list())
+viewID <- accounts$viewId
+ga_meta() %>% filter(type == "DIMENSION") %>% filter(name == "users")
+ga.results.16.20 <-  google_analytics(viewID,
+                                     date_range = c("2016-08-23", "2020-10-04"),
+                                     metrics = c("Pageviews", "sessions", "bounceRate", "avgTimeonPage", "users"),
+                                     dimensions = c("date", "region"),
+                                     max = 75000) %>% mutate(year = as.numeric(substr(date, 1, 4)),
+                                                             month = as.numeric(substr(date, 6, 7)),
+                                                             day = as.numeric(substr(date, 9, 10)))
+ga.results.16.20
+```
+ - if select date range prior to 2016-08-23, all user counts are zero (not sure why, maybe this is when YDN started using Google Analytics, though it shouldn't mess up the later dates...maybe a bug?)
+ - if I try to download user-specific data, I only get a few hundred results back, which is clearly too few; so I'm limiting initial analysis to Pageviews vs. date
+ - userAgeBracket & userGender give individual results, which limits data
+ - date & region gives good amount of data, but only starts in August 2018
+
+
+## Graphing data from 2016-2020
+```{r}
+ga.results.16.20 %>%
+  ggplot(aes(x = date, y = users)) +
+  geom_line() +
+  labs(title = "YDN Website Usage from 2016-2020", x = "Date", y = "Users")
+# let's what happened on the high-traffic days...
+ga.results.16.20 %>% top_n(n = 3, wt = users)
+# ...2018-05-10: black graduate student was reported for napping, big controversy
+# ...2018-09-20: photo revealed of Brett Kavanaugh's frat members with a flag of women's underwear, big controversy
+# ...2020-01-24: Yale ends historic art class, big controversy
+```
+ - political controversies seem to generate large viewership
+ 
+ 
+## Daily, Weekly, Monthly, and Yearly Trends
+```{r}
+#ga.results.16.20$t <- 1:nrow(ga.results.16.20)
+#ga.results.16.20 <- ga.results.16.20 %>% mutate(weekday = ((t+5)%%7)+1, month=as.numeric(substr(date, 6, 7)), year=as.numeric(substr(date, 1, 4)))
+#ga.results.16.20
+```
+
+### Day of Week
+```{r}
+ga.results.16.20 <- readr::read_csv("GA_data.csv")
+ga.results.16.20 %>% group_by(weekday) %>% summarize(m = mean(Pageviews), se = sd(Pageviews)/sqrt(n())
+   ) %>% mutate(weekday = factor(ifelse(weekday==1, "M", ifelse(weekday==2, "T", ifelse(weekday==3, "W", ifelse(weekday==4, "Th", ifelse(weekday==5, "F", ifelse(weekday==6, "S", "Su")))))))) %>% ggplot() +
+  geom_col(aes(x = weekday, y = m), fill = "#0f4d92") +
+  geom_errorbar(aes(x = weekday, ymin = m - se, ymax = m + se)) +
+  scale_x_discrete(limits = c("M", "T", "W", "Th", "F", "S", "Su")) +
+  labs(x = "", y = "Average number of Pageviews (+/- standard error)") +
+  theme_classic()
+ggsave(filename = "Pageviews_by_day_of_week.png", dpi = 300, units = "in", width = 6, height = 4)
+```
+
+```{r}
+weekday.aov <- aov(users ~ weekday, data = ga.results.16.20 %>% mutate(weekday = as.factor(weekday))) # one-way ANOVA to test for differences in readership across days
+summary(weekday.aov)
+TukeyHSD(weekday.aov, conf.level = 0.95) # performing Tukey's HSD post-hoc test
+```
+Significant trends observed:
+- M > S
+- M > Su
+- T > S
+- T > Su
+- W > S
+- W > Su
+- Th > S
+- Th > Su
+- F > S
+- F > Su
+Conclusion: significantly more readership during the week than on the weekend (why?)
+
+### Month
+```{r}
+ga.results.16.20 %>% group_by(month) %>% summarize(m_users = mean(users), se_users = sd(users)/sqrt(n())) %>% ggplot() +
+  geom_col(aes(x = month, y = m_users), fill = "#0f4d92") +
+  geom_errorbar(aes(x = month, ymin = m_users - se_users, ymax = m_users + se_users)) +
+  scale_x_discrete(limits = c("Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec")) +
+  labs(x = "", y =  "Average number of Pageviews (+/- standard error)") +
+  theme_classic()
+ggsave(filename = "Pageviews_by_month.png", dpi = 300, units = "in", width = 6, height = 4)
+```
+ - see Gaussian Process modeling from MATLAB!
+ 
+```{r}
+month.aov <- aov(users ~ month, data = ga.results.16.20 %>% mutate(month = as.factor(month))) # one-way ANOVA to test for differences in readership across days
+summary(month.aov)
+TukeyHSD(month.aov, conf.level = 0.95) # performing Tukey's HSD post-hoc test
+```
+Significant differences:
+- 2-1, 4-1, 6-1, 7-1, 8-1
+- 5-2, 6-2, 7-2, 8-2, 12-2
+- 6-3, 7-3, 8-3, 12-3
+- 5-4, 6-4, 7-4, 8-4, 12-4
+- 7-5, 8-5, 9-5
+- 9-6, 10-6, 11-6
+- 9-7, 10-7, 11-7
+- 9-8, 10-8, 11-8
+- 12-9, 12-10, 12-11
+
+ 
+ 
+## Location Trends
+```{r}
+# "subcontinent", "country", "region", "city", "screenName"
+df <- ga.results.16.20 %>% mutate(connecticut = (region=="Connecticut")) %>% select(date, connecticut, Pageviews) %>% group_by(connecticut, date) %>% summarize(Pageviews = sum(Pageviews)) %>% ungroup()
+df$Pageviews.scaled[df$connecticut] <- df %>% filter(connecticut) %>% select(Pageviews) %>% as_vector() %>% scale()
+df$Pageviews.scaled[!df$connecticut] <- df %>% filter(!connecticut) %>% select(Pageviews) %>% as_vector() %>% scale()
+
+df %>% mutate(CT = ifelse(connecticut, "From CT", "Not from CT")) %>% ggplot() +
+  geom_line(aes(x = date, y = Pageviews, color = CT)) + 
+  labs(x = "Day", y = "Page Views") +
+  #scale_x_continuous(breaks = cumsum(c(0, )))
+  theme_classic() +
+  theme(legend.title=element_blank())
+ggsave(filename = "Pageviews_CT.png", dpi = 300, units = "in", width = 6, height = 4)
+```
+ - big articles don't seem to draw in people in Connecticut, controversy-generating articles that get a lot of views are read by alumni/strangers not in CT
+ - maybe repeat GP analysis for Pageviews in CT and not in CT
+
+```{r}
+df %>% group_by(date) %>% summarize(prop.views.CT = sum(Pageviews*connecticut)/sum(Pageviews)) %>% ungroup() %>% ggplot() +
+  geom_line(aes(x = date, y = 100*prop.views.CT), stat = "identity", color = "blue") +
+  labs(x = "Day", y = "% of Page Views from CT") +
+  theme_classic()
+ggsave(filename = "Percent_Pageviews_CT.png", dpi = 300, units = "in", width = 6, height = 4)
+```
+ - dips in % of page views from CT during summer months
+ - might want to do signal processing with GP for CT vs non CT page views

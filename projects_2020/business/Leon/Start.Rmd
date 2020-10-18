@@ -144,3 +144,78 @@ ggsave(filename = "Percent_Pageviews_CT.png", dpi = 300, units = "in", width = 6
 ```
  - dips in % of page views from CT during summer months
  - might want to do signal processing with GP for CT vs non CT page views
+ 
+# Second Query (10/18/2020)
+```{r}
+(accounts <- ga_account_list())
+viewID <- accounts$viewId
+ga.recruit <-  google_analytics(viewID,
+                                date_range = c("2016-08-23", "2020-10-17"),
+                                metrics = c("UniquePageviews", "users"),
+                                dimensions = c("date", "pagePathLevel2", "city"),
+                                filters = "ga:pagePathLevel1==/recruitment/",
+                                max = 75000,
+                                anti_sample = T) %>% mutate(year = as.numeric(substr(date, 1, 4)), month = as.numeric(substr(date, 6, 7)), day = as.numeric(substr(date, 9, 10))) %>% filter(pagePathLevel2 %in% c("/opinion/", "/university/", "/culture/", "/wknd/", "/city/", "/mag/", "/management/", "/copy/", "/pd/", "/scitech/", "/business/", "/photo/", "/sports/", "/illustrations/", "/ytv/", "/tech/", "/podcasts/", "/data/"))
+ga.recruit$pagePathLevel2 <- gsub('^.|.$', '', ga.recruit$pagePathLevel2)
+#ga.recruitment <- readr::read_csv("10_18_2020/Edited.csv")
+range(ga.recruit$date)
+```
+
+## Interest by desk
+```{r}
+recruit.desk <- ga.recruit %>% group_by(pagePathLevel2) %>% summarize(n.views = sum(UniquePageviews)) %>% ungroup() %>% arrange(desc(n.views))
+ggplot(recruit.desk) +
+  aes(x = pagePathLevel2, y = n.views) +
+  geom_bar(stat = "identity") +
+  labs(title = "Recruitment Pageviews", subtitle = "01/13/2019-10/17/2020", x = "", y = "Unique Pageviews") +
+  geom_text(stat='identity',aes(label=n.views), vjust=-0.2) +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1))
+ggsave(filename = "10_18_2020/desk_pageviews.png", dpi = 300, units = "in", width = 6, height = 5)
+```
+
+## Interest by city
+```{r}
+recruit.city <- ga.recruit %>% group_by(city) %>% summarize(n.views = sum(UniquePageviews)) %>% ungroup() %>% arrange(desc(n.views))
+recruit.city <- recruit.city %>% filter(city != "(not set)")
+#top.n <- 250
+#recruit.city[top.n+1, 1] <- "Other"
+#recruit.city[top.n+1, 2] <- as.numeric(sum(recruit.city$n.views[(top.n+1):nrow(recruit.city)]))
+#recruit.city <- recruit.city[1:(top.n+1), ]
+readr::write_csv(recruit.city, "10_18_2020/city_pageviews.csv")
+```
+
+## Interest within New Haven
+```{r}
+ga.recruit2 <-  google_analytics(viewID,
+                                 date_range = c("2016-08-23", "2020-10-17"),
+                                 metrics = c("UniquePageviews", "users"),
+                                 dimensions = c("date", "pagePathLevel2", "city", "latitude", "longitude"),
+                                 filters = "ga:pagePathLevel1==/recruitment/;ga:city==New Haven",
+                                 max = 75000,
+                                 anti_sample = T) %>% mutate(year = as.numeric(substr(date, 1, 4)), month = as.numeric(substr(date, 6, 7)), day = as.numeric(substr(date, 9, 10))) %>% filter(pagePathLevel2 %in% c("/opinion/", "/university/", "/culture/", "/wknd/", "/city/", "/mag/", "/management/", "/copy/", "/pd/", "/scitech/", "/business/", "/photo/", "/sports/", "/illustrations/", "/ytv/", "/tech/", "/podcasts/", "/data/"))
+ga.recruit2$pagePathLevel2 <- gsub('^.|.$', '', ga.recruit2$pagePathLevel2)
+```
+ - seems like google analytics will not allow for any more geographic detail beyond the city-level (probably to protect privacy)
+ 
+```{r}
+ga.recruit %>% mutate(isNewHaven = ifelse(city == "New Haven", "New Haven", "Other Cities")) %>% group_by(pagePathLevel2, isNewHaven) %>% summarize(n.view = sum(UniquePageviews)) %>% ggplot() +
+  aes(x = pagePathLevel2, y = n.view, fill = factor(isNewHaven, levels=c("Other Cities", "New Haven"))) +
+  geom_bar(stat = "identity") +
+  labs(title = "Recruitment Interest New Haven vs. Other Citites", subtitle = "01/13/2019-10/17/2020", x = "", y = "Unique Pageviews") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), legend.title=element_blank())
+ggsave(filename = "10_18_2020/desk_newhaven_other_pageviews.png", dpi = 300, units = "in", width = 6, height = 5)
+```
+
+```{r}
+ga.recruit %>% filter(city == "New Haven") %>% group_by(pagePathLevel2) %>% summarize(n.views = sum(UniquePageviews)) %>% ggplot() +
+  aes(x = pagePathLevel2, y = n.views) +
+  geom_bar(stat = "identity") +
+  geom_text(stat='identity',aes(label=n.views), vjust=-0.2) +
+  labs(title = "Recruitment Interest New Haven", subtitle = "01/13/2019-10/17/2020", x = "", y = "Unique Pageviews") +
+  theme_classic() +
+  theme(axis.text.x = element_text(angle = 45, vjust = 1, hjust = 1), legend.title=element_blank())
+ggsave(filename = "10_18_2020/desk_newhaven_pageviews.png", dpi = 300, units = "in", width = 6, height = 5)
+```
+

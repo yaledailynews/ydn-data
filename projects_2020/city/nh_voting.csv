@@ -1,12 +1,24 @@
 ,Election,ELIGIBLE VOTERS IN THE TOWN,NUMBER OF VOTERS VOTED IN THE TOWN,NUMBER OF ABSENTEE BALLOT RECEIVED,NUMBER OF ABSENTEE BALLOT COUNTED,NUMBER OF EDR ISSUED,NUMBER OF EDR COUNTED,TURNOUT
-0,08/11/2020 -- Democratic Presidential Preference Primary,"38,418","10,855","4,795","4,712",0,0,28.25%
-1,08/11/2020 -- Republican Presidential Preference Primary,"2,380",388,148,144,0,0,16.30%
+0,08/11/2020 -- Democratic Presidential Preference Primary,38418,10855,4795,4712,0,0,28.25%
+1,08/11/2020 -- Republican Presidential Preference Primary,2380,388,148,144,0,0,16.30%
 2,08/11/2020 -- Republican Primary,0,0,0,0,0,0,0.00%
 3,08/11/2020 -- Democratic Primary,0,0,0,0,0,0,0.00%
-4,11/05/2019 -- November 2019 Municipal Election,"60,267","17,828",927,878,163,163,29.58%
-5,09/10/2019 -- Democratic Primary,"39,795","12,439",729,673,0,0,31.26%
-6,11/06/2018 -- November 2018 State Election,"58,479","33,899","1,650","1,516",697,694,57.97%
-7,08/14/2018 -- August 2018 Democratic Primary,"36,704","9,867",739,707,0,0,26.88%
-8,08/14/2018 -- August 2018 Republican Primary,"2,321",574,51,51,0,0,24.73%
-9,11/07/2017 -- November 2017 Municipal Election,"57,137","11,964",679,643,42,42,20.94%
-10,11/08/2016 -- November Presidential Election,"78,782","42,444","2,483","2,402",973,973,53.88%
+4,11/05/2019 -- November 2019 Municipal Election,60267,17828,927,878,163,163,29.58%
+5,09/10/2019 -- Democratic Primary,39795,12439,729,673,0,0,31.26%
+6,11/06/2018 -- November 2018 State Election,58479,33899,1650,1516,697,694,57.97%
+7,08/14/2018 -- August 2018 Democratic Primary,36704,9867,739,707,0,0,26.88%
+8,08/14/2018 -- August 2018 Republican Primary,2321,574,51,51,0,0,24.73%
+9,11/07/2017 -- November 2017 Municipal Election,57137,11964,679,643,42,42,20.94%
+10,11/08/2016 -- November Presidential Election,78782,42444,2483,2402,973,973,53.88%
+,11/04/2014 – Midterm,70832,27127,1170,1111,,,38.30%
+,11/06/2012 – November Presidential Election,71978,44973,3784,3706,,,62.48%
+,11/02/2010 – Midterm,63597,27200,1487,1444,,,42.77%
+,08/10/2010 – Democratic Primary,43400,9082,,,,,20.93%
+,08/10/2010 – Republican Primary,2495,497,,,,,19.92%
+,11/04/2008 – November Presidential Election,65809,43435,4328,4310,,,66.00%
+,11/06/2007 – Municipal Election,,12206,,,,,
+,11/07/2006 – Midterm,55913,26615,1679,1641,,,47.60%
+,11/00/2005 – Municipal,55903,13749,,,,,24.60%
+,11/02/2004 – November Presidential Election,58094,39458,3306,3259,,,67.92%
+,11/05/2002 – Midterm,53472,21513,1049,1028,,,40.23%
+,09/11/2001 – Municipal ,37432,16616,,,,,44.40%

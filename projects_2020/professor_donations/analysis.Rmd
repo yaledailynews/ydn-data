@@ -1,0 +1,233 @@
+---
+title: "Professor Political Donations"
+output: pdf_document
+---
+## About The Data
+
+The data includes 4,576 donations totalling $630,611 made by 317 current Yale professors and lecturers between January 1st, 2013 and August 31st, 2020. Donations were collected from publicly available Federal Election Commission data. A donor in that dataset was considered to be a Yale professor if they listed their employer as "Yale University" (or some variant) at the time of the filing and had a name matching one on a list of current Yale professors.
+
+A professor/lecturer would be eligible for this dataset if:
+
+- They were listed in the Yale directory as of October 6th, 2020.
+
+- Their listing in the directory includes an email address.
+
+- Their title includes the word "Lecturer" or "Professor"
+
+- Their department is not listed as the School of Law, Nursing, or Medicine.
+
+
+A donation is eligible for this dataset if:
+
+- The donation was made to a federal political action committee (PAC), candidate committee, or party committee.
+
+- If it was made in 2013 and 2014, the donor must have made at least $200 worth of donations to the recipient during the quarter the donation was made.
+
+- If it was made in 2015 or later:
+
+   - If the donation was made to a candidate committee, the donor must have made at least $200 in donations to that committee since the start of the election cycle the donation was made.
+   
+   - If the donation was made to a PAC or party committee, the donor must have made at least $200 in donations to that committee since the start of the year the donation was made.
+   
+- The donor making the donation listed their employer as some variation of "Yale" at the time of the donation.
+
+- The donor had the same name as a Yale professor or lecturer as included in the data above.
+
+```{r, include=F}
+library(tidyverse)
+library(lubridate)
+data = read.csv("yale_contributions.csv")
+data = data[!grepl("MED", data$department) & !grepl("NUR", data$department) & !grepl("LAW", data$department),]
+professors = read.csv("output.csv")
+professors = professors[!grepl("MED", professors$department) & !grepl("NUR", professors$department) & !grepl("LAW", professors$department),]
+department_n = professors %>% group_by(department) %>% summarise(num_professors=n())
+data$lecturer = grepl("Lecturer", data$title)
+```
+```{r, include=F}
+data %>% filter(CMTE_PTY_AFFILIATION == "") %>% group_by(CMTE_NM) %>% summarise(n=n()) %>% arrange(-n)
+```
+
+```{r, include=F}
+dem_orgs = c("EMILY'S LIST", "END CITIZENS UNITED", "MOVEON.ORG POLITICAL ACTION", "DEMOCRATIC ACTION", "NATIONAL DEMOCRATIC TRAINING COMMITTEE PAC", "BE A HERO PAC", 
+             "BRADY PAC", "PROGRESSIVE TURNOUT PROJECT", "314 ACTION FUND", "FAIR FIGHT", "SMP", "STUDENTS FOR A NEW AMERICAN POLITICS PAC", 
+             "CORRECT THE RECORD", "DEMOCRATIC VICTORY FUND", "GRASSROOTS VICTORY PAC", "MIDWEST VALUES PAC", "MIND THE GAP", 
+             "SISTER DISTRICT PROJECT", "BEND THE ARC JEWISH ACTION INC. PAC", 
+             "DEMOCRACY ENGINE, INC., PAC", "FORCE MULTIPLIER", "READY PAC", "BIG SKY VALUES PAC", "NATIONAL COMMITTEE FOR AN EFFECTIVE CONGRESS", 
+             "PLANNED PARENTHOOD ACTION FUND INC PAC, DBA PLANNED PARENTHOOD FEDERAL PAC", "WOMEN VOTE!", "HILLARY VICTORY FUND", "314 PAC", "GIFFORDS PAC", "ALISON FOR KENTUCKY", "BIDEN VICTORY FUND", "DCCC RAPID RESPONSE FUND 2014", "INDIVISIBLE ACTION", "LET AMERICA VOTE PAC", "SWING LEFT NY VICTORY FUND", "OUR PRINCIPLES PAC")
+data$CMTE_PTY_AFFILIATION = as.character(data$CMTE_PTY_AFFILIATION)
+data = data %>% mutate(CMTE_PTY_AFFILIATION = ifelse(CMTE_NM %in% dem_orgs | CMTE_PTY_AFFILIATION == "DFL", "DEM", CMTE_PTY_AFFILIATION))
+#rep_orgs = c("PORTMAN FOR SENATE COMMITTEE", "KASICH FOR AMERICA, INC.", "WINRED", "TRUMP MAKE AMERICA GREAT AGAIN COMMITTEE", "CURBELO VICTORY COMMITTEE", 
+#             "DEFENDERS OF FREEDOM AND SECURITY", "RIGHT TO RISE PAC, INC.", "TEAM MCHENRY", "TEAM RYAN")
+#data = data %>% mutate(CMTE_PTY_AFFILIATION = ifelse(CMTE_NM %in% rep_orgs, "REP", CMTE_PTY_AFFILIATION))
+#data$CMTE_PTY_AFFILIATION = as.factor(data$CMTE_PTY_AFFILIATION)
+```
+
+
+```{r, include=F}
+data %>% group_by(CMTE_PTY_AFFILIATION) %>% summarise(n = n(), total = sum(TRANSACTION_AMT)) %>% arrange(-total)
+```
+```{r, include=F}
+data %>% group_by(NAME) %>% summarise(n = n(), total = sum(TRANSACTION_AMT)) %>% arrange(-total)
+```
+## Donations by Department
+
+```{r, fig.height=6, fig.width=12, echo=F, warning=F, message=F}
+by_department = data %>% group_by(department) %>% summarise(n = n(), total = sum(TRANSACTION_AMT)) %>% arrange(-total) %>% top_n(10)
+ggplot(by_department, aes(x=reorder(department, -total), y=total)) + geom_bar(stat="identity") + theme(axis.text.x = element_text(angle = 45, hjust=1)) + 
+  xlab("Department") + ylab("Total Donations ($)") + 
+  ggtitle("Departments with Highest Total Amount Of Donations")
+```
+```{r, fig.height=6, fig.width=12, echo=F, warning=F, message=F}
+by_department_counts = data %>% group_by(department) %>% summarise(n = n_distinct(name)) %>% arrange(-n)
+by_department_counts = by_department_counts %>% left_join(department_n, by="department") %>% filter(num_professors > 5)
+by_department_counts$percent_donors = by_department_counts$n/by_department_counts$num_professors*100
+ggplot(by_department_counts %>% top_n(10, wt=n), aes(x=reorder(department, -n), y=n)) + geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 45, hjust=1), plot.margin=unit(c(0,0,0,1), "cm")) + xlab("Department") +
+  ylab("Total Donors") + ggtitle("Departments with Highest Number of Donors")
+```
+Among departments with at least five donors, professors in the law school again donated at the highest rates, followed by History, English, and MCDB.
+
+```{r, fig.height=6, fig.width=12, echo=F, warning=F, message=F}
+ggplot(by_department_counts %>% arrange(percent_donors) %>% top_n(11), 
+       aes(x=reorder(department, -percent_donors), y=percent_donors)) +
+  geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 45, hjust=1), plot.margin=unit(c(0,0,0,1), "cm")) + xlab("Department") + 
+  ylab("Percentage of Professors With At Least One Donation") + xlab("Department") + 
+  ggtitle("Departments With Highest Percentage of Donors (for departments with at least five professors/lecturers)")
+```
+
+## Donation Destinations
+
+### A Note on ActBlue
+
+ActBlue is primarily a payment processor that allows candidates to easily accept political donations online. The platform only works with Democratic organizations and nonprofits. Money is first sent to ActBlue, which then routes it to the donor's chosen candidate. 2,100 donations in this dataset, more than half of the total, went through ActBlue. The FEC data makes it possible to see the eventual recipient of the ActBlue money, and this is used below rather than ActBlue itself.
+
+```{r, include=F}
+data$MEMO_TEXT = as.character(data$MEMO_TEXT)
+data$CMTE_NM = as.character(data$CMTE_NM)
+data = data %>% mutate(DEST_NM = ifelse(CMTE_NM == "ACTBLUE", gsub('EARMARKED FOR (.+) \\(.+\\)', '\\1', MEMO_TEXT), CMTE_NM))
+```
+
+
+
+```{r, fig.height=6, fig.width=12, echo=F, warning=F, message=F}
+by_destination = data %>% group_by(DEST_NM) %>% summarise(n = n(), total = sum(TRANSACTION_AMT)) %>% arrange(-total) %>% top_n(9)
+by_destination_counts = data %>% group_by(DEST_NM) %>% summarise(n = n_distinct(name)) %>% arrange(-n)
+ggplot(by_destination, aes(x=reorder(DEST_NM, -total), y=total)) + geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 45, hjust=1), plot.margin=unit(c(0,0,0,1), "cm")) + ylab("Total Donations ($)") + 
+  xlab("Committee Name") + ggtitle("Top Donation Destinations ($)")
+```
+
+
+
+```{r, fig.height=6, fig.width=12, echo=F, warning=F, message=F}
+ggplot(by_destination_counts %>% top_n(9), aes(x=reorder(DEST_NM, -n), y=n)) + geom_bar(stat="identity") + 
+  theme(axis.text.x = element_text(angle = 45, hjust=1), plot.margin=unit(c(0,0,0,1), "cm")) + ylab("Total Unique Donors") + 
+  xlab("Committee Name") + ggtitle("Top Donation Destinations (Unique Donors)")
+```
+```{r}
+data$TRANSACTION_DT = as.Date(data$TRANSACTION_DT)
+last_year = subset(data, TRANSACTION_DT > "2019-09-01")
+last_year$TRANSACTION_MONTH = ordered(month(last_year$TRANSACTION_DT, label=TRUE), 
+                                 levels=c("Sep", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"))
+last_year = subset(last_year, !is.na(last_year$TRANSACTION_MONTH))
+donations_by_month = last_year %>% group_by(TRANSACTION_MONTH, DEST_NM) %>% summarise(n_people=n_distinct(name)) %>% group_by(TRANSACTION_MONTH) %>% arrange(desc(n_people))
+donations_by_month$final_dest = ifelse(grepl("BIDEN", donations_by_month$DEST_NM, fixed=TRUE), "Joe Biden", ifelse(grepl("BERNIE", donations_by_month$DEST_NM, fixed=T), "Bernie Sanders", ifelse(grepl("WARREN", donations_by_month$DEST_NM, fixed=T), "Elizabeth Warren", ifelse(grepl("KAMALA", donations_by_month$DEST_NM, fixed=T), "Kamala Harris", ifelse(grepl("CORY", donations_by_month$DEST_NM, fixed=T), "Cory Booker", NA)))))
+donations_by_month = subset(donations_by_month, !is.na(final_dest))
+donations_by_month = donations_by_month %>% group_by(TRANSACTION_MONTH, final_dest) %>% summarise(n_people=sum(n_people))
+ggplot(donations_by_month, aes(TRANSACTION_MONTH, y= n_people, group=final_dest, color=final_dest)) + geom_line() + geom_point() +
+  xlab("Month (2019-2020)") + ylab("Number of Unique Donors") + labs(color="Donation Destination") + ggtitle("Unique Donors to Presidential Candidates By Month")
+```
+
+## Political Party Affiliation
+The political party affiliation of the destination of the funds was analyzed as follows:
+
+- If the FEC listed a party affiliation as "DEM" or "REP", this affiliation was kept. 
+
+- If the FEC listed a party affiliation of "DFL", this was considered to be "DEM" (as the Democratic Farmer-Labor party is the Democratic Party branch in Minnesota).
+
+- If the donation went through ActBlue, it was considered "DEM".
+
+- If there is information on committee's donations in the 2018 election cycle (according to OpenSecrets) and more than 95% of its donations in that cycle went to Democrats, with 1% or less going to Republicans, this was considered to be "DEM".
+
+- Same as above, but for the 2020 election cycle.
+
+- If there is no information on the committee's donations in the 2018 or 2020 election cycles, and the committee was listed by OpenSecrets as "Democratic/Liberal" in affiliation, it was considered "DEM".
+
+- If the committee is a super pac (and thus does not donate directly to candidates), and did not have a party affiliation listed by OpenSecrets, then it was considered "DEM" if it did not make any independent expenditures in favor of Republican candidates and made more expenditures in favor of Democratic candidates than against them.
+
+A list of all committees not listed as DEM by the FEC but considered DEM by this analysis is as follows:
+
+- EMILY'S LIST
+
+- END CITIZENS UNITED
+
+- MOVEON.ORG POLITICAL ACTION
+
+- DEMOCRATIC ACTION
+
+- NATIONAL DEMOCRATIC TRAINING COMMITTEE PAC
+
+- BE A HERO PAC
+
+- BRADY PAC
+
+- PROGRESSIVE TURNOUT PROJECT
+
+- 314 ACTION FUND
+
+- FAIR FIGHT
+
+- SMP
+
+- STUDENTS FOR A NEW AMERICAN POLITICS PAC
+
+- CORRECT THE RECORD
+
+- DEMOCRATIC VICTORY FUND
+
+- GRASSROOTS VICTORY PAC
+
+- MIDWEST VALUES PAC
+
+- MIND THE GAP
+
+- SISTER DISTRICT PROJECT
+
+- BEND THE ARC JEWISH ACTION INC. PAC
+
+- DEMOCRACY ENGINE, INC., PAC
+
+- FORCE MULTIPLIER
+
+- READY PAC
+
+- BIG SKY VALUES PAC
+
+- NATIONAL COMMITTEE FOR AN EFFECTIVE CONGRESS
+
+- PLANNED PARENTHOOD ACTION FUND INC PAC, DBA PLANNED PARENTHOOD FEDERAL PAC
+
+- WOMEN VOTE!
+
+- HILLARY VICTORY FUND
+
+- 314 PAC
+
+- GIFFORDS PAC
+
+- ALISON FOR KENTUCKY
+
+- BIDEN VICTORY FUND
+
+- DCCC RAPID RESPONSE FUND 2014
+
+- INDIVISIBLE ACTION
+
+- LET AMERICA VOTE PAC
+
+- SWING LEFT NY VICTORY FUND
+
+- OUR PRINCIPLES PAC
+
+Overall, there were 4,575 donations to Democratic-affiliated groups totalling \$630361 and 1 donation to Republican candidate Elizabeth Heng for Congress totaling \$250.

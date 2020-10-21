@@ -35,7 +35,7 @@
   			["Trumbull", 41.323910, -72.967180],
   			["Ben Frank", 41.330732, -72.921456],
 		];
-	
+
 	var cryingIcon = L.icon({
     iconUrl: 'crying.png',
     iconSize:     [30, 30], // size of the icon
@@ -54,10 +54,21 @@
 		attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
 	}).addTo(map);
 
-	for (var i = 0; i < locations.length; i++) {
-	  marker = new L.marker([locations[i][1], locations[i][2]],{icon: cryingIcon,draggable: true})
-	    .bindPopup(locations[i][0])
-	    .addTo(map);
+	//build the intial map icons.
+	function build_map_icons() {
+
+		for (var i = 0; i < locations.length; i++) {
+			marker = new L.marker([locations[i][1], locations[i][2]], { icon: cryingIcon, draggable: false })
+				.bindPopup(locations[i][0])
+				.addTo(map);
+		}
+	}
+	
+	//add the icon to the list, should also be added to the spreadsheet separetly
+	function add_map_icon(icon_list) {
+		marker = new L.marker([icon_list[1], icon_list[2]], { icon: cryingIcon, draggable: false })
+			.bindPopup(icon_list[0])
+			.addTo(map);
 	}
 
 

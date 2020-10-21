@@ -28,23 +28,26 @@ function init() {
 
 
 function loadData() {
-    console.log(gapi.client.sheets.spreadsheets)
     gapi.client.sheets.spreadsheets.values.get({
             spreadsheetId: SPREADSHEET_ID,
-            range: 'coords!A2:C',
+            range: 'coords!A2:C1500',
         }).then(function(response) {
           var range = response.result;
-          /*if (range.values.length > 0) {
-            appendPre('Name, Major:');
-            for (i = 0; i < range.values.length; i++) {
-              var row = range.values[i];
-              // Print columns A and E, which correspond to indices 0 and 4.
-              appendPre(row[0] + ', ' + row[4]);
-            }
-          } else {
-            appendPre('No data found.');
-          }*/
-          console.log(range);
+          console.log(range)
+          if (range.values.length > 0) {
+            data = range.values.filter((item) => {
+
+                item.filter((el) => el != "")      
+                if (item.length == 0){
+                    return false
+                } else {
+                    return true
+                }
+            })
+            locations = data
+    
+          } 
+          build_map_icons() //build the map icons, either the ones loaded or the ones that are used as defaults
         }, function(response) {
           console.log('Error: ' + response.result.error.message);
         });

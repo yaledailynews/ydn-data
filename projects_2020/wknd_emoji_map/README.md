@@ -10,3 +10,10 @@ password: mUVp!hy4ehXs6fMm7Zx7
 
 The spreadsheet is currently public, we should work on figuring out how to make it not that, also hiding keys and stufff
 
+Todo:
+make spreadsheet not public
+Make sure emojis consistent (i.e. use the system emoji everywhere or replace the emoji in the textbox)
+Save additions to spreadsheet
+Allow messages
+allos grouping of emojis
+style things betters

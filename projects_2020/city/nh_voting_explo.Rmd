@@ -1,0 +1,129 @@
+---
+title: "New Haven Voting"
+author: "Darwin Do"
+date: "10/20/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# Libraries
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(lubridate)
+library(magrittr)
+library(stringr)
+```
+
+
+```{r}
+# voter registration
+nh_vote_reg <- read_csv("nh_voter_registration.csv")
+pop <- read_csv("population.csv")
+
+# make date a date
+nh_vote_reg %<>%
+  mutate(date = mdy(date))
+
+pop %<>%
+  rename(year = label, pop = "Total Population") 
+
+nh_vote_reg %>%
+  ggplot(aes(x = year(date), y = total)) + 
+  geom_point()
+
+nh_vote_reg %<>%
+  mutate(dem_total = dem_active + dem_inactive) %>%
+  mutate(rep_total = rep_active + rep_inactive) %>%
+  mutate(ind_total = ind_active + ind_inactive) %>%
+  mutate(minor_total = minor_active + minor_inactive)
+
+# total democratic voter registration
+nh_vote_reg %>%
+  ggplot(aes(x = year(date), y = dem_total)) + 
+  geom_point()
+
+# total gop voter registration
+nh_vote_reg %>%
+  ggplot(aes(x = year(date), y = rep_total)) + 
+  geom_point()
+ggsave("sample_graphs/gop.jpg")
+
+# total independant
+nh_vote_reg %>%
+  ggplot(aes(x = year(date), y = ind_total)) + 
+  geom_point()
+
+# total third party
+nh_vote_reg %>%
+  ggplot(aes(x = year(date), y = minor_total)) + 
+  geom_point()
+
+nh_vote_reg %>% 
+  pivot_longer(c("dem_total", "rep_total", "ind_total", "minor_total"), names_to = "total_type", values_to = "total_val") %>%
+  ggplot() +
+  geom_point(aes(x = year(date), y = total_val, group = total_type, color = total_type))
+
+ggsave("sample_graphs/total.jpg")
+
+# factoring in population
+nh_vote_reg %>%
+  mutate(year = year(date)) %>%
+  left_join(pop, by = "year") %>%
+  pivot_longer(c("dem_total", "rep_total", "ind_total", "minor_total"), names_to = "total_type", values_to = "total_val") %>%
+  ggplot() +
+  geom_point(aes(x = year(date), y = total_val / pop, group = total_type, color = total_type))
+```
+
+```{r}
+# voter turnout
+nh_vote <- read_csv("nh_voting.csv")
+
+# convert turnout to numbers
+nh_vote %<>%
+  mutate(TURNOUT = parse_number(TURNOUT))
+
+# extract dates, there is one date that is 11/00/2005 because the day is not known. Will assume to be the first
+nh_vote %<>%
+  mutate(Election = if_else(str_detect(Election, "11/00/2005"), "11/01/2005 Municipal", Election)) %>%
+  mutate(DATE = mdy(str_match(Election, "[0-9|/]*")))
+
+# kinda messy since we're including low-turnout midterms + municipal elections
+nh_vote %>%
+  filter(TURNOUT > 0) %>%
+  ggplot() +
+  geom_point(aes(x = DATE, y = TURNOUT))
+
+# tagging time
+nh_vote %<>%
+  mutate(type = if_else(mod((year(DATE)-2000), 4) == 0 & month(DATE) == 11,
+         "Presidential", if_else(str_detect(Election, "State Election") | str_detect(Election, "Midterm"), 
+                                 "Midterm", 
+                                 "Other")))
+
+# only presidential
+nh_vote %>%
+  filter(type == "Presidential") %>%
+  ggplot() +
+  geom_point(aes(x = DATE, y = TURNOUT))
+
+# midterms only
+nh_vote %>%
+  filter(type == "Midterm") %>%
+  ggplot() +
+  geom_point(aes(x = DATE, y = TURNOUT))
+
+# midterms + pres
+nh_vote %>%
+  filter(type == "Midterm" | type == "Presidential") %>%
+  ggplot() +
+  geom_point(aes(x = DATE, y = TURNOUT, color = type))
+
+```
+

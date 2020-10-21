@@ -4,8 +4,9 @@ This directory will contain all files related to the WKND team's "Favorite Place
 
 Please run this using a python server "python -m http.server 8000"
 
-I made a google account to host the spreadsheet
+I made a google account to host the spreadsheet, this is also where all the google cloud api stuff is
 email: ydnwkndemojimap@gmail.com    
 password: mUVp!hy4ehXs6fMm7Zx7
 
-api key: AIzaSyA7gs26PrH4GvEjwNabLpxzRjNpMVIw6OQ
+The spreadsheet is currently public, we should work on figuring out how to make it not that, also hiding keys and stufff
+

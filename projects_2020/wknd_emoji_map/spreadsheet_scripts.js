@@ -28,12 +28,12 @@ function init() {
 
 
 function loadData() {
+    console.log(gapi)
     gapi.client.sheets.spreadsheets.values.get({
             spreadsheetId: SPREADSHEET_ID,
             range: 'coords!A2:C1500',
         }).then(function(response) {
           var range = response.result;
-          console.log(range)
           if (range.values.length > 0) {
             data = range.values.filter((item) => {
 
@@ -45,12 +45,26 @@ function loadData() {
                 }
             })
             locations = data
-    
+            console.log("recieved")
           } 
           build_map_icons() //build the map icons, either the ones loaded or the ones that are used as defaults
         }, function(response) {
           console.log('Error: ' + response.result.error.message);
         });
+}
+
+function add_to_gsheet(new_entry) {
+    console.log(gapi)
+    gapi.client.sheets.spreadsheets.values.append({
+        spreadsheetId: SPREADSHEET_ID,
+        range: 'coords!A2',
+        validInputOption: 'USER_ENTERED',
+        resource: {
+            values: [
+                new_entry
+            ]
+        }
+    }).then(() => console.log("updated"), (err) => console.log(err));
 }
 
 

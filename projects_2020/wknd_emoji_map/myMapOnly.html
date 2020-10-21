@@ -72,6 +72,51 @@
 	}
 
 
+	const popUpText = `
+	<div>
+		<h3>Add an item</h3>
+		<form id="submitNewEmoji" onsubmit="add_new(); return false">
+			<label style="font-weight: bold">Emoji: </label><br>
+
+			<label for="cry">&#128557</label>
+			<input type="radio" id="cry" name="emoji" value="cry" required="true">
+
+			<label for="scream">&#129324</label>
+			<input type="radio" id="scream" name="emoji" value="scream" required="true">
+
+			<label for="nap">&#128564</label>
+			<input type="radio" id="nap" name="emoji" value="nap" required="true">
+
+			<label for="eggplant">&#127814</label>
+			<input type="radio" id="eggplant" name="emoji" value="eggplant" required="true">
+
+			<br><br>
+			<input type="submit" value="Add me!">
+		</form>
+	</div>
+	`
+	var popup;
+
+	//hanlde click events
+	map.on('click', (e) => {
+		var popupLoc = e.latlng
+		popup = L.popup().setLatLng(popupLoc).setContent(popUpText).openOn(map)
+	})
+
+	function add_new(event) {
+		radios = document.getElementsByName("emoji")
+		for (var i = 0; i < radios.length; i++) {
+			if (radios[i].checked) {
+				selected = radios[i].value
+				break;
+			}
+		}
+		latlng = popup.getLatLng()
+		new_entry = [selected, latlng.lat, latlng.lng]
+		add_map_icon(new_entry)
+		add_to_gsheet(new_entry)
+		map.closePopup();
+	}
 
     //map.panTo(new L.LatLng(position.lat, position.lng));
 	</script>

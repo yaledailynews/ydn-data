@@ -15,5 +15,5 @@ make spreadsheet not public
 Make sure emojis consistent (i.e. use the system emoji everywhere or replace the emoji in the textbox)
 Save additions to spreadsheet
 Allow messages
-allos grouping of emojis
+allow grouping of emoji as you zoom out
 style things betters

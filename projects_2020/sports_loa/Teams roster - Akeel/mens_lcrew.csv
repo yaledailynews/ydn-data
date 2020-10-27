@@ -1,0 +1,30 @@
+full_name,leave,team,gender,year,hometown,duplicate name?
+Itai Almogy,True,mens_lcrew,Male,2024.0,"Palo Alto, Calif.",False
+Gaspard Baroudel,False,mens_lcrew,Male,2023.0,"Paris, France",False
+Raphael Berz,False,mens_lcrew,Male,2023.0,"Toronto, Canada",False
+Justin Buckley,False,mens_lcrew,Male,2022.0,"Redmond, Wash.",False
+Maximilian Dewolf,True,mens_lcrew,Male,2024.0,"Washington, D.C.",False
+Eric Elftmann,True,mens_lcrew,Male,2022.0,"Chanhassen, Minn.",False
+Judah Ellison,True,mens_lcrew,Male,2022.0,"Charleston, S.C.",False
+Lazo Gitchos,False,mens_lcrew,Male,2024.0,"Twisp, Wash.",False
+Jason Goode,False,mens_lcrew,Male,2021.0,"Huntington Beach, Calif.",False
+Rufus Guy,True,mens_lcrew,Male,2022.0,"London, U.K.",False
+Clay Hard,True,mens_lcrew,Male,2024.0,"New York, N.Y.",False
+Eric Hirsch,False,mens_lcrew,Male,2021.0,"Weston, Conn.",False
+Andrew Jones,False,mens_lcrew,Male,2023.0,"Fairfax Station, Va.",False
+Keyi Li,False,mens_lcrew,Male,2021.0,"Westborough, Mass.",False
+Charlie Markert,False,mens_lcrew,Male,2021.0,"Portsmouth, R.I.",False
+Justin Matei,True,mens_lcrew,Male,2022.0,"Chicago, Ill.",False
+John McDonald,True,mens_lcrew,Male,2023.0,"Garden City, N.Y.",False
+Clarisa Merkatz,False,mens_lcrew,Male,2023.0,"Farmington, Conn.",False
+Seth Moyer,True,mens_lcrew,Male,2023.0,"Ontario, Canada",False
+Matthew Murphy,True,mens_lcrew,Male,2023.0,"Portland, Ore.",False
+Dylan Paul,False,mens_lcrew,Male,2022.0,"Alpharetta, Ga.",False
+John Plumeri,False,mens_lcrew,Male,2023.0,"Massapequa, N.Y.",False
+Geoff Skelly,True,mens_lcrew,Male,2022.0,"Needham, Mass.",False
+Jamie Sudlow,False,mens_lcrew,Male,2022.0,"Oxford, U.K.",False
+Brihu Sundararaman,True,mens_lcrew,Male,2023.0,"Naperville, Ill.",False
+Duncan Umphrey,True,mens_lcrew,Male,2022.0,"Concord, Mass.",False
+Michael Whalen,False,mens_lcrew,Male,2021.0,"Rome, Italy",False
+Nick Wilmerding,False,mens_lcrew,Male,2023.0,Hong Kong,False
+Laurie Yousman,True,mens_lcrew,Male,2022.0,"Farmington, Conn.",False

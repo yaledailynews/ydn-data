@@ -1,0 +1,31 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Ekrem Ayhan,False,mens_track,Men,2021.0,"Hackettstown, N.J.",True,False
+1,Neil Braganza,False,mens_track,Men,2021.0,"San Ramon, Calif.",True,False
+2,Cade Brown,True,mens_track,Men,2023.0,"Bellingham, Wash.",True,False
+3,Nick Dahl,False,mens_track,Men,2021.0,"Philadelphia, Pa.",True,False
+4,Jack Dunn,False,mens_track,Men,2022.0,"Barrington, R.I.",True,False
+5,Itamar Fayler,False,mens_track,Men,2023.0,"Benei Dror, Israel",True,False
+6,Charlie Gardner,False,mens_track,Men,2021.0,"Southlake, Texas",True,False
+7,Liam Garrett,True,mens_track,Men,2024.0,"London, UK",True,False
+8,Harry Grindle,False,mens_track,Men,2023.0,"London, UK",True,False
+9,Darius Jing,False,mens_track,Men,2022.0,"Arcadia, Calif.",True,False
+10,Will Laird,True,mens_track,Men,2022.0,"Seattle, Wash.",True,False
+11,Robert Miranda,False,mens_track,Men,2022.0,"Atherton, Calif.",True,False
+12,Stephen Moody,True,mens_track,Men,2024.0,"Glen Ellyn, Ill.",True,False
+13,Brendan Murray,False,mens_track,Men,2022.0,"Cheshire, Conn.",True,False
+14,Odera Nweke,False,mens_track,Men,2023.0,"Woodbine,Md",True,False
+15,Evan Pattinelli,False,mens_track,Men,2022.0,"La Canada Flintridge, Calif.",True,False
+16,Patrick Perry,False,mens_track,Men,2021.0,"Manlius, N.Y.",True,False
+17,Andrew Rochon,False,mens_track,Men,2021.0,"Coopersburg, Pa.",True,False
+18,Hugh Sadler,False,mens_track,Men,2022.0,"Bristol, U.K.",True,False
+19,Henry Saul,True,mens_track,Men,2024.0,"Palo Alto, Calif.",True,False
+20,Juma Sei,False,mens_track,Men,2022.0,"Portland, Ore.",True,False
+21,Harrison Smith,False,mens_track,Men,2022.0,"Southend-on-Sea, Essex, U.K.",True,False
+22,Ryan Smithers,True,mens_track,Men,2024.0,"Laguna Beach, Calif.",True,False
+23,Richard Sturtevant,False,mens_track,Men,2023.0,"Leyden, Mass.",True,False
+24,Alex Whittaker,False,mens_track,Men,2021.0,"Laurel, Maryland",True,False
+25,Jeamy Williams,False,mens_track,Men,2023.0,"Surgoinsville, Tennessee",True,False
+26,Marcus Woods,True,mens_track,Men,2024.0,"Charlotte, NC",True,False
+27,Cameron Wyman,True,mens_track,Men,2022.0,"Gig Harbor, Wash.",True,False
+28,Justin Yazdi,False,mens_track,Men,2023.0,"Franklin Lakes, NJ",True,False
+29,Phil Zuccaro,False,mens_track,Men,2022.0,"Westlake, Ohio",True,False

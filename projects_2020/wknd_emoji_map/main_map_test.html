@@ -144,7 +144,7 @@
 
             <div>
                 <label>Description Placeholder</label>
-                <textarea name="desc" placeholder="Description Placeholder" rows="10"></textarea>
+                <textarea name="desc" id="desc_input" placeholder="Description Placeholder" rows="10"></textarea>
             </div>
 
             <div>
@@ -158,7 +158,9 @@
     <div id="map"></div>
     <script>
         // google script endpoint to send map data to
-        const url = 'https://script.google.com/macros/s/AKfycbyA9mleI7d_eBvNyLPiMvd_Kgj5xwqgWJIqHimtMrka96YLmJpC/exec';
+        const url = 'https://script.google.com/macros/s/AKfycbyA9mleI7d_eBvNyLPiMvd_Kgj5xwqgWJIqHimtMrka96YLmJpC/exec'
+        var description_text = "" // placeholder var to hold contents of "desc" in popup
+        const POPUP_TEXT = document.getElementById('form-wrapper').innerHTML
 
         var locations = [
             ["Pierson", 41.310970, -72.931990],
@@ -208,27 +210,40 @@
                 .addTo(map);
         }
 
-        popUpText = document.getElementById('form-wrapper').innerHTML
 
+        var popupGlobal; // this is ok for debugging
         //handle click events
         map.on('click', (e) => {
-            var popup;
+
 
             console.log("map click")
             var popupLoc = e.latlng;
-            popup = L.popup().setLatLng(popupLoc).setContent(popUpText).openOn(map)
+            popupGlobal = L.popup().setLatLng(popupLoc).setContent(POPUP_TEXT).openOn(map)
 
-            // add the listener now 
-            add_submit_listener(popup)
+            // add the listeners for submit button and saving description text
+            add_listeners(popupGlobal)
         })
 
-        function add_submit_listener(popup) {
-            // FORM SUBMITTING STUFF
-            console.log("trying to add listener")
-            var popupDom = $(popup.getElement())
+        function add_listeners(popup) {
+            console.log("trying to add listeners")
 
+            // get the DOMs for popup and submit button
+            var popupDom = $(popup.getElement())
             var button = popupDom.find("#submit-form")
+            var textField = popupDom.find("#desc_input")
+
+            // listener for saving descripton text
+            popup.on('remove', () => description_text = textField.val())
+
+            // fill in previous description text
+            if (description_text != "") {
+                textField.val(description_text)
+            }
+
+
+            // event listener for submit button
             button.on('click', function(e) {
+                console.log("in button listener")
                 var $form = popupDom.find("#input-form");
                 var latlng = popup.getLatLng()
 
@@ -241,11 +256,15 @@
                     url: url,
                     method: "GET",
                     dataType: "json",
-                    data: $form.serializeObject()
-                }).success(
-                    console.log("IT WORKED!!!")
-                );
-                console.log("in button listener")
+                    data: $form.serializeObject(),
+                    success: function() {
+                        console.log("form succesfully sent!");
+                    }
+                });
+
+                // clear saved description text
+                textField.val("")
+                popup.removeFrom(map)
             })
         }
 

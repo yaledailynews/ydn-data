@@ -1,162 +1,275 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-        <!-- need jQuery for AJXA -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+    <!-- need jQuery for AJXA -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-        <!-- Code from https://github.com/macek/jquery-serialize-object -->
-        <script>/**
-            * jQuery serializeObject
-            * @copyright 2014, macek <paulmacek@gmail.com>
-            * @link https://github.com/macek/jquery-serialize-object
-            * @license BSD
-            * @version 2.5.0
-            */
-           !function(e,i){if("function"==typeof define&&define.amd)define(["exports","jquery"],function(e,r){return i(e,r)});else if("undefined"!=typeof exports){var r=require("jquery");i(exports,r)}else i(e,e.jQuery||e.Zepto||e.ender||e.$)}(this,function(e,i){function r(e,r){function n(e,i,r){return e[i]=r,e}function a(e,i){for(var r,a=e.match(t.key);void 0!==(r=a.pop());)if(t.push.test(r)){var u=s(e.replace(/\[\]$/,""));i=n([],u,i)}else t.fixed.test(r)?i=n([],r,i):t.named.test(r)&&(i=n({},r,i));return i}function s(e){return void 0===h[e]&&(h[e]=0),h[e]++}function u(e){switch(i('[name="'+e.name+'"]',r).attr("type")){case"checkbox":return"on"===e.value?!0:e.value;default:return e.value}}function f(i){if(!t.validate.test(i.name))return this;var r=a(i.name,u(i));return l=e.extend(!0,l,r),this}function d(i){if(!e.isArray(i))throw new Error("formSerializer.addPairs expects an Array");for(var r=0,t=i.length;t>r;r++)this.addPair(i[r]);return this}function o(){return l}function c(){return JSON.stringify(o())}var l={},h={};this.addPair=f,this.addPairs=d,this.serialize=o,this.serializeJSON=c}var t={validate:/^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,key:/[a-z0-9_]+|(?=\[\])/gi,push:/^$/,fixed:/^\d+$/,named:/^[a-z0-9_]+$/i};return r.patterns=t,r.serializeObject=function(){return new r(i,this).addPairs(this.serializeArray()).serialize()},r.serializeJSON=function(){return new r(i,this).addPairs(this.serializeArray()).serializeJSON()},"undefined"!=typeof i.fn&&(i.fn.serializeObject=r.serializeObject,i.fn.serializeJSON=r.serializeJSON),e.FormSerializer=r,r});</script>
+    <!-- Code from https://github.com/macek/jquery-serialize-object -->
+    <script>
+        /**
+         * jQuery serializeObject
+         * @copyright 2014, macek <paulmacek@gmail.com>
+         * @link https://github.com/macek/jquery-serialize-object
+         * @license BSD
+         * @version 2.5.0
+         */
+        ! function(e, i) {
+            if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
+                return i(e, r)
+            });
+            else if ("undefined" != typeof exports) {
+                var r = require("jquery");
+                i(exports, r)
+            } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
+        }(this, function(e, i) {
+            function r(e, r) {
+                function n(e, i, r) {
+                    return e[i] = r, e
+                }
 
-		<div id="left">
-		<div id="google-form">
-		<form action="https://docs.google.com/forms/d/e/1FAIpQLSe3K5mmm5Fzezpltxb0dmElMxJYMpyMkujwPjbjPbiGRa1MPQ/viewform?usp=sf_link" target="hiddenFrame">
-		<iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
-			<h2>Tell us about a time you cried at Yale.</h2>
-			<p class="caption">Responses may be edited for clarity and length.</p>
-			<textarea jsname="YPqjbf" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;" required="" name="entry.643682983" dir="auto" data-initial-dir="auto"></textarea>
-		<div id="buttons">
-			<input type="button" id="drag" value="Add pin to map" name="entry.2117530617">
-			<input id="location" type="text" jsname="YPqjbf" autocomplete="off" tabindex="0" name="entry.2117530617" value="" required="" dir="auto" data-initial-dir="auto" data-initial-value="" style="display: none">
-			<input class="button" id="submit" type="submit" value="Submit" disabled="true">
-		</div>
-		</form>
-		</div>
-	</div>
-	<style>
-	#map {position: absolute; top: 0; bottom: 0; left: 30%; right: 0;}
-	</style>
-	<script>
-	</script>
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
-	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"> </script>
-	<div class="marker-menu">
-    	<img class="draggable-marker" src="images/marker-icon.png" alt="marker" />
-	</div>
+                function a(e, i) {
+                    for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+                        if (t.push.test(r)) {
+                            var u = s(e.replace(/\[\]$/, ""));
+                            i = n([], u, i)
+                        } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
+                    return i
+                }
+
+                function s(e) {
+                    return void 0 === h[e] && (h[e] = 0), h[e]++
+                }
+
+                function u(e) {
+                    switch (i('[name="' + e.name + '"]', r).attr("type")) {
+                        case "checkbox":
+                            return "on" === e.value ? !0 : e.value;
+                        default:
+                            return e.value
+                    }
+                }
+
+                function f(i) {
+                    if (!t.validate.test(i.name)) return this;
+                    var r = a(i.name, u(i));
+                    return l = e.extend(!0, l, r), this
+                }
+
+                function d(i) {
+                    if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
+                    for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+                    return this
+                }
+
+                function o() {
+                    return l
+                }
+
+                function c() {
+                    return JSON.stringify(o())
+                }
+                var l = {},
+                    h = {};
+                this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
+            }
+            var t = {
+                validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+                key: /[a-z0-9_]+|(?=\[\])/gi,
+                push: /^$/,
+                fixed: /^\d+$/,
+                named: /^[a-z0-9_]+$/i
+            };
+            return r.patterns = t, r.serializeObject = function() {
+                return new r(i, this).addPairs(this.serializeArray()).serialize()
+            }, r.serializeJSON = function() {
+                return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
+            }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+        });
+    </script>
+
+    <div id="left">
+        <div id="google-form">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSe3K5mmm5Fzezpltxb0dmElMxJYMpyMkujwPjbjPbiGRa1MPQ/viewform?usp=sf_link" target="hiddenFrame">
+                <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+                <h2>Tell us about a time you cried at Yale.</h2>
+                <p class="caption">Responses may be edited for clarity and length.</p>
+                <textarea jsname="YPqjbf" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;" required="" name="entry.643682983" dir="auto" data-initial-dir="auto"></textarea>
+                <div id="buttons">
+                    <input type="button" id="drag" value="Add pin to map" name="entry.2117530617">
+                    <input id="location" type="text" jsname="YPqjbf" autocomplete="off" tabindex="0" name="entry.2117530617" value="" required="" dir="auto" data-initial-dir="auto" data-initial-value="" style="display: none">
+                    <input class="button" id="submit" type="submit" value="Submit" disabled="true">
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 30%;
+            right: 0;
+        }
+    </style>
+    <script>
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js">
+    </script>
+    <div class="marker-menu">
+        <img class="draggable-marker" src="images/marker-icon.png" alt="marker" />
+    </div>
 </head>
+
 <body>
-	<div>
+    <div id="form-wrapper" style="visibility: hidden;">
+        <form id="input-form">
+            <select name="emoji">
+				<option value = "Cry" id = "cry" value = "cry">&#128557</option>
+				<option value = "Scream" id = "scream" value = "scream">&#129324</option>
+				<option value = "Nap" id = "nap" value = "nap">&#128564</option>
+				<option value = "Eggplant" id = "eggplant" value = "eggplant">&#127814</option>
+			</select>
 
-
-	</div>
-	<div id="map"></div>
-	<script>
-		var locations = [
-  			["Pierson", 41.310970, -72.931990],
-  			["Trumbull", 41.323910, -72.967180],
-  			["Ben Frank", 41.330732, -72.921456],
-		];
-
-//all images from emojipedia, apple emojis
-	var cryingIcon = L.icon({
-    iconUrl: 'icons/crying.png',
-    iconSize:     [30, 30], // size of the icon
-    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-    });
-    var eggplantIcon = L.icon({
-    iconUrl: 'eggplant.png',
-    iconSize:     [30, 30], // size of the icon
-    iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
-    popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
-    });
-
-	var map = L.map('map').setView([41.310970,-72.931990],25);
-	L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wZnhwGRqtomo0QHvxpxW', {
-		attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-	}).addTo(map);
-
-	//build the intial map icons.
-	function build_map_icons() {
-
-		for (var i = 0; i < locations.length; i++) {
-			marker = new L.marker([locations[i][1], locations[i][2]], { icon: cryingIcon, draggable: false })
-				.bindPopup(locations[i][0])
-				.addTo(map);
-		}
-	}
-	
-	//add the icon to the list, should also be added to the spreadsheet separetly
-	function add_map_icon(icon_list) {
-		marker = new L.marker([icon_list[1], icon_list[2]], { icon: cryingIcon, draggable: false })
-			.bindPopup(icon_list[0])
-			.addTo(map);
-	}
-
-popUpText = `
-		<form id="test-form">
-  
-         	<select name = "emoji">
-            <option value = "Cry" id = "cry" value = "cry">&#128557</option>
-            <option value = "Scream" id = "scream" value = "scream">&#129324</option>
-            <option value = "Nap" id = "nap" value = "nap">&#128564</option>
-            <option value = "Eggplant" id = "eggplant" value = "eggplant">&#127814</option>
-          
-            <div>
-              <label>Location Placeholder</label>
-              <input type="text" name="location" placeholder="Location Placeholder"/>
+            <div style="display: none;">
+                <label>Lat Placeholder</label>
+                <input type="text" name="lat" id="lat_input" />
             </div>
-            
-            <div>
-              <label>Description Placeholder</label>
-              <input type="text" name="desc" placeholder="Description Placeholder"/>
+
+            <div style="display: none;">
+                <label>Long Placeholder</label>
+                <input type="text" name="long" id="lng_input" />
             </div>
-          
+
             <div>
-              <button type="submit"id="submit-form">Submit</button>
+                <label>Description Placeholder</label>
+                <textarea name="desc" placeholder="Description Placeholder" rows="10"></textarea>
             </div>
-          
-          </form>
- `
- var popup;
-	//hanlde click events
-	map.on('click', (e) => {
-		var popupLoc = e.latlng
-		popup = L.popup().setLatLng(popupLoc).setContent(popUpText).openOn(map)
-	})
 
-	function add_new(event) {
-		radios = document.getElementsByName("emoji")
-		for (var i = 0; i < radios.length; i++) {
-			if (radios[i].checked) {
-				selected = radios[i].value
-				break;
-			}
-		}
-		latlng = popup.getLatLng()
-		new_entry = [selected, latlng.lat, latlng.lng]
-		add_map_icon(new_entry)
-		add_to_gsheet(new_entry)
-		map.closePopup();
-	}
+            <div>
+                <button type="submit" id="submit-form">Submit</button>
+            </div>
 
-    //map.panTo(new L.LatLng(position.lat, position.lng));
-	</script>
-</div>
+        </form>
+    </div>
 
-          <script>
-            var $form = $('form#test-form');
-            var url = 'https://script.google.com/macros/s/AKfycbyA9mleI7d_eBvNyLPiMvd_Kgj5xwqgWJIqHimtMrka96YLmJpC/exec';
 
-            $('#submit-form').on('click', function(e) {
-            e.preventDefault();
-            var jqxhr = $.ajax({
-                url: url,
-                method: "GET",
-                dataType: "json",
-                data: $form.serializeObject()
-            }).success(
-                console.log("IT WORKED!!!")
-            );
+    <div id="map"></div>
+    <script>
+        // google script endpoint to send map data to
+        const url = 'https://script.google.com/macros/s/AKfycbyA9mleI7d_eBvNyLPiMvd_Kgj5xwqgWJIqHimtMrka96YLmJpC/exec';
+
+        var locations = [
+            ["Pierson", 41.310970, -72.931990],
+            ["Trumbull", 41.323910, -72.967180],
+            ["Ben Frank", 41.330732, -72.921456],
+        ];
+
+        //all images from emojipedia, apple emojis
+        var cryingIcon = L.icon({
+            iconUrl: 'icons/crying.png',
+            iconSize: [30, 30], // size of the icon
+            iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+        });
+        var eggplantIcon = L.icon({
+            iconUrl: 'eggplant.png',
+            iconSize: [30, 30], // size of the icon
+            iconAnchor: [0, 0], // point of the icon which will correspond to marker's location
+            popupAnchor: [0, 0] // point from which the popup should open relative to the iconAnchor
+        });
+
+        var map = L.map('map').setView([41.310970, -72.931990], 25);
+        L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wZnhwGRqtomo0QHvxpxW', {
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+        }).addTo(map);
+
+        //build the intial map icons.
+        function build_map_icons() {
+
+            for (var i = 0; i < locations.length; i++) {
+                marker = new L.marker([locations[i][1], locations[i][2]], {
+                        icon: cryingIcon,
+                        draggable: false
+                    })
+                    .bindPopup(locations[i][0])
+                    .addTo(map);
+            }
+        }
+
+        //add the icon to the list, should also be added to the spreadsheet separetly
+        function add_map_icon(icon_list) {
+            marker = new L.marker([icon_list[1], icon_list[2]], {
+                    icon: cryingIcon,
+                    draggable: false
+                })
+                .bindPopup(icon_list[0])
+                .addTo(map);
+        }
+
+        popUpText = document.getElementById('form-wrapper').innerHTML
+
+        //handle click events
+        map.on('click', (e) => {
+            var popup;
+
+            console.log("map click")
+            var popupLoc = e.latlng;
+            popup = L.popup().setLatLng(popupLoc).setContent(popUpText).openOn(map)
+
+            // add the listener now 
+            add_submit_listener(popup)
+        })
+
+        function add_submit_listener(popup) {
+            // FORM SUBMITTING STUFF
+            console.log("trying to add listener")
+            var popupDom = $(popup.getElement())
+
+            var button = popupDom.find("#submit-form")
+            button.on('click', function(e) {
+                var $form = popupDom.find("#input-form");
+                var latlng = popup.getLatLng()
+
+                // input in the coordinates
+                popupDom.find("#lat_input").val(latlng.lat)
+                popupDom.find("#lng_input").val(latlng.lng)
+
+                e.preventDefault();
+                var jqxhr = $.ajax({
+                    url: url,
+                    method: "GET",
+                    dataType: "json",
+                    data: $form.serializeObject()
+                }).success(
+                    console.log("IT WORKED!!!")
+                );
+                console.log("in button listener")
             })
-          </script>
+        }
+
+        function add_new(event) {
+            radios = document.getElementsByName("emoji")
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    selected = radios[i].value
+                    break;
+                }
+            }
+            latlng = popup.getLatLng()
+            new_entry = [selected, latlng.lat, latlng.lng]
+            add_map_icon(new_entry)
+            add_to_gsheet(new_entry)
+            map.closePopup();
+        }
+
+        //map.panTo(new L.LatLng(position.lat, position.lng));
+    </script>
+    </div>
 
 </body>
+
 </html>
+
 </html>

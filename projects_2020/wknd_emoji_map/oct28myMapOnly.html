@@ -130,7 +130,7 @@ popUpText = `
 			}
 		}
 		latlng = popup.getLatLng()
-		new_entry = [selected, latlng.lat, latlng.lng]
+		new_entry = [selected, e.latlng.lat, e.latlng.lng]
 		add_map_icon(new_entry)
 		add_to_gsheet(new_entry)
 		map.closePopup();

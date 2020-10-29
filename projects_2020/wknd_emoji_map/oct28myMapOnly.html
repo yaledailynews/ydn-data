@@ -135,6 +135,10 @@ popUpText = `
 		add_to_gsheet(new_entry)
 		map.closePopup();
 	}
+		
+	map.on('click', function(e) {
+	alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+	});
 
     //map.panTo(new L.LatLng(position.lat, position.lng));
 	</script>

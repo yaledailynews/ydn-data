@@ -132,14 +132,11 @@
 				<option value = "Eggplant" id = "eggplant" value = "eggplant">&#127814</option>
 			</select>
 
+            <!-- hidden inputs -->
             <div style="display: none;">
-                <label>Lat Placeholder</label>
                 <input type="text" name="lat" id="lat_input" />
-            </div>
-
-            <div style="display: none;">
-                <label>Long Placeholder</label>
                 <input type="text" name="long" id="lng_input" />
+                <input type="text" name="time" id="time_input" />
             </div>
 
             <div>
@@ -250,6 +247,10 @@
                 // input in the coordinates
                 popupDom.find("#lat_input").val(latlng.lat)
                 popupDom.find("#lng_input").val(latlng.lng)
+
+                // input in current time
+                currentTime = new Date()
+                popupDom.find("#time_input").val(currentTime.toGMTString())
 
                 e.preventDefault();
                 var jqxhr = $.ajax({

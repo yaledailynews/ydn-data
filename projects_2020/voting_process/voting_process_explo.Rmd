@@ -1,0 +1,124 @@
+---
+title: "Yale Voting Process Survey Analysis"
+author: "Darwin Do"
+date: "10/30/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+```{r echo=FALSE} 
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(magrittr)
+library(lubridate)
+```
+
+```{r}
+d <- read_csv("voting_survey.csv")
+
+names(d)
+
+# only take relevant columns
+d %<>% select(grep("^[a-z]", names(d)), EndDate)
+
+# remove the first two rows
+d %<>% slice_tail(n=dim(d)[1] - 2)
+
+# get rid of test responses
+d %<>% mutate(EndDate = ymd_hms(EndDate)) %>%
+  filter(EndDate > ymd(20201028))
+
+# there are 2 NAs for undergrads, not sure how but I'm tossing them out
+d %<>% filter(!is.na(undergrad))
+  
+```
+
+# Survey Summaries:
+
+```{r}
+# total number of valid participants:
+d %>% group_by(undergrad) %>% summarise(count = n())
+undergrads_only <- d %>% filter(undergrad == "Yes")
+num_undergrad <- d %>% group_by(undergrad) %>% summarise(count = n()) %>% filter(undergrad == "Yes") %>% pull()
+
+# registration
+d %>% group_by(registered) %>% summarise(count = n())
+registered_only <- d %>% filter(registered == "Yes")  
+registered_voters <- d %>% group_by(registered) %>%summarise(count = n()) %>% filter(registered == "Yes") %>% pull()
+
+# plan to vote?
+registered_only %>%
+  group_by(voted, plan_to_vote) %>%
+  summarise(count = n())
+```
+
+## Breakdown by Party
+```{r}
+# breakdown by party
+d %>% filter(!is.na(party)) %>%
+  ggplot() +
+  geom_bar(aes(y = party))
+
+registered_only %>% group_by(party) %>% summarise(n())
+```
+
+## Voting Turnout
+```{r}
+registered_tbl <- d %>% group_by(registered) %>% summarise(count=n())
+
+# num of registered voters
+(registered_voters <- registered_tbl %>% filter(registered == "Yes") %>% pull())
+
+d %>% filter(registered == "Yes") %>%
+  group_by(voted, plan_to_vote) %>%
+  summarise(count = n())
+
+# out of the 1007 registered voters, 872 have already voted, 125 plan to vote, and 10 do not plan to vote
+
+voted_only <- registered_only %>% filter(voted == "Yes")
+num_voted <- dim(voted_only)[1]
+voted_only %>% group_by(vote_difficulty) %>% summarise(count = n(), pct = count / num_voted * 100)
+
+plan_to_vote_only <- registered_only %>% filter(plan_to_vote == "Yes")
+num_plan_to_vote <- dim(plan_to_vote_only)[1]
+plan_to_vote_only %>% group_by(vote_diff_expect) %>% summarise(count = n(), pct = count / num_plan_to_vote * 100)
+```
+## Satisfaction
+```{r}
+registered_only %>% 
+  group_by(vote_satisfied) %>%
+  summarise(count = n(), pct = count / registered_voters * 100)
+
+registered_only %>%
+  ggplot() +
+  geom_bar(aes(y = vote_satisfied))
+```
+
+## Resources
+```{r}
+registered_only %>% 
+  group_by(vote_resources) %>%
+  summarise(count = n(), pct = count / registered_voters * 100)
+
+registered_only %>% filter(!is.na(vote_resources))
+```
+
+## Vote Method
+```{r}
+registered_only %>%
+  group_by(vote_method) %>%
+  summarise(count = n(), pct = count / registered_voters * 100)
+
+registered_only %>% filter(vote_method == "Absentee/Mail-in Ballot" & voted == "No")
+registered_only %>% 
+  ggplot() +
+  geom_bar(aes(y = vote_method))
+```
+

@@ -1,32 +1,32 @@
-full_name,leave,team,gender,year,hometown,duplicate name?
-Will Acken,True,mens_hcrew,Male,2023.0,"Middletown, N.J.",False
-Nikola Bakoc,True,mens_hcrew,Male,2023.0,"Belgrade, Serbia",False
-Miles Beeson,True,mens_hcrew,Male,2023.0,"Aberdeen, Scotland",False
-Nick Cowling,True,mens_hcrew,Male,2023.0,"London, U.K.",False
-Freddie Elwes,False,mens_hcrew,Male,2021.0,"Hampshire, U.K.",False
-Rudd Fawcett,True,mens_hcrew,Male,2023.0,"New York, N.Y.",False
-Liam Galloway,True,mens_hcrew,Male,2023.0,"Ridgefield, Conn.",False
-Sonya Gladstone,True,mens_hcrew,Male,2023.0,"Hamden, Conn.",False
-Andrin Gulich,False,mens_hcrew,Male,2021.0,"Zurich, Switzerland",False
-Fergus Hamilton,True,mens_hcrew,Male,2023.0,"Jindera, Australia",False
-Bobby Jahrling,False,mens_hcrew,Male,2021.0,"Lincoln, Mass.",False
-Alex Julicher,False,mens_hcrew,Male,2021.0,"Johannesburg, South Africa",False
-Jack Lopas,False,mens_hcrew,Male,2021.0,"Christchurch, New Zealand",False
-Daire Lynch,False,mens_hcrew,Male,2021.0,"Clonmel, Ireland",False
-Archie McChesney,True,mens_hcrew,Male,2023.0,"Oxford, U.K.",False
-Felix Mebius,True,mens_hcrew,Male,2024.0,"Groningen, the Netherlands",False
-Hank Michalik,True,mens_hcrew,Male,2024.0,"Rye, N.Y.",False
-Jack Morton,False,mens_hcrew,Male,2021.0,"Summit, N.J.",False
-Orlando Nixon,False,mens_hcrew,Male,2021.0,"London, U.K.",False
-Noah Norman,True,mens_hcrew,Male,2024.0,"London, U.K.",False
-Jens Odegard,True,mens_hcrew,Male,2022.0,"Weston, Mass.",False
-Sophie Oestergaard,False,mens_hcrew,Male,2022.0,"London, UK",False
-Nick Phillips,True,mens_hcrew,Male,2024.0,"Melbourne, Australia",False
-Alex Potter,True,mens_hcrew,Male,2024.0,"Sydney, Australia",False
-Collett Preston,False,mens_hcrew,Male,2021.0,"Washington, D.C.",False
-Nick Rusher,True,mens_hcrew,Male,2023.0,"West Bend, Wis.",False
-Vlad Saigau,True,mens_hcrew,Male,2022.0,"London, U.K.",False
-Elias Salander,True,mens_hcrew,Male,2023.0,"Millbrook, N.Y.",False
-Matteo Sandrelli,False,mens_hcrew,Male,2021.0,"Rome, Italy",False
-Daniel Urke,False,mens_hcrew,Male,2021.0,"Wayzata, Minn.",False
-Kelly Wei,False,mens_hcrew,Male,2022.0,"Brooklyn, N.Y.",False
+full_name,leave,team,gender,year,hometown,outdated,duplicate name?
+Will Acken,True,mens_hcrew,Male,2023.0,"Middletown, N.J.",True,False
+Nikola Bakoc,True,mens_hcrew,Male,2023.0,"Belgrade, Serbia",True,False
+Miles Beeson,True,mens_hcrew,Male,2023.0,"Aberdeen, Scotland",True,False
+Nick Cowling,True,mens_hcrew,Male,2023.0,"London, U.K.",True,False
+Freddie Elwes,False,mens_hcrew,Male,2021.0,"Hampshire, U.K.",True,False
+Rudd Fawcett,True,mens_hcrew,Male,2023.0,"New York, N.Y.",True,False
+Liam Galloway,True,mens_hcrew,Male,2023.0,"Ridgefield, Conn.",True,False
+Sonya Gladstone,True,mens_hcrew,Male,2023.0,"Hamden, Conn.",True,False
+Andrin Gulich,False,mens_hcrew,Male,2021.0,"Zurich, Switzerland",True,False
+Fergus Hamilton,True,mens_hcrew,Male,2023.0,"Jindera, Australia",True,False
+Bobby Jahrling,False,mens_hcrew,Male,2021.0,"Lincoln, Mass.",True,False
+Alex Julicher,False,mens_hcrew,Male,2021.0,"Johannesburg, South Africa",True,False
+Jack Lopas,False,mens_hcrew,Male,2021.0,"Christchurch, New Zealand",True,False
+Daire Lynch,False,mens_hcrew,Male,2021.0,"Clonmel, Ireland",True,False
+Archie McChesney,True,mens_hcrew,Male,2023.0,"Oxford, U.K.",True,False
+Felix Mebius,True,mens_hcrew,Male,2024.0,"Groningen, the Netherlands",True,False
+Hank Michalik,True,mens_hcrew,Male,2024.0,"Rye, N.Y.",True,False
+Jack Morton,False,mens_hcrew,Male,2021.0,"Summit, N.J.",True,False
+Orlando Nixon,False,mens_hcrew,Male,2021.0,"London, U.K.",True,False
+Noah Norman,True,mens_hcrew,Male,2024.0,"London, U.K.",True,False
+Jens Odegard,True,mens_hcrew,Male,2022.0,"Weston, Mass.",True,False
+Sophie Oestergaard,False,mens_hcrew,Male,2022.0,"London, UK",True,False
+Nick Phillips,True,mens_hcrew,Male,2024.0,"Melbourne, Australia",True,False
+Alex Potter,True,mens_hcrew,Male,2024.0,"Sydney, Australia",True,False
+Collett Preston,False,mens_hcrew,Male,2021.0,"Washington, D.C.",True,False
+Nick Rusher,True,mens_hcrew,Male,2023.0,"West Bend, Wis.",True,False
+Vlad Saigau,True,mens_hcrew,Male,2022.0,"London, U.K.",True,False
+Elias Salander,True,mens_hcrew,Male,2023.0,"Millbrook, N.Y.",True,False
+Matteo Sandrelli,False,mens_hcrew,Male,2021.0,"Rome, Italy",True,False
+Daniel Urke,False,mens_hcrew,Male,2021.0,"Wayzata, Minn.",True,False
+Kelly Wei,False,mens_hcrew,Male,2022.0,"Brooklyn, N.Y.",True,False

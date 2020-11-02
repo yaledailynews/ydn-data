@@ -1,4 +1,4 @@
-full_name,leave,team,gender,year,hometown,oudated,duplicate name?
+full_name,leave,team,gender,year,hometown,outdated,duplicate name?
 Sarah Cameron,False,womens_tennis,Female,2021.0,"Tulsa, Okla.",True,False
 Vivian Cheng,False,womens_tennis,Female,2023.0,"Santa Monica, CALIF.",True,False
 Caroline Dunleavy,True,womens_tennis,Female,2022.0,"Darien, Conn.",True,False

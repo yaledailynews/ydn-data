@@ -1,12 +1,12 @@
-full_name,leave,team,gender,year,hometown,duplicate name?
-Sarah Cameron,False,womens_tennis,Female,2021.0,"Tulsa, Okla.",False
-Vivian Cheng,False,womens_tennis,Female,2023.0,"Santa Monica, CALIF.",False
-Caroline Dunleavy,True,womens_tennis,Female,2022.0,"Darien, Conn.",False
-Lauren Gillinov,False,womens_tennis,Female,2021.0,"Moreland Hills, OH",False
-Jessie Gong,False,womens_tennis,Female,2022.0,"Vancouver, B.C.",False
-Chelsea Kung,False,womens_tennis,Female,2023.0,"Fort Worth, TX",False
-Rena Lin,False,womens_tennis,Female,2023.0,"Northridge, CALIF.",False
-Raissa Lou,False,womens_tennis,Female,2022.0,"Pittsford, N.Y.",False
-Samantha Martinelli,False,womens_tennis,Female,2021.0,"Denver, CO",False
-Rhea Shrivastava,False,womens_tennis,Female,2023.0,"Montgomery, N.J.",False
-Kathy Wang,False,womens_tennis,Female,2022.0,"San Diego, Calif.",False
+full_name,leave,team,gender,year,hometown,oudated,duplicate name?
+Sarah Cameron,False,womens_tennis,Female,2021.0,"Tulsa, Okla.",True,False
+Vivian Cheng,False,womens_tennis,Female,2023.0,"Santa Monica, CALIF.",True,False
+Caroline Dunleavy,True,womens_tennis,Female,2022.0,"Darien, Conn.",True,False
+Lauren Gillinov,False,womens_tennis,Female,2021.0,"Moreland Hills, OH",True,False
+Jessie Gong,False,womens_tennis,Female,2022.0,"Vancouver, B.C.",True,False
+Chelsea Kung,False,womens_tennis,Female,2023.0,"Fort Worth, TX",True,False
+Rena Lin,False,womens_tennis,Female,2023.0,"Northridge, CALIF.",True,False
+Raissa Lou,False,womens_tennis,Female,2022.0,"Pittsford, N.Y.",True,False
+Samantha Martinelli,False,womens_tennis,Female,2021.0,"Denver, CO",True,False
+Rhea Shrivastava,False,womens_tennis,Female,2023.0,"Montgomery, N.J.",True,False
+Kathy Wang,False,womens_tennis,Female,2022.0,"San Diego, Calif.",True,False

@@ -1,13 +1,13 @@
-full_name,leave,team,gender,year,hometown,duplicate name?
-Kathryn Attar,False,womens_volleyball,Female,2021.0,"Tampa, Fla.",False
-Fatima Samb,False,womens_volleyball,Female,2024.0,"Ponte Vedra, Fla.",False
-Zoie Stewart,False,womens_volleyball,Female,2023.0,"Chatsworth, Calif.",False
-Lauren Potter,False,womens_volleyball,Female,2022.0,"Miami, Fla.",False
-Ashley Dreyer,False,womens_volleyball,Female,2022.0,"San Mateo, Calif.",False
-McKenzie Cooke,False,womens_volleyball,Female,2021.0,"Mill Valley, Calif.",False
-Chiara Spain,False,womens_volleyball,Female,2021.0,"San Diego, Calif.",False
-Sam Bray,False,womens_volleyball,Female,2022.0,"Austin, Texas",False
-Yurika Boyd,False,womens_volleyball,Female,2021.0,"Los Angeles, Calif.",False
-Renee Shultz,False,womens_volleyball,Female,2022.0,"Glenmoore, Pa.",False
-Cara Shultz,False,womens_volleyball,Female,2024.0,"Glenmoore, Pa.",False
-Audrey Leak,False,womens_volleyball,Female,2024.0,"Saddle River, N.J.",False
+full_name,leave,team,gender,year,hometown,outdated,duplicate name?
+Kathryn Attar,False,womens_volleyball,Female,2021.0,"Tampa, Fla.",False,False
+Fatima Samb,False,womens_volleyball,Female,2024.0,"Ponte Vedra, Fla.",False,False
+Zoie Stewart,False,womens_volleyball,Female,2023.0,"Chatsworth, Calif.",False,False
+Lauren Potter,False,womens_volleyball,Female,2022.0,"Miami, Fla.",False,False
+Ashley Dreyer,False,womens_volleyball,Female,2022.0,"San Mateo, Calif.",False,False
+McKenzie Cooke,False,womens_volleyball,Female,2021.0,"Mill Valley, Calif.",False,False
+Chiara Spain,False,womens_volleyball,Female,2021.0,"San Diego, Calif.",False,False
+Sam Bray,False,womens_volleyball,Female,2022.0,"Austin, Texas",False,False
+Yurika Boyd,False,womens_volleyball,Female,2021.0,"Los Angeles, Calif.",False,False
+Renee Shultz,False,womens_volleyball,Female,2022.0,"Glenmoore, Pa.",False,False
+Cara Shultz,False,womens_volleyball,Female,2024.0,"Glenmoore, Pa.",False,False
+Audrey Leak,False,womens_volleyball,Female,2024.0,"Saddle River, N.J.",False,False

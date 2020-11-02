@@ -1,18 +1,18 @@
-full_name,leave,team,gender,year,hometown,duplicate name?
-Carson Swank,False,mens_baseball,Male,2023.0,"Ashburn, Va.",False
-Harry Hegeman,False,mens_baseball,Male,2021.0,"St. Louis, Mo.",False
-Pierce Blohowiak,False,mens_baseball,Male,2022.0,"Neenah, Wisc.",False
-Teddy Hague,False,mens_baseball,Male,2021.0,"Woodbridge, Conn.",False
-Cole Shelton,False,mens_baseball,Male,2021.0,"Dalton, Ga.",False
-Jake Gehri,False,mens_baseball,Male,2022.0,"Buckley, Wash.",False
-Carter Kessinger,False,mens_baseball,Male,2023.0,"Burbank, Calif.",False
-Ben Metzner,False,mens_baseball,Male,2023.0,"New York, N.Y.",False
-Grant Kipp,False,mens_baseball,Male,2022.0,"Dallas, Texas",False
-Cal Christofori,False,mens_baseball,Male,2021.0,"Belmont, Mass.",False
-Quinn Cleary,False,mens_baseball,Male,2022.0,"Newton, Mass.",False
-Jonathan Boulaphinh,False,mens_baseball,Male,2021.0,"Parker, Colo.",False
-Dylan Kim,False,mens_baseball,Male,2023.0,"Southbury, Conn.",False
-Jackson Bandow,False,mens_baseball,Male,2021.0,"Sammamish, Wash.",False
-Josh Richardson,False,mens_baseball,Male,2023.0,"Brookline, Mass.",False
-Rohan Handa,False,mens_baseball,Male,2022.0,"Charlotte, N.C.",False
-Ben Gibbs,False,mens_baseball,Male,2022.0,"Bonaire, Ga.",False
+full_name,leave,team,gender,year,hometown, outdated?, duplicate name?
+Carson Swank,False,mens_baseball,Male,2023.0,"Ashburn, Va.",True,False
+Harry Hegeman,False,mens_baseball,Male,2021.0,"St. Louis, Mo.",True,False
+Pierce Blohowiak,False,mens_baseball,Male,2022.0,"Neenah, Wisc.",True,False
+Teddy Hague,False,mens_baseball,Male,2021.0,"Woodbridge, Conn.",True,False
+Cole Shelton,False,mens_baseball,Male,2021.0,"Dalton, Ga.",True,False
+Jake Gehri,False,mens_baseball,Male,2022.0,"Buckley, Wash.",True,False
+Carter Kessinger,False,mens_baseball,Male,2023.0,"Burbank, Calif.",True,False
+Ben Metzner,False,mens_baseball,Male,2023.0,"New York, N.Y.",True,False
+Grant Kipp,False,mens_baseball,Male,2022.0,"Dallas, Texas",True,False
+Cal Christofori,False,mens_baseball,Male,2021.0,"Belmont, Mass.",True,False
+Quinn Cleary,False,mens_baseball,Male,2022.0,"Newton, Mass.",True,False
+Jonathan Boulaphinh,False,mens_baseball,Male,2021.0,"Parker, Colo.",True,False
+Dylan Kim,False,mens_baseball,Male,2023.0,"Southbury, Conn.",True,False
+Jackson Bandow,False,mens_baseball,Male,2021.0,"Sammamish, Wash.",True,False
+Josh Richardson,False,mens_baseball,Male,2023.0,"Brookline, Mass.",True,False
+Rohan Handa,False,mens_baseball,Male,2022.0,"Charlotte, N.C.",True,False
+Ben Gibbs,False,mens_baseball,Male,2022.0,"Bonaire, Ga.",True,False

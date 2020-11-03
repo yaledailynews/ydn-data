@@ -1,0 +1,19 @@
+David Peng
+
+will be cleaned up more, posting this in the meantime
+used master roster last updated 10/3
+
+Fall LoA:
+ False    0.963855
+True     0.036145
+Name: leave, dtype: float64 
+
+Winter LoA:
+ False    0.717557
+True     0.282443
+Name: leave, dtype: float64 
+
+Spring LoA:
+ False    0.590164
+True     0.409836
+Name: leave, dtype: float64 

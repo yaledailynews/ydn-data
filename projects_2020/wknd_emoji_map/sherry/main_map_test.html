@@ -3,17 +3,18 @@
 
 <head>
     <!-- need jQuery for AJXA -->
-<script src="leaflet.markercluster-src.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="screen.css" />
+<link rel="stylesheet" href="../dist/MarkerCluster.css" />
+<link rel="stylesheet" href="../dist/MarkerCluster.Default.css" />
 <link rel="stylesheet" href="MarkerCluster.css" /> 
 <link rel="stylesheet" type="text/css" href="./MarkerCluster.Default.css">
 <link rel="stylesheet" type="text/css" href="./MarkerCluster.css">
-<script src="./leaflet.markercluster.js"></script>
-<script src = "https://unpkg.com/leaflet.markercluster@1.4.1/dist/"></script>
-<script src =https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css></script>
-<script src =https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js></script>
-<script src =https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/MarkerCluster.css></script>
-<script src =https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/leaflet.markercluster-src.js></script>
-<script src =https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js></script>
+<script src ="https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+<script src ="https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/MarkerCluster.css"></script>
+<script src ="https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"></script>
    <!-- Code from https://github.com/macek/jquery-serialize-object -->
     <script>
         /**
@@ -132,191 +133,74 @@
 </head>
 
 <body>
-    <div id="form-wrapper" style="visibility: hidden;">
-        <form id="input-form">
-            <select name="emoji">
-				<option value = "Cry" id = "cry" value = "cry">&#128557</option>
-				<option value = "Scream" id = "scream" value = "scream">&#129324</option>
-				<option value = "Nap" id = "nap" value = "nap">&#128564</option>
-				<option value = "Eggplant" id = "eggplant" value = "eggplant">&#127814</option>
-			</select>
-
-            <!-- hidden inputs -->
-            <div style="display: none;">
-                <input type="text" name="lat" id="lat_input" />
-                <input type="text" name="long" id="lng_input" />
-                <input type="text" name="time" id="time_input" />
-            </div>
-
-            <div>
-                <label>Description Placeholder</label>
-                <textarea name="desc" id="desc_input" placeholder="Description Placeholder" rows="10"></textarea>
-            </div>
-
-            <div>
-                <button type="submit" id="submit-form">Submit</button>
-            </div>
-
-        </form>
-    </div>
-
 
     <div id="map"></div>
-<script src="https://unpkg.com/@googlemaps/markerclustererplus/dist/index.min.js"></script>
-    <script>
-        // google script endpoint to send map data to
-        const url = 'https://script.google.com/macros/s/AKfycbyA9mleI7d_eBvNyLPiMvd_Kgj5xwqgWJIqHimtMrka96YLmJpC/exec'
-        var description_text = "" // placeholder var to hold contents of "desc" in popup
-        const POPUP_TEXT = document.getElementById('form-wrapper').innerHTML
+
+    <script type="text/javascript">
 
 
-        var map = L.map('map').setView([41.310970, -72.931990], 25);
-        L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wZnhwGRqtomo0QHvxpxW', {
-            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
-        }).addTo(map);
+        var tiles = L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wZnhwGRqtomo0QHvxpxW', {
+                maxZoom: 18,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }),
 
-        //build the intial map icons.
-        function build_map_icons() {
 
-            for (var i = 0; i < locations.length; i++) {
-                marker = new L.marker([locations[i][1], locations[i][2]], {
-                        icon: cryingIcon,
-                        draggable: false
-                    })
-                    .bindPopup(locations[i][0])
-                    .addTo(map);
+
+            latlng = L.latLng(41.310970, -72.931990);
+
+
+        var map = L.map('map', {center: latlng, zoom: 15, layers: [tiles]});
+
+
+        var markers = L.marker([41.310253,-72.92642]);
+        map.addLayer(markers);
+        var markers = L.marker([41.310970, -72.931992]);
+        map.addLayer(markers);
+        var markers = L.markerClusterGroup();
+
+        markers.on('clusterclick', function (a) {
+            a.layer.spiderfy();
+        });
+
+        function populate() {
+            for (var i = 0; i < 1000; i++) {
+                var m = L.marker(getRandomLatLng(map));
+                markers.addLayer(m);
             }
+            return false;
         }
 
-        //add the icon to the list, should also be added to the spreadsheet separetly
-        function add_map_icon(icon_list) {
-            marker = new L.marker([icon_list[1], icon_list[2]], {
-                    icon: cryingIcon,
-                    draggable: false
-                })
-                .bindPopup(icon_list[0])
-                .addTo(map);
-        }
+        function getRandomLatLng(map) {
+            var bounds = map.getBounds(),
+                southWest = bounds.getSouthWest(),
+                northEast = bounds.getNorthEast(),
+                lngSpan = northEast.lng - southWest.lng,
+                latSpan = northEast.lat - southWest.lat;
 
-
-        var popupGlobal; // this is ok for debugging
-        //handle click events
-        map.on('click', (e) => {
-
-
-            console.log("map click")
-            var popupLoc = e.latlng;
-            popupGlobal = L.popup().setLatLng(popupLoc).setContent(POPUP_TEXT).openOn(map)
-
-            // add the listeners for submit button and saving description text
-            add_listeners(popupGlobal)
-        })
-
-        function add_listeners(popup) {
-            console.log("trying to add listeners")
-
-            // get the DOMs for popup and submit button
-            var popupDom = $(popup.getElement())
-            var button = popupDom.find("#submit-form")
-            var textField = popupDom.find("#desc_input")
-
-            // listener for saving descripton text
-            popup.on('remove', () => description_text = textField.val())
-
-            // fill in previous description text
-            if (description_text != "") {
-                textField.val(description_text)
-            }
-
-
-            // event listener for submit button
-            button.on('click', function(e) {
-                console.log("in button listener")
-                var $form = popupDom.find("#input-form");
-                var latlng = popup.getLatLng()
-
-                // input in the coordinates
-                popupDom.find("#lat_input").val(latlng.lat)
-                popupDom.find("#lng_input").val(latlng.lng)
-
-                // input in current time
-                currentTime = new Date()
-                popupDom.find("#time_input").val(currentTime.toGMTString())
-
-                e.preventDefault();
-                var jqxhr = $.ajax({
-                    url: url,
-                    method: "GET",
-                    dataType: "json",
-                    data: $form.serializeObject(),
-                    success: function() {
-                        console.log("form succesfully sent!");
-                    }
-                });
-
-                // clear saved description text
-                textField.val("")
-                popup.removeFrom(map)
-            })
-        }
-
-        function add_new(event) {
-            radios = document.getElementsByName("emoji")
-            for (var i = 0; i < radios.length; i++) {
-                if (radios[i].checked) {
-                    selected = radios[i].value
-                    break;
-                }
-            }
-            latlng = popup.getLatLng()
-            new_entry = [selected, latlng.lat, latlng.lng]
-            add_map_icon(new_entry)
-            add_to_gsheet(new_entry)
-            map.closePopup();
+            return L.latLng(
+                    southWest.lat + latSpan * Math.random(),
+                    southWest.lng + lngSpan * Math.random());
         }
 
 
-var locations = [
-  ["YALE", 41.310253,-72.92642],
-  ["PIERSON", 41.310970, -72.931992],
-  ["IVY WOK", 41.311790, -72.932870],
-  ["DAVENPORT", 41.308460, -72.931664]
-];
-
-for (var i = 0; i < locations.length; i++) {
-  marker = new L.marker([locations[i][1], locations[i][2]])
-    .bindPopup(locations[i][0])
-    .addTo(map);
-}
 
 
-        var markers = L.markerClusterGroup({
-        spiderfyOnMaxZoom: true,
-        showCoverageOnHover: true,
-        zoomToBoundsOnClick: true,
-    });
+        function getRandomLatLng(map) {
+            var bounds = map.getBounds(),
+                southWest = bounds.getSouthWest(),
+                northEast = bounds.getNorthEast(),
+                lngSpan = northEast.lng - southWest.lng,
+                latSpan = northEast.lat - southWest.lat;
+
+            return L.latLng(
+                    southWest.lat + latSpan * Math.random(),
+                    southWest.lng + lngSpan * Math.random());
+        }
 
 
-    var markers = L.markerClusterGroup();
-
-
-markers.on('click', function (a) {
-    console.log('marker ' + a.layer);
-});
-
-markers.on('clusterclick', function (a) {
-    // a.layer is actually a cluster
-    console.log('cluster ' + a.layer.getAllChildMarkers().length);
-});
-
-
-
-        //map.panTo(new L.LatLng(position.lat, position.lng));
+        populate();
+        map.addLayer(markers);
     </script>
-    </div>
-
 </body>
-
 </html>
 
-</html>

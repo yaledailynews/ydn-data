@@ -94,8 +94,14 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 30%;
+            left: 0%;
             right: 0;
+        }
+        
+        #toggle_button {
+            pointer-events: auto;
+            margin-top: 5px;
+            margin-right: 5px;
         }
         
         .emoji_div {
@@ -108,11 +114,11 @@
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js">
     </script>
 
-    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>h
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 </head>
 
@@ -120,13 +126,13 @@
     <div id="form-wrapper" style="visibility: hidden;">
         <form id="input-form">
             <select name="emoji">
-                <option disabled selected value>Select your emoji</option>
-				<option id = "cry" value = "&#128557">&#128557</option>
-				<option id = "scream" value = "&#129324">&#129324</option>
-				<option id = "nap" value = "&#128564">&#128564</option>
-				<option id = "date" value = "&#128158">&#128158</option>
-				<option id = "eggplant" value = "&#127814">&#127814</option>
-			</select>
+                        <option disabled selected value>Select your emoji</option>
+                        <option id = "cry" value = "&#128557">&#128557</option>
+                        <option id = "scream" value = "&#129324">&#129324</option>
+                        <option id = "nap" value = "&#128564">&#128564</option>
+                        <option id = "date" value = "&#128158">&#128158</option>
+                        <option id = "eggplant" value = "&#127814">&#127814</option>
+                    </select>
             <br><br>
             <!-- hidden inputs -->
             <div style="display: none;">
@@ -149,28 +155,21 @@
     </div>
 
 
-    <div id="map"></div>
+    <div id="map">
+        <div class="leaflet-top leaflet-right">
+            <input type="button" id="toggle_button" value="Click here to add a marker!" onclick="toggle_add_mode()" class="btn btn-primary" />
+        </div>
+    </div>
+
     <script>
         // google script endpoint to send map data to
         const URL = 'https://script.google.com/macros/s/AKfycbyA9mleI7d_eBvNyLPiMvd_Kgj5xwqgWJIqHimtMrka96YLmJpC/exec'
-        var description_text = "" // placeholder var to hold contents of "desc" in popup
         const POPUP_TEXT = document.getElementById('form-wrapper').innerHTML
+
+        var description_text = "" // placeholder var to hold contents of "desc" in popup
         var markers = L.markerClusterGroup()
-
-        // test locations, will remove later when pulling from github csv works
-        var locations = [
-            ["Pierson", 41.310970, -72.931990],
-            ["Trumbull", 41.323910, -72.967180],
-            ["Ben Frank", 41.330732, -72.921456],
-            ["Ben Frank", 41.330732, -72.921456],
-            ["Ben Frank", 41.330732, -72.921456]
-        ];
-
-        var textIcon = L.divIcon({
-            html: '<p class=\'emoji_div\'> &#128557 </p>',
-            iconSize: [50, 50], // size of the icon
-            className: '' // get rid of the default class
-        });
+        var ADD_TOGGLE = true
+        var JUST_CLICKED = false
 
         // display the map with the focus on New Haven
         var map = L.map('map').setView([41.310970, -72.931990], 25);
@@ -178,26 +177,15 @@
             attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
         }).addTo(map);
 
-        //build the intial map icons.
-        function build_map_icons() {
-
-            for (var i = 0; i < locations.length; i++) {
-                marker = new L.marker([locations[i][1], locations[i][2]], {
-                        icon: textIcon,
-                        draggable: false
-                    })
-                    .bindPopup(locations[i][0]);
-
-                markers.addLayer(marker)
-            }
-
-            map.addLayer(markers)
-        }
-
         var popupGlobal; // this is ok for debugging
-        //handle click events
-        map.on('click', (e) => {
 
+        //handle click events
+        function main_map_listener(e) {
+
+            if (JUST_CLICKED) {
+                JUST_CLICKED = false
+                return true
+            }
 
             console.log("map click")
             var popupLoc = e.latlng;
@@ -205,7 +193,22 @@
 
             // add the listeners for submit button and saving description text
             add_listeners(popupGlobal)
-        })
+        }
+
+        // toggle between view mode and add mode
+        function toggle_add_mode() {
+            if (ADD_TOGGLE) {
+                map.removeLayer(markers)
+                JUST_CLICKED = true
+                map.on('click', main_map_listener)
+            } else {
+                map.addLayer(markers)
+                map.off('click', main_map_listener)
+
+            }
+
+            ADD_TOGGLE = !ADD_TOGGLE
+        }
 
         function add_listeners(popup) {
             console.log("trying to add listeners")
@@ -262,41 +265,48 @@
                 // clear saved description text
                 textField.val("")
                 popup.removeFrom(map)
-
+                toggle_add_mode()
             })
         }
 
-        //build_map_icons()
 
         Papa.parse("https://raw.githubusercontent.com/dsmaugy/dsmaugy.github.io/master/approved_responses.csv", {
-            download: true, 
+            download: true,
+            header: true,
             complete: (res) => {
                 res.data.forEach(element => {
-                    //can change the length requirement
-                    if (element.length == 5 && element[0] != '' && !isNaN(parseFloat(element[1])) && !isNaN(parseFloat(element[2])) && element[3] != '') { //goes type, lat, lon, decription, time, approved (just have be one) can have && element[5] == '1' for approvied
+                    var textIcon = L.divIcon({
+                        html: '<p class=\'emoji_div\'>' + element['emoji'] + '</p>',
+                        iconSize: [50, 50], // size of the icon
+                        className: '' // get rid of the default class
+                    })
 
-                        locations.push([element[0], parseFloat(element[1]), parseFloat(element[2]), element[3]]) //idk where the description goes
-                    }
+                    var marker = new L.marker([element['lat'], element['long']], {
+                            icon: textIcon,
+                            draggable: false
+                        })
+                        .bindPopup(element['desc'])
+
+                    markers.addLayer(marker)
+                        // //can change the length requirement
+                        // if (element.length == 5 && element[0] != '' && !isNaN(parseFloat(element[1])) && !isNaN(parseFloat(element[2])) && element[3] != '') { //goes type, lat, lon, decription, time, approved (just have be one) can have && element[5] == '1' for approvied
+
+                    //     locations.push([element[0], parseFloat(element[1]), parseFloat(element[2]), element[3]]) //idk where the description goes
+                    // }
 
 
                 });
-                console.log(locations)
-                build_map_icons()
+                console.log("done loading data")
+                map.addLayer(markers)
             },
             error: (data) => {
                 console.log("fetch error")
-                build_map_icons()
             }
-            
-        })
 
-        // add the test emojis to the map
-        
+        })
     </script>
     </div>
 
 </body>
-
-</html>
 
 </html>

@@ -53,7 +53,7 @@ nh_vote_reg %>%
 nh_vote_reg %>%
   ggplot(aes(x = year(date), y = rep_total)) + 
   geom_point()
-ggsave("sample_graphs/gop.jpg")
+  ggsave("sample_graphs/gop.jpg")
 
 # total independant
 nh_vote_reg %>%
@@ -78,32 +78,71 @@ nh_vote_reg %>%
   left_join(pop, by = "year") %>%
   pivot_longer(c("dem_total", "rep_total", "ind_total", "minor_total"), names_to = "total_type", values_to = "total_val") %>%
   ggplot() +
-  geom_point(aes(x = year(date), y = total_val / pop, group = total_type, color = total_type))
+  geom_point(aes(x = year(date), y = total_val / pop, group = total_type, color = total_type)) +
+  ggtitle("Voter registration by party as a proportion of population") +
+  ylab("Percentage of population")
+
+ggsave("sample_graphs/total_by_pop.jpg")
+
+nh_vote_reg %>%
+  mutate(year = year(date)) %>%
+  left_join(pop, by = "year") %>%
+  pivot_longer(c("dem_total", "rep_total", "ind_total", "minor_total"), names_to = "total_type", values_to = "total_val") %>%
+  mutate(prop = total_val / pop)
+
+nh_vote_reg %>%
+  mutate(year = year(date)) %>%
+  left_join(pop, by = "year") %>%
+  mutate(prop = total / pop) %>%
+  ggplot() +
+  geom_point(aes(x = year, y = prop)) +
+  ylab("Percentage of Population") +
+  ggtitle("Voter Registration Rates over Time")
+
+ggsave("sample_graphs/rate_over_time.jpg")
+
+
+nh_vote_reg %>%
+  mutate(year = year(date)) %>%
+  left_join(pop, by = "year") %>%
+  pivot_longer(c("dem_total", "rep_total", "ind_total", "minor_total"), names_to = "total_type", values_to = "total_val") %>%
+  mutate(prop = total_val / pop * 100) %>%
+  select(year, total_type, prop)
+
 ```
 
+# Voter Turnout
 ```{r}
 # voter turnout
 nh_vote <- read_csv("nh_voting.csv")
 
+nh_vote %<>%
+  rename(eligible_voters = `ELIGIBLE VOTERS IN THE TOWN`,
+         num_voters = `NUMBER OF VOTERS VOTED IN THE TOWN`,
+         absentee_rec = `NUMBER OF ABSENTEE BALLOT RECEIVED`,
+         absentee_cnt = `NUMBER OF ABSENTEE BALLOT COUNTED`,
+         turnout  = TURNOUT,
+         election = Election)
+
 # convert turnout to numbers
 nh_vote %<>%
-  mutate(TURNOUT = parse_number(TURNOUT))
+  mutate(turnout = parse_number(turnout))
 
 # extract dates, there is one date that is 11/00/2005 because the day is not known. Will assume to be the first
 nh_vote %<>%
-  mutate(Election = if_else(str_detect(Election, "11/00/2005"), "11/01/2005 Municipal", Election)) %>%
-  mutate(DATE = mdy(str_match(Election, "[0-9|/]*")))
+  mutate(election = if_else(str_detect(election, "11/00/2005"), "11/01/2005 Municipal", election)) %>%
+  mutate(date = mdy(str_match(election, "[0-9|/]*")))
 
 # kinda messy since we're including low-turnout midterms + municipal elections
 nh_vote %>%
-  filter(TURNOUT > 0) %>%
+  filter(turnout > 0) %>%
   ggplot() +
-  geom_point(aes(x = DATE, y = TURNOUT))
+  geom_point(aes(x = date, y = turnout))
 
 # tagging time
 nh_vote %<>%
-  mutate(type = if_else(mod((year(DATE)-2000), 4) == 0 & month(DATE) == 11,
-         "Presidential", if_else(str_detect(Election, "State Election") | str_detect(Election, "Midterm"), 
+  mutate(type = if_else(mod((year(date)-2000), 4) == 0 & month(date) == 11,
+         "Presidential", if_else(str_detect(election, "State Election") | str_detect(election, "Midterm"), 
                                  "Midterm", 
                                  "Other")))
 
@@ -111,19 +150,19 @@ nh_vote %<>%
 nh_vote %>%
   filter(type == "Presidential") %>%
   ggplot() +
-  geom_point(aes(x = DATE, y = TURNOUT))
+  geom_point(aes(x = date, y = turnout))
 
 # midterms only
 nh_vote %>%
   filter(type == "Midterm") %>%
   ggplot() +
-  geom_point(aes(x = DATE, y = TURNOUT))
+  geom_point(aes(x = date, y = turnout))
 
-# midterms + pres
+# midterms + pres       
 nh_vote %>%
   filter(type == "Midterm" | type == "Presidential") %>%
   ggplot() +
-  geom_point(aes(x = DATE, y = TURNOUT, color = type))
-
+  geom_point(aes(x = date, y = turnout, color = type))
+ggsave("sample_graphs/turnout.jpg")
 ```
 

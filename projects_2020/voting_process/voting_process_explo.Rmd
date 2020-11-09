@@ -107,7 +107,7 @@ registered_only %>%
   group_by(vote_resources) %>%
   summarise(count = n(), pct = count / registered_voters * 100)
 
-registered_only %>% filter(!is.na(vote_resources))
+  registered_only %>% filter(!is.na(vote_resources))
 ```
 
 ## Vote Method

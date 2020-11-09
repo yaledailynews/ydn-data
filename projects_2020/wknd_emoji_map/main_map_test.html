@@ -4,6 +4,7 @@
 <head>
     <!-- need jQuery for AJXA -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
 
     <!-- Code from https://github.com/macek/jquery-serialize-object -->
     <script>
@@ -265,8 +266,32 @@
             })
         }
 
+        //build_map_icons()
+
+        Papa.parse("https://raw.githubusercontent.com/dsmaugy/dsmaugy.github.io/master/approved_responses.csv", {
+            download: true, 
+            complete: (res) => {
+                res.data.forEach(element => {
+                    //can change the length requirement
+                    if (element.length == 5 && element[0] != '' && !isNaN(parseFloat(element[1])) && !isNaN(parseFloat(element[2])) && element[3] != '') { //goes type, lat, lon, decription, time, approved (just have be one) can have && element[5] == '1' for approvied
+
+                        locations.push([element[0], parseFloat(element[1]), parseFloat(element[2]), element[3]]) //idk where the description goes
+                    }
+
+
+                });
+                console.log(locations)
+                build_map_icons()
+            },
+            error: (data) => {
+                console.log("fetch error")
+                build_map_icons()
+            }
+            
+        })
+
         // add the test emojis to the map
-        build_map_icons()
+        
     </script>
     </div>
 

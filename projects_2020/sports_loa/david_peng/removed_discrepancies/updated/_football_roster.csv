@@ -1,0 +1,80 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Noah Aaron,FALSE,football,Men,2022,"Winston-Salem, N.C.",FALSE,FALSE
+1,Brian Abraham,FALSE,football,Men,2022,"Brockton, Mass.",FALSE,FALSE
+2,Spencer Alston,TRUE,football,Men,2023,"Reston, Va.",FALSE,FALSE
+3,Micah Awodiran,TRUE,football,Men,2022,"Chicago, Ill.",FALSE,FALSE
+4,Brandon Babcock,FALSE,football,Men,2023,"Gilbert, Ariz.",FALSE,FALSE
+5,Jermaine Baker,FALSE,football,Men,2023,"Westchester, Ill.",FALSE,FALSE
+6,Brandon Benn,TRUE,football,Men,2024,"Atlanta, Ga.",FALSE,FALSE
+7,Jack Bosman,TRUE,football,Men,2024,"San Diego, Calif.",FALSE,FALSE
+8,Brayden Carey,TRUE,football,Men,2024,"Newnan, Ga.",FALSE,FALSE
+9,Jordan Carey,FALSE,football,Men,2021,"Florissant, Mo.",FALSE,FALSE
+10,Darrion Carrington,FALSE,football,Men,2021,"Lakewood, N.J.",FALSE,FALSE
+11,Patrick Conte,TRUE,football,Men,2022,"Newtown, Conn.",FALSE,FALSE
+12,John Dean,TRUE,football,Men,2022,"Wrentham, Mass.",FALSE,FALSE
+13,Zane Dudek,FALSE,football,Men,2021,"Kittanning, Pa.",FALSE,FALSE
+14,Jonathon Durand,TRUE,football,Men,2024,"Gilbert, Ariz.",FALSE,FALSE
+15,Josh Eboboko,TRUE,football,Men,2024,"Charlotte, N.C.",FALSE,FALSE
+16,Kyle Ellis,TRUE,football,Men,2023,"Cumming, Ga.",FALSE,FALSE
+17,Joey Felton,TRUE,football,Men,2024,"Frederick, Md.",FALSE,FALSE
+18,Shane Frommer,TRUE,football,Men,2023,"Norfolk, Mass.",FALSE,FALSE
+19,Nick Gargiulo,TRUE,football,Men,2023,"Yorktown Heights, N.Y.",FALSE,FALSE
+20,Brett Gerber,FALSE,football,Men,2022,"Bradenton, Fla.",FALSE,FALSE
+21,Tate Goodyear,TRUE,football,Men,2023,"Cincinnati, Ohio",FALSE,FALSE
+22,Jaylan Granberry,FALSE,football,Men,2022,"Nashville, Tenn.",FALSE,FALSE
+23,Nolan Grooms,TRUE,football,Men,2024,"Lake Wylie, S.C.",FALSE,FALSE
+24,Jackson Hawes,TRUE,football,Men,2024,"Salt Lake City, Utah",FALSE,FALSE
+25,Jailon Henry,FALSE,football,Men,2023,"Tallahassee, Fla.",FALSE,FALSE
+26,Deonte Henson,FALSE,football,Men,2021,"Beaumont, Texas",FALSE,FALSE
+27,Dathan Hickey,TRUE,football,Men,2023,"Bristol, Conn.",FALSE,FALSE
+28,Blake Hill,FALSE,football,Men,2021,"Milford, Mass.",FALSE,FALSE
+29,Sasha Hoban,TRUE,football,Men,2022,"Newton, Mass.",FALSE,FALSE
+30,Trenton Johnson,FALSE,football,Men,2023,"Oakland, Calif.",FALSE,FALSE
+31,Tyler Jost,FALSE,football,Men,2021,"Libertyville, Ill.",FALSE,FALSE
+32,Kennedy Kosmalski,TRUE,football,Men,2023,"McHenry, Ill.",FALSE,FALSE
+33,Alan Lamar,TRUE,football,Men,2021,"Olive Branch, Miss.",FALSE,FALSE
+34,Aidan Maloney,TRUE,football,Men,2024,"Hillsboro, Ore.",FALSE,FALSE
+35,Marcus Mauney,FALSE,football,Men,2023,"Gastonia, N.C.",FALSE,FALSE
+36,Ryan McCann,TRUE,football,Men,2024,"Rumson, N.J.",FALSE,FALSE
+37,Elliott McElwain,FALSE,football,Men,2022,"Trussville, Ala.",FALSE,FALSE
+38,Joshua McKenzie,FALSE,football,Men,2023,"Wall, N.J.",FALSE,FALSE
+39,Jonathan Mendoza,TRUE,football,Men,2024,"Westhampton Beach, N.Y.",FALSE,FALSE
+40,Isaac Mitchell,FALSE,football,Men,2023,"Salina, Kan.",FALSE,FALSE
+41,Hamilton Moore,FALSE,football,Men,2023,"Raleigh, N.C.",FALSE,FALSE
+42,Patrick Nauert,TRUE,football,Men,2023,"Grosse Pointe, Mich.",FALSE,FALSE
+43,Reid Nickerson,TRUE,football,Men,2023,"Friendswood, Texas",FALSE,FALSE
+44,Griffin O'Connor,TRUE,football,Men,2023,"Huntington Beach, Calif.",FALSE,FALSE
+45,Miles Oldacre,TRUE,football,Men,2023,"Spring, Texas",FALSE,FALSE
+46,Seun Omonije,FALSE,football,Men,2022,"The Colony, Texas",FALSE,FALSE
+47,Wande Owens,FALSE,football,Men,2023,"Cooksville, Md.",FALSE,FALSE
+48,Clay Patterson,TRUE,football,Men,2024,"Frisco, Texas",FALSE,FALSE
+49,Noah Pope,FALSE,football,Men,2022,"Memphis, Tenn.",FALSE,FALSE
+50,Adam Raine,TRUE,football,Men,2023,"Basingstoke, England",FALSE,FALSE
+51,Garry Raymond,TRUE,football,Men,2023,"Colorado Springs, Colo.",FALSE,FALSE
+52,Jaylan Sandifer,FALSE,football,Men,2022,"Warner Robins, Ga.",FALSE,FALSE
+53,Cubby Schuller,FALSE,football,Men,2022,"Bedminster, N.J.",FALSE,FALSE
+54,Conor Smith,FALSE,football,Men,2022,"Little Silver, N.J.",FALSE,FALSE
+55,Nick Tibbetts,FALSE,football,Men,2022,"Uncasville, Conn.",FALSE,FALSE
+56,Mason Tipton,TRUE,football,Men,2024,"Akron, Ohio",FALSE,FALSE
+57,Jack Twyford,TRUE,football,Men,2024,"Winter Haven, Fla.",FALSE,FALSE
+58,Joseph Vaughn,FALSE,football,Men,2023,"San Jose, Calif.",FALSE,FALSE
+59,Sebastian Bruno,FALSE,football,Men,2022,"Delray Beach, Fla.",FALSE,FALSE
+60,Du'Shaunte Holloway,FALSE,football,Men,2023,"Villa Rica, Ga.",FALSE,FALSE
+61,Darnell Robinson,TRUE,football,Men,2023,"West Palm Beach, Fla.",FALSE,FALSE
+62,D. Major Roman,TRUE,football,Men,2022,"New London, Conn.",FALSE,FALSE
+63,Melvin Rouse II,FALSE,football,Men,2021,"East Charlotte, N.C.",FALSE,FALSE
+64,Archie Russ III,FALSE,football,Men,2023,"Laurel, Md.",FALSE,FALSE
+65,Christian Sampleton,FALSE,football,Men,2021,"Plainfield, Ill.",FALSE,FALSE
+66,Rodney Thomas II,FALSE,football,Men,2021,"Pittsburgh, Pa.",FALSE,FALSE
+67,Osorachukwu Ifesinachukwu,TRUE,football,Men,2023,"Austin, Texas",FALSE,FALSE
+68,Gerron Duhon,TRUE,football,Men,2024,"Lake Charles, La.",FALSE,FALSE
+69,Jimmy Check,FALSE,football,Men,2021,"Fairfax, Va.",FALSE,FALSE
+70,Jack Biestek,TRUE,football,Men,2023,"Durham, N.C.",FALSE,FALSE
+71,Tyler Di Ienno,TRUE,football,Men,2024,"North Haledon, N.J.",FALSE,FALSE
+72,Michael Chime,TRUE,football,Men,2022,"Cleveland, Ohio",FALSE,FALSE
+73,Michael Connor,TRUE,football,Men,2024,"Oakland, N.J.",FALSE,FALSE
+74,Josh De St. Jean,TRUE,football,Men,2023,"South Bend, Ind.",FALSE,FALSE
+75,Grant Neagli,FALSE,football,Men,2021,"Alexandria, Va.",FALSE,FALSE
+76,Cameron Warfield,TRUE,football,Men,2022,"Washington, District of Columbia",FALSE,FALSE
+77,JJ Howland,TRUE,football,Men,2022,"Fiskdale, Mass.",FALSE,FALSE
+78,Ajay Culhane,TRUE,football,Men,2023,"Westlake Village, Calif.",FALSE,FALSE

@@ -1,0 +1,21 @@
+full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+Anisha Arcot,TRUE,womens_sailing,Female,2023,"West Linn, Ore.",TRUE,FALSE
+Mina Cezairli,FALSE,womens_sailing,Female,2021,"Istanbul, Turkey",TRUE,FALSE
+Catherine Cheung,TRUE,womens_sailing,Female,2024,"New York City, N.Y.",TRUE,FALSE
+Kathryn Clulo,FALSE,womens_sailing,Female,2021,"Traverse City, Mich.",TRUE,FALSE
+Alexandra Contomichalos,FALSE,womens_sailing,Female,2022,"Athens, Greece",TRUE,FALSE
+Megan Grimes,TRUE,womens_sailing,Female,2024,"Portsmouth, R.I.",TRUE,FALSE
+Emily Lau,TRUE,womens_sailing,Female,2024,"Islesboro, Maine",TRUE,FALSE
+B Lindsay,FALSE,womens_sailing,Female,2023,"North Palm Beach, Fla.",TRUE,FALSE
+Claudia Loiacono,FALSE,womens_sailing,Female,2021,"Miami, Fla.",TRUE,FALSE
+Cate Mollerus,FALSE,womens_sailing,Female,2021,"Larchmont, NY.",TRUE,FALSE
+Skylar Regan,FALSE,womens_sailing,Female,2021,"Old Tappan, N.J.",TRUE,FALSE
+Allison Rice,FALSE,womens_sailing,Female,2022,"Baltimore, Md.",TRUE,FALSE
+Becca Rose,TRUE,womens_sailing,Female,2022,"Chicago, Ill.",TRUE,FALSE
+Meredith Ryan,TRUE,womens_sailing,Female,2023,"Buffalo, N.Y.",TRUE,FALSE
+Em Tchorz,FALSE,womens_sailing,Female,2023,"Prospect Heights, Ill.",TRUE,FALSE
+Emery Wallace,FALSE,womens_sailing,Female,2021,"Fairfield, Conn.",TRUE,FALSE
+Helena Ware,TRUE,womens_sailing,Female,2023,"Baltimore, Md.",TRUE,FALSE
+Catherine Webb,TRUE,womens_sailing,Female,2023,"Newport Beach, Calif.",TRUE,FALSE
+Kathleen Wells,FALSE,womens_sailing,Female,2021,"Grand Rapids, Mich.",TRUE,FALSE
+Sydney Zoehrer,TRUE,womens_sailing,Female,2024,"Coronado, Calif.",TRUE,FALSE

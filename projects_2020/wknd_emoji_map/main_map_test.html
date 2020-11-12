@@ -280,6 +280,10 @@
                     return false
                 }
 
+                // make sure only one emoji
+                var emoji_input = $form.find("#emoji_input").val()
+                $form.find("#emoji_input").val(emoji_input.substring(0, 2))
+
                 // input in the coordinates
                 popupDom.find("#lat_input").val(latlng.lat)
                 popupDom.find("#lng_input").val(latlng.lng)

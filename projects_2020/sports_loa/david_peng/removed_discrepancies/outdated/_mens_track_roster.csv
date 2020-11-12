@@ -1,0 +1,34 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Ekrem Ayhan,FALSE,mens_track,Men,2021,"Hackettstown, N.J.",TRUE,FALSE
+1,Neil Braganza,FALSE,mens_track,Men,2021,"San Ramon, Calif.",TRUE,FALSE
+2,Cade Brown,TRUE,mens_track,Men,2023,"Bellingham, Wash.",TRUE,FALSE
+3,Nick Dahl,FALSE,mens_track,Men,2021,"Philadelphia, Pa.",TRUE,FALSE
+4,Jack Dunn,FALSE,mens_track,Men,2022,"Barrington, R.I.",TRUE,FALSE
+5,Itamar Fayler,FALSE,mens_track,Men,2023,"Benei Dror, Israel",TRUE,FALSE
+6,Charlie Gardner,FALSE,mens_track,Men,2021,"Southlake, Texas",TRUE,FALSE
+7,Liam Garrett,TRUE,mens_track,Men,2024,"London, UK",TRUE,FALSE
+8,Harry Grindle,FALSE,mens_track,Men,2023,"London, UK",TRUE,FALSE
+9,Darius Jing,FALSE,mens_track,Men,2022,"Arcadia, Calif.",TRUE,FALSE
+10,Will Laird,TRUE,mens_track,Men,2022,"Seattle, Wash.",TRUE,FALSE
+11,Robert Miranda,FALSE,mens_track,Men,2022,"Atherton, Calif.",TRUE,FALSE
+12,Stephen Moody,TRUE,mens_track,Men,2024,"Glen Ellyn, Ill.",TRUE,FALSE
+13,Brendan Murray,FALSE,mens_track,Men,2022,"Cheshire, Conn.",TRUE,FALSE
+14,Odera Nweke,FALSE,mens_track,Men,2023,"Woodbine,Md",TRUE,FALSE
+15,Evan Pattinelli,FALSE,mens_track,Men,2022,"La Canada Flintridge, Calif.",TRUE,FALSE
+16,Patrick Perry,FALSE,mens_track,Men,2021,"Manlius, N.Y.",TRUE,FALSE
+17,Andrew Rochon,FALSE,mens_track,Men,2021,"Coopersburg, Pa.",TRUE,FALSE
+18,Hugh Sadler,FALSE,mens_track,Men,2022,"Bristol, U.K.",TRUE,FALSE
+19,Henry Saul,TRUE,mens_track,Men,2024,"Palo Alto, Calif.",TRUE,FALSE
+20,Juma Sei,FALSE,mens_track,Men,2022,"Portland, Ore.",TRUE,FALSE
+21,Harrison Smith,FALSE,mens_track,Men,2022,"Southend-on-Sea, Essex, U.K.",TRUE,FALSE
+22,Ryan Smithers,TRUE,mens_track,Men,2024,"Laguna Beach, Calif.",TRUE,FALSE
+23,Richard Sturtevant,FALSE,mens_track,Men,2023,"Leyden, Mass.",TRUE,FALSE
+24,Alex Whittaker,FALSE,mens_track,Men,2021,"Laurel, Maryland",TRUE,FALSE
+25,Jeamy Williams,FALSE,mens_track,Men,2023,"Surgoinsville, Tennessee",TRUE,FALSE
+26,Marcus Woods,TRUE,mens_track,Men,2024,"Charlotte, NC",TRUE,FALSE
+27,Cameron Wyman,TRUE,mens_track,Men,2022,"Gig Harbor, Wash.",TRUE,FALSE
+28,Justin Yazdi,FALSE,mens_track,Men,2023,"Franklin Lakes, NJ",TRUE,FALSE
+29,Phil Zuccaro,FALSE,mens_track,Men,2022,"Westlake, Ohio",TRUE,FALSE
+30,Chris Brown,TRUE,mens_track,Men,2024,"Wilmington, Del.",TRUE,FALSE
+31,Trenton Charles,FALSE,mens_track,Men,2022,"Baton Rouge, La",TRUE,FALSE
+32,Chris Colbert,FALSE,mens_track,Men,2022,"Wilton, Conn.",TRUE,FALSE

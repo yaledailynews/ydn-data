@@ -1,0 +1,15 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Cameron Allen,False,mens_fencing,Men,2021.0,"Upper Makefield, PA",True,False
+1,Kevin Callahan,False,mens_fencing,Men,2022.0,"Glen Rock, NJ",True,False
+2,Earnest Chen,False,mens_fencing,Men,2022.0,"Weston, CT",True,False
+3,Jonah Cho,True,mens_fencing,Men,2024.0,"Los Angeles, CA",True,False
+4,Nicolas Del Vecchio,False,mens_fencing,Men,2022.0,"Silver Spring, MD",True,False
+5,Allan Ding,True,mens_fencing,Men,2024.0,"Dover, MA",True,False
+6,Safi Haider,False,mens_fencing,Men,2022.0,"Alpharetta, GA",True,False
+7,Elijah Hong,False,mens_fencing,Men,2022.0,"Nashville, TN",True,False
+8,John Kim,False,mens_fencing,Men,2022.0,"Burke, VA",True,True
+9,Daniel Li,False,mens_fencing,Men,2022.0,"Maple, Ontario",True,False
+10,Francesco Spirli,False,mens_fencing,Men,2022.0,"Bologna, Italy",True,False
+11,Maxwell Yee,False,mens_fencing,Men,2023.0,"Palos Verdes, CA",True,False
+12,Mati Zeff,False,mens_fencing,Men,2022.0,"Philadelphia, PA",True,False
+13,Andrew Zhang,False,mens_fencing,Men,2022.0,"Carmichael, CA",True,False

@@ -1,0 +1,34 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Anisha Arcot,TRUE,sailing,coed,2023,"West Linn, Ore.",TRUE,FALSE
+1,Luke Arnone,FALSE,sailing,coed,2023,"Mantoloking, N.J.",TRUE,FALSE
+2,Jacob Asher,FALSE,sailing,coed,2021,"Coronado, Calif.",TRUE,FALSE
+3,Mina Cezairli,FALSE,sailing,coed,2021,"Istanbul, Turkey",TRUE,FALSE
+4,Christophe Chaumont,TRUE,sailing,coed,2023,"Forth Worth, Texas",TRUE,FALSE
+5,Kathryn Clulo,FALSE,sailing,coed,2021,"Traverse City, Mich.",TRUE,FALSE
+6,Alexandra Contomichalos,FALSE,sailing,coed,2022,"Athens, Greece",TRUE,FALSE
+7,Nicholas Davies,TRUE,sailing,coed,2024,"Vufflens-leChateau, Switzerland",TRUE,FALSE
+8,Megan Grimes,TRUE,sailing,coed,2024,"Portsmouth, R.I.",TRUE,FALSE
+9,Shawn Harvey,TRUE,sailing,coed,2022,"Miami, Fla.",TRUE,FALSE
+10,Emily Lau,TRUE,sailing,coed,2024,"Islesboro, Maine",TRUE,FALSE
+11,B Lindsay,FALSE,sailing,coed,2023,"North Palm Beach, Fla.",TRUE,FALSE
+12,Sonia Lingos-Utley,TRUE,sailing,coed,2022,"Yarmouth, Mass.",TRUE,FALSE
+13,Claudia Loiacono,FALSE,sailing,coed,2021,"Miami, Fla.",TRUE,FALSE
+14,Cate Mollerus,FALSE,sailing,coed,2021,"Larchmont, NY.",TRUE,FALSE
+15,Petru Neagu,FALSE,sailing,coed,2023,"Bucharest, Romania",TRUE,FALSE
+16,Teddy Nicolosi,TRUE,sailing,coed,2024,"St. Thomas, U.S. Virgin Islands",TRUE,FALSE
+17,Skylar Regan,FALSE,sailing,coed,2021,"Old Tappan, N.J.",TRUE,FALSE
+18,Allison Rice,FALSE,sailing,coed,2022,"Baltimore, Md.",TRUE,FALSE
+19,Becca Rose,TRUE,sailing,coed,2022,"Chicago, Ill.",TRUE,FALSE
+20,Meredith Ryan,TRUE,sailing,coed,2023,"Buffalo, N.Y.",TRUE,FALSE
+21,Jonathan Schwartz,FALSE,sailing,coed,2021,"Indianapolis, Ind",TRUE,FALSE
+22,Martin Tipton,FALSE,sailing,coed,2021,"New Haven, Conn.",TRUE,FALSE
+23,Sam Tobin,FALSE,sailing,coed,2022,"Ridgefield, Conn.",TRUE,FALSE
+24,Emery Wallace,FALSE,sailing,coed,2021,"Fairfield, Conn.",TRUE,FALSE
+25,Helena Ware,TRUE,sailing,coed,2023,"Baltimore, Md.",TRUE,FALSE
+26,Catherine Webb,TRUE,sailing,coed,2023,"Newport Beach, Calif.",TRUE,FALSE
+27,Kathleen Wells,FALSE,sailing,coed,2021,"Grand Rapids, Mich.",TRUE,FALSE
+28,Adam Wolnikowski,FALSE,sailing,coed,2021,"Lancaster, Pa.",TRUE,FALSE
+29,Sydney Zoehrer,TRUE,sailing,coed,2024,"Coronado, Calif.",TRUE,FALSE
+30,Ben Markert,FALSE,sailing,coed,2023,"Portsmouth, R.I.",TRUE,FALSE
+31,Nicholas Marwell,FALSE,sailing,coed,2021,"San Francisco, Calif.",TRUE,FALSE
+32,Liviu Moșnoi,FALSE,sailing,coed,2021,Moldova,TRUE,FALSE

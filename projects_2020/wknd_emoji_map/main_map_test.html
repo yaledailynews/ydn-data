@@ -162,6 +162,14 @@
             </div>
 
             <div>
+                <label>Optional: <br>
+                    Provide your email to be contacted for a followup story</label>
+                
+                <textarea name="email" id="email_input" placehold="Email" rows="1" style="width: 100%"></textarea>
+                <br>
+            </div>
+
+            <div>
                 <button type="submit" id="submit-form" class="btn btn-secondary">Submit</button>
             </div>
 
@@ -181,6 +189,7 @@
         const POPUP_TEXT = document.getElementById('form-wrapper').innerHTML
 
         var description_text = "" // placeholder var to hold contents of "desc" in popup
+        var email_text = ""
         var markers = L.markerClusterGroup()
         var ADD_TOGGLE = true
         var JUST_CLICKED = false
@@ -255,13 +264,19 @@
             var popupDom = $(popup.getElement())
             var button = popupDom.find("#submit-form")
             var textField = popupDom.find("#desc_input")
+            var emailField = popupDom.find("#email_input")
 
             // listener for saving descripton text
-            popup.on('remove', () => description_text = textField.val())
+            popup.on('remove', () => {description_text = textField.val();
+                                        email_text = emailField.val()})
 
             // fill in previous description text
             if (description_text != "") {
                 textField.val(description_text)
+            }
+
+            if (email_text != "") {
+                emailField.val(email_text)
             }
 
 
@@ -269,7 +284,7 @@
             button.on('click', function(e) {
                 console.log("in button listener")
                 var $form = popupDom.find("#input-form")
-                var latlng = popup.getLatLng()
+                var latlng = popup.getLatLng()                
 
                 if (!/\p{Extended_Pictographic}/u.test($form.find("#emoji_input").val())) {
                     console.log("No emoji selected")
@@ -283,6 +298,10 @@
                 // make sure only one emoji
                 var emoji_input = $form.find("#emoji_input").val()
                 $form.find("#emoji_input").val(emoji_input.substring(0, 2))
+
+                $form.find("#email_input").val()
+                console.log($form.serializeObject())
+
 
                 // input in the coordinates
                 popupDom.find("#lat_input").val(latlng.lat)
@@ -306,6 +325,7 @@
 
                 // clear saved description text
                 textField.val("")
+                emailField.val("")
                 popup.removeFrom(map)
                 toggle_add_mode()
             })
@@ -346,6 +366,7 @@
             }
 
         })
+
     </script>
     </div>
 

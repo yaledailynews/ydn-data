@@ -162,19 +162,16 @@
             </div>
 
             <div>
-<<<<<<< HEAD
                 <button type="submit" id="submit-form" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Submit</button>
-=======
                 <label>Optional: <br>
                     Provide your email to be contacted for a followup story</label>
-                
+
                 <textarea name="email" id="email_input" placehold="Email" rows="1" style="width: 100%"></textarea>
                 <br>
             </div>
 
             <div>
                 <button type="submit" id="submit-form" class="btn btn-secondary">Submit</button>
->>>>>>> cbdfceed6d30ccb30c8012bd952d3e2dd07dff3b
             </div>
 
         </form>
@@ -292,8 +289,10 @@
             var emailField = popupDom.find("#email_input")
 
             // listener for saving descripton text
-            popup.on('remove', () => {description_text = textField.val();
-                                        email_text = emailField.val()})
+            popup.on('remove', () => {
+                description_text = textField.val();
+                email_text = emailField.val()
+            })
 
             // fill in previous description text
             if (description_text != "") {
@@ -309,7 +308,7 @@
             button.on('click', function(e) {
                 console.log("in button listener")
                 var $form = popupDom.find("#input-form")
-                var latlng = popup.getLatLng()                
+                var latlng = popup.getLatLng()
 
                 if (!/\p{Extended_Pictographic}/u.test($form.find("#emoji_input").val())) {
                     console.log("No emoji selected")
@@ -391,7 +390,6 @@
             }
 
         })
-
     </script>
     </div>
 

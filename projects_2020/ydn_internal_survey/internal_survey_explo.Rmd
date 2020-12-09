@@ -1,0 +1,79 @@
+---
+title: "YDN Internal Board of 2022 Survey"
+author: "Darwin Do"
+date: "12/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+library(readr)
+library(dplyr)
+library(tidyr)
+library(ggplot2)
+library(magrittr)
+```
+
+
+```{r pressure, echo=FALSE}
+d <- read_csv("survey_response.csv")
+d %<>% rename(time = names(.)[1], 
+              role = names(.)[2],
+              loa_fall = names(.)[3],
+              new_haven = names(.)[4],
+              loa_spring = names(.)[5],
+              content = names(.)[6],
+              major = names(.)[7],
+              race = names(.)[8],
+              gender = names(.)[9],
+              lgbtq = names(.)[10],
+              hometown_type = names(.)[11],
+              highschool_type = names(.)[12],
+              journalism_exp = names(.)[13],
+              international = names(.)[14],
+              first_gen_stud = names(.)[15],
+              legacy_stud = names(.)[16],
+              household_income = names(.)[17],
+              finaid = names(.)[18],
+              plan_stipend = names(.)[19],
+              comfortable = names(.)[20],
+              report_comfort = names(.)[21])
+```
+
+
+```{r}
+# gender
+d %>%
+  group_by(gender) %>%
+  summarise(num = n()) %>%
+  arrange(desc(gender)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop)- 0.5*prop ) %>%
+
+
+  ggplot(aes(x = "", y = prop, fill=gender)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, label = round(prop, digits=2)), color = "white", size=6)
+
+# hometown
+d %>%
+  group_by(hometown_type) %>%
+  summarise(num = n()) %>%
+  arrange(desc(hometown_type)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+
+
+  ggplot(aes(x = "", y = prop, fill=hometown_type)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, label = round(prop, digits=2)), color = "white", size=6)
+```
+

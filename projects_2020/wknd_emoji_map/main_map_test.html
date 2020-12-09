@@ -147,7 +147,7 @@
                         <option id = "date" value = "&#128158">&#128158</option>
                         <option id = "eggplant" value = "&#127814">&#127814</option>
                     </select> -->
-            <br>
+
             <!-- hidden inputs -->
             <div style="display: none;">
                 <input type="text" name="lat" id="lat_input" />
@@ -160,20 +160,16 @@
                 <br>
                 <textarea name="desc" id="desc_input" placeholder="Description" rows="8" style="width: 100%;"></textarea>
             </div>
-
+            <br>
             <div>
-                <button type="submit" id="submit-form" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Submit</button>
                 <label>Optional: <br>
                     Provide your email to be contacted for a followup story</label>
 
-                <textarea name="email" id="email_input" placehold="Email" rows="1" style="width: 100%"></textarea>
+                <textarea name="email" id="email_input" placeholder="Email" rows="1" style="width: 100%"></textarea>
                 <br>
             </div>
 
-            <div>
-                <button type="submit" id="submit-form" class="btn btn-secondary">Submit</button>
-            </div>
-
+            <button type="submit" id="submit-form" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Submit</button>
         </form>
     </div>
 
@@ -356,7 +352,7 @@
         }
 
 
-        Papa.parse("https://raw.githubusercontent.com/dsmaugy/dsmaugy.github.io/master/approved_responses.csv", {
+        Papa.parse("https://raw.githubusercontent.com/ydntech/ydntech.github.io/master/public_projects/emoji_map/approved_responses.csv", {
             download: true,
             header: true,
             complete: (res) => {

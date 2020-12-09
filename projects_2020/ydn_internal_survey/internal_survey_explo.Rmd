@@ -54,13 +54,14 @@ d %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop)- 0.5*prop ) %>%
 
-
   ggplot(aes(x = "", y = prop, fill=gender)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) + 
   theme_void() +
   geom_text(aes(y = ypos, label = round(prop, digits=2)), color = "white", size=6)
+```
 
+```{r}
 # hometown
 d %>%
   group_by(hometown_type) %>%
@@ -69,11 +70,11 @@ d %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
 
-
   ggplot(aes(x = "", y = prop, fill=hometown_type)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) + 
   theme_void() +
   geom_text(aes(y = ypos, label = round(prop, digits=2)), color = "white", size=6)
 ```
+
 

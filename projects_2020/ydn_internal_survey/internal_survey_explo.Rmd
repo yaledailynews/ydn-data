@@ -10,16 +10,17 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r}
+```{r echo=FALSE}
 library(readr)
 library(dplyr)
 library(tidyr)
 library(ggplot2)
 library(magrittr)
+library(stringr)
 ```
 
 
-```{r pressure, echo=FALSE}
+```{r echo=FALSE}
 d <- read_csv("survey_response.csv")
 d %<>% rename(time = names(.)[1], 
               role = names(.)[2],
@@ -44,6 +45,31 @@ d %<>% rename(time = names(.)[1],
               report_comfort = names(.)[21])
 ```
 
+# Respondent Role
+
+```{r}
+(role_filtered <- d %>%
+  mutate(role = str_replace_all(role, "\\(.*\\)", "")) %>%
+  group_by(role) %>%
+  summarize(num = n()))
+
+role_filtered %>%
+  arrange(desc(role)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=role)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=6)
+
+
+```
+
+
+# Gender
 
 ```{r}
 # gender
@@ -61,6 +87,8 @@ d %>%
   geom_text(aes(y = ypos, label = round(prop, digits=2)), color = "white", size=6)
 ```
 
+# Hometown
+
 ```{r}
 # hometown
 d %>%
@@ -75,6 +103,146 @@ d %>%
   coord_polar("y", start=0) + 
   theme_void() +
   geom_text(aes(y = ypos, label = round(prop, digits=2)), color = "white", size=6)
+```
+
+# LOA
+
+```{r}
+d %>%
+  group_by(loa_fall, loa_spring) %>%
+  summarize(count = n())
+```
+
+
+# Race breakdown
+
+```{r}
+
+(race_filtered <- d %>%
+  separate(race, c('race1','race2', 'race3'), sep = ", ") %>%
+  pivot_longer(c('race1', 'race2', 'race3'), values_to = "race") %>%
+  filter(!is.na(race)) %>%
+  group_by(race) %>%
+  summarize(num = n()))
+  
+
+race_filtered %>%
+  ggplot() + 
+  geom_bar(aes(x = race, y = num), stat = "identity") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+race_filtered %>%
+  arrange(desc(race)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+
+  ggplot(aes(x = "", y = prop, fill=race)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1.3, label = round(prop, digits=2)), color = "white", size=4)
+  
+  
+```
+
+
+# Content
+
+Notes: 
+- Less than 50% of respondants indicated they are working on written content
+
+```{r}
+(content_filtered <- d %>%
+  mutate(content = str_replace_all(content, "\\(business, tech, outreach\\)", "")) %>%
+  separate(content, c('content1','content2', 'content3'), sep = ", ") %>%
+  pivot_longer(c('content1', 'content2', 'content3'), values_to = "content") %>%
+  filter(!is.na(content)) %>%
+  group_by(content) %>%
+  summarize(num = n()))
+
+content_filtered %>%
+  arrange(desc(content)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=content)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
+```
+
+# Major
+Almost split even breakdown between major types!
+
+```{r}
+(major_filtered <- d %>%
+  separate(major, c('major1','major2', 'major3'), sep = ", ") %>%
+  pivot_longer(c('major1','major2', 'major3'), values_to = "major") %>%
+  filter(!is.na(major)) %>%
+  group_by(major) %>%
+  summarize(num = n()))
+
+major_filtered %>%
+  arrange(desc(major)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=major)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
+```
+
+```{r}
+
+# this sucks lmao
+
+simple_stats_filtered <- d %>%
+  select(lgbtq, journalism_exp, international, first_gen_stud, legacy_stud)
+
+simple_stats <- tibble(type = NA, ans = NA, count = NA)
+
+for (i in 1:5) {
+  stat_sum <- simple_stats_filtered %>%
+    group_by(type = UQ(sym(names(simple_stats_filtered)[i]))) %>%
+    summarise(n = n())
+  
+  yes_num <- stat_sum %>% 
+    filter(type == "Yes") %>% pull()
+  
+  print(yes_num)
+  
+  no_num <- stat_sum %>% 
+    filter(type == "No") %>% pull()
+  
+  if (dim(stat_sum)[1] == 3) {
+    na_num <- stat_sum %>%
+      filter(is.na(type)) %>% pull
+  } else {
+    na_num <- 0
+  }
+  
+
+  
+  type_name <- names(simple_stats_filtered)[i]
+  
+
+  simple_stats %<>%
+    add_row(type = type_name, ans = "Yes", count = yes_num) %>%
+    add_row(type = type_name, ans = "No", count = no_num) %>%
+    add_row(type = type_name, ans = "NA", count = na_num)
+  
+}
+
+simple_stats %<>% filter(!is.na(type))
+
+simple_stats %>%
+  ggplot() +
+  geom_bar(aes(fill=ans, y = count, x = type), position = "fill", stat = "identity")
 ```
 
 

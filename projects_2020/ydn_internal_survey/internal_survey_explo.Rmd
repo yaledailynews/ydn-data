@@ -10,7 +10,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, results='hide'}
 library(readr)
 library(dplyr)
 library(tidyr)
@@ -20,7 +20,7 @@ library(stringr)
 ```
 
 
-```{r echo=FALSE}
+```{r echo=FALSE, message=FALSE, results='hide'}
 d <- read_csv("survey_response.csv")
 d %<>% rename(time = names(.)[1], 
               role = names(.)[2],
@@ -245,4 +245,101 @@ simple_stats %>%
   geom_bar(aes(fill=ans, y = count, x = type), position = "fill", stat = "identity")
 ```
 
+
+```{r}
+(fin_aid_summary <- d %>%
+  group_by(finaid) %>%
+  summarize(num = n()) %>%
+  filter(!is.na(finaid)))
+
+fin_aid_summary %>%
+  arrange(desc(finaid)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=finaid)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
+```
+
+# Comfortable
+
+```{r}
+d %>% 
+  ggplot() +
+  geom_bar(aes(x = comfortable)) + 
+  ylim(0, 90)
+
+d %>%
+  ggplot() + 
+  geom_bar(aes(x = report_comfort)) + 
+  ylim(0, 90)
+
+# look at comfort at ydn across income
+d %>%
+  filter(!is.na(finaid) & comfortable != 2) %>%
+  ggplot() +
+  geom_bar(aes(x = comfortable, fill = household_income), position = "fill")
+```
+
+
+
+# More advanced stuff
+
+```{r}
+
+content_major <- d %>%
+  separate(major, c('major1','major2', 'major3'), sep = ", ") %>%
+  pivot_longer(c('major1','major2', 'major3'), values_to = "major", names_to = "major_option_name") %>%
+  filter(!is.na(major)) %>%
+  mutate(content = str_replace_all(content, "\\(business, tech, outreach\\)", "")) %>%
+  separate(content, c('content1','content2', 'content3'), sep = ", ") %>%
+  pivot_longer(c('content1', 'content2', 'content3'), values_to = "content", names_to = "content_option_name") %>%
+  filter(!is.na(content)) 
+
+content_major %>%
+  ggplot() +
+  geom_bar(aes(x = major, fill = content), position = "fill")
+
+major_n_tbl <- content_major %>%
+  group_by(major) %>%
+  summarize(major_n = n())
+  
+
+content_major %>% 
+  group_by(major, content) %>%
+  summarize(n = n()) %>%
+  left_join(major_n_tbl) %>%
+  mutate(pct = n / major_n * 100)
+
+```
+
+```{r}
+content_exp <- d %>%
+  mutate(content = str_replace_all(content, "\\(business, tech, outreach\\)", "")) %>%
+  separate(content, c('content1','content2', 'content3'), sep = ", ") %>%
+  pivot_longer(c('content1', 'content2', 'content3'), values_to = "content") %>%
+  filter(!is.na(content))
+
+content_exp %>%
+  ggplot() +
+  geom_bar(aes(x = journalism_exp, fill = content), position = "fill")
+
+content_n_tbl <- content_exp %>%
+  group_by(content) %>%
+  summarize(content_n = n())
+
+content_exp %>%
+  group_by(journalism_exp, content) %>%
+  summarize(n = n()) %>%
+  left_join(content_n_tbl) %>%
+  mutate(pct = n / content_n * 100)
+```
+
+
+NOTES:
+Look at major by content
 

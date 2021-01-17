@@ -186,15 +186,26 @@ major_filtered %>%
 ### Quick Facts
 
 ```{r}
+# add column to d dataframe for POC
+poc <- c()
+for (i in 1:nrow(d)) {
+  if (d[i, "race"] %in% c('White')) {
+    poc <- c(poc, "No")
+  } else {
+    poc <- c(poc, "Yes")
+  }
+}
+
+d["POC"] <- poc
 
 # this sucks lmao
 
 simple_stats_filtered <- d %>%
-  select(lgbtq, journalism_exp, international, first_gen_stud, legacy_stud)
+  select(lgbtq, journalism_exp, international, first_gen_stud, legacy_stud, POC)
 
 simple_stats <- tibble(type = NA, ans = NA, count = NA)
 
-for (i in 1:5) {
+for (i in 1:6) {
   stat_sum <- simple_stats_filtered %>%
     group_by(type = UQ(sym(names(simple_stats_filtered)[i]))) %>%
     summarise(n = n())

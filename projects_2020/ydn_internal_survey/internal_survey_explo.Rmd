@@ -138,14 +138,13 @@ d %>%
 income_breakdown <- d %>%
   group_by(household_income) %>%
   summarize(num = n()) %>%
-  filter(!is.na(household_income))
-
-income_breakdown %>%
+  filter(!is.na(household_income)) %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
   mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
-  # arrange(factor(household_income, levels = c("< $65,000", "$65,000 to $100,000", "$100,000 to $150,000", "$150,000 to $200,000", "$200,000 to $250,000", "$250,000 to $500,000", "> $500,000"))) %>%
-
+  arrange(factor(household_income, levels = c("< $65,000", "$65,000 to $100,000", "$100,000 to $150,000", "$150,000 to $200,000", "$200,000 to $250,000", "$250,000 to $500,000", "> $500,000"), ordered = TRUE))
+  
+income_breakdown %>%
   ggplot(aes(x = "", y = prop, fill=household_income)) +
   geom_bar(stat="identity", width=0.5) +
   theme_void() +

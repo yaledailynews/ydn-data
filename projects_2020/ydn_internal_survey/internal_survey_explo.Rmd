@@ -46,7 +46,7 @@ d %<>% rename(time = names(.)[1],
               report_comfort = names(.)[21])
 ```
 
-# Demographics
+# General Student Demographics
 ### Gender Breakdown
 
 ```{r}
@@ -133,7 +133,29 @@ d %>%
 
 
 ### Financial Aid and Income Breakdown (put side by side)
-# TODO add income breakdown
+
+```{r}
+income_breakdown <- d %>%
+  group_by(household_income) %>%
+  summarize(num = n()) %>%
+  filter(!is.na(household_income))
+
+income_breakdown %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
+  # arrange(factor(household_income, levels = c("< $65,000", "$65,000 to $100,000", "$100,000 to $150,000", "$150,000 to $200,000", "$200,000 to $250,000", "$250,000 to $500,000", "> $500,000"))) %>%
+
+  ggplot(aes(x = "", y = prop, fill=household_income)) +
+  geom_bar(stat="identity", width=0.5) +
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
+  theme(legend.title = element_blank()) +
+  ggtitle("Income Breakdown") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
 ```{r}
 # Financial Aid Received
 (fin_aid_summary <- d %>%
@@ -157,6 +179,7 @@ fin_aid_summary %>%
 
 
 # Income breakdown
+# Pretty even split by income
 
 
 
@@ -194,6 +217,16 @@ major_filtered %>%
 
   #ggsave('major_type.png')
 ```
+
+
+### LOA
+
+```{r}
+d %>%
+  group_by(loa_fall, loa_spring) %>%
+  summarize(count = n())
+```
+
 
 
 ### Quick Facts
@@ -258,19 +291,6 @@ simple_stats %>%
 ```
 
 
-
-# LOA
-
-```{r}
-d %>%
-  group_by(loa_fall, loa_spring) %>%
-  summarize(count = n())
-```
-
-
-# SOMETHING ABOUT YALE STUDENT SPECIFIC
-
-
 # YDN Specific Statistics
 ### Respondent Role
 
@@ -298,8 +318,7 @@ role_filtered %>%
 ### Content
 
 Notes: 
-- Less than 50% of respondants indicated they are working on written content
-
+- Less than 50% of respondents indicated they are working on written content
 ```{r}
 (content_filtered <- d %>%
   mutate(content = str_replace_all(content, "\\(business, tech, outreach\\)", "")) %>%
@@ -323,7 +342,7 @@ content_filtered %>%
 ```
 
 
-# Comfortable
+# Comfortable at YDN?
 
 ```{r}
 d %>% 

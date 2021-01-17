@@ -17,7 +17,7 @@ library(tidyr)
 library(ggplot2)
 library(magrittr)
 library(stringr)
-library(wesanderson)
+library(gridExtra)
 ```
 
 
@@ -135,6 +135,7 @@ d %>%
 ### Financial Aid and Income Breakdown (put side by side)
 # TODO add income breakdown
 ```{r}
+# Financial Aid Received
 (fin_aid_summary <- d %>%
   group_by(finaid) %>%
   summarize(num = n()) %>%
@@ -153,6 +154,14 @@ fin_aid_summary %>%
   theme(legend.title = element_blank()) +
   ggtitle("Financial Aid Received from Yale") +
   theme(plot.title = element_text(hjust = 0.5))
+
+
+# Income breakdown
+
+
+
+# Putting plots side by side
+#grid.arrange(plot1, plot2, ncol=2)
 ```
 
 

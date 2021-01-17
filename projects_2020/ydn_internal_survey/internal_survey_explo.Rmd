@@ -46,6 +46,7 @@ d %<>% rename(time = names(.)[1],
               report_comfort = names(.)[21])
 ```
 
+# TODO: MAKE GGTITLES BOLD
 # General Student Demographics
 ### Gender Breakdown
 
@@ -238,7 +239,7 @@ loafall_plot <- d %>%
   theme(legend.title = element_blank()) +
   scale_fill_brewer(palette = "Paired") +
   ggtitle("LOA in Fall") +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
 
 # LOA in Spring
 loaspring_plot <- d %>%
@@ -259,7 +260,7 @@ loaspring_plot <- d %>%
   theme(legend.title = element_blank()) +
   scale_fill_brewer(palette = "Paired") +
   ggtitle("LOA in Spring") +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"))
 
 # Lived in New Haven in Fall
 innewhaven_plot <- d %>%
@@ -279,8 +280,8 @@ innewhaven_plot <- d %>%
   geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
   theme(legend.title = element_blank()) +
   scale_fill_brewer(palette = "Paired") +
-  ggtitle("Living in New Haven in Fall") +
-  theme(plot.title = element_text(hjust = 0.5))
+  ggtitle("Lived in New Haven (Fall)") +
+  theme(plot.title = element_text(hjust = 0.5, size = 10, face = "bold"))
 
 # Putting plots side by side
 grid.arrange(loafall_plot, loaspring_plot, innewhaven_plot, nrow = 1, ncol = 3)

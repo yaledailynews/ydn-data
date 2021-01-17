@@ -132,28 +132,7 @@ d %>%
 ```
 
 
-### Financial Aid and Income Breakdown (put side by side)
-
-```{r}
-income_breakdown <- d %>%
-  group_by(household_income) %>%
-  summarize(num = n()) %>%
-  filter(!is.na(household_income)) %>%
-  mutate(prop = num / sum(num) *100) %>%
-  mutate(ypos = cumsum(prop) - (0.5 * prop)) %>%
-  mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
-  arrange(factor(household_income, levels = c("< $65,000", "$65,000 to $100,000", "$100,000 to $150,000", "$150,000 to $200,000", "$200,000 to $250,000", "$250,000 to $500,000", "> $500,000"), ordered = TRUE))
-  
-income_breakdown %>%
-  ggplot(aes(x = "", y = prop, fill=household_income)) +
-  geom_bar(stat="identity", width=0.5) +
-  theme_void() +
-  geom_text(aes(label = lab), position = position_stack(vjust = .5), color = "white", size=4) +
-  theme(legend.title = element_blank()) +
-  ggtitle("Income Breakdown") +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
+### Financial Aid and Income Breakdown
 
 ```{r}
 # Financial Aid Received
@@ -162,28 +141,45 @@ income_breakdown %>%
   summarize(num = n()) %>%
   filter(!is.na(finaid)))
 
-fin_aid_summary %>%
+  finaid_plot <- fin_aid_summary %>%
   arrange(desc(finaid)) %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
   mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
 
   ggplot(aes(x = "", y = prop, fill=finaid)) +
-  geom_bar(stat="identity", width=0.5) +
+  geom_bar(stat="identity", width=1) +
   theme_void() +
   geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
   theme(legend.title = element_blank()) +
-  ggtitle("Financial Aid Received from Yale") +
+  ggtitle("Financial Aid Received") +
   theme(plot.title = element_text(hjust = 0.5))
 
 
 # Income breakdown
 # Pretty even split by income
-
+income_breakdown <- d %>%
+  group_by(household_income) %>%
+  summarize(num = n()) %>%
+  filter(!is.na(household_income)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - (0.5 * prop)) %>%
+  mutate(lab = paste(round(prop, digits=1), "%", sep = ""))
+  
+  income_plot <- income_breakdown %>%
+  ggplot(aes(x = "", y = prop, fill=factor(household_income, levels=c("< $65,000", "$65,000 to $100,000", "$100,000 to $150,000", "$150,000 to $200,000", "$200,000 to $250,000", "$250,000 to $500,000", "> $500,000")))) +
+  geom_bar(stat="identity", width=1) +
+  theme_void() +
+  geom_text(aes(label = lab), position = position_stack(vjust = .5), color = "white", size=4) +
+  theme(legend.title = element_blank()) +
+  ggtitle("Income Breakdown") +
+  theme(plot.title = element_text(hjust = 0.5))
 
 
 # Putting plots side by side
-#grid.arrange(plot1, plot2, ncol=2)
+grid.arrange(finaid_plot, income_plot, nrow = 1, ncol = 2)
+
+# ggsave(file='aid_vs_income.png', g)
 ```
 
 

@@ -64,7 +64,7 @@ d %>%
   theme_void() +
   geom_text(aes(y = ypos, label = sprintf("%.1f%%", prop)), color = "white", size=6) +
   theme(legend.title = element_blank()) +
-  scale_fill_manual(values=wes_palette(n=2, name="Darjeeling2")) +
+  scale_fill_brewer(palette = "Paired") +
   ggtitle("Gender Breakdown") +
   theme(plot.title = element_text(hjust = 0.5))
 
@@ -132,7 +132,7 @@ d %>%
 ```
 
 
-### Financial Aid and Income Breakdown
+### Financial Aid and Income Breakdown (put side by side)
 # TODO add income breakdown
 ```{r}
 (fin_aid_summary <- d %>%
@@ -144,13 +144,15 @@ fin_aid_summary %>%
   arrange(desc(finaid)) %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
-  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
+  mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
 
   ggplot(aes(x = "", y = prop, fill=finaid)) +
-  geom_bar(stat="identity", width=1) +
-  coord_polar("y", start=0) + 
+  geom_bar(stat="identity", width=0.5) +
   theme_void() +
-  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
+  theme(legend.title = element_blank()) +
+  ggtitle("Financial Aid Received from Yale") +
+  theme(plot.title = element_text(hjust = 0.5))
 ```
 
 
@@ -180,21 +182,34 @@ major_filtered %>%
   scale_fill_brewer(palette = "Paired") +
   ggtitle("Major Type") +
   theme(plot.title = element_text(hjust = 0.5))
+
+  #ggsave('major_type.png')
 ```
 
 
 ### Quick Facts
 
 ```{r}
+# add column to d dataframe for POC
+poc <- c()
+for (i in 1:nrow(d)) {
+  if (d[i, "race"] %in% c('White')) {
+    poc <- c(poc, "No")
+  } else {
+    poc <- c(poc, "Yes")
+  }
+}
+
+d["POC"] <- poc
 
 # this sucks lmao
 
 simple_stats_filtered <- d %>%
-  select(lgbtq, journalism_exp, international, first_gen_stud, legacy_stud)
+  select(lgbtq, journalism_exp, international, first_gen_stud, legacy_stud, POC)
 
 simple_stats <- tibble(type = NA, ans = NA, count = NA)
 
-for (i in 1:5) {
+for (i in 1:6) {
   stat_sum <- simple_stats_filtered %>%
     group_by(type = UQ(sym(names(simple_stats_filtered)[i]))) %>%
     summarise(n = n())

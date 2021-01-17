@@ -47,7 +47,6 @@ d %<>% rename(time = names(.)[1],
 ```
 
 # Demographics
-
 ### Gender Breakdown
 
 ```{r}
@@ -108,7 +107,7 @@ race_filtered %>%
   #ggsave('race_breakdown.png')
 ```
 
-# Hometown Type
+### Hometown Type
 
 ```{r}
 # hometown
@@ -133,68 +132,31 @@ d %>%
 ```
 
 
-# Respondent Role
-
+### Financial Aid and Income Breakdown
+# TODO add income breakdown
 ```{r}
-(role_filtered <- d %>%
-  mutate(role = str_replace_all(role, "\\(.*\\)", "")) %>%
-  group_by(role) %>%
-  summarize(num = n()))
+(fin_aid_summary <- d %>%
+  group_by(finaid) %>%
+  summarize(num = n()) %>%
+  filter(!is.na(finaid)))
 
-role_filtered %>%
-  arrange(desc(role)) %>%
+fin_aid_summary %>%
+  arrange(desc(finaid)) %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
   mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
 
-  ggplot(aes(x = "", y = prop, fill=role)) +
-  geom_bar(stat="identity", width=1) +
-  coord_polar("y", start=0) + 
-  theme_void() +
-  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=6)
-
-
-```
-
-# LOA
-
-```{r}
-d %>%
-  group_by(loa_fall, loa_spring) %>%
-  summarize(count = n())
-```
-
-
-# Content
-
-Notes: 
-- Less than 50% of respondants indicated they are working on written content
-
-```{r}
-(content_filtered <- d %>%
-  mutate(content = str_replace_all(content, "\\(business, tech, outreach\\)", "")) %>%
-  separate(content, c('content1','content2', 'content3'), sep = ", ") %>%
-  pivot_longer(c('content1', 'content2', 'content3'), values_to = "content") %>%
-  filter(!is.na(content)) %>%
-  group_by(content) %>%
-  summarize(num = n()))
-
-content_filtered %>%
-  arrange(desc(content)) %>%
-  mutate(prop = num / sum(num) *100) %>%
-  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
-  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
-
-  ggplot(aes(x = "", y = prop, fill=content)) +
+  ggplot(aes(x = "", y = prop, fill=finaid)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) + 
   theme_void() +
   geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
 ```
 
-# Major
-Almost split even breakdown between major types!
 
+### Major Breakdown
+
+Almost split even breakdown between major types!
 ```{r}
 (major_filtered <- d %>%
   separate(major, c('major1','major2', 'major3'), sep = ", ") %>%
@@ -213,8 +175,15 @@ major_filtered %>%
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) + 
   theme_void() +
-  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
+  theme(legend.title = element_blank()) +
+  scale_fill_brewer(palette = "Paired") +
+  ggtitle("Major Type") +
+  theme(plot.title = element_text(hjust = 0.5))
 ```
+
+
+### Quick Facts
 
 ```{r}
 
@@ -265,24 +234,70 @@ simple_stats %>%
 ```
 
 
-```{r}
-(fin_aid_summary <- d %>%
-  group_by(finaid) %>%
-  summarize(num = n()) %>%
-  filter(!is.na(finaid)))
 
-fin_aid_summary %>%
-  arrange(desc(finaid)) %>%
+# LOA
+
+```{r}
+d %>%
+  group_by(loa_fall, loa_spring) %>%
+  summarize(count = n())
+```
+
+
+# SOMETHING ABOUT YALE STUDENT SPECIFIC
+
+
+# YDN Specific Statistics
+### Respondent Role
+
+```{r}
+(role_filtered <- d %>%
+  mutate(role = str_replace_all(role, "\\(.*\\)", "")) %>%
+  group_by(role) %>%
+  summarize(num = n()))
+
+role_filtered %>%
+  arrange(desc(role)) %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
   mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
 
-  ggplot(aes(x = "", y = prop, fill=finaid)) +
+  ggplot(aes(x = "", y = prop, fill=role)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=6)
+
+
+```
+
+### Content
+
+Notes: 
+- Less than 50% of respondants indicated they are working on written content
+
+```{r}
+(content_filtered <- d %>%
+  mutate(content = str_replace_all(content, "\\(business, tech, outreach\\)", "")) %>%
+  separate(content, c('content1','content2', 'content3'), sep = ", ") %>%
+  pivot_longer(c('content1', 'content2', 'content3'), values_to = "content") %>%
+  filter(!is.na(content)) %>%
+  group_by(content) %>%
+  summarize(num = n()))
+
+content_filtered %>%
+  arrange(desc(content)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=content)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) + 
   theme_void() +
   geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
 ```
+
 
 # Comfortable
 

@@ -82,3 +82,5 @@ except Exception as e:
     print(e)
     driver.quit()
 
+print("Done updating spreadsheet!")
+driver.quit()

@@ -168,7 +168,7 @@ income_breakdown <- d %>%
   
   income_plot <- income_breakdown %>%
   ggplot(aes(x = "", y = prop, fill=factor(household_income, levels=c("< $65,000", "$65,000 to $100,000", "$100,000 to $150,000", "$150,000 to $200,000", "$200,000 to $250,000", "$250,000 to $500,000", "> $500,000")))) +
-  geom_bar(stat="identity", width=1) +
+  geom_bar(stat="identity", width=1.1) +
   theme_void() +
   geom_text(aes(label = lab), position = position_stack(vjust = .5), color = "white", size=4) +
   theme(legend.title = element_blank()) +
@@ -214,12 +214,76 @@ major_filtered %>%
 ```
 
 
-### LOA
+### LOA Breakdown
 
+Large majority took LOA in Fall, but large majority are not taking LOA in Spring
+About 2/3 of respondents lived in New Haven in Fall
 ```{r}
-d %>%
-  group_by(loa_fall, loa_spring) %>%
-  summarize(count = n())
+# LOA in Fall
+loafall_plot <- d %>%
+  group_by(loa_fall) %>%
+  filter(!is.na(loa_fall)) %>%
+  summarize(num = n())  %>%
+
+  arrange(desc(loa_fall)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=loa_fall)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
+  theme(legend.title = element_blank()) +
+  scale_fill_brewer(palette = "Paired") +
+  ggtitle("LOA in Fall") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+# LOA in Spring
+loaspring_plot <- d %>%
+  group_by(loa_spring) %>%
+  filter(!is.na(loa_spring)) %>%
+  summarize(num = n())  %>%
+
+  arrange(desc(loa_spring)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=loa_spring)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
+  theme(legend.title = element_blank()) +
+  scale_fill_brewer(palette = "Paired") +
+  ggtitle("LOA in Spring") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+# Lived in New Haven in Fall
+innewhaven_plot <- d %>%
+  group_by(new_haven) %>%
+  filter(!is.na(new_haven)) %>%
+  summarize(num = n())  %>%
+
+  arrange(desc(new_haven)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+  mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
+
+  ggplot(aes(x = "", y = prop, fill=new_haven)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4) +
+  theme(legend.title = element_blank()) +
+  scale_fill_brewer(palette = "Paired") +
+  ggtitle("Living in New Haven in Fall") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+# Putting plots side by side
+grid.arrange(loafall_plot, loaspring_plot, innewhaven_plot, nrow = 1, ncol = 3)
 ```
 
 

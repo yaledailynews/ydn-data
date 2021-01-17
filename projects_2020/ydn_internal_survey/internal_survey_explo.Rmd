@@ -17,6 +17,7 @@ library(tidyr)
 library(ggplot2)
 library(magrittr)
 library(stringr)
+library(wesanderson)
 ```
 
 
@@ -67,9 +68,9 @@ role_filtered %>%
 
 
 ```
+# Demographics
 
-
-# Gender
+### Gender Breakdown
 
 ```{r}
 # gender
@@ -84,7 +85,13 @@ d %>%
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) + 
   theme_void() +
-  geom_text(aes(y = ypos, label = round(prop, digits=2)), color = "white", size=6)
+  geom_text(aes(y = ypos, label = sprintf("%.1f%%", prop)), color = "white", size=6) +
+  theme(legend.title = element_blank()) +
+  scale_fill_manual(values=wes_palette(n=2, name="Darjeeling2")) +
+  ggtitle("Gender Breakdown") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+  ggsave('gender_breakdown.png')
 ```
 
 # Hometown

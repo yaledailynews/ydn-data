@@ -52,24 +52,42 @@ d %<>% rename(time = names(.)[1],
 
 ```{r}
 # gender
-d %>%
-  group_by(gender) %>%
-  summarise(num = n()) %>%
-  arrange(desc(gender)) %>%
-  mutate(prop = num / sum(num) *100) %>%
-  mutate(ypos = cumsum(prop)- 0.5*prop ) %>%
 
-  ggplot(aes(x = "", y = prop, fill=gender)) +
-  geom_bar(stat="identity", width=1) +
-  coord_polar("y", start=0) + 
+# d %>%
+#   group_by(gender) %>%
+#   summarise(num = n()) %>%
+#   arrange(desc(gender)) %>%
+#   mutate(prop = num / sum(num) *100) %>%
+#   mutate(ypos = cumsum(prop)- 0.5*prop ) %>%
+# 
+#   ggplot(aes(x = "", y = prop, fill=gender)) +
+#   geom_bar(stat="identity", width=1) +
+#   coord_polar("y", start=0) + 
+#   theme_void() +
+#   geom_text(aes(y = ypos, label = sprintf("%.1f%%", prop)), color = "white", size=6) +
+#   theme(legend.title = element_blank()) +
+#   scale_fill_brewer(palette = "Paired") +
+#   ggtitle("Gender Breakdown") +
+#   theme(plot.title = element_text(hjust = 0.5))
+
+pdf('gender.pdf')
+
+(gender_plot <- d %>% group_by(gender) %>%
+  summarize(n = n()) %>%
+  ggplot(aes(x = "", y = n, fill = gender)) +
+  geom_bar(stat = "identity", position = "fill", width = 0.2) +
+  geom_text(aes(label = n), position = position_fill(vjust = .5), color = "white", size=5) +
   theme_void() +
-  geom_text(aes(y = ypos, label = sprintf("%.1f%%", prop)), color = "white", size=6) +
-  theme(legend.title = element_blank()) +
-  scale_fill_brewer(palette = "Paired") +
   ggtitle("Gender Breakdown") +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust=0.5), legend.position = c(0.7, 0.5)))
 
+dev.off()
   #ggsave('gender_breakdown.png')
+
+# lgbtq
+d %>% 
+  select(lgbtq) %>%
+  table()
 ```
 
 
@@ -90,7 +108,7 @@ d %>%
 #   geom_bar(aes(x = race, y = num), stat = "identity") +
 #   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 
-race_filtered %>%
+(race_plot <- race_filtered %>%
   arrange(desc(race)) %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
@@ -103,16 +121,38 @@ race_filtered %>%
   theme(legend.title = element_blank()) +
   scale_fill_brewer(palette = "Paired") +
   ggtitle("Race/Ethnicity Breakdown") +
-  theme(plot.title = element_text(hjust = 0.5))
+  theme(plot.title = element_text(hjust = 0.5)))
+
+pdf('race.pdf')
+(race_plot <- race_filtered %>%
+  arrange(desc(race)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+
+  ggplot(aes(x = "", y = prop, fill=race)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_label(aes(y = ypos, x = 1.7, label = sprintf("%.1f%%", prop)), color = "white", size=4, show.legend = FALSE) +
+  theme(legend.title = element_blank()) +
+  scale_fill_brewer(palette = "Paired") +
+  ggtitle("Race/Ethnicity Breakdown") +
+  theme(plot.title = element_text(hjust = 0.5)))
+dev.off()
   
   #ggsave('race_breakdown.png')
 ```
 
+```{r}
+grid.arrange(race_plot, gender_plot, nrow = 1, ncol = 2)
+```
+
+
 ### Hometown Type
 
 ```{r}
-# hometown
-d %>%
+# hometown + school type
+ht <- d %>%
   group_by(hometown_type) %>%
   summarise(num = n()) %>%
   arrange(desc(hometown_type)) %>%
@@ -128,6 +168,25 @@ d %>%
   scale_fill_brewer(palette = "Paired") +
   ggtitle("Hometown Type") +
   theme(plot.title = element_text(hjust = 0.5))
+
+st <- d %>%
+  group_by(highschool_type) %>%
+  summarise(num = n()) %>%
+  arrange(desc(highschool_type)) %>%
+  mutate(prop = num / sum(num) *100) %>%
+  mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
+
+  ggplot(aes(x = "", y = prop, fill=highschool_type)) +
+  geom_bar(stat="identity", width=1) +
+  coord_polar("y", start=0) + 
+  theme_void() +
+  geom_text(aes(x = 1.24, y = ypos, label = num), color = "white", size=6) +
+  theme(legend.title = element_blank()) +
+  scale_fill_brewer(palette = "Paired") +
+  ggtitle("Highschool Type") +
+  theme(plot.title = element_text(hjust = 0.5))
+
+grid.arrange(ht, st, nrow = 1, ncol = 2)
 
   #ggsave('hometown_type.png')
 ```
@@ -476,7 +535,64 @@ content_exp %>%
   mutate(pct = n / content_n * 100)
 ```
 
+Internal stuff (not public?)
 
-NOTES:
-Look at major by content
+```{r}
+d %>% mutate(plan_stipend = replace(plan_stipend, str_detect(plan_stipend, "I do not"), "Not Involved Next Year")) %>%
+  select(plan_stipend) %>% table()
+
+race_stipend <- d %>%
+  separate(race, c('race1','race2', 'race3'), sep = ", ") %>%
+  pivot_longer(c('race1', 'race2', 'race3'), values_to = "race") %>%
+  filter(!is.na(race) & !is.na(plan_stipend)) %>% 
+  mutate(plan_stipend = replace(plan_stipend, str_detect(plan_stipend, "I do not"), "Not Involved Next Year")) %>%
+  select(plan_stipend, race)
+
+# Stipend by Race Raw 
+race_stipend %>%
+  ggplot() +
+  geom_bar(aes(x = race, fill = plan_stipend)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8)) +
+  scale_x_discrete(labels = c("Middle Eastern/North African" = "Middle Eastern/\nNorth African")) +
+  labs(fill = "Plan to Apply for Stipend?", title = "Stipend by Race Breakdown")
+ggsave("stipend_race.png")
+
+# Stipend by Race % graph
+
+race_stipend %>%
+  ggplot() +
+  geom_bar(aes(x = race, fill = plan_stipend), position = "fill") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8)) +
+  scale_x_discrete(labels = c("Middle Eastern/North African" = "Middle Eastern/\nNorth African")) +
+  labs(fill = "Plan to Apply for Stipend?", title = "Stipend by Race Breakdown (%)", y = "percentage")
+ggsave("stipend_race_percentage.png")
+
+
+# Breakdown by people who answered 'yes' or 'maybe'
+
+num_yom <- (d %>%
+  filter(plan_stipend == "Yes" | plan_stipend == "Maybe") %>%
+  dim())[1]
+
+race_stipend %>%
+  filter(plan_stipend == "Yes" | plan_stipend == "Maybe") %>%
+  ggplot() +
+  geom_bar(aes(x = race, fill = plan_stipend)) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8)) +
+  scale_x_discrete(labels = c("Middle Eastern/North African" = "Middle Eastern/\nNorth African")) +
+  labs(fill = "Plan to Apply for Stipend?", title = paste("Breakdown with Yes/Maybe Answers (n = ", num_yom, ")", sep=''))
+ggsave("stipend_race_yesmaybe.png")
+
+
+race_stipend %>% table()
+
+race_stipend %>%
+  filter(plan_stipend == "Yes" | plan_stipend == "Maybe") %>%
+  ggplot() +
+  geom_bar(aes(x = 0, fill = race)) +
+  labs(fill = "Plan to Apply for Stipend?", title = paste("Breakdown with Yes/Maybe Answers (n = ", num_yom, ")", sep=''))
+
+```
+
+
 

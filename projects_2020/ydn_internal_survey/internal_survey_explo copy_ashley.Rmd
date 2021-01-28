@@ -407,7 +407,8 @@ for (i in 1:6) {
   
 
   
-  type_name <- names(simple_stats_filtered)[i]
+  #type_name <- names(simple_stats_filtered)[i]
+  type_name <- c("First Gen", "International", "Journalism Exp", "Legacy", "LGBTQ", "POC")
   
 
   simple_stats %<>%
@@ -462,17 +463,22 @@ Notes:
   group_by(content) %>%
   summarize(num = n()))
 
-content_filtered %>%
+content_plot <- content_filtered %>%
   arrange(desc(content)) %>%
   mutate(prop = num / sum(num) *100) %>%
   mutate(ypos = cumsum(prop) - 0.5 * prop ) %>%
-  mutate(lab = paste(round(prop, digits=2), "%", sep = "")) %>%
+  mutate(lab = paste(round(prop, digits=1), "%", sep = "")) %>%
 
   ggplot(aes(x = "", y = prop, fill=content)) +
   geom_bar(stat="identity", width=1) +
   coord_polar("y", start=0) + 
   theme_void() +
+  theme(legend.title = element_blank()) +
   geom_text(aes(y = ypos, x = 1, label = lab), color = "white", size=4)
+
+pdf('ydn_content.pdf')
+content_plot
+dev.off()
 ```
 
 

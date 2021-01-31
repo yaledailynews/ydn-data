@@ -393,7 +393,7 @@ for (i in 1:6) {
   yes_num <- stat_sum %>% 
     filter(type == "Yes") %>% pull()
   
-  print(yes_num)
+  #print(yes_num)
   
   no_num <- stat_sum %>% 
     filter(type == "No") %>% pull()
@@ -407,8 +407,8 @@ for (i in 1:6) {
   
 
   
-  #type_name <- names(simple_stats_filtered)[i]
-  type_name <- c("First Gen", "International", "Journalism Exp", "Legacy", "LGBTQ", "POC")
+  type_name <- names(simple_stats_filtered)[i]
+  #type_name <- c("First Gen", "International", "Journalism Exp", "Legacy", "LGBTQ", "POC")
   
 
   simple_stats %<>%
@@ -419,7 +419,7 @@ for (i in 1:6) {
 }
 
 simple_stats %<>% filter(!is.na(type))
-
+simple_stats
 simple_stats %>%
   ggplot() +
   geom_bar(aes(fill=ans, y = count, x = type), position = "fill", stat = "identity")

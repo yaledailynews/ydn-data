@@ -7,13 +7,14 @@ from bs4 import BeautifulSoup
 from selenium.webdriver.chrome.options import Options
 from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
+from pyvirtualdisplay import Display
 import gspread
 
 
 DASHBOARD_URL = "https://app.powerbi.com/view?r=eyJrIjoiODU1ZmZmNGMtYzMwMy00M2FjLWJkMmMtYTRlMGI3NzU3M2Y0IiwidCI6ImRkOGNiZWJiLTIxMzktNGRmOC1iNDExLTRlM2U4N2FiZWI1YyIsImMiOjF9"
 SHEETS_URL = "https://docs.google.com/spreadsheets/d/14GY3gnoUgsS5b26H0xXXQvyB3xXhAFBj4-lXxhtcWw0"
 
-# CHROME XPATHS
+# XPATHS
 XPATH_TABLE = "//*[@id=\"pvExplorationHost\"]/div/div/exploration/div/explore-canvas-modern/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container-modern[1]/transform/div"
 XPATH_DATES = "//*[@id=\"pvExplorationHost\"]/div/div/exploration/div/explore-canvas-modern/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container-modern[1]/transform/div/div[3]/div/visual-modern/div/div/div[2]/div[1]/div[2]"
 XPATH_DATA = "//*[@id=\"pvExplorationHost\"]/div/div/exploration/div/explore-canvas-modern/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container-modern[1]/transform/div/div[3]/div/visual-modern/div/div/div[2]/div[1]/div[4]/div/div"
@@ -22,44 +23,34 @@ XPATH_POP = "//*[@id=\"pvExplorationHost\"]/div/div/exploration/div/explore-canv
 # SPREADSHEET CONSTS
 DATE_COL = 1
 
-# FIREFOX XPATHS
-# XPATH_TABLE = "/html/body/div[1]/root/div/div/div[1]/div/div/div/exploration-container/exploration-container-modern/div/div/div/exploration-host/div/div/exploration/div/explore-canvas-modern/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container-modern[1]/transform/div"
-# XPATH_DATES = "/html/body/div[1]/root/div/div/div[1]/div/div/div/exploration-container/exploration-container-modern/div/div/div/exploration-host/div/div/exploration/div/explore-canvas-modern/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container-modern[1]/transform/div/div[3]/div/visual-modern/div/div/div[2]/div[1]/div[2]"
-# XPATH_DATA = "/html/body/div[1]/root/div/div/div[1]/div/div/div/exploration-container/exploration-container-modern/div/div/div/exploration-host/div/div/exploration/div/explore-canvas-modern/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container-modern[1]/transform/div/div[3]/div/visual-modern/div/div/div[2]/div[1]/div[4]"
-# XPATH_POP = "/html/body/div[1]/root/div/div/div[1]/div/div/div/exploration-container/exploration-container-modern/div/div/div/exploration-host/div/div/exploration/div/explore-canvas-modern/div/div[2]/div/div[2]/div[2]/visual-container-repeat/visual-container-modern[1]/transform/div/div[3]/div/visual-modern/div/div/div[2]/div[1]/div[3]"
-
 scope = ['https://www.googleapis.com/auth/spreadsheets']
-creds = ServiceAccountCredentials.from_json_keyfile_name('service_account.json', scope)
+creds = ServiceAccountCredentials.from_json_keyfile_name('/home/pi/Documents/yale_covid_scrape/service_account.json', scope)
 client = gspread.authorize(creds)
 
 # gc = gspread.service_account("service_account.json", scope)
 # gc = gspread.oauth(scope)
 doc = client.open_by_url(SHEETS_URL)
-
 # sheet for new format with on/off campus location
 s = doc.worksheet("Location")
 
-options = Options()
-# options.add_argument('--headless')
-# options.add_argument('--disable-gpu')
+display = Display(visible=0, size=(800,600))
+display.start()
 
-driver = webdriver.Chrome(chrome_options=options)
+driver = webdriver.Firefox()
 
-# driver = webdriver.Firefox()
 driver.get(DASHBOARD_URL)
 
 sleep(1)
 
 try:
     # wait until the data has loaded
-    WebDriverWait(driver, 10).until(
+    WebDriverWait(driver, 15).until(
         EC.presence_of_element_located((By.XPATH, XPATH_TABLE))
     )
 
     print("Table succesfully loaded!")
-
-    sleep(1)
-
+    
+    sleep(10)
 
     # get the dates
     datesRow = driver.find_element_by_xpath(XPATH_DATES)
@@ -68,7 +59,6 @@ try:
     data = driver.find_element_by_xpath(XPATH_DATA)
     dataHTML = data.get_attribute("innerHTML")
 
-    # unused right now
     popColumn = driver.find_element_by_xpath(XPATH_POP)
     popList = list(map(lambda x : x.strip(' \n'), popColumn.text.split('\n')))
 
@@ -77,7 +67,7 @@ try:
     for col in range(0, 7):
         # new day
         dayData = list(list(dataSoup.children)[col].children)
-
+        
         onCampusUnderGradTest = dayData[4].text
         onCampusUnderGradPos = dayData[5].text
 
@@ -113,13 +103,14 @@ try:
             start_cell = gspread.utils.rowcol_to_a1(len(s.col_values(DATE_COL)) + 1, DATE_COL)
         
         if start_cell is not None:
-            s.update(start_cell, [[cell] for cell in row_entry], major_dimension='columns')    
+            s.update(start_cell, [[cell] for cell in row_entry], major_dimension='columns')   
 
 
 except Exception as e:
     print(e)
 
 finally:
+    display.stop()
     driver.quit()
 
 print("Done updating spreadsheet!")

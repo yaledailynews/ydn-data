@@ -67,7 +67,7 @@ try:
     for col in range(0, 7):
         # new day
         dayData = list(list(dataSoup.children)[col].children)
-        
+
         onCampusUnderGradTest = dayData[4].text
         onCampusUnderGradPos = dayData[5].text
 
@@ -93,7 +93,7 @@ try:
         # data already entered, check if it's still accurate
         if row_date in s.col_values(DATE_COL):
             row_index = s.col_values(DATE_COL).index(row_date) + 1
-            if s.row_values(row_index) != row_entry:
+            if s.row_values(row_index)[0:9] != row_entry:
                 print("Updating Row: ", row_entry)
                 start_cell = gspread.utils.rowcol_to_a1(row_index, DATE_COL)
 

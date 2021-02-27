@@ -40,8 +40,8 @@ doc = client.open_by_url(SHEETS_URL)
 s = doc.worksheet("Location")
 
 options = Options()
-# options.add_argument('--headless')
-# options.add_argument('--disable-gpu')
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
 
 driver = webdriver.Chrome(chrome_options=options)
 
@@ -103,7 +103,8 @@ try:
         # data already entered, check if it's still accurate
         if row_date in s.col_values(DATE_COL):
             row_index = s.col_values(DATE_COL).index(row_date) + 1
-            if s.row_values(row_index) != row_entry:
+
+            if s.row_values(row_index)[0:9] != row_entry:
                 print("Updating Row: ", row_entry)
                 start_cell = gspread.utils.rowcol_to_a1(row_index, DATE_COL)
 

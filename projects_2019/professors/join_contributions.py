@@ -8,7 +8,7 @@ def filter_professors(row):
     return True
 
 
-professors = pd.read_csv("output.csv")
+professors = pd.read_csv("professors_and_lecturers.csv")
 professors = professors[professors.apply(filter_professors, axis=1)]
 
 print("loaded professors")

@@ -6,11 +6,11 @@ import csv
 options = ChromeOptions()
 options.add_argument('headless')
 # must have chromedriver in path
-driver = Chrome("/home/thomas/Dropbox/chromedriver")
+driver = Chrome("/Users/thomaswoodside/chromedriver")
 
 
 def get_url(search_str):
-    return "https://directory.yale.edu/?queryType=field&lastname=" + search_str + "&title=lecturer"
+    return "https://directory.yale.edu/?queryType=field&lastname=" + search_str + "&title=professor"
 
 
 def search(original_search_str, professor_ids_scraped, writer):
@@ -38,12 +38,15 @@ def search(original_search_str, professor_ids_scraped, writer):
                             info["department"] = content.text
                             break
                 if "email" not in info:
-                    print(element.find_element_by_class_name("bps-result-name").text)
-                    continue
+                    info["email"] = ""
+
+                # if "email" not in info:
+                #     print(element.find_element_by_class_name("bps-result-name").text)
+                #     continue
                 info["name"] = element.find_element_by_class_name("bps-result-name").text
                 info["title"] = element.find_element_by_class_name("bps_title").text
-                if info["email"] not in professor_ids_scraped:
-                    professor_ids_scraped.add(info["email"])
+                if info["name"] + info["email"] not in professor_ids_scraped:
+                    professor_ids_scraped.add(info["name"] + info["email"])
                     writer.writerow(info)
             except Exception as e:
                 print(e)
@@ -52,7 +55,7 @@ def search(original_search_str, professor_ids_scraped, writer):
     return professor_ids_scraped
 
 
-f = open("lecturers.csv", "w")
+f = open("professors.csv", "w")
 writer = csv.DictWriter(f, fieldnames=["name", "title", "email", "department"])
 writer.writeheader()
 search("", set(), writer)

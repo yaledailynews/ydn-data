@@ -35,9 +35,10 @@
   			["Trumbull", 41.323910, -72.967180],
   			["Ben Frank", 41.330732, -72.921456],
 		];
-	
+
+//all images from emojipedia, apple emojis
 	var cryingIcon = L.icon({
-    iconUrl: 'crying.png',
+    iconUrl: 'icons/crying.png',
     iconSize:     [30, 30], // size of the icon
     iconAnchor:   [0, 0], // point of the icon which will correspond to marker's location
     popupAnchor:  [0, 0] // point from which the popup should open relative to the iconAnchor
@@ -54,17 +55,77 @@
 		attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
 	}).addTo(map);
 
-	for (var i = 0; i < locations.length; i++) {
-	  marker = new L.marker([locations[i][1], locations[i][2]],{icon: cryingIcon,draggable: true})
-	    .bindPopup(locations[i][0])
-	    .addTo(map);
+	//build the intial map icons.
+	function build_map_icons() {
+
+		for (var i = 0; i < locations.length; i++) {
+			marker = new L.marker([locations[i][1], locations[i][2]], { icon: cryingIcon, draggable: false })
+				.bindPopup(locations[i][0])
+				.addTo(map);
+		}
+	}
+	
+	//add the icon to the list, should also be added to the spreadsheet separetly
+	function add_map_icon(icon_list) {
+		marker = new L.marker([icon_list[1], icon_list[2]], { icon: cryingIcon, draggable: false })
+			.bindPopup(icon_list[0])
+			.addTo(map);
 	}
 
 
+	const popUpText = `
+	<div>
+		<h3>Add an item</h3>
+		<form id="submitNewEmoji" onsubmit="add_new(); return false">
+			<label style="font-weight: bold">Emoji: </label><br>
+
+			<label for="cry">&#128557</label>
+			<input type="radio" id="cry" name="emoji" value="cry" required="true">
+
+			<label for="scream">&#129324</label>
+			<input type="radio" id="scream" name="emoji" value="scream" required="true">
+
+			<label for="nap">&#128564</label>
+			<input type="radio" id="nap" name="emoji" value="nap" required="true">
+
+			<label for="eggplant">&#127814</label>
+			<input type="radio" id="eggplant" name="emoji" value="eggplant" required="true">
+
+			<br><br>
+			<input type="submit" value="Add me!">
+		</form>
+	</div>
+	`
+	var popup;
+
+	//hanlde click events
+	map.on('click', (e) => {
+		var popupLoc = e.latlng
+		popup = L.popup().setLatLng(popupLoc).setContent(popUpText).openOn(map)
+	})
+
+	function add_new(event) {
+		radios = document.getElementsByName("emoji")
+		for (var i = 0; i < radios.length; i++) {
+			if (radios[i].checked) {
+				selected = radios[i].value
+				break;
+			}
+		}
+		latlng = popup.getLatLng()
+		new_entry = [selected, latlng.lat, latlng.lng]
+		add_map_icon(new_entry)
+		add_to_gsheet(new_entry)
+		map.closePopup();
+	}
 
     //map.panTo(new L.LatLng(position.lat, position.lng));
 	</script>
 </div>
+
+<script src="https://apis.google.com/js/platform.js?onload=init" async defer></script>
+<script src="spreadsheet_scripts.js"></script>
+
 </body>
 </html>
 </html>

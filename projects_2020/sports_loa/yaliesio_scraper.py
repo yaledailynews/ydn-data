@@ -37,9 +37,19 @@ df['dup_year_name'] = df.index.isin(clones_same_year.index)
 # combine the first_name and last_name columns to make a single 'full_name' column
 df['full_name'] = df['first_name'] + " " + df['last_name']
 
-# keep only the important columns
-df = df[['full_name', 'year', 'leave', 'dup_year_name']]
+'''
+code to get emails for phoebe
+'''
+emails = df[['full_name', 'email', 'year', 'leave']]
+emails = emails[emails.leave]
+emails.to_csv("yc_loa_emails.csv", index=False)
+'''
+end phoebe code
+'''
 
-# drop our newly cleaned LoA data into a csv
-df.to_csv(CSV_NAME, index=False)
-print("Created {}!".format(CSV_NAME))
+# # keep only the important columns
+# df = df[['full_name', 'year', 'leave', 'dup_year_name']]
+
+# # drop our newly cleaned LoA data into a csv
+# df.to_csv(CSV_NAME, index=False)
+# print("Created {}!".format(CSV_NAME))

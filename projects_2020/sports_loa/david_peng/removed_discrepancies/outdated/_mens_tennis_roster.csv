@@ -1,0 +1,8 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Arnav Dhingra,FALSE,mens_tennis,Men,2022,"Darnestown, Maryland",TRUE,FALSE
+1,Daniel Gale,FALSE,mens_tennis,Men,2023,"Boca Raton, Fla.",TRUE,FALSE
+2,Cody Lin,FALSE,mens_tennis,Men,2021,"Thousand Oaks, California",TRUE,FALSE
+3,Louis Siegler,FALSE,mens_tennis,Men,2023,"Miami, Fla.",TRUE,FALSE
+4,Alan Sou,FALSE,mens_tennis,Men,2021,Hong Kong,TRUE,FALSE
+5,Michael Sun,TRUE,mens_tennis,Men,2023,"Livingston, New Jersey",TRUE,FALSE
+6,Robert Shymansky,FALSE,mens_tennis,Men,2023,"Cheswick, Pa.",TRUE,FALSE

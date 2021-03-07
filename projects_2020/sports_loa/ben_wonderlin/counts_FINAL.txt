@@ -1,0 +1,7 @@
+rates of leave of absence:
+
+all students: 1357 / 6145 (22.08%)
+
+non-athletes: 1092 / 5486 (19.91%)
+int'l athletes: 40 / 112 (35.71%)
+non-int'l athletes: 225 / 547 (41.13%)

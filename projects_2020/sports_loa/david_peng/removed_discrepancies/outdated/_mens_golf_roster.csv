@@ -1,0 +1,7 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Darren Lin,FALSE,mens_golf,Men,2022,"Chino Hills, Calif.",TRUE,FALSE
+1,Paul Stankey,FALSE,mens_golf,Men,2021,"Wayzata, Minn.",TRUE,FALSE
+2,Perry Xin,FALSE,mens_golf,Men,2021,"Vancouver, B.C.",TRUE,FALSE
+3,Sean Yi,FALSE,mens_golf,Men,2021,"Auburn, Wash.",TRUE,FALSE
+4,Teddy Zinsner,TRUE,mens_golf,Men,2022,"Alexandria, Va.",TRUE,FALSE
+5,Gabriel Ruiz,TRUE,mens_golf,Men,2024,"Monterrey, Mexico",TRUE,FALSE

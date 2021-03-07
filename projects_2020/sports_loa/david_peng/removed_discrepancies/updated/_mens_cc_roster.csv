@@ -1,0 +1,20 @@
+,full_name,leave,team,gender,year,hometown,outdated,dup_year_name
+0,Neil Braganza,FALSE,mens_cc,Men,2021,"San Ramon, Calif.",FALSE,FALSE
+1,Cade Brown,TRUE,mens_cc,Men,2023,"Bellingham, Wash.",FALSE,FALSE
+2,Nick Dahl,FALSE,mens_cc,Men,2021,"Philadelphia, Pa.",FALSE,FALSE
+3,Charlie Gardner,FALSE,mens_cc,Men,2021,"Southlake, Texas",FALSE,FALSE
+4,Liam Garrett,TRUE,mens_cc,Men,2024,"London, U.K.",FALSE,FALSE
+5,Will Laird,TRUE,mens_cc,Men,2022,"Seattle, Wash.",FALSE,FALSE
+6,Robert Miranda,FALSE,mens_cc,Men,2022,"Atherton, Calif.",FALSE,FALSE
+7,Stephen Moody,TRUE,mens_cc,Men,2024,"Glen Ellyn, Ill.",FALSE,FALSE
+8,Brendan Murray,FALSE,mens_cc,Men,2022,"Cheshire, Conn.",FALSE,FALSE
+9,Evan Pattinelli,FALSE,mens_cc,Men,2022,"La Canada Flintridge, Calif.",FALSE,FALSE
+10,Patrick Perry,FALSE,mens_cc,Men,2021,"Manlius, NY.",FALSE,FALSE
+11,Hugh Sadler,FALSE,mens_cc,Men,2022,"Bristol, U.K.",FALSE,FALSE
+12,Henry Saul,TRUE,mens_cc,Men,2024,"Palo Alto, Calif.",FALSE,FALSE
+13,Harrison Smith,FALSE,mens_cc,Men,2022,"Southend-on-Sea, Essex, U.K.",FALSE,FALSE
+14,Ryan Smithers,TRUE,mens_cc,Men,2024,"Laguna Beach, Calif.",FALSE,FALSE
+15,Richard Sturtevant,FALSE,mens_cc,Men,2023,"Leyden, Mass.",FALSE,FALSE
+16,Alex Whittaker,FALSE,mens_cc,Men,2021,"Laurel, Md.",FALSE,FALSE
+17,Cameron Wyman,TRUE,mens_cc,Men,2022,"Gig Harbor, Wash.",FALSE,FALSE
+18,Chris Brown,TRUE,mens_cc,Men,2024,"Wilmington, Del.",FALSE,FALSE

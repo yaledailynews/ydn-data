@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <!-- need jQuery for AJXA -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+
+    <!-- Code from https://github.com/macek/jquery-serialize-object -->
+    <script>
+        /**
+         * jQuery serializeObject
+         * @copyright 2014, macek <paulmacek@gmail.com>
+         * @link https://github.com/macek/jquery-serialize-object
+         * @license BSD
+         * @version 2.5.0
+         */
+        ! function(e, i) {
+            if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
+                return i(e, r)
+            });
+            else if ("undefined" != typeof exports) {
+                var r = require("jquery");
+                i(exports, r)
+            } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
+        }(this, function(e, i) {
+            function r(e, r) {
+                function n(e, i, r) {
+                    return e[i] = r, e
+                }
+
+                function a(e, i) {
+                    for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+                        if (t.push.test(r)) {
+                            var u = s(e.replace(/\[\]$/, ""));
+                            i = n([], u, i)
+                        } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
+                    return i
+                }
+
+                function s(e) {
+                    return void 0 === h[e] && (h[e] = 0), h[e]++
+                }
+
+                function u(e) {
+                    switch (i('[name="' + e.name + '"]', r).attr("type")) {
+                        case "checkbox":
+                            return "on" === e.value ? !0 : e.value;
+                        default:
+                            return e.value
+                    }
+                }
+
+                function f(i) {
+                    if (!t.validate.test(i.name)) return this;
+                    var r = a(i.name, u(i));
+                    return l = e.extend(!0, l, r), this
+                }
+
+                function d(i) {
+                    if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
+                    for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+                    return this
+                }
+
+                function o() {
+                    return l
+                }
+
+                function c() {
+                    return JSON.stringify(o())
+                }
+                var l = {},
+                    h = {};
+                this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
+            }
+            var t = {
+                validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+                key: /[a-z0-9_]+|(?=\[\])/gi,
+                push: /^$/,
+                fixed: /^\d+$/,
+                named: /^[a-z0-9_]+$/i
+            };
+            return r.patterns = t, r.serializeObject = function() {
+                return new r(i, this).addPairs(this.serializeArray()).serialize()
+            }, r.serializeJSON = function() {
+                return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
+            }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+        });
+    </script>
+
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0%;
+            right: 0;
+        }
+        
+        #toggle_button {
+            pointer-events: auto;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+        
+        .emoji_div {
+            font-size: xx-large;
+        }
+    </style>
+
+    <!-- leaflet core -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js">
+    </script>
+
+    <!-- leaflet clustering -->
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+
+    <!-- emoji -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="lib/css/emoji.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="form-wrapper" style="visibility: hidden;">
+        <form id="input-form">
+            <p>Choose an emoji</p>
+            <p class="lead emoji-picker-container">
+                <input type="text" id="emoji_input" name="emoji" data-emojiable="true" data-emoji-input="unicode" maxlength="1" placeholder="Emoji" />
+            </p>
+
+            <!-- <select name="emoji">
+                        <option disabled selected value>Select your emoji</option>
+                        <option id = "cry" value = "&#128557">&#128557</option>
+                        <option id = "scream" value = "&#129324">&#129324</option>
+                        <option id = "nap" value = "&#128564">&#128564</option>
+                        <option id = "date" value = "&#128158">&#128158</option>
+                        <option id = "eggplant" value = "&#127814">&#127814</option>
+                    </select> -->
+
+            <!-- hidden inputs -->
+            <div style="display: none;">
+                <input type="text" name="lat" id="lat_input" />
+                <input type="text" name="long" id="lng_input" />
+                <input type="text" name="time" id="time_input" />
+            </div>
+
+            <div>
+                <label>Enter your description below:</label>
+                <br>
+                <textarea name="desc" id="desc_input" placeholder="Description" rows="8" style="width: 100%;"></textarea>
+            </div>
+            <br>
+            <div>
+                <label>Optional: <br>
+                    Provide your email to be contacted for a followup story</label>
+
+                <textarea name="email" id="email_input" placeholder="Email" rows="1" style="width: 100%"></textarea>
+                <br>
+            </div>
+
+            <button type="submit" id="submit-form" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">Submit</button>
+        </form>
+    </div>
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Thank You!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+                </div>
+                <div class="modal-body">
+                    <p>Your response will be reviewed and possibly edited for clarity</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="map">
+        <div class="leaflet-top leaflet-right">
+            <input type="button" id="toggle_button" value="Click here to add a marker!" onclick="toggle_add_mode()" class="btn btn-primary" />
+        </div>
+    </div>
+
+    <script>
+        // google script endpoint to send map data to
+        const URL = 'https://script.google.com/macros/s/AKfycbyA9mleI7d_eBvNyLPiMvd_Kgj5xwqgWJIqHimtMrka96YLmJpC/exec'
+        const POPUP_TEXT = document.getElementById('form-wrapper').innerHTML
+
+        var description_text = "" // placeholder var to hold contents of "desc" in popup
+        var email_text = ""
+        var markers = L.markerClusterGroup()
+        var ADD_TOGGLE = true
+        var JUST_CLICKED = false
+
+        // display the map with the focus on New Haven
+        var map = L.map('map').setView([41.31006634443993, -72.92942136526109], 18);
+        L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wZnhwGRqtomo0QHvxpxW', {
+            attribution: '<a href="https://www.maptiler.com/copyright/" target="_blank">&copy; MapTiler</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">&copy; OpenStreetMap contributors</a>',
+            maxZoom: 21
+        }).addTo(map);
+
+        // L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        //     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+        //     maxZoom: 21
+        // }).addTo(map);
+
+        var popupGlobal; // this is ok for debugging
+
+        //handle click events
+        function main_map_listener(e) {
+
+            if (JUST_CLICKED) {
+                JUST_CLICKED = false
+                return true
+            }
+
+            console.log("map click")
+            var popupLoc = e.latlng;
+            popupGlobal = L.popup({
+                maxWidth: 500
+            }).setLatLng(popupLoc).setContent(POPUP_TEXT).openOn(map)
+
+            // make the emoji field
+            $(function() {
+                // Initializes and creates emoji set from sprite sheet
+                window.emojiPicker = new EmojiPicker({
+                    emojiable_selector: '[data-emojiable=true]',
+                    assetsPath: 'lib/img/',
+                    popupButtonClasses: 'fa fa-smile-o'
+                });
+
+                // Finds all elements with `emojiable_selector` and converts them to rich emoji input fields
+                window.emojiPicker.discover();
+            });
+
+            // add the listeners for submit button and saving description text
+            add_listeners(popupGlobal)
+        }
+
+        // toggle between view mode and add mode
+        function toggle_add_mode() {
+            if (ADD_TOGGLE) {
+                map.removeLayer(markers)
+                JUST_CLICKED = true
+                map.on('click', main_map_listener)
+
+                $("#toggle_button").css("background-color", "#ff8400")
+            } else {
+                map.addLayer(markers)
+                map.off('click', main_map_listener)
+
+                $("#toggle_button").css("background-color", "#007bff")
+            }
+
+            ADD_TOGGLE = !ADD_TOGGLE
+        }
+
+        function add_listeners(popup) {
+            console.log("trying to add listeners")
+
+            // get the DOMs for popup and submit button
+            var popupDom = $(popup.getElement())
+            var button = popupDom.find("#submit-form")
+            var textField = popupDom.find("#desc_input")
+            var emailField = popupDom.find("#email_input")
+
+            // listener for saving descripton text
+            popup.on('remove', () => {
+                description_text = textField.val();
+                email_text = emailField.val()
+            })
+
+            // fill in previous description text
+            if (description_text != "") {
+                textField.val(description_text)
+            }
+
+            if (email_text != "") {
+                emailField.val(email_text)
+            }
+
+
+            // event listener for submit button
+            button.on('click', function(e) {
+                console.log("in button listener")
+                var $form = popupDom.find("#input-form")
+                var latlng = popup.getLatLng()
+
+                if (!/\p{Extended_Pictographic}/u.test($form.find("#emoji_input").val())) {
+                    console.log("No emoji selected")
+
+                    if (!$form.find("#emoji_error").length)
+                        $form.find("#desc_input").after("<p id='emoji_error' style='color: red'>Make sure you choose an emoji!</p>")
+
+                    return false
+                }
+
+                // make sure only one emoji
+                var emoji_input = $form.find("#emoji_input").val()
+                $form.find("#emoji_input").val(emoji_input.substring(0, 2))
+
+                $form.find("#email_input").val()
+                console.log($form.serializeObject())
+
+
+                // input in the coordinates
+                popupDom.find("#lat_input").val(latlng.lat)
+                popupDom.find("#lng_input").val(latlng.lng)
+
+                // input in current time
+                currentTime = new Date()
+                popupDom.find("#time_input").val(currentTime.toGMTString())
+
+                e.preventDefault();
+                var jqxhr = $.ajax({
+                    url: URL,
+                    method: "GET",
+                    dataType: "json",
+                    data: $form.serializeObject(),
+                    success: function() {
+                        console.log("form succesfully sent!");
+                    }
+                });
+
+
+                // clear saved description text
+                textField.val("")
+                emailField.val("")
+                popup.removeFrom(map)
+                toggle_add_mode()
+            })
+        }
+
+
+        Papa.parse("https://raw.githubusercontent.com/ydntech/ydntech.github.io/master/public_projects/emoji_map/approved_responses.csv", {
+            download: true,
+            header: true,
+            complete: (res) => {
+                res.data.forEach(element => {
+                    var textIcon = L.divIcon({
+                        html: '<p class=\'emoji_div\'>' + element['emoji'] + '</p>',
+                        iconSize: [50, 50], // size of the icon
+                        className: '' // get rid of the default class
+                    })
+
+                    var marker = new L.marker([element['lat'], element['long']], {
+                            icon: textIcon,
+                            draggable: false
+                        })
+                        .bindPopup(element['desc'])
+
+                    markers.addLayer(marker)
+                        // //can change the length requirement
+                        // if (element.length == 5 && element[0] != '' && !isNaN(parseFloat(element[1])) && !isNaN(parseFloat(element[2])) && element[3] != '') { //goes type, lat, lon, decription, time, approved (just have be one) can have && element[5] == '1' for approvied
+
+                    //     locations.push([element[0], parseFloat(element[1]), parseFloat(element[2]), element[3]]) //idk where the description goes
+                    // }
+
+
+                });
+                console.log("done loading data")
+                map.addLayer(markers)
+            },
+            error: (data) => {
+                console.log("fetch error")
+            }
+
+        })
+    </script>
+    </div>
+
+    <!-- emoji libraries -->
+    <script src="lib/js/config.js"></script>
+    <script src="lib/js/util.js"></script>
+    <script src="lib/js/jquery.emojiarea.js"></script>
+    <script src="lib/js/emoji-picker.js"></script>
+
+</body>
+
+</html>

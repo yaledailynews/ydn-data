@@ -1,4 +1,3 @@
-
 import re
 import requests
 import pandas as pd
@@ -23,7 +22,8 @@ outdated_teams = [["womens_softball", "https://yalebulldogs.com/sports/softball/
                   ["mens_baseball", "https://yalebulldogs.com/sports/baseball/roster"],
                   ["mens_basketball", "https://yalebulldogs.com/sports/mens-basketball/roster"],
                   ["mens_heavyweight_crew", "https://yalebulldogs.com/sports/mens-crew/roster"],
-                  ["mens_lightweight_crew", "https://yalebulldogs.com/sports/mens-rowing/roster"]]
+                  ["mens_lightweight_crew", "https://yalebulldogs.com/sports/mens-rowing/roster"]] #
+
 
 # regex filter for alphabet + some other characters
 regex = re.compile("[^a-zA-Z,. ]")
@@ -33,6 +33,8 @@ convert_year = {"Fy." : 2024,
                 "So." : 2023,
                 "Jr." : 2022,
                 "Sr." : 2021}
+
+master_sheet = pd.DataFrame()
 
 # core loop
 for team in updated_teams + outdated_teams:
@@ -64,6 +66,15 @@ for team in updated_teams + outdated_teams:
     # create pandas dataframe with correct column names
     df = pd.DataFrame(team[1], columns = ["full_name", "year", "hometown"])
     
+    # add sport name
+    df["sport"] = team[0]
+    
+    # add gender
+    if team[0][0:3] == "wom":
+        df["gender"] = "Female"
+    else:
+        df["gender"] = "Male"
+        
     # flag outdated rosters
     if team in outdated_teams:
         df["outdated"] = True
@@ -74,10 +85,9 @@ for team in updated_teams + outdated_teams:
     df = df.merge(loa_directory, on = "full_name", how = "inner")
     
     # rearrange and rename columns
-    df = df[["full_name", "leave", "year_y", "hometown", "outdated", "dup_year_name"]]
-    df.columns = ["full_name", "leave", "year", "hometown", "outdated", "dup_year_name"]
+    df = df[["full_name", "leave", "sport", "gender", "year_y", "hometown", "outdated", "dup_year_name"]]
+    df.columns = ["full_name", "leave", "team", "gender", "year", "hometown", "outdated", "dup_year_name"]
     
     # write to csv
     df.to_csv((team[0] + "_roster.csv"), index = False)
- 
  

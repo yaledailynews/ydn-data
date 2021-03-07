@@ -22,24 +22,26 @@ for options in election_select.options[2:]:
 
     # wait for voter turnout to be available and click on it
     try:
+        sleep(0.5)
         WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable(((By.NAME, "statewide"))))
-        sleep(0.5)
+        
         driver.find_element_by_name("statewide").click()
         print("clicked statewide")
         
 
+        sleep(0.5)
         WebDriverWait(driver, 10).until(
             EC.element_to_be_clickable(((By.NAME, "voterTurnout"))))
-        sleep(0.5)
+        
         driver.find_element_by_name("voterTurnout").click()
         print("clicked turnout")
         
-
+        sleep(0.5)
         WebDriverWait(driver, 10).until(
             EC.presence_of_element_located((By.ID, "dvVoterTurnout_Summary"))
         )
-        sleep(0.5)
+        
         print("turnout table loaded")
     except:
         driver.quit()
@@ -73,4 +75,4 @@ columns=["Election", "ELIGIBLE VOTERS IN THE TOWN", "NUMBER OF VOTERS VOTED IN T
     "NUMBER OF ABSENTEE BALLOT RECEIVED", "NUMBER OF ABSENTEE BALLOT COUNTED",
     "NUMBER OF EDR ISSUED", "NUMBER OF EDR COUNTED", "TURNOUT"])
 
-data.to_csv("nh_voting.csv")
+# data.to_csv("nh_voting.csv")

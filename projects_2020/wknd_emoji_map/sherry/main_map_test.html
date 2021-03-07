@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- need jQuery for AJXA -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" integrity="sha512-07I2e+7D8p6he1SIM+1twR5TIrhUQn9+I6yjqD53JQjFiMf8EtC93ty0/5vJTZGF8aAocvHYNEDJajGdNx1IsQ==" crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet-src.js" integrity="sha512-WXoSHqw/t26DszhdMhOXOkI7qCiv5QWXhH9R7CgvgZMHz1ImlkVQ3uNsiQKu5wwbbxtPzFXd1hK4tzno2VqhpA==" crossorigin=""></script> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js">
+    </script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <script src="https://unpkg.com/leaflet.markercluster@1.4.1/dist/leaflet.markercluster.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.css" />
+    <!-- <script src="https://unpkg.com/browse/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"></script> -->
+    <!-- Code from https://github.com/macek/jquery-serialize-object -->
+    <script>
+        /**
+         * jQuery serializeObject
+         * @copyright 2014, macek <paulmacek@gmail.com>
+         * @link https://github.com/macek/jquery-serialize-object
+         * @license BSD
+         * @version 2.5.0
+         */
+        ! function(e, i) {
+            if ("function" == typeof define && define.amd) define(["exports", "jquery"], function(e, r) {
+                return i(e, r)
+            });
+            else if ("undefined" != typeof exports) {
+                var r = require("jquery");
+                i(exports, r)
+            } else i(e, e.jQuery || e.Zepto || e.ender || e.$)
+        }(this, function(e, i) {
+            function r(e, r) {
+                function n(e, i, r) {
+                    return e[i] = r, e
+                }
+
+                function a(e, i) {
+                    for (var r, a = e.match(t.key); void 0 !== (r = a.pop());)
+                        if (t.push.test(r)) {
+                            var u = s(e.replace(/\[\]$/, ""));
+                            i = n([], u, i)
+                        } else t.fixed.test(r) ? i = n([], r, i) : t.named.test(r) && (i = n({}, r, i));
+                    return i
+                }
+
+                function s(e) {
+                    return void 0 === h[e] && (h[e] = 0), h[e]++
+                }
+
+                function u(e) {
+                    switch (i('[name="' + e.name + '"]', r).attr("type")) {
+                        case "checkbox":
+                            return "on" === e.value ? !0 : e.value;
+                        default:
+                            return e.value
+                    }
+                }
+
+                function f(i) {
+                    if (!t.validate.test(i.name)) return this;
+                    var r = a(i.name, u(i));
+                    return l = e.extend(!0, l, r), this
+                }
+
+                function d(i) {
+                    if (!e.isArray(i)) throw new Error("formSerializer.addPairs expects an Array");
+                    for (var r = 0, t = i.length; t > r; r++) this.addPair(i[r]);
+                    return this
+                }
+
+                function o() {
+                    return l
+                }
+
+                function c() {
+                    return JSON.stringify(o())
+                }
+                var l = {},
+                    h = {};
+                this.addPair = f, this.addPairs = d, this.serialize = o, this.serializeJSON = c
+            }
+            var t = {
+                validate: /^[a-z_][a-z0-9_]*(?:\[(?:\d*|[a-z0-9_]+)\])*$/i,
+                key: /[a-z0-9_]+|(?=\[\])/gi,
+                push: /^$/,
+                fixed: /^\d+$/,
+                named: /^[a-z0-9_]+$/i
+            };
+            return r.patterns = t, r.serializeObject = function() {
+                return new r(i, this).addPairs(this.serializeArray()).serialize()
+            }, r.serializeJSON = function() {
+                return new r(i, this).addPairs(this.serializeArray()).serializeJSON()
+            }, "undefined" != typeof i.fn && (i.fn.serializeObject = r.serializeObject, i.fn.serializeJSON = r.serializeJSON), e.FormSerializer = r, r
+        });
+    </script>
+
+    <div id="left">
+        <div id="google-form">
+            <form action="https://docs.google.com/forms/d/e/1FAIpQLSe3K5mmm5Fzezpltxb0dmElMxJYMpyMkujwPjbjPbiGRa1MPQ/viewform?usp=sf_link" target="hiddenFrame">
+                <iframe name="hiddenFrame" width="0" height="0" border="0" style="display: none;"></iframe>
+                <h2>Tell us about a time you cried at Yale.</h2>
+                <p class="caption">Responses may be edited for clarity and length.</p>
+                <textarea jsname="YPqjbf" jscontroller="gZjhIf" jsaction="input:Lg5SV;ti6hGc:XMgOHc;rcuQ6b:WYd;" required="" name="entry.643682983" dir="auto" data-initial-dir="auto"></textarea>
+                <div id="buttons">
+                    <input type="button" id="drag" value="Add pin to map" name="entry.2117530617">
+                    <input id="location" type="text" jsname="YPqjbf" autocomplete="off" tabindex="0" name="entry.2117530617" value="" required="" dir="auto" data-initial-dir="auto" data-initial-value="" style="display: none">
+                    <input class="button" id="submit" type="submit" value="Submit" disabled="true">
+                </div>
+            </form>
+        </div>
+    </div>
+    <style>
+        #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 30%;
+            right: 0;
+        }
+    </style>
+    <script>
+    </script>
+
+    <div class="marker-menu">
+        <img class="draggable-marker" src="images/marker-icon.png" alt="marker" />
+    </div>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <script type="text/javascript">
+        var tiles = L.tileLayer('https://api.maptiler.com/maps/streets/256/{z}/{x}/{y}.png?key=wZnhwGRqtomo0QHvxpxW', {
+                maxZoom: 18,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }),
+
+
+
+            latlng = L.latLng(41.310970, -72.931990);
+
+
+        var map = L.map('map', {
+            center: latlng,
+            zoom: 15,
+            layers: [tiles]
+        });
+
+
+        var markers = L.marker([41.310253, -72.92642]);
+        map.addLayer(markers);
+        var markers = L.marker([41.310970, -72.931992]);
+        map.addLayer(markers);
+        var markers = L.markerClusterGroup();
+
+        markers.on('clusterclick', function(a) {
+            a.layer.spiderfy();
+        });
+
+        function populate() {
+            for (var i = 0; i < 1000; i++) {
+                var m = L.marker(getRandomLatLng(map));
+                markers.addLayer(m);
+            }
+            return false;
+        }
+
+        function getRandomLatLng(map) {
+            var bounds = map.getBounds(),
+                southWest = bounds.getSouthWest(),
+                northEast = bounds.getNorthEast(),
+                lngSpan = northEast.lng - southWest.lng,
+                latSpan = northEast.lat - southWest.lat;
+
+            return L.latLng(
+                southWest.lat + latSpan * Math.random(),
+                southWest.lng + lngSpan * Math.random());
+        }
+
+
+
+
+        function getRandomLatLng(map) {
+            var bounds = map.getBounds(),
+                southWest = bounds.getSouthWest(),
+                northEast = bounds.getNorthEast(),
+                lngSpan = northEast.lng - southWest.lng,
+                latSpan = northEast.lat - southWest.lat;
+
+            return L.latLng(
+                southWest.lat + latSpan * Math.random(),
+                southWest.lng + lngSpan * Math.random());
+        }
+
+
+        populate();
+        map.addLayer(markers);
+    </script>
+</body>
+
+</html>

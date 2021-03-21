@@ -71,9 +71,9 @@ function bubbleChart() {
 
   // Nice looking colors - no reason to buck the trend
   // @v4 scales now have a flattened naming scheme
-  var fillColor = d3.scaleOrdinal()
-    .domain(['profs', 'admin'])
-    .range(['#d84b2a', '#beccae']);
+  var fillColor = d3.scaleLinear()
+    .domain([-1, 0, 1])
+    .range(['#d84b2a', '#eeebd9', '#beccae']);
   //var fillColor = d3.scaleLinear()
   //  .domain([-1, 1])
   //  .range(['#d84b2a', '#beccae']);
@@ -165,8 +165,8 @@ function bubbleChart() {
     var bubblesE = bubbles.enter().append('circle')
       .classed('bubble', true)
       .attr('r', 0)
-      .attr('fill', function (d) { return fillColor(d.group); })
-      .attr('stroke', function (d) { return d3.rgb(fillColor(d.group)).darker(); })
+      .attr('fill', function (d) { return fillColor(d.color_val); })
+      .attr('stroke', function (d) { return d3.rgb(fillColor(d.color_val)).darker(); })
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
@@ -299,7 +299,7 @@ function bubbleChart() {
   function hideDetail(d) {
     // reset outline
     d3.select(this)
-      .attr('stroke', d3.rgb(fillColor(d.group)).darker());
+      .attr('stroke', d3.rgb(fillColor(d.color_val)).darker());
 
     tooltip.hideTooltip();
   }

@@ -114,11 +114,10 @@ function bubbleChart() {
         count_B: d.n_profs,
         value: +d.odds_ratio_admin_EB,
         name: d.word,
-        org: d.group,
         group: d.group,
         color_val: d.color_range_scale,
         year: d.year,
-        x: Math.random() * 900,
+        x: Math.random() * 900, // weird initial ordering probably coming from here
         y: Math.random() * 800
       };
     });
@@ -154,15 +153,26 @@ function bubbleChart() {
       .attr('height', height);
 
     // Bind nodes data to what will become DOM elements to represent them.
-    bubbles = svg.selectAll('.bubble')
+    bubbles = svg.append('g').selectAll('.bubble')
       .data(nodes, function (d) { return d.id; });
+
+    texts = svg.append('g').selectAll(null)
+      .data(nodes)
+      .enter()
+      .append('text')
+      .text(function (d) { return d.name; })
+      .attr('text-anchor', 'middle')
+      .attr('color', 'black')
+      .attr('font-size', function (d) { return d.radius / 3; })
 
     // Create new circle elements each with class `bubble`.
     // There will be one circle.bubble for each object in the nodes array.
     // Initially, their radius (r attribute) will be 0.
     // @v4 Selections are immutable, so lets capture the
     //  enter selection to apply our transtition to below.
-    var bubblesE = bubbles.enter().append('circle')
+    var bubblesE = bubbles
+      .enter()
+      .append('circle')
       .classed('bubble', true)
       .attr('r', 0)
       .attr('fill', function (d) { return fillColor(d.color_val); })
@@ -170,6 +180,11 @@ function bubbleChart() {
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
+      // .append('text')
+      // .text(function (d) { return d.name; })
+      // .attr('text-anchor', 'middle')
+      // .attr('color', 'black')
+      // .attr('font-size', function (d) { return d.radius / 3; });
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
@@ -199,6 +214,10 @@ function bubbleChart() {
     bubbles
       .attr('cx', function (d) { return d.x; })
       .attr('cy', function (d) { return d.y; });
+
+    texts
+      .attr('x', function (d) { return d.x; })
+      .attr('y', function (d) { return d.y; });
   }
 
   /*

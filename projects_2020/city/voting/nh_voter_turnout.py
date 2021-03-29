@@ -75,4 +75,4 @@ columns=["Election", "ELIGIBLE VOTERS IN THE TOWN", "NUMBER OF VOTERS VOTED IN T
     "NUMBER OF ABSENTEE BALLOT RECEIVED", "NUMBER OF ABSENTEE BALLOT COUNTED",
     "NUMBER OF EDR ISSUED", "NUMBER OF EDR COUNTED", "TURNOUT"])
 
-# data.to_csv("nh_voting.csv")
+data.to_csv("nh_voting.csv")

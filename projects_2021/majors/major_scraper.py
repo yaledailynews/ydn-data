@@ -7,33 +7,51 @@ import csv
 from urllib.request import urlopen 
 from bs4 import BeautifulSoup
 
-majors = ['applied-mathematics', 'applied-physics', 'architecture', 'art', 'astronomy',
-            'astrophysics', 'biomedical-engineering', 'chemical-engineering', 'chemistry',
-            'cognitive-science', 'computer-science-psychology', 'computing-arts', 'geology-geophysics',
-            'east-asian-languages-literatures', 'ecology-evolutionary-biology', 'economics-mathematics',
-            'electrical-engineering', 'electrical-engineering-computer-science', 'chemical-engineering', 
-            'electrical-engineering', 'environmental-engineering', 'mechanical-engineering', 
-            'environmental-studies', 'film-studies', 'french', 'italian', 'mathematics', 'mathematics-philosophy', 
-            'mathematics-physics', 'molecular-biophysics-biochemistry', 'molecular-cellular-developmental-biology', 
-            'neuroscience', 'physics', 'physics-geosciences', 'physics-philosophy', 'portuguese', 'psychology', 
-            'russian', 'spanish', 'statistics', 'theater-studies']
+url = "http://catalog.yale.edu/ycps/majors-in-yale-college/"
+html = urlopen(url)
+soup = BeautifulSoup(html, 'lxml')
 
-prereq_dict = {}
+all_links = soup.find_all('a')
+major_links = []
 
-for major in majors: 
-    url = "http://catalog.yale.edu/ycps/subjects-of-instruction/" + major
-    html = urlopen(url)
+for link in all_links: 
+    if link.has_attr('href'):
+        major_links.append(link.attrs['href'])
 
-    soup = BeautifulSoup(html, 'lxml')
-    
-    course_links = soup.find_all('a', class_="bubbleline code")
-    for i in range(len(course_links)):
-        course_links[i] = course_links[i].text.strip()
-    prereq_dict[major] = course_links
+major_links = major_links[23:103]
+link_header = 'http://catalog.yale.edu'
 
-with open('major_prereqs.csv', mode='w') as prereq_file: 
-    prereq_writer = csv.writer(prereq_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-    for major in majors: 
-        prereq_dict[major].insert(major, 0)
-        prereq_writer.writerow(prereq_dict[major])
+with open('major_prerequisites.csv', mode='w') as major_file: 
+    major_writer = csv.writer(major_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
 
+    for major in major_links: 
+        major_url = link_header + major
+        html_major = urlopen(major_url) 
+        soup_major = BeautifulSoup(html_major, 'lxml')
+
+        prereq_tag = soup_major.find('p', class_='rotmCategoryText')
+
+        if prereq_tag == None: 
+            if major.endswith('/'):
+                major_writer.writerow([major[30:-1], 'NONE'])
+            else:
+                major_writer.writerow([major[30:], 'NONE'])
+        else:
+            prereq_list = prereq_tag.find_all('a', class_='bubblelink code')
+
+            for prereq in prereq_list: 
+                text_only = prereq.text
+                if text_only[0].isdigit(): 
+                    full_course = coursecode + ' ' + prereq.text
+                    if major.endswith('/'): 
+                        major_writer.writerow([major[30:-1], full_course])
+                    else: 
+                        major_writer.writerow([major[30:], full_course])
+                else:
+                    if major.endswith('/'): 
+                        major_writer.writerow([major[30:-1], prereq.text])
+                    else:
+                        major_writer.writerow([major[30:], prereq.text])
+                    coursecode = prereq.text[0:4]
+
+major_file.close()

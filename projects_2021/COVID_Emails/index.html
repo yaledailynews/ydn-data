@@ -8,6 +8,7 @@
   <meta name="author" content="Leon Lufkin">
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/bubble_chart.css">
 </head>
@@ -15,21 +16,30 @@
   <div class="container">
     <h1>Bubbles</h1>
     <div id="toolbar">
-      <a href="#" id="all" class="button active">All Emails</a>
-      <a href="#" id="bysender" class="button">Emails By Sender</a>
+      <a href="#" id="all" class="button">all emails</a>
+      <a href="#" id="rescoadmin" class="button active">HOCs / admin</a>
     </div>
     <div id="vis"></div>
+    <div id="quotes">
+      <div class="row">
+        <div class="column"></div>
+        <div class="column"></div>
+      </div>
+    </div>
 
     <div class="footer">
-      <p>yale COVID Emails</p>
-      <strong>This version of the code uses D3v4!</strong>
-      <p><a href="http://vallandingham.me/bubble_charts_with_d3v4.html">YDN link</a> | <a href="https://github.com/vlandham/bubble_chart_v4">Code</a></p>
+      <p>Yale COVID Emails</p>
+      <strong>Made by Leon + ?</strong>
+      <p><a href="http://vallandingham.me/bubble_charts_with_d3v4.html">YDN link?</a> | <a href="https://github.com/vlandham/bubble_chart_v4">Code</a></p>
     </div>
   </div>
 
+  <script src="main.js"></script>
   <script src="//d3js.org/d3.v4.min.js"></script>
   <script src="src/tooltip.js"></script>
-  <script src="src/bubble_chart.js"></script>
+  <script src="src/quotes.js"></script>
+  <script type="text/javascript" src="data/top100_quotes.json"></script>
+  <script src="src/bubble_chart_custom.js"></script>
 
 </body>
 </html>

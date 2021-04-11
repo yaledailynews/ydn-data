@@ -21,14 +21,14 @@ function bubbleChart(quotes) {
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
-  var group_resco_adminCenters = {
-    'resco': { x : width / 3, y: height / 2 },
+  var group_HOCs_adminCenters = {
+    'HOCs': { x : width / 3, y: height / 2 },
     'admin': { x : 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the year titles.
-  var group_resco_adminCentersTitleX = {
-    'resco': 250,
+  var group_HOCs_adminCentersTitleX = {
+    'HOCs': 250,
     'admin': width - 250
   };
 
@@ -112,10 +112,10 @@ function bubbleChart(quotes) {
         radius: radiusScale(+d.n),
         count: d.rate_total,
         count_admin: d.rate_ADMIN,
-        count_resco: d.rate_RESCO,
+        count_HOCs: d.rate_HOCs,
         value: +d.rate_total_EB,
         name: d.word,
-        group_resco_admin: d.group_resco_admin,
+        group_HOCs_admin: d.group_HOCs_admin,
         color_val: d.color_range_scale,
         x: Math.random() * 900, // weird initial ordering probably coming from here
         //x: d.id * 8,
@@ -221,7 +221,7 @@ function bubbleChart(quotes) {
    * x force.
    */
   function nodeYearPos(d) {
-    return group_resco_adminCenters[d.group_resco_admin].x;
+    return group_HOCs_adminCenters[d.group_HOCs_admin].x;
   }
 
 
@@ -271,13 +271,13 @@ function bubbleChart(quotes) {
   function showYearTitles() {
     // Another way to do this would be to create
     // the year texts once and then just hide them.
-    var yearsData = d3.keys(group_resco_adminCentersTitleX);
+    var yearsData = d3.keys(group_HOCs_adminCentersTitleX);
     var years = svg1.selectAll('.year')
       .data(yearsData);
 
     years.enter().append('text')
       .attr('class', 'year')
-      .attr('x', function (d) { return group_resco_adminCentersTitleX[d]; })
+      .attr('x', function (d) { return group_HOCs_adminCentersTitleX[d]; })
       .attr('y', 40)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
@@ -299,7 +299,7 @@ function bubbleChart(quotes) {
                   Math.round(d.count_admin) +
                   '</span><br/>' +
                   '<span class="name">HOCs per 25k: </span><span class="value">' +
-                  Math.round(d.count_resco) +
+                  Math.round(d.count_HOCs) +
                   '</span>';
 
     tooltip.showTooltip(content1, d3.event);
@@ -324,10 +324,10 @@ function bubbleChart(quotes) {
    * returned chart function). Allows the visualization to toggle
    * between "single group" and "split by year" modes.
    *
-   * displayName is expected to be a string and either 'all' or 'rescoadmin'
+   * displayName is expected to be a string and either 'all' or 'HOCsadmin'
    */
   chart.toggleDisplay = function (displayName) {
-    if (displayName === 'rescoadmin') {
+    if (displayName === 'HOCsadmin') {
       splitBubbles();
     } else {
       groupBubbles();

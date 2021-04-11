@@ -295,11 +295,11 @@ function bubbleChart(quotes) {
     var content1 = '<span class="name">Word: </span><span class="value">' +
                   d.name +
                   '</span><br/>' +
-                  '<span class="name">Admin per 25k: </span><span class="value">' +
-                  Math.round(d.count_admin) +
-                  '</span><br/>' +
                   '<span class="name">HOCs per 25k: </span><span class="value">' +
                   Math.round(d.count_HOCs) +
+                  '</span><br/>' +
+                  '<span class="name">Admin per 25k: </span><span class="value">' +
+                  Math.round(d.count_admin) +
                   '</span>';
 
     tooltip.showTooltip(content1, d3.event);

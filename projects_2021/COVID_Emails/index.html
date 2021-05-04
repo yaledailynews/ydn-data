@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
 <head>
@@ -9,12 +8,11 @@
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-  <!--   <script src="//d3js.org/d3.v4.min.js"></script> -->
   <script src="https://d3js.org/d3.v4.min.js"></script>
   <script src="src/tooltip.js"></script>
   <script src="src/quotes.js"></script>
-  <script type="text/javascript" src="data/top100_quotes.json"></script>
-  <script src="src/bubble_chart_custom.js"></script>
+  <script type="text/javascript" src="data/topN_quotes.json"></script>
+  <script src="src/bubble_chart.js"></script>
   <link rel="stylesheet" href="css/reset.css">
   <link rel="stylesheet" href="css/bubble_chart.css">
 </head>
@@ -35,11 +33,6 @@
     <p><strong>Hover over a word to get started!</strong></p>
   </div>
   <div class="container">
-  <!-- <div class="row wide"> -->
-    <!-- <div id="toolbar"> -->
-      <!-- <a href="#" id="all" class="button">all emails</a>
-      <a href="#" id="HOCsadmin" class="button active">HOCs / admin</a> -->
-    <!-- </div> -->
     <div id="vis"></div>
     <div id="quotes">
       <div class="row">
@@ -47,12 +40,6 @@
         <div class="column"></div>
       </div>
     </div>
-
-    <!-- <div class="footer">
-      <p>Yale COVID Emails</p>
-      <strong>Made by Leon + ?</strong>
-      <p><a href="http://vallandingham.me/bubble_charts_with_d3v4.html">YDN link?</a> | <a href="https://github.com/vlandham/bubble_chart_v4">Code</a></p>
-    </div> -->
   </div>
 
   <div class="row narrow">
@@ -61,7 +48,7 @@
         <p><strong>This is a project of the Yale Daily News Data Desk, one of the newest desks that aims to bring data-driven journalism to the News.</strong></p>
         <p>The News gathered 48 emails sent by administrators and HOCs from each of the 14 colleges since the start of the pandemic. These emails were analyzed in R to identify common words and compare their usage. Email <a href="mailto:leon.lufkin@yale.edu">Leon Lufkin</a> if you think we missed any!</p>
         <p>You can find our scripts, code, and cleaned dataset on <a href="https://github.com/ydntech/ydn-data/tree/master/projects_2021/COVID_Emails" target="_blank">GitHub</a>.</p>
-        <!-- <p>Cover photo by staff photographer Zoe Berg.</p> -->
+        <p>Credits to <a href="https://vallandingham.me">Jim Vallandingham</a>'s bubble chart guide.</p>
     </div>
   </div>
 

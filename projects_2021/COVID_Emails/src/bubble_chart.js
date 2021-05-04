@@ -6,37 +6,34 @@
  * https://bost.ocks.org/mike/chart/
  *
  */
-function bubbleChart(quotes) {
+function bubbleChart() {
   // Constants for sizing
   var width = 1000;
   var height = 800;
 
   // tooltip for mouseover functionality
-  var tooltip = floatingTooltip('bubble_tooltip', 240);
-  console.log(quotes);
-  var quote = listOfQuotes('quotes_id', quotes);
-  //var quotediv = document.getElementById('quotes');
+  var tooltip = floatingTooltip('gates_tooltip', 240);
 
   // Locations to move bubbles towards, depending
   // on which view mode is selected.
   var center = { x: width / 2, y: height / 2 };
 
-  var group_HOCs_adminCenters = {
-    'HOCs': { x : width / 3, y: height / 2 },
-    'Admin': { x : 2 * width / 3, y: height / 2 }
+  var group_resco_adminCenters = {
+    'resco': { x : width / 3, y: height / 2 },
+    'admin': { x : 2 * width / 3, y: height / 2 }
   };
 
   // X locations of the year titles.
-  var group_HOCs_adminCentersTitleX = {
-    'HOCs': 250,
-    'Admin': width - 250
+  var group_resco_adminCentersTitleX = {
+    'resco': 160,
+    'admin': width - 160
   };
 
   // @v4 strength to apply to the position forces
   var forceStrength = 0.03;
 
   // These will be set in create_nodes and create_vis
-  var svg1 = null;
+  var svg = null;
   var bubbles = null;
   var nodes = [];
 
@@ -76,7 +73,10 @@ function bubbleChart(quotes) {
   // @v4 scales now have a flattened naming scheme
   var fillColor = d3.scaleLinear()
     .domain([-1, 0, 1])
-    .range(['#ff6961', '#ffffff', '#aec6cf']);
+    .range(['#d84b2a', '#eeebd9', '#beccae']);
+  //var fillColor = d3.scaleLinear()
+  //  .domain([-1, 1])
+  //  .range(['#d84b2a', '#beccae']);
 
   /*
    * This data manipulation function takes the raw data from
@@ -98,27 +98,25 @@ function bubbleChart(quotes) {
     // Sizes bubbles based on area.
     // @v4: new flattened scale names.
     var radiusScale = d3.scalePow()
-      .exponent(0.4)
-      .range([10, 70])
+      .exponent(0.5)
+      .range([2, 80])
       .domain([0, maxAmount]);
 
     // Use map() to convert raw data into node data.
     // Checkout http://learnjsdata.com/ for more on
     // working with data.
     var myNodes = rawData.map(function (d) {
-      console.log(d);
       return {
         id: d.id,
         radius: radiusScale(+d.n),
-        count: d.rate_total,
-        count_admin: d.rate_ADMIN,
-        count_HOCs: d.rate_HOCs,
-        value: +d.rate_total_EB,
+        count: d.n,
+        count_A: d.n_ADMIN,
+        count_B: d.n_RESCO,
+        value: +d.odds_ratio_admin_EB,
         name: d.word,
-        group_HOCs_admin: d.group_HOCs_admin,
+        group_resco_admin: d.group_resco_admin,
         color_val: d.color_range_scale,
         x: Math.random() * 900, // weird initial ordering probably coming from here
-        //x: d.id * 8,
         y: Math.random() * 800
       };
     });
@@ -148,16 +146,16 @@ function bubbleChart(quotes) {
 
     // Create a SVG element inside the provided selector
     // with desired size.
-    svg1 = d3.select(selector)
+    svg = d3.select(selector)
       .append('svg')
       .attr('width', width)
       .attr('height', height);
 
     // Bind nodes data to what will become DOM elements to represent them.
-    bubbles = svg1.append('g').selectAll('.bubble')
+    bubbles = svg.append('g').selectAll('.bubble')
       .data(nodes, function (d) { return d.id; });
 
-    texts = svg1.append('g').selectAll(null)
+    texts = svg.append('g').selectAll(null)
       .data(nodes)
       .enter()
       .append('text')
@@ -181,6 +179,11 @@ function bubbleChart(quotes) {
       .attr('stroke-width', 2)
       .on('mouseover', showDetail)
       .on('mouseout', hideDetail);
+      // .append('text')
+      // .text(function (d) { return d.name; })
+      // .attr('text-anchor', 'middle')
+      // .attr('color', 'black')
+      // .attr('font-size', function (d) { return d.radius / 3; });
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
@@ -196,7 +199,7 @@ function bubbleChart(quotes) {
     simulation.nodes(nodes);
 
     // Set initial layout to single group.
-    splitBubbles();
+    groupBubbles();
   };
 
   /*
@@ -221,7 +224,7 @@ function bubbleChart(quotes) {
    * x force.
    */
   function nodeYearPos(d) {
-    return group_HOCs_adminCenters[d.group_HOCs_admin].x;
+    return group_resco_adminCenters[d.group_resco_admin].x;
   }
 
 
@@ -262,7 +265,7 @@ function bubbleChart(quotes) {
    * Hides Year title displays.
    */
   function hideYearTitles() {
-    svg1.selectAll('.year').remove();
+    svg.selectAll('.year').remove();
   }
 
   /*
@@ -271,14 +274,14 @@ function bubbleChart(quotes) {
   function showYearTitles() {
     // Another way to do this would be to create
     // the year texts once and then just hide them.
-    var yearsData = d3.keys(group_HOCs_adminCentersTitleX);
-    var years = svg1.selectAll('.year')
+    var yearsData = d3.keys(group_resco_adminCentersTitleX);
+    var years = svg.selectAll('.year')
       .data(yearsData);
 
     years.enter().append('text')
       .attr('class', 'year')
-      .attr('x', function (d) { return group_HOCs_adminCentersTitleX[d]; })
-      .attr('y', 60)
+      .attr('x', function (d) { return group_resco_adminCentersTitleX[d]; })
+      .attr('y', 40)
       .attr('text-anchor', 'middle')
       .text(function (d) { return d; });
   }
@@ -288,23 +291,21 @@ function bubbleChart(quotes) {
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
    */
-  function showDetail(d, qs) {
+  function showDetail(d) {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
-    var content1 = '<span class="name">Word: </span><span class="value">' +
+    var content = '<span class="name">Word: </span><span class="value">' +
                   d.name +
                   '</span><br/>' +
-                  '<span class="name">HOCs per 25k: </span><span class="value">' +
-                  Math.round(d.count_HOCs) +
+                  '<span class="name">Admin uses: </span><span class="value">' +
+                  d.count_A +
                   '</span><br/>' +
-                  '<span class="name">Admin per 25k: </span><span class="value">' +
-                  Math.round(d.count_admin) +
+                  '<span class="name">HOC uses: </span><span class="value">' +
+                  d.count_B +
                   '</span>';
 
-    tooltip.showTooltip(content1, d3.event);
-    //quotediv.innerHTML += d.name;
-    quote.showQuote(d, qs);
+    tooltip.showTooltip(content, d3.event);
   }
 
   /*
@@ -316,7 +317,6 @@ function bubbleChart(quotes) {
       .attr('stroke', d3.rgb(fillColor(d.color_val)).darker());
 
     tooltip.hideTooltip();
-    //quote.hideQuote();
   }
 
   /*
@@ -324,17 +324,15 @@ function bubbleChart(quotes) {
    * returned chart function). Allows the visualization to toggle
    * between "single group" and "split by year" modes.
    *
-   * displayName is expected to be a string and either 'all' or 'HOCsadmin'
+   * displayName is expected to be a string and either 'all', 'rescoadmin, or 'spanglerother'.
    */
   chart.toggleDisplay = function (displayName) {
-    if (displayName === 'HOCsadmin') {
+    if (displayName === 'rescoadmin') {
       splitBubbles();
     } else {
       groupBubbles();
     }
   };
-
-  // chart.splitBubbles = splitBubbles();
 
 
   // return the chart function from closure.
@@ -346,34 +344,49 @@ function bubbleChart(quotes) {
  * to create a new bubble chart instance, load the data, and display it.
  */
 
+var myBubbleChart = bubbleChart();
+
+/*
+ * Function called once data is loaded from CSV.
+ * Calls bubble chart function to display inside #vis div.
+ */
+function display(error, data) {
+  if (error) {
+    console.log(error);
+  }
+
+  myBubbleChart('#vis', data);
+}
+
 /*
  * Sets up the layout buttons to allow for toggling between view modes.
  */
-// function setupButtons() {
-//   d3.select('#toolbar')
-//     .selectAll('.button')
-//     .on('click', function () {
-//       // Remove active class from all buttons
-//       d3.selectAll('.button').classed('active', false);
-//       // Find the button just clicked
-//       var button = d3.select(this);
-
-//       // Set it as the active button
-//       button.classed('active', true);
-
-//       // Get the id of the button
-//       var buttonId = button.attr('id');
-
-//       // Toggle the bubble chart based on
-//       // the currently clicked button.
-//       myBubbleChart.toggleDisplay(buttonId);
-//     });
-// }
 function setupButtons() {
-  myBubbleChart.toggleDisplay('HOCsadmin');
-  // setTimeout(myBubbleChart.toggleDisplay('all'), 2000);
+  d3.select('#toolbar')
+    .selectAll('.button')
+    .on('click', function () {
+      // Remove active class from all buttons
+      d3.selectAll('.button').classed('active', false);
+      // Find the button just clicked
+      var button = d3.select(this);
+
+      // Set it as the active button
+      button.classed('active', true);
+
+      // Get the id of the button
+      var buttonId = button.attr('id');
+
+      // Toggle the bubble chart based on
+      // the currently clicked button.
+      myBubbleChart.toggleDisplay(buttonId);
+    });
 }
 
+function setupBubbleClick() {
+  d3.selectAll(".bubble").on('click', function(bubble) {
+    console.log(bubble);
+});
+}
 
 /*
  * Helper function to convert a number into a string
@@ -392,28 +405,11 @@ function addCommas(nStr) {
   return x1 + x2;
 }
 
-var quotesList;
-var myBubbleChart;
-
-function display(error, data) {
-  if (error) {
-    console.log(error);
-  }
-
-  myBubbleChart('#vis', data);
-}
-
-function makeBubbleChart(error, data) {
-  if (error) {
-    console.log(error);
-  }
-  quotesList = data;
-  myBubbleChart = bubbleChart(quotesList);
-  d3.csv('data/word_list_odds_top100.csv', display);
-}
-
 // Load the data.
-d3.json("data/top100_quotes.json", makeBubbleChart);
+d3.csv('data/word_list_odds_top400.csv', display);
 
 // setup the buttons.
 setupButtons();
+
+// setup the bubbles to be clicked on.
+setupBubbleClick();

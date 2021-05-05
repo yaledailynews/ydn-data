@@ -1,8 +1,19 @@
-a, a:visited, a:active {
-  color: #444;
+html {
+  background-color: #fefefe;
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2em;
 }
 
+div:empty { display: none }
 
+a, a:visited, a:active {
+  /* color: #444; */
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(0, 131, 255)
+}
+
+/* for highlighting words: */
 markleft {
   background-color: lightcoral;
   color: black;
@@ -13,24 +24,49 @@ markright {
   color: black;
 }
 
-
-/* blockquote {
-  margin: 5px;
+p {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.2em;
 }
 
-blockquote p {
-  padding: 15px;
-  background: #eee;
-  border-radius: 5px;
+h1 {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 4em;
+  line-height: 85%;
+  margin: 0.25em 0 0.5em 0;
 }
 
-blockquote p::before {
-  content: '\201C';
+h2 {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 2em;
+  margin: 0.5em 0 1em 0;
 }
 
-blockquote p::after {
-  content: '\201D';
-} */
+h3 {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.5em;
+}
+
+.subtitle {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 1.75em;
+  margin: 0.5em 0 0.5em 0;
+  font-weight: 700;
+}
+
+.byline {
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 75%;
+  margin: 1.25em 0 0.5em 0;
+  font-weight: 700;
+}
+
+.row.narrow {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5em 1.5em 0 1.5em;
+}
 
 blockquote {
   display: block;
@@ -49,7 +85,7 @@ blockquote:before {
   transform: translate(-50%, -50%);
   background: #fff;
   width: 3rem;
-  height: 2rem;
+  height: 1.75rem;
   font: 6em/1.08em 'PT Sans', sans-serif;
   color: #666;
   text-align: center;
@@ -62,22 +98,41 @@ blockquote:after {
   color: #000000;
 }
 
-
-.column {
-  float: left;
-  width: 50%;
-}
-
 .row:after {
   content: "";
   display: table;
   clear: both;
 }
 
+.row:empty { 
+  display: none;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.column:empty { 
+  display: none;
+}
+
+
+
 .container {
   max-width: 900px;
   margin: auto;
 }
+
+/* .container:before,
+.container:after {
+    content: "";
+    display: table;
+}
+
+.container:after {
+    clear: both;
+} */
 
 .button {
   min-width: 130px;
@@ -96,17 +151,18 @@ blockquote:after {
 
 
 #vis {
-  width: 900px;
-  height: 800px;
+  width: auto; /* was 900px */
+  height: auto;
   clear: both;
-  margin-bottom: 10px;
+  margin-bottom: 1px;
+  /* font-family: 'Work Sans' */
 }
 
 #quotes {
-  width: 900px;
-  height: 800px;
+  width: auto; /* was 900px */
+  height: auto;
   clear: both;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 #toolbar {
@@ -114,8 +170,11 @@ blockquote:after {
 }
 
 .year {
-  font-size: 21px;
-  fill: #aaa;
+  font-family: 'Work Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 3em;
+  font-weight: bold;
+  /* margin: 0.5em 0 1em 0; */
+  fill: #000000; /* was #aaa */
   cursor: default;
 }
 
@@ -145,4 +204,25 @@ blockquote:after {
 
 .footer {
   text-align: center;
+  height: 32px; /* height + top/bottom paddding + top/bottom border must add up to footer height */
+  padding: 8px;
+}
+
+.ydn-logo {
+  width: 50%;
+  max-width: 300px;
+  display: block;
+  margin: 1em auto;
+}
+
+/* .header-img {
+  width: 100%;
+  object-fit: cover;
+} */
+
+.about {
+  background-color: #f2f2f2;
+  padding: 0.5em 1.75em;
+  margin-bottom: 2em;
+  font-size: 100%;
 }

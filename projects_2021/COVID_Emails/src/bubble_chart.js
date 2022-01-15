@@ -165,6 +165,10 @@ function bubbleChart(quotes) {
       .attr('text-anchor', 'middle')
       .attr('color', 'black')
       .attr('font-size', function (d) { return d.radius / 3; })
+      .attr('class', 'bar-text');
+      // .on('mouseover', showTip)
+      // .on('mouseout', hideTip)
+      // .on('click', showQuoteWrapper);
 
     // Create new circle elements each with class `bubble`.
     // There will be one circle.bubble for each object in the nodes array.
@@ -179,8 +183,9 @@ function bubbleChart(quotes) {
       .attr('fill', function (d) { return fillColor(d.color_val); })
       .attr('stroke', function (d) { return d3.rgb(fillColor(d.color_val)).darker(); })
       .attr('stroke-width', 2)
-      .on('mouseover', showDetail)
-      .on('mouseout', hideDetail);
+      .on('mouseover', showTip)
+      .on('mouseout', hideTip)
+      .on('click', showQuoteWrapper);
 
     // @v4 Merge the original empty selection and the enter selection
     bubbles = bubbles.merge(bubblesE);
@@ -288,7 +293,7 @@ function bubbleChart(quotes) {
    * Function called on mouseover to display the
    * details of a bubble in the tooltip.
    */
-  function showDetail(d, qs) {
+  function showTip(d) {
     // change outline to indicate hover state.
     d3.select(this).attr('stroke', 'black');
 
@@ -303,13 +308,16 @@ function bubbleChart(quotes) {
                   '</span>';
 
     tooltip.showTooltip(content1, d3.event);
+  }
+
+  function showQuoteWrapper(d, qs) {
     quote.showQuote(d, qs);
   }
 
   /*
    * Hides tooltip
    */
-  function hideDetail(d) {
+  function hideTip(d) {
     // reset outline
     d3.select(this)
       .attr('stroke', d3.rgb(fillColor(d.color_val)).darker());

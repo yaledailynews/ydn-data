@@ -88,9 +88,11 @@ ENAS,Engineering & Applied Science
 ENGL,English
 ENHS,Environmental Health Sciences
 ENRG,Energy Studies
+ENV,Environment
 ENVE,Environmental Engineering
 EP&E,"Ethics, Politics, & Economics"
 EPH,Epidemiology & Public Health
+EPS,Earth and Planetary Sciences
 ER&M,"Ethnicity, Race, & Migration"
 EVST,Environmental Studies
 EXPA,Experimental Pathology
@@ -172,12 +174,13 @@ NAVY,Naval Science
 NBIO,Neurobiology
 NELC,Near Eastern Langs & Civs
 NHTL,Nahuatl
+NPLI,Nepali
 NRLG,Neurology
 NSCI,Neuroscience
 NURS,Nursing
 OBGN,Obstetrics/Gynecology
 OBIO,Organismal Biology
-OLPA,Online Physician Assistant Pgm
+OLPA,Physician Assistant Online Pgm
 OPRH,Orthopaedics & Rehabilitation
 OPRS,Operations Research
 OPVS,Ophthalmology & Visual Science
@@ -189,6 +192,7 @@ PEDT,Pediatrics
 PERS,Persian
 PHAR,Pharmacology
 PHIL,Philosophy
+PHUM,Public Humanities
 PHYS,Physics
 PIH,Program International Health
 PLSC,Political Science
@@ -245,6 +249,7 @@ WGST,Women's & Gender Studies
 WHIT,Whitney Seminar
 WLOF,Wolof
 WMST,Women's Studies
+YDSH,Yiddish
 YORU,Yoruba
 YPKU,PKU: Direct Enrollment
 YSM,Yale School of Medicine

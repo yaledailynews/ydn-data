@@ -3,7 +3,7 @@ require(dplyr)
 require(stringr)
 require(tidyr)
 
-setwd("C:/Users/Daniel/Google Drive/Projects/2020.01 Yale's Most Popular Courses/scripts")
+setwd("/Users/leonlufkin/Desktop/yale-most-popular-courses/scripts")
 
 # helper functions
 

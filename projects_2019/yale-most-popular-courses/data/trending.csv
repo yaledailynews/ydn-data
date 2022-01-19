@@ -1,11 +1,8 @@
 id,yesterday,today,change,absChange,name,codes
-2517,658,667,9,9,Bioethics and Law,PLSC 257
-1442,45,37,-8,8,Yale and America,HIST 134J
-2607,155,147,-8,8,Attraction and Relationships,PSYC 126
-1472,143,136,-7,7,Tolstoy's War and Peace,HIST 260 / HUMS 255 / LITR 253 / RSEE 312 / RUSS 312
-2511,51,44,-7,7,PresidentlCampaigns&theMedia,PLSC 236
-1062,126,121,-5,5,The History of Food,EVST 189 / HIST 246
-1548,89,84,-5,5,Health of the Public,HLTH 140 / SOCY 126
-1669,24,19,-5,5,Iconic Material Culture,HUMS 247 / SOCY 352
-1688,141,136,-5,5,Life Worth Living,HUMS 411
-2294,241,236,-5,5,"Drugs, Brain, and Behavior",NSCI 161 / PSYC 161
+4535,145,154,9,9,Intermediate Machine Learning,S&DS 365 01
+903,35,43,8,8,Automated Decision Systems,CPSC 458 01
+4528,220,228,8,8,Theory of Statistics,S&DS 242 01 / MATH 242 01
+4529,121,129,8,8,Applied Machine Learning and Causal Inference,S&DS 317 01
+4532,128,136,8,8,Data Analysis,S&DS 361 01 / AMTH 361 01
+4526,334,341,7,7,Data Exploration and Analysis,S&DS 230 01
+4533,166,173,7,7,Multivariate Statistics for Social Sciences,S&DS 363 01

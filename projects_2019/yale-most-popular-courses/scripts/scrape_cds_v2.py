@@ -67,6 +67,7 @@ def getDates(sem):
     s = BeautifulSoup(r.text, 'html.parser')
 
     # select date elements
+    print(s)
     dates_elems = s.select('table table')[0].select('td')
     
     return [date.text.strip() for date in dates_elems]

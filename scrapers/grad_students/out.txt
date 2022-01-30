@@ -1,0 +1,127 @@
+<div class="directory_results_list" id="results-people-body"><article class="directory_item">
+<header class="directory_item_header">
+<h3 class="directory_item_title heading_3 color_midnight bps_name">
+<a class="bps-result-name" href="#">Alec Barrett</a>
+<span class="bps-result-netid-span" style="display: none;">
+          [NetID <span class="bps-result-netid"></span>]
+        </span>
+</h3>
+<div class="bps-titles"><p class="directory_item_sub_title body_text color_black bps_title">Graduate School of Arts &amp; Sci 2023 (Genetics)</p></div>
+</header>
+<div class="directory_item_details directory_item_details_full">
+<div class="directory_item_details_info"><div class="directory_item_detail directory_item_detail_inline directory_item_detail_labelled">
+<h4 class="directory_item_detail_label heading_5">EMAIL:</h4>
+<p class="directory_item_detail_content"><a href="mailto:alec.barrett@yale.edu">alec.barrett@yale.edu</a></p>
+</div></div>
+<div class="directory_item_details_addresses"></div>
+</div>
+<a class="bps-link-more related_links_link button_text" href="#">Full details <span class="visually_hidden">Alec Barrett, loads on same page</span></a>
+</article><article class="directory_item">
+<header class="directory_item_header">
+<h3 class="directory_item_title heading_3 color_midnight bps_name">
+<a class="bps-result-name" href="#">Alec Eickbusch</a>
+<span class="bps-result-netid-span" style="display: none;">
+          [NetID <span class="bps-result-netid"></span>]
+        </span>
+</h3>
+<div class="bps-titles"><p class="directory_item_sub_title body_text color_black bps_title">Graduate School of Arts &amp; Sci 2023 (Applied Physics)</p></div>
+</header>
+<div class="directory_item_details directory_item_details_full">
+<div class="directory_item_details_info"><div class="directory_item_detail directory_item_detail_inline directory_item_detail_labelled">
+<h4 class="directory_item_detail_label heading_5">EMAIL:</h4>
+<p class="directory_item_detail_content"><a href="mailto:alec.eickbusch@yale.edu">alec.eickbusch@yale.edu</a></p>
+</div></div>
+<div class="directory_item_details_addresses"></div>
+</div>
+<a class="bps-link-more related_links_link button_text" href="#">Full details <span class="visually_hidden">Alec Eickbusch, loads on same page</span></a>
+</article><article class="directory_item">
+<header class="directory_item_header">
+<h3 class="directory_item_title heading_3 color_midnight bps_name">
+<a class="bps-result-name" href="#">Alec Hegg</a>
+<span class="bps-result-netid-span" style="display: none;">
+          [NetID <span class="bps-result-netid"></span>]
+        </span>
+</h3>
+<div class="bps-titles"><p class="directory_item_sub_title body_text color_black bps_title">Graduate School of Arts &amp; Sci 2026 (Chemistry)</p></div>
+</header>
+<div class="directory_item_details directory_item_details_full">
+<div class="directory_item_details_info"><div class="directory_item_detail directory_item_detail_inline directory_item_detail_labelled">
+<h4 class="directory_item_detail_label heading_5">EMAIL:</h4>
+<p class="directory_item_detail_content"><a href="mailto:alec.hegg@yale.edu">alec.hegg@yale.edu</a></p>
+</div></div>
+<div class="directory_item_details_addresses"></div>
+</div>
+<a class="bps-link-more related_links_link button_text" href="#">Full details <span class="visually_hidden">Alec Hegg, loads on same page</span></a>
+</article><article class="directory_item">
+<header class="directory_item_header">
+<h3 class="directory_item_title heading_3 color_midnight bps_name">
+<a class="bps-result-name" href="#">Alec Sheffield</a>
+<span class="bps-result-netid-span" style="display: none;">
+          [NetID <span class="bps-result-netid"></span>]
+        </span>
+</h3>
+<div class="bps-titles"><p class="directory_item_sub_title body_text color_black bps_title">Graduate School of Arts &amp; Sci 2026 (Interdpt Neuroscience Pgm)</p></div>
+</header>
+<div class="directory_item_details directory_item_details_full">
+<div class="directory_item_details_info"><div class="directory_item_detail directory_item_detail_inline directory_item_detail_labelled">
+<h4 class="directory_item_detail_label heading_5">EMAIL:</h4>
+<p class="directory_item_detail_content"><a href="mailto:alec.sheffield@yale.edu">alec.sheffield@yale.edu</a></p>
+</div></div>
+<div class="directory_item_details_addresses"></div>
+</div>
+<a class="bps-link-more related_links_link button_text" href="#">Full details <span class="visually_hidden">Alec Sheffield, loads on same page</span></a>
+</article><article class="directory_item">
+<header class="directory_item_header">
+<h3 class="directory_item_title heading_3 color_midnight bps_name">
+<a class="bps-result-name" href="#">Alec Walker</a>
+<span class="bps-result-netid-span" style="display: none;">
+          [NetID <span class="bps-result-netid"></span>]
+        </span>
+</h3>
+<div class="bps-titles"><p class="directory_item_sub_title body_text color_black bps_title">Graduate School of Arts &amp; Sci 2022 (History)</p></div>
+</header>
+<div class="directory_item_details directory_item_details_full">
+<div class="directory_item_details_info"><div class="directory_item_detail directory_item_detail_inline directory_item_detail_labelled">
+<h4 class="directory_item_detail_label heading_5">EMAIL:</h4>
+<p class="directory_item_detail_content"><a href="mailto:alec.walker@yale.edu">alec.walker@yale.edu</a></p>
+</div></div>
+<div class="directory_item_details_addresses"></div>
+</div>
+<a class="bps-link-more related_links_link button_text" href="#">Full details <span class="visually_hidden">Alec Walker, loads on same page</span></a>
+</article><article class="directory_item">
+<header class="directory_item_header">
+<h3 class="directory_item_title heading_3 color_midnight bps_name">
+<a class="bps-result-name" href="#">Alec Wood</a>
+<span class="bps-result-netid-span" style="display: none;">
+          [NetID <span class="bps-result-netid"></span>]
+        </span>
+</h3>
+<div class="bps-titles"><p class="directory_item_sub_title body_text color_black bps_title">Graduate School of Arts &amp; Sci 2025 (Music)</p></div>
+</header>
+<div class="directory_item_details directory_item_details_full">
+<div class="directory_item_details_info"><div class="directory_item_detail directory_item_detail_inline directory_item_detail_labelled">
+<h4 class="directory_item_detail_label heading_5">EMAIL:</h4>
+<p class="directory_item_detail_content"><a href="mailto:alec.wood@yale.edu">alec.wood@yale.edu</a></p>
+</div></div>
+<div class="directory_item_details_addresses"></div>
+</div>
+<a class="bps-link-more related_links_link button_text" href="#">Full details <span class="visually_hidden">Alec Wood, loads on same page</span></a>
+</article><article class="directory_item">
+<header class="directory_item_header">
+<h3 class="directory_item_title heading_3 color_midnight bps_name">
+<a class="bps-result-name" href="#">Aleca Borsuk</a>
+<span class="bps-result-netid-span" style="display: none;">
+          [NetID <span class="bps-result-netid"></span>]
+        </span>
+</h3>
+<div class="bps-titles"><p class="directory_item_sub_title body_text color_black bps_title">Graduate School of Arts &amp; Sci 2025 (Environment)</p></div>
+</header>
+<div class="directory_item_details directory_item_details_full">
+<div class="directory_item_details_info"><div class="directory_item_detail directory_item_detail_inline directory_item_detail_labelled">
+<h4 class="directory_item_detail_label heading_5">EMAIL:</h4>
+<p class="directory_item_detail_content"><a href="mailto:aleca.borsuk@yale.edu">aleca.borsuk@yale.edu</a></p>
+</div></div>
+<div class="directory_item_details_addresses"></div>
+</div>
+<a class="bps-link-more related_links_link button_text" href="#">Full details <span class="visually_hidden">Aleca Borsuk, loads on same page</span></a>
+</article></div>

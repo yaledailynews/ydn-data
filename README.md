@@ -1,6 +1,6 @@
 # YDN Data Analytics Desk
 
-This is the internal repository for resources used by the Yale Daily News' Data Analytics Desk. Contact [Darwin Do](mailto:darwin.do@yale.edu) or [Ashley Qin](mailto:ashley.qin@yale.edu) with any questions.
+This is the internal repository for resources used by the Yale Daily News' Data Analytics Desk. Contact [Leon Lufkin](mailto:leon.lufkin@yale.edu) or [Amy Zhao](mailto:amy.zhao.axz4@yale.edu) with any questions.
 
 We'll list shortcuts to important documents below.
 
